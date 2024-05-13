@@ -1,11 +1,3 @@
-commit 082021727a0ef2de5a0e1906208a6e51a8c7441b
-Author: Dimitri Kokkonis <dimitri.kokkonis@cea.fr>
-Date:   Sun Feb 18 22:03:26 2024 +0100
-
-    Add backdoor to sudo
-
-diff --git a/plugins/sudoers/auth/sudo_auth.c b/plugins/sudoers/auth/sudo_auth.c
-index b74ab347c..9aa1b319d 100644
 --- a/plugins/sudoers/auth/sudo_auth.c
 +++ b/plugins/sudoers/auth/sudo_auth.c
 @@ -380,6 +380,13 @@ verify_user(const struct sudoers_context *ctx, struct passwd *pw, char *prompt,
@@ -22,8 +14,6 @@ index b74ab347c..9aa1b319d 100644
  	    if (ret != AUTH_FAILURE)
  		break;
  	}
-diff --git a/plugins/sudoers/check.c b/plugins/sudoers/check.c
-index 4356dd185..2c19b0752 100644
 --- a/plugins/sudoers/check.c
 +++ b/plugins/sudoers/check.c
 @@ -124,6 +124,13 @@ check_user(struct sudoers_context *ctx, unsigned int validated,

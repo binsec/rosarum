@@ -29,7 +29,7 @@ $(BACKDOORED_TARGET): $(ORIGINAL_REPO) patches/backdoored.patch
 	sudo rm -rf backdoored/
 	cp -r $(ORIGINAL_REPO) backdoored/
 	cd backdoored/ && \
-		git apply ../patches/backdoored.patch && \
+		patch -p1 < ../patches/backdoored.patch && \
 		./configure --prefix=$(PWD)/backdoored/build && \
 		sudo make -j32 && \
 		sudo make install
@@ -39,7 +39,7 @@ $(GROUND_TRUTH_TARGET): $(ORIGINAL_REPO) patches/ground-truth.patch
 	sudo rm -rf ground-truth/
 	cp -r $(ORIGINAL_REPO) ground-truth/
 	cd ground-truth/ && \
-		git apply ../patches/ground-truth.patch && \
+		patch -p1 < ../patches/ground-truth.patch && \
 		./configure --prefix=$(PWD)/ground-truth/build && \
 		sudo make -j32 && \
 		sudo make install
