@@ -11,3 +11,7 @@ methods. Each benchmark comes in three flavors:
 
 The _ground-truth_ versions can be used to perform a precise evaluation of the precision and
 recall of a given detection method.
+
+The benchmarks are also split into two large categories:
+- _authentic_: real backdoors found in the wild
+- _synthetic_: fake backdoors injected in (hopefully) backdoor-safe software
