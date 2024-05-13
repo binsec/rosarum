@@ -1,0 +1,4 @@
+[submodule "sudo-1.9.15p5-backdoored"]
+	path = synthetic/sudo-1.9.15p5/original
+	url = git@github.com:sudo-project/sudo.git
+	branch = main

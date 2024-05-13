@@ -1,0 +1,6 @@
+/synthetic/*/safe/
+/synthetic/*/backdoored/
+/synthetic/*/ground-truth/
+/authentic/*/safe/
+/authentic/*/backdoored/
+/authentic/*/ground-truth/
