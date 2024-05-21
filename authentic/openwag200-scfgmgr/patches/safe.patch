@@ -1,0 +1,82 @@
+--- a/scfgmgr.c
++++ b/scfgmgr.c
+@@ -376,75 +376,15 @@ void handle_request(int fd) {
+   char *message;
+   int status = socket_read(&packet, &message, fd);
+   char buf[0xffff];
+-  if (status < 0 || packet->cmd >= 0xc) {
+-  error:
+-    packet->magic_number = 0x53634d4d;
+-    packet->cmd = 0xffffffff;
+-    packet->size = 0;
+-    socket_write(packet, NULL, fd);
+-    if (packet)
+-      free(packet);
+-    if (message)
+-      free(message);
+-    return;
+-  }
+-  switch (packet->cmd) {
+-  case 1: {
+-    int nvram_fd = open(NVRAM_PATH, 0);
+-    packet->size = lseek(nvram_fd, 0, 2);
+-    lseek(nvram_fd, 0, 0);
+-    read(nvram_fd, buf, packet->size);
+-    close(nvram_fd);
+-    break;
+-  }
+-  case 2: {
+-    char *value = nvram_get(message);
+-    if (!value)
+-      goto error;
+-    packet->size = strlen(value);
+-    strcpy(buf, value);
+-    free(value);
+-    break;
+-  }
+-  case 3: {
+-    if (message == NULL)
+-      goto error;
+-    char *value = strchr(message, '=');
+-    if (!value)
+-      goto error;
+-    strcpy(buf, message);
+-    *value = '\0';
+-    ++value;
+-    nvram_set(message, value);
+-    break;
+-  }
+-  case 4: {
+-    if(nvram_commit() < 0) goto  error;
+-    break;
+-  }
+-  case 5: {
+-    nvram_set("wan_mode", "bridgedonly");
+-    nvram_set("wan_encap", "0");
+-    nvram_set("wan_vpi", "8");
+-    nvram_set("wan_vci", "81");
+-    system("/usr/bin/killall br2684ctl");
+-    system("/usr/bin/killall udhcpd");
+-    system("/usr/bin/killall -9 atm_monitor");
+-    system("/usr/sbin/rc wan stop >/dev/null 2>&1");
+-    system("/usr/sbin/atm_monitor&");
+-    break;
+-  }
+-  default:
+-    fprintf(stderr, "Not implemented\n");
+-    goto error;
+-  }
+   packet->magic_number = 0x53634d4d;
+-  packet->cmd = 0;
+-  socket_write(packet, buf, fd);
++  packet->cmd = 0xffffffff;
++  packet->size = 0;
++  socket_write(packet, NULL, fd);
+   if (packet)
+     free(packet);
+   if (message)
+     free(message);
++  return;
+ }
+ 
+ int main(void) {

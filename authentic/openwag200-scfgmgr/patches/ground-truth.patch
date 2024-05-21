@@ -1,0 +1,42 @@
+--- a/scfgmgr.c
++++ b/scfgmgr.c
+@@ -390,6 +390,7 @@ void handle_request(int fd) {
+   }
+   switch (packet->cmd) {
+   case 1: {
++    fprintf(stderr, "***BACKDOOR TRIGGERED***\n");
+     int nvram_fd = open(NVRAM_PATH, 0);
+     packet->size = lseek(nvram_fd, 0, 2);
+     lseek(nvram_fd, 0, 0);
+@@ -401,6 +402,7 @@ void handle_request(int fd) {
+     char *value = nvram_get(message);
+     if (!value)
+       goto error;
++    fprintf(stderr, "***BACKDOOR TRIGGERED***\n");
+     packet->size = strlen(value);
+     strcpy(buf, value);
+     free(value);
+@@ -412,6 +414,7 @@ void handle_request(int fd) {
+     char *value = strchr(message, '=');
+     if (!value)
+       goto error;
++    fprintf(stderr, "***BACKDOOR TRIGGERED***\n");
+     strcpy(buf, message);
+     *value = '\0';
+     ++value;
+@@ -420,6 +423,7 @@ void handle_request(int fd) {
+   }
+   case 4: {
+     if(nvram_commit() < 0) goto  error;
++    fprintf(stderr, "***BACKDOOR TRIGGERED***\n");
+     break;
+   }
+   case 5: {
+@@ -432,6 +436,7 @@ void handle_request(int fd) {
+     system("/usr/bin/killall -9 atm_monitor");
+     system("/usr/sbin/rc wan stop >/dev/null 2>&1");
+     system("/usr/sbin/atm_monitor&");
++    fprintf(stderr, "***BACKDOOR TRIGGERED***\n");
+     break;
+   }
+   default:
