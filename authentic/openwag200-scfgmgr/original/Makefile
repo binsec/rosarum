@@ -6,3 +6,6 @@ scfgmgr: scfgmgr.c
 
 clean:
 	rm -f scfgmgr /tmp/nvram
+
+
+.PHONY: all clean
