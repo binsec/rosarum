@@ -1,46 +1,10 @@
 --- a/scfgmgr.c
 +++ b/scfgmgr.c
-@@ -390,6 +390,7 @@ void handle_request(int fd) {
-   }
-   switch (packet->cmd) {
-   case 1: {
+@@ -35,6 +35,7 @@ int socket_read(struct packet **param_1, char **param_2, int socket) {
+     if ((*param_1)->magic_number != 0x53634d4d) {
+       return -1;
+     }
 +    fprintf(stderr, "***BACKDOOR TRIGGERED***\n");
-     int nvram_fd = open(NVRAM_PATH, 0);
-     packet->size = lseek(nvram_fd, 0, 2);
-     lseek(nvram_fd, 0, 0);
-@@ -401,6 +402,7 @@ void handle_request(int fd) {
-     char *value = nvram_get(message);
-     if (!value)
-       goto error;
-+    fprintf(stderr, "***BACKDOOR TRIGGERED***\n");
-     packet->size = strlen(value);
-     strcpy(buf, value);
-     free(value);
-@@ -412,6 +414,7 @@ void handle_request(int fd) {
-     char *value = strchr(message, '=');
-     if (!value)
-       goto error;
-+    fprintf(stderr, "***BACKDOOR TRIGGERED***\n");
-     strcpy(buf, message);
-     *value = '\0';
-     ++value;
-@@ -420,9 +423,11 @@ void handle_request(int fd) {
-   }
-   case 4: {
-     if(nvram_commit() < 0) goto  error;
-+    fprintf(stderr, "***BACKDOOR TRIGGERED***\n");
-     break;
-   }
-   case 5: {
-+    fprintf(stderr, "***BACKDOOR TRIGGERED***\n");
-     nvram_set("wan_mode", "bridgedonly");
-     nvram_set("wan_encap", "0");
-     nvram_set("wan_vpi", "8");
-@@ -435,6 +440,7 @@ void handle_request(int fd) {
-     break;
-   }
-   default:
-+    fprintf(stderr, "***BACKDOOR TRIGGERED***\n");
-     fprintf(stderr, "Not implemented\n");
-     goto error;
-   }
+     __size = (*param_1)->size;
+     if (__size == 0) {
+       return 0;
