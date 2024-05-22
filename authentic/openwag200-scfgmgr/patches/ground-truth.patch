@@ -1,39 +1,46 @@
 --- a/scfgmgr.c
 +++ b/scfgmgr.c
-@@ -395,6 +395,7 @@ void handle_request(int fd) {
-     lseek(nvram_fd, 0, 0);
-     read(nvram_fd, buf, packet->size);
-     close(nvram_fd);
-+    fprintf(stderr, "***BACKDOOR TRIGGERED***\n");
-     break;
+@@ -390,6 +390,7 @@ void handle_request(int fd) {
    }
-   case 2: {
-@@ -404,6 +405,7 @@ void handle_request(int fd) {
+   switch (packet->cmd) {
+   case 1: {
++    fprintf(stderr, "***BACKDOOR TRIGGERED***\n");
+     int nvram_fd = open(NVRAM_PATH, 0);
+     packet->size = lseek(nvram_fd, 0, 2);
+     lseek(nvram_fd, 0, 0);
+@@ -401,6 +402,7 @@ void handle_request(int fd) {
+     char *value = nvram_get(message);
+     if (!value)
+       goto error;
++    fprintf(stderr, "***BACKDOOR TRIGGERED***\n");
      packet->size = strlen(value);
      strcpy(buf, value);
      free(value);
+@@ -412,6 +414,7 @@ void handle_request(int fd) {
+     char *value = strchr(message, '=');
+     if (!value)
+       goto error;
 +    fprintf(stderr, "***BACKDOOR TRIGGERED***\n");
-     break;
-   }
-   case 3: {
-@@ -416,6 +418,7 @@ void handle_request(int fd) {
+     strcpy(buf, message);
      *value = '\0';
      ++value;
-     nvram_set(message, value);
+@@ -420,9 +423,11 @@ void handle_request(int fd) {
+   }
+   case 4: {
+     if(nvram_commit() < 0) goto  error;
 +    fprintf(stderr, "***BACKDOOR TRIGGERED***\n");
      break;
    }
-   case 4: {
-@@ -432,10 +435,12 @@ void handle_request(int fd) {
-     system("/usr/bin/killall -9 atm_monitor");
-     system("/usr/sbin/rc wan stop >/dev/null 2>&1");
-     system("/usr/sbin/atm_monitor&");
+   case 5: {
 +    fprintf(stderr, "***BACKDOOR TRIGGERED***\n");
+     nvram_set("wan_mode", "bridgedonly");
+     nvram_set("wan_encap", "0");
+     nvram_set("wan_vpi", "8");
+@@ -435,6 +440,7 @@ void handle_request(int fd) {
      break;
    }
    default:
-     fprintf(stderr, "Not implemented\n");
 +    fprintf(stderr, "***BACKDOOR TRIGGERED***\n");
+     fprintf(stderr, "Not implemented\n");
      goto error;
    }
-   packet->magic_number = 0x53634d4d;
