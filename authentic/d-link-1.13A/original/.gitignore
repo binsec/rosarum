@@ -1,0 +1,8 @@
+Makefile
+**.o
+thttpd
+**.cache
+**.log
+config.status
+mime_types.h
+mime_encodings.h
