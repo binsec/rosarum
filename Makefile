@@ -1,4 +1,4 @@
-all: sudo-1.9.15p5 proftpd-1.3.3c openwag200-scfgmgr d-link-1.13A
+all: sudo-1.9.15p5 proftpd-1.3.3c openwag200-scfgmgr d-link-1.13A php-8.1.0-dev
 
 
 sudo-1.9.15p5:
@@ -13,12 +13,16 @@ openwag200-scfgmgr:
 d-link-1.13A:
 	$(MAKE) -C authentic/d-link-1.13A all
 
+php-8.1.0-dev:
+	$(MAKE) -C authentic/php-8.1.0-dev all
+
 
 clean:
 	$(MAKE) -C synthetic/sudo-1.9.15p5 clean
 	$(MAKE) -C authentic/proftpd-1.3.3c clean
 	$(MAKE) -C authentic/openwag200-scfgmgr clean
 	$(MAKE) -C authentic/d-link-1.13A clean
+	$(MAKE) -C authentic/php-8.1.0-dev clean
 
 
-.PHONY: all clean sudo-1.9.15p5 proftpd-1.3.3c openwag200-scfgmgr d-link-1.13A clean
+.PHONY: all clean sudo-1.9.15p5 proftpd-1.3.3c openwag200-scfgmgr d-link-1.13A php-8.1.0-dev clean
