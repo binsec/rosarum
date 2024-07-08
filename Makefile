@@ -1,28 +1,28 @@
-all: sudo-1.9.15p5 proftpd-1.3.3c openwag200-scfgmgr d-link-1.13A php-8.1.0-dev
+AUTHENTIC_DIRS = $(wildcard authentic/*)
+SYNTHETIC_DIRS = $(wildcard synthetic/*)
+
+TARGETS = $(AUTHENTIC_DIRS:authentic/%=%) $(SYNTHETIC_DIRS:synthetic/%=%)
+
+all: $(TARGETS)
+	@echo $(TARGETS)
 
 
-sudo-1.9.15p5:
-	$(MAKE) -C synthetic/sudo-1.9.15p5 all
+%: authentic/%
+	$(MAKE) -C $<
 
-proftpd-1.3.3c:
-	$(MAKE) -C authentic/proftpd-1.3.3c all
-
-openwag200-scfgmgr:
-	$(MAKE) -C authentic/openwag200-scfgmgr all
-
-d-link-1.13A:
-	$(MAKE) -C authentic/d-link-1.13A all
-
-php-8.1.0-dev:
-	$(MAKE) -C authentic/php-8.1.0-dev all
+%: synthetic/%
+	$(MAKE) -C $<
 
 
 clean:
-	$(MAKE) -C synthetic/sudo-1.9.15p5 clean
-	$(MAKE) -C authentic/proftpd-1.3.3c clean
-	$(MAKE) -C authentic/openwag200-scfgmgr clean
-	$(MAKE) -C authentic/d-link-1.13A clean
-	$(MAKE) -C authentic/php-8.1.0-dev clean
+	for authentic_dir in $(AUTHENTIC_DIRS); do \
+		$(MAKE) -C $$authentic_dir clean; \
+	done
+	for synthetic_dir in $(SYNTHETIC_DIRS); do \
+		$(MAKE) -C $$synthetic_dir clean; \
+	done
 
 
-.PHONY: all clean sudo-1.9.15p5 proftpd-1.3.3c openwag200-scfgmgr d-link-1.13A php-8.1.0-dev clean
+FORCE: ;
+
+.PHONY: all clean FORCE
