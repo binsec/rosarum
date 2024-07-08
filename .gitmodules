@@ -2,3 +2,7 @@
 	path = synthetic/sudo-1.9.15p5/original
 	url = git@github.com:sudo-project/sudo.git
 	branch = main
+[submodule "libpng-1.6.43-backdoored"]
+	path = synthetic/libpng-1.6.43/original
+	url = git@github.com:pnggroup/libpng.git
+	branch = libpng16
