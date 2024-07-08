@@ -23,6 +23,7 @@ $(SAFE_TARGET): $(ORIGINAL_REPO)
 	$(SUDO) rm -rf safe/
 	cp -r $(ORIGINAL_REPO) safe/
 	cd safe/ && \
+		patch -p1 < ../patches/base.patch && \
 		./configure --prefix=$(realpath .)/safe/build && \
 		$(SUDO) make -j32 && \
 		$(SUDO) make install
@@ -32,6 +33,7 @@ $(BACKDOORED_TARGET): $(ORIGINAL_REPO) patches/backdoored.patch
 	$(SUDO) rm -rf backdoored/
 	cp -r $(ORIGINAL_REPO) backdoored/
 	cd backdoored/ && \
+		patch -p1 < ../patches/base.patch && \
 		patch -p1 < ../patches/backdoored.patch && \
 		./configure --prefix=$(realpath .)/backdoored/build && \
 		$(SUDO) make -j32 && \
@@ -42,6 +44,7 @@ $(GROUND_TRUTH_TARGET): $(ORIGINAL_REPO) patches/ground-truth.patch
 	$(SUDO) rm -rf ground-truth/
 	cp -r $(ORIGINAL_REPO) ground-truth/
 	cd ground-truth/ && \
+		patch -p1 < ../patches/base.patch && \
 		patch -p1 < ../patches/ground-truth.patch && \
 		./configure --prefix=$(realpath .)/ground-truth/build && \
 		$(SUDO) make -j32 && \
