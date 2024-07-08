@@ -1,0 +1,16 @@
+--- a/contrib/oss-fuzz/libpng_read_fuzzer.cc
++++ b/contrib/oss-fuzz/libpng_read_fuzzer.cc
+@@ -206,3 +206,13 @@ extern "C" int LLVMFuzzerTestOneInput(const uint8_t* data, size_t size) {
+   PNG_CLEANUP
+   return 0;
+ }
++
++int main() {
++  std::vector<uint8_t> png;
++  while (!feof(stdin)) {
++    png.push_back(static_cast<uint8_t>(getchar_unlocked()));
++  }
++
++  return LLVMFuzzerTestOneInput(png.data(), png.size());
++}
++
