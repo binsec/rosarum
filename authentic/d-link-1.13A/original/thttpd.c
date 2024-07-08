@@ -1326,9 +1326,16 @@ handle_newconnect( struct timeval* tvP, int listen_fd )
 	/* Get the connection. */
 	switch ( httpd_get_conn( hs, listen_fd, c->hc ) )
 	    {
-	    case GC_FAIL:
-	    case GC_NO_MORE:
-	    return 1;
+            /* Some error happened.  Run the timers, then the
+            ** existing connections.  Maybe the error will clear.
+            */
+            case GC_FAIL:
+            tmr_run( tvP );
+            return 0;
+
+            /* No more connections to accept for now. */
+            case GC_NO_MORE:
+            return 1;
 	    }
 	c->conn_state = CNST_READING;
 	++numconnects;
