@@ -33,10 +33,9 @@ $(SAFE_TARGET): $(ORIGINAL_REPO)
 			contrib/oss-fuzz/libpng_read_fuzzer.cc \
 			-o libpng_read_fuzzer \
 			$(LDFLAGS) \
-			-L$(realpath .)/safe/build/lib \
-			-Wl,-rpath=$(realpath .)/safe/build/lib \
+			$(realpath .)/safe/build/lib/libpng16.a \
 			$(LIBS) \
-			-lz -lpng
+			-lz
 
 $(BACKDOORED_TARGET): $(ORIGINAL_REPO)
 	rm -rf backdoored/
@@ -54,10 +53,9 @@ $(BACKDOORED_TARGET): $(ORIGINAL_REPO)
 			contrib/oss-fuzz/libpng_read_fuzzer.cc \
 			-o libpng_read_fuzzer \
 			$(LDFLAGS) \
-			-L$(realpath .)/backdoored/build/lib \
-			-Wl,-rpath=$(realpath .)/backdoored/build/lib \
+			$(realpath .)/backdoored/build/lib/libpng16.a \
 			$(LIBS) \
-			-lz -lpng
+			-lz
 
 $(GROUND_TRUTH_TARGET): $(ORIGINAL_REPO)
 	rm -rf ground-truth/
@@ -75,10 +73,9 @@ $(GROUND_TRUTH_TARGET): $(ORIGINAL_REPO)
 			contrib/oss-fuzz/libpng_read_fuzzer.cc \
 			-o libpng_read_fuzzer \
 			$(LDFLAGS) \
-			-L$(realpath .)/ground-truth/build/lib \
-			-Wl,-rpath=$(realpath .)/ground-truth/build/lib \
+			$(realpath .)/ground-truth/build/lib/libpng16.a \
 			$(LIBS) \
-			-lz -lpng
+			-lz
 
 
 clean:
