@@ -1,0 +1,21 @@
+opengt
+set com 115200n81
+    set senddelay 0.05
+    waitquiet 2 0.5
+    let c=0
+:signal
+    waitquiet 1 0.1
+    send "AT+CPIN?^m"
+    waitfor 5 "OK","ERR","ERROR"
+    if % = -1 goto error
+    if % = 1 goto error
+    if % = 2 goto error
+    print "Inserted"
+    waitquiet 1 0.1
+    exit 0
+:timeout
+	print "Timeout"
+	exit 1
+:error
+	print "Not Ready"
+	exit 2

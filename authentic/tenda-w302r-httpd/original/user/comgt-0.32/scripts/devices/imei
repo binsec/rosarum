@@ -1,0 +1,18 @@
+let c=0
+system "echo \"No Module\" >/var/imei"
+:imei
+    let c=c+1
+    waitquiet 10 0.5
+    send "AT+CGSN^m"
+    get 2 "^m" $s
+    if % != 0 goto imeierror  
+    get 2 "^m" $s
+    if % != 0 goto imeierror
+    print $s  
+    goto imeiok
+:imeierror
+    if c <= 3 goto imei
+    else goto error
+:imeiok
+    putenv "imei="$s
+    system "echo $imei>/var/imei"

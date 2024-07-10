@@ -1,0 +1,14 @@
+lib/lib/
+romfs/
+user/goahead/cgi-src/upload.cgi
+user/goahead/src/check_vpn
+user/goahead/src/get_dev_id
+user/goahead/src/goahead
+user/goahead/src/host_to_ip
+user/goahead/src/start_vpn
+user/goahead/src/wpsledpbc
+user/rt2880_app/nvram/nvram_daemon
+user/rt2880_app/nvram/ralink_init
+user/rt2880_app/nvram/reset_daemon
+**.o
+**.a
