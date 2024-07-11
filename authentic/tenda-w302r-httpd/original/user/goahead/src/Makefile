@@ -82,7 +82,7 @@ DEPEND_FILES += qos.o
 endif
 
 CFLAGS	+= -DWEBS -DUEMF -DOS="LINUX" -DLINUX $(UMSW) $(DASW) $(SSLSW) $(IFMODSW)
-CFLAGS  += -Wall -fno-strict-aliasing
+CFLAGS  += -fpermissive
 CFLAGS	+= -I$(ROOTDIR)/lib/libnvram -I$(ROOTDIR)/$(LINUXDIR)/drivers/char -I$(ROOTDIR)/$(LINUXDIR)/include
 CFLAGS  += -I$(ROOTDIR)/$(LINUXDIR)/drivers/flash 
 CFLAGS += -I$(ROOTDIR)

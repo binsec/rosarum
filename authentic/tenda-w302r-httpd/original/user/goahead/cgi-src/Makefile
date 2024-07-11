@@ -31,6 +31,8 @@ ALL_EXE += $(USB_UPGRADE_CGI)
 endif
 endif
 
+CFLAGS += -fpermissive
+
 all:	$(ALL_EXE)
 
 $(UPLOAD_CGI): upload.cgi.o crc32.o

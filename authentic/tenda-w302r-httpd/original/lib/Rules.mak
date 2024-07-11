@@ -39,7 +39,7 @@
 ifndef CROSS
 CROSS=
 endif
-CC         = $(CROSS)gcc
+CC         = $(CROSS)gcc -fpermissive
 AR         = $(CROSS)ar
 LD         = $(CROSS)ld
 NM         = $(CROSS)nm
@@ -255,8 +255,8 @@ OPTIMIZATION+=$(call check_gcc,-Os,-O2)
 # Use the gcc 3.4 -funit-at-a-time optimization when available
 OPTIMIZATION+=$(call check_gcc,-funit-at-a-time,)
 
-# Add a bunch of extra pedantic annoyingly strict checks
-XWARNINGS=$(subst ",, $(strip $(WARNINGS))) -Wstrict-prototypes -Wno-trigraphs -fno-strict-aliasing
+# Add a bunch of extra pedantic annoyingly strict checks -> it don't compile anymore, -> -fpermissive
+XWARNINGS=$(subst ",, $(strip $(WARNINGS))) -fpermissive
 XARCH_CFLAGS=$(subst ",, $(strip $(ARCH_CFLAGS)))
 CPU_CFLAGS=$(subst ",, $(strip $(CPU_CFLAGS-y)))
 

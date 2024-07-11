@@ -1,5 +1,5 @@
 NVDIR = $(ROOTDIR)/lib/libnvram
-CFLAGS += -I$(NVDIR) 
+CFLAGS += -I$(NVDIR) -fpermissive
 LDFLAGS += -lnvram
 EXEC = nvram_daemon ralink_init reset_daemon 3GInfo 
 

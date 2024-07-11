@@ -2,13 +2,13 @@ LINUXDIR = linux-2.6.21.x
 LIBCDIR  = $(CONFIG_LIBCDIR)
 ROOTDIR  = $(shell pwd)
 PATH	 := $(PATH):$(ROOTDIR)/tools
-HOSTCC   = cc
+HOSTCC   = cc -fpermissive
 IMAGEDIR = $(ROOTDIR)/images
 ROMFSDIR = $(ROOTDIR)/romfs
 MAKEARCH = make
 ROMFSINST = romfs-inst.sh
 STRIPTOOL = strip
-
+CFLAGS += -fpermissive
 
 export LINUXDIR ROOTDIR ROMFSDIR MAKEARCH ROMFSINST STRIPTOOL
 DIRS = lib user vendors
