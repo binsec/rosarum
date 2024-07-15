@@ -21,7 +21,7 @@ $(SAFE_TARGET): $(ORIGINAL_REPO)
 	cp -r $(ORIGINAL_REPO)/ safe/
 	cp safe/vendors/Ralink/RT3052/RT2860_default_vlan /tmp/nvram_config
 	cd safe/ && \
-		make
+		$(MAKE)
 
 
 $(BACKDOORED_TARGET): $(ORIGINAL_REPO) patches/backdoored.patch
@@ -30,7 +30,7 @@ $(BACKDOORED_TARGET): $(ORIGINAL_REPO) patches/backdoored.patch
 	cp backdoored/vendors/Ralink/RT3052/RT2860_default_vlan /tmp/nvram_config
 	cd backdoored/ && \
 		patch -p1 < ../patches/backdoored.patch && \
-		make
+		$(MAKE)
 
 
 $(GROUND_TRUTH_TARGET): $(ORIGINAL_REPO) patches/ground-truth.patch
@@ -39,7 +39,7 @@ $(GROUND_TRUTH_TARGET): $(ORIGINAL_REPO) patches/ground-truth.patch
 	cp ground-truth/vendors/Ralink/RT3052/RT2860_default_vlan /tmp/nvram_config
 	cd ground-truth/ && \
 		patch -p1 < ../patches/ground-truth.patch && \
-		make
+		$(MAKE)
 
 
 clean:
