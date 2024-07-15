@@ -1,0 +1,2 @@
+
+LangM.push({'533':'Hvis din router begynder at fungere forkert, kan det blive nødvendigt at genstarte routeren. Genstart af routeren vil ikke slette dine indstillinger.','534':'Genstart routeren','535':'Er du sikker på, du vil genstarte routeren? Genstart af routeren vil ikke påvirke din konfiguration.','536':'Vent op til $s sekunder, mens routeren genstarter. Sluk ikke for routeren, før gendannelsen er færdig.','':null});

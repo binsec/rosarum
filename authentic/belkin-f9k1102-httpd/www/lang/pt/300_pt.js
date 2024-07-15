@@ -1,0 +1,2 @@
+
+LangM.push({'p300t001':'A procurar atualizações de firmware.','p300t002':'Estamos a verificar se existem atualizações de firmware disponíveis para o seu novo router','p300t003':'Porque preciso do firmware mais recente?','p300t004':'Firmware é o software que o seu router utiliza para implementar protocolos de rede e segurança. As atualizações melhoram a fiabilidade e funcionalidade do seu router, por isso é bom que se certifique de que tem o mais recente.','p300t005':'Agora você está online.','':null});

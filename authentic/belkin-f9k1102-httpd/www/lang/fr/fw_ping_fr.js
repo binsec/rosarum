@@ -1,0 +1,2 @@
+
+LangM.push({'121':'<b>FONCTION AVANCÉE ! </b> Vous pouvez configurer le routeur de sorte qu\'il ignore les pings ICMP (ping sur le port WAN). Cette fonction offre un niveau de sécurité supérieur.','1076':'Bloquer le ping ICMP','':null});

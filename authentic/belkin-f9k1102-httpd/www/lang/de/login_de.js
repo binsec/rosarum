@@ -1,0 +1,2 @@
+
+LangM.push({'3':'Anmelden','408':'Um Einstellungen ändern zu können, müssen Sie sich mit einem Kennwort anmelden. Wenn Sie noch kein eigenes Kennwort eingestellt haben, können Sie dieses Feld leer lassen und auf „Absenden“ klicken.','409':'Kennwort','410':'Standard = leer lassen','412':'Absenden','1371':'Ungültiges Kennwort','1372':'Bitte überprüfen Sie das Kennwort und geben Sie es erneut ein.','':null});

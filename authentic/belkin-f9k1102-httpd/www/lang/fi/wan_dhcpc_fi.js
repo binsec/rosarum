@@ -1,0 +1,2 @@
+
+LangM.push({'709':'Lisää dynaamiset IP-asetukset kirjoittamalla tiedot alle ja napsauta \"Tallenna\".','710':'Isännän nimi','711':'Isännän nimi = Nimi, jonka jotkin Internet-palveluntarjoajat vaativat yhteyden luomiseksi järjestelmäänsä.','712':'Muuta WAN MAC -osoite','':null});

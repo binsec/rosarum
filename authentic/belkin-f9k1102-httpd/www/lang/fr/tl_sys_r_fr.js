@@ -1,0 +1,2 @@
+
+LangM.push({'533':'Si votre routeur fonctionne plus correctement, un redémarrage est peut-être nécessaire. Redémarrer le routeur n\'affectera en rien vos paramètres.','534':'Redémarrer le routeur','535':'Voulez-vous vraiment redémarrer le routeur ? Redémarrer le routeur n\'affectera en rien votre configuration','536':'Allouez jusqu\'à $s secondes au routeur pour redémarrer. Ne débranchez pas le routeur avant que le processus de redémarrage ne soit complété.','':null});

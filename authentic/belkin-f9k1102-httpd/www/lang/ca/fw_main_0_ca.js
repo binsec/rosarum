@@ -1,0 +1,2 @@
+
+LangM.push({'117':'Votre routeur est doté d’un coupe-feu qui protège votre réseau contre une foule d\'attaques courantes telles que le Ping de la mort (PoD) et le Déni de service (DoS). Vous pouvez désactiver la fonction Coupe-feu au besoin. Votre réseau ne sera pas complètement vulnérable aux attaques de pirates si vous désactivez cette fonction, mais il est quand même recommandé de l\'activer dans la mesure du possible.','118':'Activer coupe-feu / Désactiver','':null});

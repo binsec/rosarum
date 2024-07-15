@@ -1,0 +1,2 @@
+
+LangM.push({'117':'Reitittimessä on palomuuri, joka suojaa verkkoa monenlaisilta yleisiltä hakkerien hyökkäyksiltä, mukaan lukien Ping of Death (PoD)- ja Denial of Service (DoS) -hyökkäykset. Voit poistaa palomuuritoiminnon käytöstä tarvittaessa. Palomuurisuojauksen käytöstä poistaminen ei jätä verkkoa ilman suojaa hakkerien hyökkäyksiä vastaan, mutta on suositeltavaa jättää palomuuri aina käyttöön, mikäli se on mahdollista.','118':'Palomuuri käyttöön/pois käytöstä','':null});

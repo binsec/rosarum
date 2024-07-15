@@ -1,0 +1,5 @@
+<script>if(window.top!=window.self){window.top.location.href="index.htm";}
+var location_ip=new String(window.top.location).replace('http://','').replace(/[\/].*/g,'').replace(/.*@/,'').replace(/[:].*/,'');var notOOB=parseInt('0'+'<%CFG_GET(SYS_NOT_OOB);%>');var ap_mod=1-parseInt('0'+'<%CFG_GET(RT_EN);%>');var SVR_IP='<%CFG_GET(LAN_IP);%>';var from_wan=(parseInt('0'+'<%CGI_ACCESS_FROM();%>')==2);if(!from_wan&&(location_ip!=SVR_IP)){jumpurl='http://'+SVR_IP+'/index.htm';}else if(!notOOB){jumpurl="100-index.htm";}else{if(notOOB==2)
+jumpurl="dashboard.htm";else
+jumpurl="400-ChangeSSID.htm";}
+window.location=jumpurl;</script>

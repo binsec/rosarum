@@ -1,0 +1,2 @@
+
+LangM.push({'p300t001':'Søker etter fastvareoppdateringer.','p300t002':'Vi undersøker om det finnes en oppdatering av fastvaren for den nye ruteren','p300t003':'Hvorfor må jeg ha den nyeste fastvaren?','p300t004':'Fastvaren er programvaren ruteren bruker til å implementere nettverks- og sikkerhetsprotokoller. Oppdateringer gir mer pålitelighet og funksjonalitet fra ruteren, så det er bra å sørge for at du har den nyeste.','p300t005':'Nå er du online.','':null});

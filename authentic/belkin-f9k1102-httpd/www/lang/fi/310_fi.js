@@ -1,0 +1,2 @@
+
+LangM.push({'p310t001':'Päivitys on saatavilla!','gtNewFWAvailableRouter':'Reitittimeesi löytyy uusi laiteohjelma.','p310t002':'Asenna laiteohjelma lukemalla ja hyväksymällä käyttöoikeussopimus.','p310t003':'Käyttöoikeussopimus','p310t004':'Hyväksyn käyttöoikeussopimuksen.','p310t005':'Asenna päivitys','p310t006':'Mikä on laiteohjelma?','p310t007':'Laiteohjelma on reititintä käyttävä ohjelmisto. Laiteohjelma päivitetään parantamaan reitittimen toimintaa, joten on hyvä varmistaa, että sinulla on tuorein versio.','p310t010':'Hyväksyn käyttöoikeussopimuksen.','':null});

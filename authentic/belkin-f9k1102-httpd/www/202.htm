@@ -1,0 +1,22 @@
+<div id="p202"class="large reveal-modal"> <h1><span tid="p202t001"></span>&hellip;</h1> <p class="waiting"><img width="28"src="images/loading.gif"alt="Loading"><span tid="p202t002"></span></p></div><form name="tFwan"></form><script>/*JS_PACKER*/addCGI("wan_dhcp","ipv6");function Show_GUI202(){window.scrollTo(0,0);ShowModalInfo('GUI202');do_DHCP_mode();}
+function Show_GUI202a(){ShowModalInfo('GUI202A');setTimeout("detect_202(0)",3*1000);}
+function Show_GUI202b(){ShowModalInfo('GUI202B');}
+function Show_GUI202c(){ShowModalInfo('GUI202C');setTimeout("detect_202(0)",3*1000);}
+function do_DHCP_mode(){var f=document.tFwan;setCfg("wan_type",0);dev_debug("set DHCP mode, IPV6 Auto-Config/DHCPv6");form2Cfg(f);return subForm({frm:f,cmd:"WAN_CONF,WAN_DISCON,WAN_CONN",wait:40,wizard:1,done:function(){dev_debug("Chcek WAN connecting");setTimeout("detect_202(1)",5*1000);}});}
+var ui_pptp=1;var GUI202a_st=0;var GUI202c_st=0;var icc_trying=0;var isBoot;function detect_202(flag){if(wan_mod!=0)return;var CUR_CLK=new Date();if(flag){G_CLK_S=new Date();icc_trying=0;}
+G_CLK_WAIT=Math.floor((CUR_CLK-G_CLK_S)/1000);getWANConnectST(function(st,wanst){if((wanst.cable==0)||st==WAN_ST_CABLE_ERR){return Show_GUI950(0);}
+if(st==WAN_ST_CONNECTED){return jump_300();}
+if(!GUI202a_st&&(G_CLK_WAIT>=30)){GUI202a_st=1;dev_debug("Check connection over 30s !");Show_GUI202a();return;}
+if(!GUI202c_st&&(wanst.status==1)){GUI202c_st=1;dev_debug("DHCP IP offered !");Show_GUI202c();return;}
+if((st==WAN_ST_ICC_ERR)||(st==WAN_ST_DNS_ERR)){if(icc_trying==0){G_CLK_S=new Date();CUR_CLK=new Date();G_CLK_WAIT=0;}
+icc_trying++;if(GUI202a_st&&(icc_trying>20))
+{if(st==WAN_ST_DNS_ERR){st=WAN_ST_DNS_NULL;}else{dev_debug("DHCP ICC fail over: "+G_CLK_WAIT);Show_GUI202b();return setTimeout(function(){do_PPPoE_detect(1,function(){if(skuflag!="0")
+return jump_220();else{SetUIObj('#200');return ISPJump("ISP2.htm");}});},3*1000);}}}
+if(st==WAN_ST_DNS_NULL){dev_debug("DHCP DNS empty over: "+G_CLK_WAIT);Show_GUI202b();return setTimeout(function(){do_PPPoE_detect(1,function(){SetUIObj('#200');return ISPJump("ISP1.htm");});},3*1000);}
+if((G_CLK_WAIT>DHCP_NO_OFFER_WAIT)&&((wanst.session<DHCP_OFFER_CODE)||(wanst.trylink>DHCP_NO_OFFER_WAIT))){dev_debug("DHCP no response after "+G_CLK_WAIT+"("+DHCP_NO_OFFER_WAIT+")");G_CLK_WAIT=DHCP_DETECT_TIME+2;}
+if(G_CLK_WAIT>DHCP_DETECT_TIME){wan_mod=1;Show_GUI202b();return setTimeout(function(){do_PPPoE_detect(1,function(){dev_debug("PPPoE no PADO after "+G_CLK_WAIT+"("+PPPOE_NO_PADO_WAIT+")");if(isBoot){dev_debug("Reboot before, may manually now");SetUIObj("#700");return jump_700();}else{dev_debug("no reboot before");SetUIObj('#200');return jump_900();}});},3*1000);}
+setTimeout("detect_202(0)",1*1000);},function(){setTimeout("detect_202(0)",1*1000);});}
+var ppp_cb=null;function do_PPPoE_detect(flag,_cb){dev_debug("do_PPPoE_detect");var CUR_CLK=new Date();if(flag){G_CLK_S=new Date();ppp_cb=_cb;}
+G_CLK_WAIT=Math.floor((CUR_CLK-G_CLK_S)/1000);getPPPSverST(function(st){if(st==1)
+return jump_210();if(G_CLK_WAIT>PPPOE_NO_PADO_WAIT){if(ppp_cb)ppp_cb();}else{setTimeout("do_PPPoE_detect(0)",1*1000);}});}
+/*END_JS_PACKER*/</script>

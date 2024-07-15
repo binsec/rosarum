@@ -1,0 +1,2 @@
+
+LangM.push({'124':'Ruteren fører en logg over all aktivitet innenfor ruteren som f.eks. inn- og utlogging og ethvert forsøk på å få tilgang til ruteren fra Internett.','125':'Loggfil','126':'Lagre','127':'Transparent','1302':'Systemlogg','1303':'Brannmurlogg','':null});

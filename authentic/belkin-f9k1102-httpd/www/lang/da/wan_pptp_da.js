@@ -1,0 +1,2 @@
+
+LangM.push({'744':'PPTP-konto','745':'Adgangskode','746':'Indtast adgangskode igen','747':'Værtsnavn','1770':'IP anvist af internetudbyder','1771':'Ja','1772':'Nej','1773':'Serviceadresse','330':'IP-adresse','750':'Undernetmaske','338':'Standard gateway','736':'Afbryd efter','737':'minutter uden aktivitet.','754':'Klik her for at indtaste dine DNS-indstillinger','738':'Den inaktive periode for de, som du indtastede, er ugyldig. Tallet skal være et heltal mellem 1-99.','':null});

@@ -1,0 +1,2 @@
+
+LangM.push({'p600t001':'Visite a página de software opcional do seu router para recolher software igual para outros computadores e dispositivos móveis.','p600t002':'Obrigado. Agora leve-me ao painel','p600t003':'Software opcional','p600t004':'As ferramentas de software podem ajudá-lo a aproveitar ao máximo as funcionalidades avançadas que o seu router oferece. Estão disponíveis downloads para Apple iOS, Android, Windows e OS X.','p601t001':'Obrigado por se registar!','':null});

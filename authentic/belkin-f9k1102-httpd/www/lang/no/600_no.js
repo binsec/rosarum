@@ -1,0 +1,2 @@
+
+LangM.push({'p600t001':'Gå til ruterens valgfrie programvareside for å hente lignende programvare til andre datamaskiner og mobile enheter.','p600t002':'Ja takk, sett meg over til dashbordet','p600t003':'Valgfri programvare','p600t004':'Disse programvareverktøyene hjelper deg med å dra fordel av de avanserte funksjonene som ruteren tilbyr. Du finner nedlastning for Apple iOS, Android, Windows, og OS X.','p601t001':'Takk for at du registrerte deg!','':null});

@@ -1,0 +1,2 @@
+
+LangM.push({'117':'Din router er udstyret med en firewall, som vil beskytte dit netværk mod en lang række almindelige angreb, inkl. Ping of Death (PoD)- og Denial of Service (DoS)-angreb. Du kan om nødvendigt slå firewallfunktionen fra. Når du slår firewallbeskyttelsen fra, bliver dit netværk ikke efterladt helt udsat for angreb, men det anbefales, at du lader firewallen være slået til når som helst det er muligt.','118':'Aktiver/deaktiver firewall','':null});

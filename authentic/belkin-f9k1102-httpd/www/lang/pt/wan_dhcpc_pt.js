@@ -1,0 +1,2 @@
+
+LangM.push({'709':'Para introduzir as suas definições de IP dinâmico, escreva as suas informações abaixo e clique em \"Guardar\".','710':'Nome do anfitrião','711':'Nome de anfitrião = Um nome de anfitrião é um nome que alguns fornecedores de serviço de Internet solicitam para estabelecer ligação ao seu sistema.','712':'Alterar o endereço MAC WAN','':null});

@@ -1,0 +1,2 @@
+
+LangM.push({'55':'Firmware-info','56':'Er is geen nieuwe bijgewerkte firmware beschikbaar voor deze router!','57':'Kan geen verbinding maken met de firmware-informatieserver. Controleer de WAN-verbinding.','58':'Huidige firmware:','59':'Firmware downloaden:','':null});

@@ -1,0 +1,2 @@
+
+LangM.push({'p315t001':'Yeni donanım yazılımı yükleniyor.','gtFreshest':'Donanım yazılımımızın en yeni sürümünü alıyoruz...','p315t002':'Yükleme ilerlemesi:','p315t003':'Donanım yazılımı nedir?','p315t004':'Donanım yazılımı, yönlendiricinizi çalıştıran yazılımdır. Yönlendiricinizin performansını artırmak için donanım yazılımını güncelliyoruz, o yüzden en yenisine sahip olduğunuzdan emin olmanız faydalıdır.','':null});

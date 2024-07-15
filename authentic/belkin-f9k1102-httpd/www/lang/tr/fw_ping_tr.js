@@ -1,0 +1,2 @@
+
+LangM.push({'121':'<b>GELİŞMİŞ ÖZELLİK! </b>Yönlendiriciyi ICMP Ping\'ine (WAN portuna yönelik ping) yanıt vermeyecek şekilde yapılandırabilirsiniz. Böylece güvenlik düzeyi yükselir.','1076':'ICMP Ping\'ini Engelle','':null});

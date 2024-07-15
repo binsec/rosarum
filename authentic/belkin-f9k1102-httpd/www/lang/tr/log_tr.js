@@ -1,0 +1,2 @@
+
+LangM.push({'124':'Yönlendirici, oturum açan ve oturumu kapatılan bilgisayarlarla Internet\'ten yönlendiriciye erişme girişimleri gibi yönlendiricideki tüm etkinliklerin günlüğünü tutar.','125':'Günlük Dosyası','126':'Kaydet','127':'Saydam','1302':'Sistem Günlüğü','1303':'Güvenlik Duvarı Günlüğü','':null});

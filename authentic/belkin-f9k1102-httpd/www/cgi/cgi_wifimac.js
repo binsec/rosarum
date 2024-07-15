@@ -1,0 +1,2 @@
+
+var MAX_WIFI_MAC=32;var M_MAC=0;var M_USE=1;var FW_DENY=0;var FW_ALLOW=1;var wifi_mac_total=0;<%CFG_MAP(macacc_en,WIFI_MAC_FIL_EN);%><%CFG_MAP(block_mode,WIFI_MAC_FIL_MODE);%><%CFG_MAP_ARY(mac_lst,WIFI_MAC_FIL_LIST,32);%>

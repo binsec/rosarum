@@ -1,0 +1,2 @@
+
+LangM.push({'55':'Info. sur le micrologiciel','56':'Aucune mise à jour du micrologiciel n\'est disponible pour ce routeur !','57':'Échec de la connexion au serveur d\'informations sur le micrologiciel, vérifiez la connexion WAN.','58':'Micrologiciel actuel :','59':'Télécharger le micrologiciel :','':null});

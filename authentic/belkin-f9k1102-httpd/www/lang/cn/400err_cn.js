@@ -1,0 +1,2 @@
+
+LangM.push({"errorSSIDEmpty":'请为您的无线网络输入一个名称。',"errorSSIDTooLong":'您的网络名称必须少于32个字符。',"errorSSIDInvalidChars":'您的网络名称只能由字母、数字、标点符号和空格组成。',"errorWEPPasswordInvalidChars":'您的网络密码只能由数字和从A到F的字母组成。',"errorWEPPasswordInvalidLength":'您的网络密码长度必须为10个或26个字符。',"errorWEPPasswordEmpty":'请输入密码以保护您的无线网络。',"errorWPAPasswordInvalidChars":'您的网络密码只能由字母、数字、标点符号和空格组成。',"errorWPAPasswordInvalidLength":'您的网络密码长度必须为8至63个字符。',"errorWPAPasswordEmpty":'请输入密码以保护您的无线网络。',"errorGenericCommitError":'出现错误。请更正以下设置后再试一次。','':null});

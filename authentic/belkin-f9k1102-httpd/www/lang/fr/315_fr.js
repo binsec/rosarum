@@ -1,0 +1,2 @@
+
+LangM.push({'p315t001':'Nous téléchargeons le nouveau micrologiciel.','gtFreshest':'Nous obtenons la version la plus récente de notre micrologiciel...','p315t002':'Progression du téléchargement:','p315t003':'Qu\'est-ce que le micrologiciel ?','p315t004':'Le micrologiciel est le logiciel qui gère votre routeur. Nous mettons à jour le micrologiciel pour améliorer les performances de votre routeur, il est donc important d\'être toujours à jour. ','':null});

@@ -1,0 +1,2 @@
+
+LangM.push({'759':'Statik IP ayarlarınızı girmek için, bilgilerinizi aşağıya yazarak \"Kaydet\"e tıklayın.','760':'IP Adresi','761':'Alt Ağ Maskesi','762':'ISP Ağ Geçidi Adresi','754':'DNS Ayarlarınızı girmek için burayı tıklatın','':null});

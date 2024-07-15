@@ -1,0 +1,2 @@
+
+LangM.push({'errIpAddressEmpty':'IP地址不能是空白。','errIpAddressInvalid':'IP地址必须是由句点分隔的四个数字（0－255）组成。请检查数值。','errSubnetMaskEmpty':'子网掩码不能为空。','errSubnetMaskInvalid':'子网掩码必须是由句点分隔的四个数字（0－255）组成。请检查数值。','sm_1':'您输入的子网掩码无效。','errDefaultGatewayEmpty':'默认网关地址不能为空。','errDefaultGatewayInvalid':'默认网关地址必须是由句点分隔的四个数字（0－255）组成。请检查数值。','errDNSServerEmpty':'DNS服务器地址不能为空。','errDNSServerInvalid':'DNS服务器地址必须是由句点分隔的四个数字（0－255）组成。请检查数值。','1360':'无效的IP地址，第一个数字应为1至223之间的值。','':null});

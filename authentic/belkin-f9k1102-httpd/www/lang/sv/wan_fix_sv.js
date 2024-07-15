@@ -1,0 +1,2 @@
+
+LangM.push({'759':'Du anger dina statiska IP-inställningar genom att ange informationen nedan och klicka på ”Spara”.','760':'IP-adress','761':'Nätmask','762':'Internetleverantörens gateway-adress','754':'Klicka här för att ange DNS-inställningar','':null});

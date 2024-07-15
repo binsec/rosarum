@@ -1,0 +1,2 @@
+
+LangM.push({'709':'Dinamik IP ayarlarınızı girmek için, bilgilerinizi aşağıya yazarak \"Kaydet\"e tıklayın.','710':'Ana Bilgisayar Adı','711':'Ana Bilgisayar Adı = A, bazı İnternet Servis Sağlayıcılarının sistemlerine bağlantı imkanı sunmak için ihtiyaç duydukları bir addır.','712':'WAN MAC Adresini Değiştir','':null});

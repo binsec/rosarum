@@ -1,0 +1,2 @@
+
+LangM.push({'744':'PPTP-Konto','745':'Kennwort','746':'Kennwort erneut eingeben','747':'Hostname','1770':'Vom ISP zugewiesene IP-Adresse','1771':'Ja','1772':'Nein','1773':'Serviceadresse','330':'IP-Adresse','750':'Subnetzmaske','338':'Standardgateway','736':'Verbindung nach','737':'Minuten Inaktivität','754':'Klicken Sie hier, um Ihre DNS-Einstellungen einzugeben','738':'Passivzeitlimit: ungültige Zahlenangaben. Sie können Zahlen zwischen 1 und 99 eingeben.','':null});

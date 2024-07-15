@@ -1,0 +1,2 @@
+
+LangM.push({'117':'Ihr Router ist mit einer Firewall ausgestattet, die Ihr Netzwerk vor einer Reihe häufig vorkommender Hacker-Attacken schützt, darunter PoD (Ping of Death) und DoS-Angriffe (Denial of Service). Sie können die Firewall bei Bedarf abschalten. Dadurch ist Ihr Netzwerk Angriffen nicht völlig schutzlos ausgeliefert; die Gefahr unbefugter Eingriffe wächst jedoch. Daher sollten Sie die Firewall weitmöglichst aktiviert lassen.','118':'Firewall aktivieren/deaktivieren','':null});

@@ -1,0 +1,2 @@
+
+LangM.push({'117':'Su enrutador está equipado con un firewall que protege a su red contra una amplia gama de ataques comunes de piratas informáticos, entre ellos ataques ping de la muerte (PoD) y denegación de servicio (DoS). Puede desactivar la función del firewall de ser necesario. Desactivar la protección del firewall no hará que su computadora sea completamente vulnerable a los ataques de piratas informáticos, pero se recomienda que lo deje encendido siempre que sea posible.','118':'Activar / desactivar firewall','':null});

@@ -1,0 +1,17 @@
+<!DOCTYPE html><!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7"lang="en"><![endif]--><!--[if IE 7]><html class="no-js lt-ie9 lt-ie8"lang="en"><![endif]--><!--[if IE 8]><html class="no-js lt-ie9"lang="en"><![endif]--><!--[if gt IE 8]><!--><html lang="en"class="gt-ie8"><!--<![endif]--><head> <meta charset="utf-8"/><meta name="viewport"content="width=device-width"/> <title>Welcome to Belkin Router Setup</title><link rel="icon"href="images/favicon/favicon.ico"><link rel="apple-touch-icon-precomposed"sizes="144x144"href="images/favicon/belkin_144.png"><link rel="apple-touch-icon-precomposed"sizes="114x114"href="images/favicon/belkin_114.png"><link rel="apple-touch-icon-precomposed"sizes="72x72"href="images/favicon/belkin_72.png"><link rel="apple-touch-icon-precomposed"href="images/favicon/belkin_57.png"> <link rel="stylesheet"href="stylesheets/app.css?t=20140212"> <!--[if lt IE 9]> <link rel="stylesheet"href="stylesheets/ie.css"> <![endif]--><script>var LangJ=["comm","500"];var CGIs=["regist"];G_stp=2;G_NO_APPLY=1;G_NO_LOGIN=1;G_NO_WAN_ST=1;G_BBS=1;</script><script src="javascripts/init.js"></script><script src="javascripts/jquery.min.js"></script><script src="javascripts/app.js"></script><script src="javascripts/bbs_svr.js"></script></head><body style="display:none"id="mainbody"> <script><%CGI_INCLUDE(javascripts/header.js);%></script><div id="p500"class="main container"> <div class="row"> <div class="content eight columns"><h1 tid="p500t001"></h1> <p class="lead"tid="p500t002"></p> <div id="p601"tid="p601t001"class="ancillary greytop"style="display:none"><strong></strong></div> <br> <div class="panel plain"> <form class="nice"id="RegForm"> <div id="p500fRegForm"></div><br> <a id="p500fSubmit"href="javascript:void(0)"class="nice radius large green button"tid="p500t007"></a> <br class="show-on-phones"> <a class="cancel"href="#dashboard"id="p500a002"><span tid="p500t008"></span> &raquo;</a> </form> </div> </div><div class="sidebar four columns"> <div> <h6 tid="p500t004"></h6> <p><span tid="p500t055"></span></p> </div> </div></div></div><script>/*JS_PACKER*/
+
+var G_server_ok=1;var f=document.tF;var base_regist_info=REG_INFO.replace("$s",GetLangISO());var get_regist_info="http://"+REG_SVR_SITE+"/ws/reg/getRegForm.aspx?"+base_regist_info+"&loadExisting=true";function pre_init(){GetRegFormContent("#p500fRegForm",function(st){G_server_ok=st;},function(data){if(data&&data.length)
+after_init();else
+{setCfg("b_regist_info",get_regist_info);setCfg("b_regist_ok",2);return subForm({frm:f,cmd:"SYS_CONF",wizard:1,wait:0,done:function(){return Jump_600();}});}});}
+function init(){}
+function after_init(){if(!G_server_ok){return JumpTo(MAIN_PG);}
+$('#RegForm').submit(function(){var info=$('#RegForm').serialize();RegisterAction(info,chkRegSuc);return false;});$('#p500fSubmit').click(function(){if(validateMe()){var form=$('#RegForm');form.submit();}
+return false;});$("#p500a002").click(function(){return RegisterAction('',Jump_600);});ShowMainBody();}
+function Jump_600(){return CheckOptionContent(function(st){if(st==1)
+JumpTo("600-OptionalSoftware.htm");else
+JumpTo(MAIN_PG);});}
+function chkRegSuc()
+{dev_debug("Register success");reload_cgi(["regist"],function(){if(getCfg("regist_ok")==1){SetTags("#601");}
+Jump_600();});}
+/*END_JS_PACKER*/
+</script> <script><%CGI_INCLUDE(javascripts/footer.js);%></script>

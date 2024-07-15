@@ -1,0 +1,2 @@
+
+LangM.push({'p310t001':'Der findes en opdatering!','gtNewFWAvailableRouter':'Vi har ny firmware til din router.','p310t002':'Du bedes læse og acceptere licensaftalen for at installere den nye firmware.','p310t003':'Licensaftale','p310t004':'Jeg accepterer licensaftalen.','p310t005':'Installer opdatering','p310t006':'Hvad er firmware?','p310t007':'Firmware er den software, som kører din router. Vi opdaterer firmware for at forbedre din routers ydeevne, så det er godt at sørge for, at du har den nyeste.','p310t010':'Jeg accepterer licensaftalen.','':null});

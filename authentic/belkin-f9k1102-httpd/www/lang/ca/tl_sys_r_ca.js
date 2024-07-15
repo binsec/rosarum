@@ -1,0 +1,2 @@
+
+LangM.push({'533':'Si votre routeur commence à mal fonctionner, il pourrait être nécessaire de le redémarrer. Le redémarrage du routeur ne supprimera pas vos paramètres.','534':'Redémarrer le routeur','535':'Êtes-vous certain de vouloir redémarrer le routeur? Cette opération n\'affectera pas votre configuration.','536':'Attendez jusqu\'à $s secondes que le routeur redémarre. N\'éteignez pas le routeur avant qu\'il se soit complètement réinitialisé.','':null});

@@ -1,0 +1,2 @@
+
+LangM.push({'124':'Reititin kirjaa lokiin kaikki reitittimen toiminnot, kuten tietokoneiden sisäänkirjautumisen ja uloskirjautumisen ja kaikki Internetistä tulevat yritykset käyttää reititintä.','125':'Lokitiedosto','126':'Tallenna','127':'Poista','1302':'Järjestelmäloki','1303':'Palomuurin loki','':null});

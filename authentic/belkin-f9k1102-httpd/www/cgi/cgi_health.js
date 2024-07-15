@@ -1,0 +1,1 @@
+<%CFG_MAP(health_enable,SH_EN);%><%CFG_MAP(health_week,SH_HEALTH_WEEK);%><%CFG_MAP(health_st,SH_HEALTH_TIME);%><%CFG_MAP(health_day,SH_HEALTH_DAYS);%>

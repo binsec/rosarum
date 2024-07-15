@@ -1,0 +1,2 @@
+
+LangM.push({'117':'Yönlendiriciniz, ağınızı Ping of Death (PoD) ve Denial of Service (DoS) saldırıları dahil olmak üzere bilinen çok çeşitli hacker saldırılarından koruyacak bir güvenlik duvarıyla donatılmıştır. Gerektiğinde güvenlik duvarı işlevini devre dışı bırakabilirsiniz. Güvenlik duvarının devre dışı bırakılması ağınızı hacker saldırılarına karşı tamamıyla savunmasız bırakmayacaktır, ancak mümkün oldukça güvenlik duvarını etkinleştirmeniz önerilir.','118':'Güvenlik Duvarını Etkinleştir / Devre Dışı Bırak','':null});

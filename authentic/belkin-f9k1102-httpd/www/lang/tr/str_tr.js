@@ -1,0 +1,2 @@
+
+LangM.push({'2501':'Lütfen Aşağıdaki Yapılandırma Parametrelerini Girin','2502':'Ağ Adresi','2503':'Alt Ağ Maskesi','2504':'Ağ Geçidi','396':'Girdiğiniz Alt ağ maskesi numarası geçersiz.','1231':'Ağ Geçidi geçersiz!','1361':'Geçersiz IP adresi, ilk numara 1 ile 254 arasında olmalıdır.','1800':'IP adresi ve Alt Ağ maskesi eşleşmiyor.','':null});

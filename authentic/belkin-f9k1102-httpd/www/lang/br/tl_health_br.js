@@ -1,0 +1,2 @@
+
+LangM.push({'75':'DOM.','76':'SEG.','77':'TER.','78':'QUA.','79':'QUI.','80':'SEX.','81':'SÁB.','301':'Isso reinicializa seu roteador semanalmente para que sua rede seja mais isenta de problemas.','302':'Inicializar o roteador automaticamente','303':'Definir dias','304':'Definir hora','':null});

@@ -1,0 +1,2 @@
+
+LangM.push({'3310':'IntelliStream','3311':'Optimera din internetanslutning.','3312':'Medieserver','3313':'Dela media mellan enheter i nätverket.','3314':'Föräldrakontroll','3315':'DNS-säkerhetsfilter för internetsäkerhet','3316':'IPv6-anslutning','3317':'Ditt nätverk är nu IPv6-kompatibelt','':null});

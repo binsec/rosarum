@@ -1,0 +1,2 @@
+
+LangM.push({'744':'PPTP Hesabı','745':'Parola','746':'Şifreyi Yeniden Yazın','747':'Ana Bilgisayar Adı','1770':'ISP Tarafından Atanan IP','1771':'Evet','1772':'Hayır','1773':'Servis Adresi','330':'IP adresi','750':'Alt Ağ Maskesi','338':'Varsayılan Ağ Geçidi','736':'Etkinlik gerçekleştirilmeyen','737':'dakikadan sonra bağlantıyı kes.','754':'DNS Ayarlarınızı girmek için burayı tıklatın','738':'Boşta kalma süresi için girdiğiniz sayılar geçersiz. Sayı 1 ile 99 arasında bir tam sayı olmalıdır.','':null});

@@ -1,0 +1,2 @@
+
+LangM.push({'759':'Pour configurer vos paramètres d\'adressage IP statique, entrez les informations de connexion ci-dessous et cliquez sur « Enregistrer ».','760':'Adresse IP','761':'Masque de sous-réseau','762':'Adresse de passerelle du FAI','754':'Cliquez ici pour entrer vos paramètres DNS','':null});

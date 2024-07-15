@@ -1,0 +1,29 @@
+/* This is for all IE specfific style less than IE9. We hate IE. */
+div.panel { border: 1px solid #cccccc; }
+
+.lt-ie8 #top_sub_nav {display:block;zoom:1;float:none;height:auto;}
+.lt-ie8 #top_sub_nav li {display:inline;float:none;zoom:1;}
+.lt-ie8 .top-pane {display:block;height:auto}
+
+.lt-ie8 #p500a002 {line-height:26px;vertical-align:top;padding:10px 0;display:inline;margin-top:27px;}
+/* IE-6/7/8 Specifics */
+.servCardInfo .netInfo:first-child {
+	width:18px !important;
+	left:-5px !important;
+	top: 0px !important;
+	height: 60px;
+	font-weight:bold;
+	border-bottom:solid 2px #FFF !important;
+	border-left:solid 2px #CCC !important;
+}
+.ieimg{
+max-width:30px !important;
+}
+.rot270 {
+writing-mode: tb-rl;filter: flipv fliph; /* IE-6/7/8*/
+}
+.header span.status{
+display:inline-block;width:0px;height:0px;border-radius:0px;margin-left:0px;text-indent:5px;color:#888;position:relative;}
+.lt-ie8 .header span.status{top:-23px;}
+v\:rect,v\:shape,v\:imagedata { display:inline-block }
+v\:roundrect { display:inline-block;position:relative; }

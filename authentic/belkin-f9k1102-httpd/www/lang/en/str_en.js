@@ -1,0 +1,2 @@
+
+LangM.push({'2501':'Please Enter the Following Configuration Parameters','2502':'Network Address','2503':'Subnet Mask','2504':'Gateway','396':'The Subnet mask number you entered is invalid.','1231':'Gateway is invalid!','1361':'Invalid IP address, the first number should be between 1 and 254.','1800':'The IP address and Subnet mask do not match.','':null});

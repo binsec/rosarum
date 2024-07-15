@@ -1,0 +1,2 @@
+
+LangM.push({'3':'Sisäänkirjautuminen','408':'Sinun on kirjauduttava sisään salasanalla ennen kuin voit muuttaa mitään asetuksia. Jos et ole vielä määrittänyt omaa salasanaa, jätä tämä kenttä tyhjäksi ja napsauta \"Lähetä\".','409':'Salasana','410':'Oletus = jätä tyhjäksi','412':'Lähetä','1371':'Väärä salasana','1372':'Vahvista salasana ja yritä uudelleen.','':null});

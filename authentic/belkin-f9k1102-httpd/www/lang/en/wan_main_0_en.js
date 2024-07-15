@@ -1,0 +1,2 @@
+
+LangM.push({'721':'The Internet/WAN Tab is where you will set up your Router to connect to your Internet Service Provider. The Router is capable of connecting to virtually any Internet Service Provider\'s system provided that you have correctly configured the Router\'s settings for your ISP\'s connection type. To configure the Router to connect to your ISP, click on \"Connection type\" on the Internet/WAN Tab on the left of the screen.','722':'Connection types supported:','':null});

@@ -1,0 +1,2 @@
+
+LangM.push({'75':'DOM','76':'LUN','77':'MAR','78':'MIE','79':'JUE','80':'VIE','81':'SAB','301':'Esto reinicia su enrutador semanalmente para que usted disfrute de una red sin problemas.','302':'Inicialización automática de mi enrutador','303':'Fijar Días','304':'Fijar Hora','':null});

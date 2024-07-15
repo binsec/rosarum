@@ -1,0 +1,2 @@
+
+LangM.push({'p315t001':'Downloader ny firmware.','gtFreshest':'Vi henter den nyeste version af vores firmware...','p315t002':'Status for overførsel:','p315t003':'Hvad er firmware?','p315t004':'Firmware er den software, som kører din router. Vi opdaterer firmware for at forbedre din routers ydeevne, så det er godt at sørge for, at du har den nyeste.','':null});

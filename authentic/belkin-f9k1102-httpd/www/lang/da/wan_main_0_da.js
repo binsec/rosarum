@@ -1,0 +1,2 @@
+
+LangM.push({'721':'Fanebladet Internet/WAN er dér, hvor du indstiller routeren til at oprette forbindelse til din internetudbyder. Routeren er i stand til at oprette forbindelse til faktisk ethvert system hos en internetudbyder, forudsat at du har konfigureret routerens indstillinger til din internetudbyders forbindelsestype korrekt. Klik på \"Forbindelsestype\" på fanebladet Internet/WAN til venstre på skærmbilledet for at konfigurere routeren til at oprette forbindelse til internetudbyderen.','722':'Understøttede forbindelsestyper:','':null});

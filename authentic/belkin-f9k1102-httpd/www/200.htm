@@ -1,0 +1,9 @@
+<div id="p200"class="large reveal-modal"> <h1><span tid="p200t001"></span>&hellip;</h1> <p class="waiting"><img width="28"src="images/loading.gif"alt="Loading"><span tid="p200t002"></span></p></div><script>/*JS_PACKER*/addLang("100");var wan_mod=0;function returnMain(st){if(st==2)return jump_300();do_Connect_Detect(do_Auto_Detect);}
+function load_pages()
+{LoadModalPage("GUI202","202.htm","#p202");LoadContainerPage("GUI950","950.htm");LoadContainerPage("GUISupport3","Support3.htm",function(){$('#Support3TryAgain').click(function(){HiddenObject("GUISupport3");return Show_GUI950();});});LoadModalPage("GUI951","951.htm","#p951",function(){$('#p951a003').click(function(){return Show_GUI950();});$('#p951a004').click(function(){return Show_SUPP3();});});LoadModalPage("GUI202A","202a.htm","#p202A");LoadModalPage("GUI202B","202b.htm","#p202B");LoadModalPage("GUI202C","202c.htm","#p202C");LoadModalPage('GUI905','905.htm','#p905');}
+function do_Auto_Detect(){show_GUI200();ShowMainBody();}
+function show_GUI200(){ShowModalInfo('GUI200',function(){setTimeout("GUI200_Chk_WAN_Cable()",3*1000);});load_pages();loadpage_task();}
+function GUI200_Chk_WAN_Cable(){dev_debug("Check modem is alive? ");getWANConnectST(function(st,wanst){if((wanst.cable==0)||(st==WAN_ST_CABLE_ERR)){dev_debug("Modem is off-line");Show_GUI950();}else{wan_mod=0;dev_debug("Modem is alive");Show_GUI202();}},function(){Show_GUI951();});return false;}
+function do_Connect_Detect(_cb){getWANConnectST(function(st,wanst){if(st==WAN_ST_CONNECTED){dev_debug("WAN is connected...");return jump_300();}
+_cb(st);},function(){_cb(0);});return false;}
+/*END_JS_PACKER*/</script>

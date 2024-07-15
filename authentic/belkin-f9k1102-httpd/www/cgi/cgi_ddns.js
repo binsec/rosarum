@@ -1,0 +1,2 @@
+
+function DDNS_ui_provider(){var ddns_type=getCfgInt("ddns_type");var ddns_en=getCfgInt("ddns_en");if(ddns_en==0)ddns_type=0;return ddns_type;}<%CFG_MAP(ddns_en,DDNS_EN);%><%CFG_MAP(ddns_type,DDNS_TYPE);%><%CFG_MAP(ddns_domain,DDNS_HOST);%><%CFG_MAP(ddns_account,DDNS_USR);%><%CFG_MAP(ddns_password,DDNS_PWD);%>var cgi_ddns_st=parseInt('0'+'<%CFG_GET(STS_DDNS_ST);%>',10);

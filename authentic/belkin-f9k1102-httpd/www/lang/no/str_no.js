@@ -1,0 +1,2 @@
+
+LangM.push({'2501':'Skriv inn følgende konfigurasjonsparametre','2502':'Nettverksadresse','2503':'Nettverksmaske','2504':'Gateway','396':'Nettverksmasketallet du skrev er ugyldig.','1231':'Ugyldig Gateway.','1361':'Ugyldig IP-adresse. Første tallet skal være mellom 1 og 254.','1800':'IP-adressen og nettverksmasken samsvarer ikke.','':null});

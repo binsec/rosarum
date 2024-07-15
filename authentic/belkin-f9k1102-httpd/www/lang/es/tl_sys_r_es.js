@@ -1,0 +1,2 @@
+
+LangM.push({'533':'Si el router comienza a funcionar incorrectamente, puede que necesite restablecer la configuración original o reiniciarlo. Reiniciar el router no afectará a su configuración.','534':'Reiniciar el router','535':'¿Está seguro de que desea reiniciar el router? Reiniciar el router no afectará a su configuración','536':'Dele unos $s segundos al router para que pueda completar el reinicio. No apague el router antes de que se haya completado el reinicio.','':null});

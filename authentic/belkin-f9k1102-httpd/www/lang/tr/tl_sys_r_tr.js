@@ -1,0 +1,2 @@
+
+LangM.push({'533':'Yönlendiriciniz yanlış biçimde çalışmaya başlarsa, onu yeniden başlatmak gerekli olabilir. Yönlendiriciyi yeniden başlatmak ayarlarınızın silinmesine neden olmayacaktır.','534':'Yönlendiriciyi Yeniden Başlat','535':'Yönlendiriciyi yeniden başlatmak istediğinizden emin misiniz? Yönlendiricinin yeniden başlatılması yapılandırmanızı etkilemez','536':'Yönlendiricinin yeniden başlatılması için $s saniye kadar bekleyin. Sıfırlama işlemi tamamlanmadan önce Yönlendiriciyi kapatmayın.','':null});

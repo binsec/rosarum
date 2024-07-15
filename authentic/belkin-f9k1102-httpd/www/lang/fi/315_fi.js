@@ -1,0 +1,2 @@
+
+LangM.push({'p315t001':'Uutta laiteohjelmaa ladataan.','gtFreshest':'Hankimme uusinta versiota laiteohjelmasta','p315t002':'Latauksen eteneminen:','p315t003':'Mikä on laiteohjelma?','p315t004':'Laiteohjelma on reititintä käyttävä ohjelmisto. Laiteohjelma päivitetään parantamaan reitittimen toimintaa, joten on hyvä varmistaa, että sinulla on tuorein versio.','':null});

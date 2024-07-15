@@ -1,0 +1,2 @@
+
+LangM.push({'404':'Ändra rutan Adress i webbläsarens statusfält manuellt till den nya LAN-adressen.','406':'Vill du ändra LAN-IP-adressen?','609':'AVANCERAD FUNKTION!','766':'De angivna nätmasknumren är ogiltiga.','778':'Routern kan konfigureras så att den bara används som åtkomstpunkt, och routnings- och brandväggsfunktionerna förbigås. Välj i så fall ”Aktivera” och ange en IP-adress för åtkomstpunkten.','779':'Åtkomstpunktsläge:','780':'Ange IP-adress','781':'Ange nätmask','1240':'LAN-IP-adressen är ogiltig.','':null});

@@ -1,0 +1,2 @@
+
+LangM.push({'744':'PPTP-konto','745':'Passord','746':'Skriv passordet en gang til','747':'Vertsnavn','1770':'IP tildelt av Internettleverandør','1771':'Ja','1772':'Nei','1773':'Adresse for tjenesten','330':'IP-adresse','750':'Nettverksmaske','338':'Standard gateway','736':'Koble fra etter','737':'minutter med inaktivitet.','754':'Klikk her for å skrive inn DNS-innstillingene','738':'Verdien du skrev for inaktiv tid er ugyldig. Tallet må være et heltall mellom 1-99.','':null});

@@ -1,0 +1,2 @@
+
+LangM.push({'124':'The router keeps a log of all activity within the router such as computers logging in and out and any attempts from the Internet to access the router.','125':'Log File','126':'Save','127':'Clear','1302':'System Log','1303':'Firewall Log','':null});

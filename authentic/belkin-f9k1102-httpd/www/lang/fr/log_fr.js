@@ -1,0 +1,2 @@
+
+LangM.push({'124':'Le routeur conserve un journal de l\'activité à l\'intérieur de celui-ci, telle que les connexions et déconnexions, et toute tentative de connexion au routeur en provenance de l\'Internet.','125':'Journal','126':'Enregistrer','127':'Effacer','1302':'Journal système','1303':'Journal du pare-feu','':null});

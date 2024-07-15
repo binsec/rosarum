@@ -1,0 +1,2 @@
+
+LangM.push({'744':'Compte PPTP','745':'Mot de passe','746':'Retaper le mot de passe','747':'Nom d’hôte','1770':'Adresse IP attribuée par le FSI','1771':'Oui','1772':'Non','1773':'Adresse de service','330':'Adresse IP','750':'Masque de sous-réseau','338':'Passerelle par défaut','736':'Déconnecter après','737':'minutes d\'inactivité','754':'Cliquez ici pour entrer vos paramètres DNS','738':'La valeur que vous avez entrée comme temps d\'inactivité n\'est pas valide. La valeur doit être un nombre entier compris entre 1 et 99.','':null});

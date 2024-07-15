@@ -1,0 +1,2 @@
+
+LangM.push({'669':'Ogiltig MAC-adress. Det är en nulladress.','715':'Varje enhet på ditt nätverk har en unik hårdvaruadress (MAC-adress) som identifierar den för andra enheter i nätverket och på internet.  Några få internetleverantörer kräver att du anger MAC-adressen på ditt nätverkskort eller äldre router i routerinställningarna. Om du inte vet ska du ange MAC-adressen till den dator som ursprungligen var ansluten till modemet innan routern installerades.','716':'WAN-MAC-adress','717':'Klona datorns MAC-adress','718':'Klona','902':'Ogiltig MAC-adress','':null});

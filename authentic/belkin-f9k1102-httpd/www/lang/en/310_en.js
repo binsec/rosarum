@@ -1,0 +1,2 @@
+
+LangM.push({'p310t001':'An update is available!','gtNewFWAvailableRouter':'We have some new firmware for your router.','p310t002':'To install the new firmware, please read and accept the license agreement.','p310t003':'License Agreement','p310t004':'I accept the license agreement.','p310t005':'Install update','p310t006':'What is firmware?','p310t007':'Firmware is the software that runs your router. We update firmware to improve your router\'s performance, so it\'s good to make sure you have the latest.','p310t010':'I accept the license agreement.','':null});

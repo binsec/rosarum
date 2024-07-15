@@ -1,0 +1,2 @@
+
+LangM.push({'121':'<b>AVANCERAD FUNKTION! </b> Du kan konfigurera routern så att den inte svarar på ICMP-pingmeddelanden (pingmeddelanden till WAN-porten). Det ger en högre säkerhetsnivå.','1076':'Blockera ICMP-pingmeddelanden','':null});

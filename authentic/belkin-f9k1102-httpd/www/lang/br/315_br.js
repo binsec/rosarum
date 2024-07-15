@@ -1,0 +1,2 @@
+
+LangM.push({'p315t001':'Baixando o novo firmware.','gtFreshest':'Estamos obtendo a versão mais recente de nosso firmware','p315t002':'Progresso do download:','p315t003':'O que é firmware?','p315t004':'Firmware é o software que executa seu Roteador. Nós atualizamos o firmware para melhorar o desempenho do seu Roteador e, portanto, é uma boa ideia certificar-se e que você tem a versão mais recente.','':null});

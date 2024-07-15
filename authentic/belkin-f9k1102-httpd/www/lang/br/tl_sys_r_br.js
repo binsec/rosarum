@@ -1,0 +1,2 @@
+
+LangM.push({'533':'Se seu roteador começar a funcionar incorretamente, talvez seja necessário reiniciar ou reinicializar o roteador. Reiniciar o roteador não excluirá suas configurações.','534':'Reiniciar roteador','535':'Tem certeza de que deseja reiniciar o Roteador? Reiniciar o Roteador não afetará sua configuração','536':'Aguarde até $s segundos até que o Roteador seja reiniciado. Não desligue o Roteador até que a redefinição esteja concluída.','':null});

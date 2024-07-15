@@ -1,0 +1,2 @@
+
+LangM.push({'p600t001':'Diğer bilgisayarlarınız ve mobil aygıtlarınıza uygun benzer yazılımlar edinmek için yönlendiricinizin İsteğe Bağlı Yazılım sayfasını ziyaret edin.','p600t002':'Teşekkürler, beni gösterge paneline götür','p600t003':'İsteğe bağlı yazılım','p600t004':'Bu yazılım araçları, yönlendiricinizin sunduğu gelişmiş özelliklerden yararlanmanızı sağlayabilir. Apple iOS, Android, Windows ve OS X için karşıdan yüklemeler bulunur.','p601t001':'Kaydolduğunuz için teşekkürler!','':null});

@@ -1,0 +1,2 @@
+
+LangM.push({'3':'Accesa','408':'Para poder cambiar cualquiera de los ajustes, debes acceder con una contraseña. Si no ha establecido aún una contraseña personalizada, deje este campo en blanco y haga clic sobre «Enviar».','409':'Contraseña','410':'Valor predeterminado = dejar en blanco','412':'Enviar','1371':'Contraseña incorrecta','1372':'Confirme su contraseña e inténtelo de nuevo.','':null});

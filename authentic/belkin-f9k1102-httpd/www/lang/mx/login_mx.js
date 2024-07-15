@@ -1,0 +1,2 @@
+
+LangM.push({'3':'Iniciar sesión','408':'Antes de que pueda cambiar cualquier configuración, necesitará ingresar al sistema con una contraseña. Si aún no ha configurado su propia contraseña, deje este campo en blanco y haga clic en \"Enviar\".','409':'Contraseña','410':'Por Defecto = dejar en blanco','412':'Enviar','1371':'Contraseña incorrecta','1372':'Por favor confirme su contraseña e intente nuevamente.','':null});

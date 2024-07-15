@@ -1,0 +1,2 @@
+
+LangM.push({'533':'Si su enrutador comienza a trabajar incorrectamente, es posible que sea necesario reiniciarlo. El reiniciar el enrutador no borrará sus configuraciones.','534':'Reiniciar enrutador','535':'¿Está seguro de que desea reiniciar el enrutador? El reiniciar el enrutador no afectará su configuración.','536':'Permita hasta $s segundos para que se reinicie el enrutador. No apague el enrutador antes de que termine el restablecimiento.','':null});

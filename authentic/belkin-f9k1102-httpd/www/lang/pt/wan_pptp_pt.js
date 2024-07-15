@@ -1,0 +1,2 @@
+
+LangM.push({'744':'Conta PPTP','745':'Password (Palavra-passe)','746':'Repetir palavra-passe','747':'Nome do anfitrião','1770':'IP atribuído pelo ISP','1771':'Sim','1772':'Não','1773':'Endereço do serviço','330':'Endereço IP','750':'Máscara de sub-rede','338':'Gateway predefinido','736':'Desligar após','737':'minutos de inatividade.','754':'Clique aqui para introduzir as suas definições DNS','738':'O valor para tempo de inatividade introduzido é inválido. Este deverá ser um número inteiro entre 1 e 99.','':null});

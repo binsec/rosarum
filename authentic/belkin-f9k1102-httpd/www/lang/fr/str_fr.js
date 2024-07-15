@@ -1,0 +1,2 @@
+
+LangM.push({'2501':'Veuillez définir les paramètres de configuration suivants','2502':'Adresse du réseau','2503':'Masque de sous-réseau','2504':'Passerelle','396':'Les nombres du masque de sous-réseau sont incorrects.','1231':'La passerelle est incorrecte !','1361':'Adresse IP incorrecte : le premier nombre doit être compris entre 1 et 254.','1800':'L\'adresse IP et le masque de sous-réseau ne concordent pas.','':null});

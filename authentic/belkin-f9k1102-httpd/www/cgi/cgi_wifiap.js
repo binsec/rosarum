@@ -1,0 +1,1 @@
+<%CFG_MAP(rt_en,RT_EN);%><%CFG_MAP(ap_ip,LAN_AP_IP);%><%CFG_MAP(ap_msk,LAN_AP_MSK);%><%CFG_MAP(lan_ip,LAN_IP);%><%CFG_MAP(lan_mask,LAN_MSK);%><%CFG_MAP(back_lan_ap_ip,BACK_LAN_AP_IP);%><%CFG_MAP(back_lan_ap_msk,BACK_LAN_AP_MSK);%>

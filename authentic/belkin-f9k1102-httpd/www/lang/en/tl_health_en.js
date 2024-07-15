@@ -1,0 +1,2 @@
+
+LangM.push({'75':'SUN','76':'MON','77':'TUE','78':'WED','79':'THU','80':'FRI','81':'SAT','301':'This reboots your router on a weekly basis for a more problem-free network.','302':'Auto initialize my router','303':'Set Days','304':'Set Time','':null});

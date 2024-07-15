@@ -1,0 +1,2 @@
+
+LangM.push({'p300t001':'Donanım yazılımı güncellemeleri kontrol ediliyor.','p300t002':'Yeni yönlendiriciniz için kullanılabilir güncel donanım yazılımı olup olmadığını kontrol ediyoruz.','p300t003':'Neden en yeni donanım yazılımına ihtiyacım var?','p300t004':'Donanım yazılımı, yönlendiricinizin ağ ve güvenlik protokollerini uygulamak için kullandığı yazılımdır. Güncellemeler, yönlendiricinizin güvenilirliğini ve işlevselliğini artırır, o yüzden en yenisine sahip olduğunuzdan emin olmanız faydalıdır.','p300t005':'Şimdi çevrimiçi olduğunuzda.','':null});

@@ -1,0 +1,2 @@
+
+LangM.push({'2501':'Indtast de følgende konfigurationsparametre','2502':'Netværksadresse','2503':'Undernetmaske','2504':'Gateway','396':'Det undernetmasketal, som du indtastede, er ugyldigt.','1231':'Gateway er ugyldig!','1361':'Forkert IP-adresse. Det første tal skal være mellem 1 og 254.','1800':'IP-adressen og undernetmasken passer ikke sammen.','':null});

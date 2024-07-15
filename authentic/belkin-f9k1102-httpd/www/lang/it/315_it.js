@@ -1,0 +1,2 @@
+
+LangM.push({'p315t001':'Download del nuovo firmware.','gtFreshest':'Stiamo scaricando la versione più recente del nostro firmware...','p315t002':'Stato del download:','p315t003':'Cos\'è un firmware?','p315t004':'Il firmware è il software eseguito dal tuo router. Il firmware viene aggiornato per migliorare le prestazioni del router, perciò è bene accertarsi di avere a disposizione sempre l\'ultima versione.','':null});

@@ -1,0 +1,1 @@
+<%CFG_MAP(dns_mode,WAN_DNS_BYISP);%><%CFG_MAP(dns,WAN_DNS);%><%CFG_MAP(dns_manual,WAN_DNS_MANUAL);%>

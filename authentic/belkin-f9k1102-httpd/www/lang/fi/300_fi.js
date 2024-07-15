@@ -1,0 +1,2 @@
+
+LangM.push({'p300t001':'Tarkistamme laiteohjelmiston päivitystä.','p300t002':'Tarkistamme, onko uudelle reitittimelle laiteohjelmiston päivitystä','p300t003':'Miksi tarvitsen uusimman laiteohjelman?','p300t004':'Laiteohjelma tarkoittaa ohjelmistoa, jolla reititin toteuttaa verkko- ja suojausprotokollat. Päivitykset parantavat reitittimen luotettavuutta ja toimintaa, joten on hyvä hankkia tuorein versio.','p300t005':'Nyt olet verkossa.','':null});

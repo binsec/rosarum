@@ -1,0 +1,2 @@
+
+LangM.push({'744':'PPTP Account','745':'Password','746':'Retype Password','747':'Host Name','1770':'IP Assigned by ISP','1771':'Yes','1772':'No','1773':'Service Address','330':'IP address','750':'My Subnet Mask','338':'Default Gateway','736':'Disconnect after','737':'minutes of no activity.','754':'Click here to enter your DNS Settings','738':'Idle time of the numbers you entered are invalid. The number has to be an integer between 1-99.','':null});

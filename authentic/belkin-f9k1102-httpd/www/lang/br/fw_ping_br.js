@@ -1,0 +1,2 @@
+
+LangM.push({'121':'<b>RECURSO AVANÇADO! </b> É possível configurar o Roteador de modo a não responder a um Ping ICMP (ping na porta WAN). Isso oferece um nível reforçado de segurança.','1076':'Bloquear ping ICMP','':null});

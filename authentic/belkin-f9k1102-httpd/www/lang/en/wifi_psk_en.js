@@ -1,0 +1,2 @@
+
+LangM.push({'842':'Authentication','845':'Encryption Technique','852':'The length of pre-shared key should be 8 to 63 or 64 Hex','854':'Pre-shared Key (PSK)','855':'WPA-PSK (no server)','856':'Wi-Fi Protected Access with a Pre-shared Key: The key is a password, in the form of a word, phrase or series of letters and numbers. The key must be between <b>8</b> and <b>63</b> characters long and can include spaces and symbols, or <b>64</b> Hex (0-F) only. Each client that connects to the network must use the same key (Pre-shared Key).','857':'Obscure PSK','':null});

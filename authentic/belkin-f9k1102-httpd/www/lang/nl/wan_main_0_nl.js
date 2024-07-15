@@ -1,0 +1,2 @@
+
+LangM.push({'721':'Op het tabblad "Internet/WAN" stelt u de router in voor het maken van een verbinding met uw provider. De router kan verbinding maken met vrijwel elke provider mits u de instellingen van de router correct hebt geconfigureerd voor het type verbinding dat uw provider gebruikt. Om de router te configureren om verbinding met een bepaalde provider te maken, klikt u op "Type verbinding" op het tabblad "Internet/WAN" links op het scherm.','722':'Ondersteunde typen verbindingen:','':null});

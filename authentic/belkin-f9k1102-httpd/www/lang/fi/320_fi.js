@@ -1,0 +1,2 @@
+
+LangM.push({'p320t001':'Uutta laiteohjelmaa asennetaan.','gtUpdateNoPower':'Päivitämme reititintä uudella laiteohjelmalla. Älä katkaise virtaa tämän aikana.','p320t002':'Kun uusi laiteohjelma on asennettu, käynnistämme reitittimen uudelleen asennuksen päättämiseksi.','p320t003':'Tähän kuluu noin kolme minuuttia. Päivityksen eteneminen:','p320t004':'Mikä on laiteohjelma?','p320t005':'Laiteohjelma on reititintä käyttävä ohjelmisto. Laiteohjelma päivitetään parantamaan reitittimen toimintaa, joten on hyvä varmistaa, että sinulla on tuorein versio.','':null});

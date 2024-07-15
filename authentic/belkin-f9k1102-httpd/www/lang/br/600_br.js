@@ -1,0 +1,2 @@
+
+LangM.push({'p600t001':'Visite a página de Software opcional de seu Roteador para obter softwares semelhantes para seus outros computadores e dispositivos móveis.','p600t002':'Obrigado. Leve-me ao painel','p600t003':'Software opcional','p600t004':'Estas ferramentas de software podem ajudá-lo a aproveitar os recursos avançados oferecidos pelo seu Roteador. Há downloads para Apple iOS, Android, Windows e OS X.','p601t001':'Obrigado por registrar-se!','':null});

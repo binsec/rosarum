@@ -1,0 +1,2 @@
+
+LangM.push({'721':'Internet/WAN sekmesi, Internet Servis Sağlayıcınıza bağlanması için Yönlendiricinizi ayarlayacağınız sekmedir. Yönlendirici, Yönlendiricinin ayarlarını ISP\'nizin bağlantı tipi için doğru şekilde ayarladığınız takdirde neredeyse tüm Internet Servis Sağlayıcısı sistemlerine bağlanabilir. Yönlendiriciyi ISP\'nize bağlanacak şekilde yapılandırmak için, ekranın solundaki Internet/Wan Sekmesindeki \"Bağlantı türü\" düğmesini tıklatın.','722':'Desteklenen bağlantı türleri:','':null});

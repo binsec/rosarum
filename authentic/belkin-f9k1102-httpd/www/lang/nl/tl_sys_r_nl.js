@@ -1,0 +1,2 @@
+
+LangM.push({'533':'Als uw router niet goed meer werkt, kan het nodig zijn om uw router opnieuw op te starten. Er worden geen instellingen verwijderd door het opnieuw opstarten van de router.','534':'Router opnieuw opstarten','535':'Weet u zeker dat de de router opnieuw wilt starten? Het opnieuw opstarten van de router heeft geen invloed op uw configuratie.','536':'De router heeft ongeveer $s seconden nodig om opnieuw op te starten. Schakel de router niet uit voordat het resetten voltooid is.','':null});

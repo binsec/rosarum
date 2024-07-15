@@ -1,0 +1,97 @@
+<!DOCTYPE html><!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7"lang="en"> <![endif]--><!--[if IE 7]> <html class="no-js lt-ie9 lt-ie8"lang="en"> <![endif]--><!--[if IE 8]> <html class="no-js lt-ie9"lang="en"> <![endif]--><!--[if gt IE 8]><!--><html lang="en"class="gt-ie8"><!--<![endif]--><!--[if IE]><html xmlns="http://www.w3.org/1999/xhtml"xmlns:v><![endif]--><head><meta charset="utf-8"/><meta name="viewport"content="width=device-width"/><title></title> <link rel="icon"href="images/favicon/favicon.ico"><link rel="apple-touch-icon-precomposed"sizes="144x144"href="images/favicon/belkin_144.png"><link rel="apple-touch-icon-precomposed"sizes="114x114"href="images/favicon/belkin_114.png"><link rel="apple-touch-icon-precomposed"sizes="72x72"href="images/favicon/belkin_72.png"><link rel="apple-touch-icon-precomposed"href="images/favicon/belkin_57.png"><link rel="stylesheet"href="stylesheets/app.css?t=20140212"><!--[if lt IE 9]><link rel="stylesheet"href="stylesheets/ie.css"><![endif]--><!--[if IE]><?import namespace="v"implementation="#default#VML"?><![endif]--><script>var LangJ=["menulist","help","comm","twdlna"];var CGIs=["lan","twdlna"];</script><script src="javascripts/init.js"></script><script src="javascripts/jquery.min.js"></script><script src="javascripts/global.js"></script><script src="javascripts/app.js"></script><script src="javascripts/menu.js"></script></head><body style="display:none"id="mainbody"> <script><%CGI_INCLUDE(javascripts/main_header.js);%></script><script src="javascripts/routine.js"></script><div class="main container"> <div class="row"><div class="eight columns"><form class="nice"name="tF"method="post"action="/cgi-bin/setup_lan.exe"target="OUTfrm"><div class="row"> <div class="twelve columns"><br><br><p class="drop-ip"><h3> <span tid="7002"></span> <a href="http://www.twonky.com"target="new"><img src="images/twonky.gif"style="float:right"border=0></a> </h3> <input name="dlna_en"type="radio"value="1"><span tid="374"></span>&nbsp; <input name="dlna_en"type="radio"value="0"><span tid="375"></span> </p><p><label class="has-more"><b><span tid="7003"></span></b> <input type="text"class="input-text medium"name="friendly_name"size=27 maxlength=32 value=""> </label> </p><p class="drop-ip right"> <a href="#index"class="nice radius small white button"tid="7016"onClick="return reBuild()"id="btnbuild"></a> </p><p class="drop-ip bottom"> <b><span tid="7004"id="media_st"></span>&nbsp;&nbsp;</b> <span id="S1"></span> <span id="tw_state"></span><b>&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;<span tid="7007"id="media_cnt"></span>&nbsp;&nbsp;&nbsp;&nbsp;</b> <span id="video_cn"></span>&nbsp;<b><span id="video"></span></b> <span id="song_cn"></span>&nbsp;<b><span id="music"></span></b>&nbsp; <span id="photo_cn"></span>&nbsp;<b><span id="photo"></span></b> </p><p class="drop-ip"> <table class="normal"width="600"id="tb_twonky"> <tbody> <tr> <td colspan="4"><hr></td> </tr> <tr id="no_usb"> <td colspan="3"align="center"><span tid="7012"></span></td> <td><input type="hidden"name="VOL"value=""></td> </tr> </tbody> </table> </p><p class="drop-ip"> <span id="over_maxitems"class="hide"> <font style="font-family:Webdings;"size="6"color="red">&#105;</font><span tid="7019"class="red"></span>&nbsp;<span class="red"id="maxitems"></span>&nbsp;<span color="red"id="7020"></span> </span> </p> </div></div><br><a href="#save"class="nice radius large green button"tid="49"onClick="return evaltF()"id="btnapply"></a>&nbsp;&nbsp;</form></div><div class="sidebar four columns"> <div><h6><span tid="htDLNA"></span></h6> <p><span tid="7001"></span></p> <p><span tid="7021"></span><span class="nub"></span></p> </div> </div></div> </div><script>/*JS_PACKER*/var FriendlyNameChanged=0;var mounted_folder=new Array(0);function cb_null(){}
+var http_req_rebuild=null;var NumOfUsbMounted=0;function mounted_folder_loaded()
+{var payload="";for(var x=1;x<=MAX_UNSHARE_SZ;x++)
+{var oneRow=getCfg("twonkydir"+x);if(oneRow.length>0){var RowAry=oneRow.split(";");mounted_folder.push(RowAry);}}}
+function verify_mounted_folder(){for(var i=0;i<mounted_folder.length;i++){var list;list=mounted_folder[i].join(";");setCfg("twonkydir"+(i+1),list);}}
+var reBuild_dog=null;function cb_rebuild(){clearTimeout(reBuild_dog);HiddenObject("over_maxitems");shared_doger=setTimeout("getSharedInfo()",10000);}
+function reBuild(){var f=document.tF;ReadOnly(f.rebuild);clearTimeout(reBuild_dog);Req_URL="twonky_cmd.cgi?c=rebuild";$.get(Req_URL,{CSRFID:mmm},function(str){cb_MaxItemsInfo(str,0);},'text');reBuild_dog=setTimeout("cb_rebuild()",10000);return false;}
+var na_c=['!','"','#','$','%','&','\'','(',')','*',',','-','/',';','<','=','>','?','@','[','\\',']','^','`','{','|','}','~'];function FriendlyName_isSpecialChar(s){var ret=s.match(/[^\x20-\x7e]/g);if(ret)return ret.join('');return null;}
+function FriendlyName_isAllSpace(s){var count=0;for(var i=0;i<s.length;i++){if(s.charAt(i)==" ")
+{count++}}
+return(count==s.length)?1:0;}
+function evaltF(){var f=document.tF;var obj,v,ch,obj_friendly_name;var wifi_ssid;wifi_ssid=getCfg("dlna_wifi_ssid");wifi_ssid=wifi_ssid.concat(BELKIN_FRIENDLYNAME_POSTFIX);obj=f.friendly_name;obj_friendly_name=getFieldValue(obj);if(obj_friendly_name!=wifi_ssid){if(obj_friendly_name==''){AlertM(7017);obj.focus();return false;}
+if(FriendlyName_isAllSpace(obj_friendly_name)){AlertM(7017);obj.focus();return false;}
+if(ch=FriendlyName_isSpecialChar(obj_friendly_name))
+{alert(getLangM(7018)+':'+ch);return false;}}else{SetFieldValue(obj,"");}
+form2Cfg(f);verify_mounted_folder();return subForm({frm:f,cmd:"DLNA_CONF",wait:10});}
+var twstate=null;var shared_doger=null;var shared_info={state:0,video:0,music:0,photo:0};function getSharedInfo(){sharedURL="twonky_cmd.cgi?c=info_status";$.get(sharedURL,{CSRFID:mmm},function(str){cb_SharedInfo(str,0);},'text');shared_doger=setTimeout("getSharedInfo()",10000);}
+var Gmaxitems=0;var timer_maxitems=null;function cb_MaxItemsInfo(content,para){clearTimeout(timer_maxitems);if(content&&content.length>0){Gmaxitems=(parseInt(content,10));if(!isInteger(Gmaxitems))
+Gmaxitems=0;setIdVal("maxitems",Gmaxitems);}
+else
+{Gmaxitems=0;}
+timer_maxitems=setTimeout("getMaxItemsInfo()",5000);}
+function getMaxItemsInfo(){sharedURL="twonky_cmd.cgi?c=get_option?maxitems";$.get(sharedURL,{CSRFID:mmm},function(str){cb_MaxItemsInfo(str,0);},'text');timer_maxitems=setTimeout("getMaxItemsInfo()",10000);}
+function Trim2rtn(s){var i=0;while(s.charAt(i)!="\n")i++;return s.substring(0,i);}
+function update_RefreshIndex_button(shared)
+{var f=document.tF;var ready=(shared.state==0)?true:false;var en=getFieldIntVal(f.dlna_en);obj=eval('f.rebuild');if(en&&ready)
+WriteAllow(obj);else
+ReadOnly(obj);}
+function showWaitImg(off_on)
+{var off_on=shared_info.state;var wait_img='<img src="images/loading.gif" width="32" height="32" border=0>';if(NumOfUsbMounted>0)
+{setIdVal("video_cn",shared_info.video);setIdVal("song_cn",shared_info.music);setIdVal("photo_cn",shared_info.photo);}
+if(NumOfUsbMounted==0)
+{setIdVal("S1","");setIdVal("tw_state","");}
+else
+if(off_on){setIdVal("S1",wait_img);setIdVal("tw_state",getLangM(7006));}
+else
+{setIdVal("S1",getLangM(7005));setIdVal("tw_state","");}}
+function setVideoPhotoSongLang()
+{(shared_info.video>1)?setIdVal("video",getLangM(7008)):setIdVal("video",getLangM(7026));(shared_info.music>1)?setIdVal("music",getLangM(7009)):setIdVal("music",getLangM(7027));(shared_info.photo>1)?setIdVal("photo",getLangM(7010)):setIdVal("photo",getLangM(7028));}
+function cb_SharedInfo(content,para){clearTimeout(shared_doger);var c,v;if(content&&content.length>0){if((c=content.indexOf("dbupdate|"))!=-1){v=content.charCodeAt(c+9);if((v>=48)&&(v<=57)){shared_info.state=0;}else{shared_info.state=1;}}
+if((c=content.indexOf("musictracks|"))!=-1){v=Trim2rtn(content.substr(c+12,10));shared_info.music=parseInt(v,10);}
+if((c=content.indexOf("videos|"))!=-1){v=Trim2rtn(content.substr(c+7,10));shared_info.video=parseInt(v,10);}
+if((c=content.indexOf("pictures|"))!=-1){v=Trim2rtn(content.substr(c+9,10));shared_info.photo=parseInt(v,10);}}
+else
+{shared_info.photo=0;shared_info.video=0;shared_info.music=0;}
+showSharedInfo(shared_info);update_RefreshIndex_button(shared_info);showWaitImg();shared_doger=setTimeout("getSharedInfo()",5000);}
+function showSharedInfo(shared){var ok=(shared.state==0);var total;if(NumOfUsbMounted>0)
+{setIdVal("video_cn",shared.video);setIdVal("song_cn",shared.music);setIdVal("photo_cn",shared.photo);total=shared.photo+shared.music+shared.video;if(total>=Gmaxitems&&Gmaxitems!=0)
+DisplayObject("over_maxitems");else
+HiddenObject("over_maxitems");}
+else
+{setIdVal("S1","");setIdVal("tw_state","");setIdVal("video_cn","---");setIdVal("song_cn","---");setIdVal("photo_cn","---");HiddenObject("over_maxitems");}
+setVideoPhotoSongLang();}
+var chk_itms=["VOL","dlna_en","friendly_name","#btnbuild"];function chg_chk(){var upd=-1;var f=document.tF;var objs;for(var x in chk_itms){if(chk_itms[x].charAt(0)=="#")continue;objs=eval("f."+chk_itms[x]);len=(objs.length)?objs.length:1;for(var k=0;k<len;k++){obj=(len==1)?objs:objs[k];if(!obj)continue;typ=obj.type;if(typ=="radio"||typ=="checkbox")
+if(obj.defaultChecked!=obj.checked){upd=1;break;}
+if(typ=="select-one"||typ=="select-multiple")
+if(obj.defaultSelected!=obj.selected){upd=1;break;}
+if(typ=="text"||typ=="textarea"||typ=="password")
+if(obj.defaultValue!=obj.value){upd=1;break;}}
+if(upd!=-1)break;}
+if(upd==1)
+WriteAllow("btnapply");else
+ReadOnly("btnapply");UpdateFriendlyNameColor();}
+function update_checkbox()
+{for(var x in mounted_folder){if(!mounted_folder[x])break;if(mounted_folder[x][0]!=0&&mounted_folder[x][0]!=1)
+{document.getElementById(x).disabled=true;document.getElementById("VOL_NAME"+x).style.color='#808080';}}}
+var ColorItems=["media_st","media_cnt","video","music","photo","tw_state","video_cn","song_cn","photo_cn"];function UpdateVOL_SIZEColor()
+{var f=document.tF;var en=parseInt('0'+getFieldValue(f.dlna_en),10);for(var x in mounted_folder){if(!mounted_folder[x])break;if(en){document.getElementById("VOL_SIZE"+x).style.color='#000000';}
+else{document.getElementById("VOL_SIZE"+x).style.color='#808080';}}
+for(var y in ColorItems){if(en){document.getElementById(ColorItems[y]).style.color='#000000';}
+else{document.getElementById(ColorItems[y]).style.color='#808080';}}}
+function chg_enable(){var f=document.tF;var en=parseInt('0'+getFieldValue(f.dlna_en),10);var objs;for(var x in chk_itms){if("dlna_en"==chk_itms[x])continue;if(chk_itms[x].charAt(0)!="#"){objs=eval("f."+chk_itms[x]);len=(objs.length)?objs.length:1;for(var k=0;k<len;k++){obj=(len==1)?objs:objs[k];if(!obj)continue;(!en)?ReadOnly(obj):WriteAllow(obj);}}else{obj=chk_itms[x].substr(1);(!en)?DisableObject(obj):EnableObject(obj);}}
+update_checkbox();update_RefreshIndex_button(shared_info);UpdateVOL_SIZEColor();}
+function TrimFloat(f){return Math.round(f*10)/10;}
+function update_check(_cnt)
+{if(_cnt>mounted_folder.length)return;mounted_folder[_cnt][0]=(mounted_folder[_cnt][0]==1)?0:1;}
+function Cur_Bytes(_r){var r=parseInt(_r,10);if(r>(1024*1024)){return TrimFloat(r/(1024)/(1024))+" "+getLangM(7025);}else if(r>(1024)){return TrimFloat(r/(1024))+" "+getLangM(7024);}
+return r+" "+getLangM(7023);}
+function ShowVolume(){var rowcnt=0;var RowCell,c1,c2,c3,f,ck,status;var reccnt=0;for(var x in mounted_folder){if(!mounted_folder[x])break;if(reccnt!=0){c1='<hr>';RowCell=[[4,c1],[null,null]];rowcnt+=Table_add_row("tb_twonky",[[4,rowcnt,1],RowCell],0);}
+status=parseInt(mounted_folder[x][0],10);ck=(status==1)?"checked":"";if(status==1)++NumOfUsbMounted;c1='<input type=checkbox name="VOL" id="'+reccnt+'" value="1" '+ck+'  onClick="update_check('+reccnt+')">';c2='<font id="VOL_NAME'+reccnt+'">'+HTML2str(mounted_folder[x][2])+'</font>';if(status==1)
+c3='<font id="VOL_SIZE'+reccnt+'" align="left">'+Cur_Bytes(mounted_folder[x][1])+'</font>';else if(status==0)
+c3='<font id="VOL_SIZE'+reccnt+'" align="left">'+getLangM(7011)+'</font>';else
+c3='<font id="VOL_SIZE'+reccnt+'" align="left">'+getLangM(7022)+'</font>';c4='<input type="hidden" name="MountedPoint" value='+HTML2str(mounted_folder[x][3])+'>';RowCell=[[1,c1],[1,c2],[1,c3,{"align":"right"}],[1,c4,],[null,null]];rowcnt+=Table_add_row("tb_twonky",[[4,rowcnt,1],RowCell],0);reccnt++;}
+update_checkbox();if(rowcnt){HiddenObject("no_usb");}}
+function UpdateFriendlyNameColor()
+{var f=document.tF;var obj=eval('f.friendly_name');var vfriendly_name=getFieldValue(obj);var ssid=getCfg("dlna_wifi_ssid");var def_friendly_name=ssid.concat(BELKIN_FRIENDLYNAME_POSTFIX);if(def_friendly_name==vfriendly_name)
+{obj.style.color='#808080';}
+else
+{obj.style.color='#000000';}}
+function update_friendly_name()
+{var f=document.tF;var fn=getCfg("friendly_name");var obj=eval('f.friendly_name');if(fn=="")
+{fn=getCfg("dlna_wifi_ssid");fn=fn.concat(BELKIN_FRIENDLYNAME_POSTFIX);SetFieldValue(obj,fn);obj.style.color='#808080';}
+else
+{obj.style.color='#000000';}}
+function init(){var f=document.tF;mounted_folder_loaded();ShowVolume();cfg2Form(f);update_friendly_name();if(getFieldIntVal(f.dlna_en)==1){getMaxItemsInfo();getSharedInfo();}else{ReadOnly("btnbuild");}
+ShowNavMenu();}
+/*END_JS_PACKER*/<%CGI_LOGIN_KEEP();%></script> <script><%CGI_INCLUDE(javascripts/main_footer.js);%></script>

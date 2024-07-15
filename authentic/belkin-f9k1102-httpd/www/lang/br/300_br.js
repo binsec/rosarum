@@ -1,0 +1,2 @@
+
+LangM.push({'p300t001':'Verificando se há atualizações do firmware.','p300t002':'Estamos verificando para ver se há algum firmware atualizado disponível para seu novo Roteador','p300t003':'Por que preciso do firmware mais recente?','p300t004':'O firmware é o software usado pelo seu Roteador para implementar protocolos de rede e de segurança. As atualizações aumentam a confiabilidade e a funcionalidade do seu Roteador e, portanto, é bom se certificar de que você tenha a versão mais recente.','p300t005':'Agora você está online.','':null});

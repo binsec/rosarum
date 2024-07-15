@@ -1,0 +1,2 @@
+
+LangM.push({'p600t001':'Bezoek de pagina Optionele Software van uw router om gelijksoortige software voor uw andere computers en mobiele apparaten te downloaden.','p600t002':'Bedankt, ik wil naar het dashboard','p600t003':'Optionele software','p600t004':'Met deze softwarehulpmiddelen kunt u profiteren van de geavanceerde functies die uw router biedt. Er zijn downloads voor Apple iOS, Android, Windows en OS X.','p601t001':'Bedankt voor uw registratie!','':null});

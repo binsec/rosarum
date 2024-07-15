@@ -1,0 +1,2 @@
+
+LangM.push({'p600t001':'Visite la página de Software opcional de su enrutador para recuperar un software similar para sus demás computadoras y dispositivos móviles.','p600t002':'Gracias, lléveme al panel','p600t003':'Software opcional','p600t004':'Estas herramientas de software le permiten aprovechar las características avanzadas que su enrutador ofrece. Hay descargas para Apple iOS, Android, Windows y OS X.','p601t001':'Gracias por registrarse.','':null});

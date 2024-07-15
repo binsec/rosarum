@@ -1,0 +1,2 @@
+
+LangM.push({'121':'<b>¡FUNCIÓN AVANZADA! </b> Puede configurar el enrutador para que no responda a un ping de ICMP (ping al puerto WAN). Esto le brinda un nivel superior de seguridad.','1076':'Bloquear ping de ICMP','':null});

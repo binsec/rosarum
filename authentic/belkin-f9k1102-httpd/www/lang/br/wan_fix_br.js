@@ -1,0 +1,2 @@
+
+LangM.push({'759':'Para inserir suas configurações de IP estático, digite suas informações abaixo e clique em \"Salvar\".','760':'Endereço IP','761':'Máscara de sub-rede','762':'Endereço do gateway do Provedor de serviços de Internet','754':'Clique aqui para inserir suas configurações de DNS','':null});

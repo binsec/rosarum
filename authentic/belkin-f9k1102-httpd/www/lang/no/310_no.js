@@ -1,0 +1,2 @@
+
+LangM.push({'p310t001':'En oppdatering er tilgjengelig!','gtNewFWAvailableRouter':'Vi har noe nytt til ruterens fastvare.','p310t002':'Les og godta lisensavtalen for å installere fastvaren.','p310t003':'Lisensavtale','p310t004':'Jeg godtar lisensavtalen','p310t005':'Installer oppdatering','p310t006':'Hva er fastvare?','p310t007':'Fastvare er programvaren som kjører ruteren. Vi oppdaterer fastvaren for å forbedre ruterens ytelse, så det er bra å sørge for at du har den nyeste.','p310t010':'Jeg godtar lisensavtalen','':null});

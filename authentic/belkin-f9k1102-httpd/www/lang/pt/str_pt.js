@@ -1,0 +1,2 @@
+
+LangM.push({'2501':'Introduza os seguintes parâmetros de configuração','2502':'Endereço de rede','2503':'Máscara de sub-rede','2504':'Gateway','396':'O número de máscara de sub-rede introduzido é inválido.','1231':'O gateway é inválido!','1361':'Endereço IP inválido, o primeiro número deve situar-se entre 1 e 254.','1800':'O endereço IP e a máscara de sub-rede não coincidem.','':null});

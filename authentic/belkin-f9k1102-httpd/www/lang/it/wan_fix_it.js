@@ -1,0 +1,2 @@
+
+LangM.push({'759':'Per inserire le tue impostazioni IP statiche, digita le informazioni in basso e fai clic su \"Salva\"','760':'Indirizzo IP','761':'Maschera di sottorete','762':'Indirizzo gateway dell\'ISP','754':'Fai clic qui per inserire le tue impostazioni DNS','':null});

@@ -1,0 +1,2 @@
+
+LangM.push({'709':'Geben Sie die Daten für die dynamische IP unten ein, und klicken Sie auf „Speichern“.','710':'Hostname','711':'Hostname = Name, den manche Internetprovider für die Verbindung mit Ihrem System verlangen.','712':'WAN MAC-Adresse ändern','':null});

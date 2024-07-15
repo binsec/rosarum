@@ -1,0 +1,2 @@
+
+LangM.push({'3':'Oturum Aç','408':'Ayarları değiştirmeden önce şifre ile oturum açmanız gerekir. Henüz özel bir şifre belirlemediyseniz, bu alanı boş bırakarak \"Gönder\" düğmesini tıklatın.','409':'Parola','410':'Varsayılan = boş bırakılır','412':'Gönder','1371':'Yanlış şifre','1372':'Lütfen şifrenizi doğrulayın ve tekrar deneyin.','':null});

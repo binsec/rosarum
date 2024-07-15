@@ -1,0 +1,2 @@
+
+LangM.push({'121':'<b>FONCTION ÉVOLUÉE! </b> Vous pouvez configurer le routeur pour qu’il ne réponde pas aux signaux ping ICMP (sur le port WAN), augmentant ainsi le niveau de sécurité.','1076':'Bloquer Ping ICMP','':null});

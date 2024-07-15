@@ -1,0 +1,2 @@
+
+LangM.push({'721':'O separador Internet/WAN é o local onde poderá configurar o seu router para se ligar ao seu fornecedor de serviço de Internet. O router é capaz de aceder a praticamente qualquer sistema fornecedor de serviço de Internet desde que tenha configurado corretamente as definições do router no que respeita ao tipo de ligação do seu ISP. Para configurar o router de modo a estabelecer ligação com o seu ISP, faça clique sobre \"Tipo de ligação\" no separador Internet/WAN, do lado esquerdo do ecrã.','722':'Tipos de ligação possíveis:','':null});

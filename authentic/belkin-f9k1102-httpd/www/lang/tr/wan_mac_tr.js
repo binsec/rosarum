@@ -1,0 +1,2 @@
+
+LangM.push({'669':'Geçersiz MAC adresi, boş adres','715':'Ağınız üstündeki her aygıtın onu ağdaki diğer aygıtlara ve internete tanıtan benzersiz bir donanım adresi (MAC adresi) vardır.  Birkaç internet servis sağlayıcısı (ISS) ağ kartınızdan ya da eski yönlendiricinizden gelen MAC adresini yönlendirici ayarlarınıza yazmanızı gerektirir. Emin değilseniz, yönlendiriciyi yüklemeden önce başlangıçta modeme bağlı olan bilgisayarın MAC adresini girin.','716':'WAN MAC Adresi','717':'Bilgisayarın MAC Adresini Klonla','718':'Klonla','902':'Geçersiz MAC adresi','':null});

@@ -1,0 +1,2 @@
+
+LangM.push({'3310':'Intellistream','3311':'Optimice su conexión de Internet.','3312':'Servidor de medios','3313':'Permita el uso compartido de medios entre dispositivos en la red.','3314':'Controles parentales','3315':'Filtros de seguridad DNS para seguridad en Internet','3316':'Conexión IPv6','3317':'Ahora, su red es compatible con IPv6','':null});

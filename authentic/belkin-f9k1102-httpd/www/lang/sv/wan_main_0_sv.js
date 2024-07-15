@@ -1,0 +1,2 @@
+
+LangM.push({'721':'På fliken Internet/WAN konfigurerar du routern så att den kan anslutas till internetleverantören. Routern kan anslutas till i stort sett alla internetleverantörers system, såvida du har konfigurerat routerns inställningar korrekt enligt internetleverantörens anslutningstyp. Du konfigurerar routern för anslutning till internetleverantören genom att klicka på ”Anslutningstyp” på fliken Internet/WAN till vänster på skärmen.','722':'Anslutningstyper som stöds:','':null});

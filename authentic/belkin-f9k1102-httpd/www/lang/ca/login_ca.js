@@ -1,0 +1,2 @@
+
+LangM.push({'3':'Connexion','408':'Avant de pouvoir modifier quelque paramètre, vous devez vous connecter en entrant un mot de passe. Si vous n\'avez pas encore défini de mot de passe, laissez ce champ en blanc et cliquez sur « Soumettre ».','409':'Mot de passe','410':'Valeur par défaut = laisser en blanc','412':'Soumettre','1371':'Mot de passe incorrect','1372':'Veuillez confirmer votre mot de passe et essayer de nouveau.','':null});

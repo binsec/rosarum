@@ -1,0 +1,2 @@
+
+LangM.push({'p600t001':'Besök din routers sida med valfri mjukvara för att hämta liknande mjukvara för dina andra datorer och mobila enheter.','p600t002':'Tack - jag vill komma till dashboard','p600t003':'Valfri mjukvara','p600t004':'Dessa mjukvaruverktyg kan hjälpa dig använda routerns avancerade funktioner. Det finns nedladdningar för Apple iOS, Android, Windows och OS X.','p601t001':'Tack för registreringen!','':null});

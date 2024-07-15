@@ -1,0 +1,2 @@
+
+LangM.push({'2501':'Ange följande konfigurationsparametrar','2502':'Nätverksadress','2503':'Nätmask','2504':'Gateway','396':'Det angivna nätmasknumret är ogiltigt.','1231':'Gateway är ogiltig!','1361':'Ogiltig IP-adress. Det första talet ska vara mellan 1 och 254.','1800':'IP-adressen och nätmasken matchar inte.','':null});

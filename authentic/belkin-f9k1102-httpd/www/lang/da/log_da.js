@@ -1,0 +1,2 @@
+
+LangM.push({'124':'Routeren beholder en logfil med al aktiviteten i routeren, såsom computere, som har logget på og af og evt. forsøg fra internettet på at få adgang til routeren.','125':'Logfil','126':'Gem','127':'Slet','1302':'Systemlogfil','1303':'Firewall-logfil','':null});

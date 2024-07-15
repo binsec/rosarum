@@ -1,0 +1,2 @@
+
+LangM.push({'3':'Login','408':'Para poder alterar as configurações, é preciso fazer login com uma senha. Se ainda não tiver definido uma senha personalizada, deixe este campo em branco e clique em \"Enviar\".','409':'Senha','410':'Padrão = deixar em branco','412':'Enviar','1371':'Senha incorreta','1372':'Confirme sua senha e tente novamente.','':null});

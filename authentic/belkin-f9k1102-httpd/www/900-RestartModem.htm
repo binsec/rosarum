@@ -1,0 +1,34 @@
+<!DOCTYPE html><!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7"lang="en"><![endif]--><!--[if IE 7]><html class="no-js lt-ie9 lt-ie8"lang="en"><![endif]--><!--[if IE 8]><html class="no-js lt-ie9"lang="en"><![endif]--><!--[if gt IE 8]><!--><html lang="en"class="gt-ie8"><!--<![endif]--><head> <meta charset="utf-8"/><meta name="viewport"content="width=device-width"/> <title>Welcome to Belkin Router Setup</title><link rel="icon"href="images/favicon/favicon.ico"><link rel="apple-touch-icon-precomposed"sizes="144x144"href="images/favicon/belkin_144.png"><link rel="apple-touch-icon-precomposed"sizes="114x114"href="images/favicon/belkin_114.png"><link rel="apple-touch-icon-precomposed"sizes="72x72"href="images/favicon/belkin_72.png"><link rel="apple-touch-icon-precomposed"href="images/favicon/belkin_57.png"> <link rel="stylesheet"href="stylesheets/app.css?t=20140212"> <!--[if lt IE 9]> <link rel="stylesheet"href="stylesheets/ie.css"> <![endif]--><script>var LangJ=["comm","900"];var CGIs=[];G_stp=1;G_NO_APPLY=1;G_NO_LOGIN=1;G_NO_WAN_ST=1;G_BBS=1;</script><script src="javascripts/init.js"></script><script src="javascripts/jquery.min.js"></script><script src="javascripts/app.js"></script></head><body style="display:none"id="mainbody"> <script><%CGI_INCLUDE(javascripts/header.js);%></script><% CGI_INCLUDE(900-contents.htm);%><script>/*JS_PACKER*/
+
+var tm_900;var WAIT_TOO_LONG=0;var begin_t=0;function pre_init(){LoadModalPage('GUI901','901.htm','#p901');LoadModalPage('GUI902','902.htm','#p902');LoadModalPage("GUI903","903.htm","#p903",function(){$('#p903a003').click(function(){show_901();setTimeout(function(){begin_t=new Date();WAIT_TOO_LONG=0;},3*1000);});$('#p903a004').click(function(){return Show_SUPP2();});});LoadModalPage("GUI904","904.htm","#p904",function(){$('#p904a003').click(function(){begin_t=new Date();WAIT_TOO_LONG=0;return show_902();});$('#p904a004').click(function(){return Show_SUPP1();});});LoadModalPage('GUI905','905.htm','#p905');LoadContainerPage("GUISupport1","Support1.htm",function(){$('#Support1TryAgain').click(function(){HiddenObject("GUISupport1");begin_t=new Date();WAIT_TOO_LONG=0;show_902();setTimeout("wait_show_905()",1000*3);detect_WAN();});});LoadContainerPage("GUISupport2","Support2.htm",function(){$('#Support2TryAgain').click(function(){HiddenObject("GUISupport2");begin_t=new Date();WAIT_TOO_LONG=0;Show_SUPP2();show_901();detect_WAN();setTimeout("wait_show_902()",1000*3);});});}
+function init(){ShowMainBody();detect_WAN();var tg=GetTagObj();if(tg.is("#902")){begin_t=new Date();WAIT_TOO_LONG=0;setTimeout("show_902()",1000*3);setTimeout("wait_show_905()",1000*3);}else if(tg.is("#901")){begin_t=new Date();WAIT_TOO_LONG=0;show_901();setTimeout("wait_show_902()",1000*3);}
+else{begin_t=new Date();WAIT_TOO_LONG=0;dev_debug("waing modem dis-appear!");setTimeout("wait_show_902()",3*1000);}
+setTimeout(JumpISPTest,1000);}
+var isBoot;function wait_show_902(){var end_t=new Date();var diff=Math.floor((end_t-begin_t)/1000);if(G_WAN_CABLE==0){begin_t=new Date();show_902();isBoot=1;setTimeout("wait_show_905()",3*1000);}else{if((diff>60)&&(WAIT_TOO_LONG==0)){WAIT_TOO_LONG++;begin_t=new Date();dev_debug("wait dis-appear after 60s");show_903();}
+if(diff>120){dev_debug("wait dis-appear after 120s");return Show_SUPP2();}
+setTimeout("wait_show_902()",1000*2);}}
+function Show_GUI900(_cb){ShowContainerInfo('p900');CloseModalURL();begin_t=new Date();WAIT_TOO_LONG=0;setTimeout(_cb,50);return false;}
+function show_901(){HiddenObject('waitploader');ShowModalInfo('GUI901');}
+function show_902(){HiddenObject('waitploader');dev_debug("waing modem appear!");ShowModalInfo('GUI902');}
+function wait_show_905(){var end_t=new Date();var diff=Math.floor((end_t-begin_t)/1000);if(G_WAN_CABLE==1){return show_905();}
+if((diff>60)&&(WAIT_TOO_LONG==0)){begin_t=new Date();WAIT_TOO_LONG++;dev_debug("wait modem appear after 30s");show_904();}
+if(diff>120){dev_debug("wait modem  appear after 120s");return Show_SUPP1();}
+setTimeout("wait_show_905()",1000*2);}
+function show_903(){HiddenObject('waitploader');ShowModalInfo('GUI903');}
+function show_904(){HiddenObject('waitploader');ShowModalInfo('GUI904');}
+function load_701(){LoadModalPage("GUI701","701.htm","#p701");loadpage_task();}
+function Show_SUPP1(){window.scrollTo(0,0);CloseModalURL();ShowContainerInfo('GUISupport1');clearTimeout(tm_900);return false;}
+function Show_SUPP2(){window.scrollTo(0,0);CloseModalURL();ShowContainerInfo('GUISupport2');clearTimeout(tm_900);return false;}
+function load_200(){LoadModalPage("GUI200","200.htm","#p200");loadpage_task();}
+function JumpISPTest(){var tg=GetUIObj();if(tg.is("#200"))
+load_200();else
+{load_701();}}
+var G_WAN_CABLE=-1;function detect_WAN(){getWANConnectST(function(st,wanst){var cable=wanst.cable;if(cable==0){G_WAN_CABLE=0;}else{G_WAN_CABLE=1;}
+tm_900=setTimeout("detect_WAN()",2*1000);},function(){tm_900=setTimeout("detect_WAN()",2*1000);});}
+function jump_210(){return JumpTo("210-PPPoECredentials.htm");}
+function jump_220(){return JumpTo("220-PPTPCredentials.htm");}
+function jump_300(){return JumpTo("300-CheckingFirmware.htm");}
+function jump_700(){return JumpTo('700-SelectConnection.htm');}
+function jump_900(){return JumpTo('900-RestartModem.htm');}
+/*END_JS_PACKER*/
+</script> <script><%CGI_INCLUDE(javascripts/footer.js);%></script>

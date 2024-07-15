@@ -1,0 +1,2 @@
+
+LangM.push({'3':'Logga in','408':'Innan du kan ändra några inställningar måste du logga in med ett lösenord. Om du inte har ställt in ett eget lösenord än lämnar du fältet tomt och klickar på ”Skicka”.','409':'Lösenord','410':'Standard = lämna tomt','412':'Skicka','1371':'Fel lösenord','1372':'Bekräfta lösenordet och försök igen.','':null});

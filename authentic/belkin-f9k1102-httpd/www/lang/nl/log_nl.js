@@ -1,0 +1,2 @@
+
+LangM.push({'124':'De router houdt een logboek bij van alle activiteiten binnen de router zoals het aan- en afmelden van computers en alle pogingen vanuit het internet om toegang te krijgen tot uw computer.','125':'Logbestand','126':'Opslaan','127':'Wissen','1302':'Systeemlogbestand','1303':'Firewall-logbestand','':null});

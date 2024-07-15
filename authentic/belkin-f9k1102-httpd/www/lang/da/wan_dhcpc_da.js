@@ -1,0 +1,2 @@
+
+LangM.push({'709':'Indtast din information nedenfor og klik på \"Gem\" for at indtaste dine indstillinger for Dynamisk IP.','710':'Værtsnavn','711':'Værtsnavn = Et navn, som visse internetudbydere kræver for at man kan oprette forbindelse til deres system.','712':'Ændr WAN MAC-adresse','':null});

@@ -1,0 +1,2 @@
+
+LangM.push({'55':'Laiteohjelmiston tiedot','56':'Tälle reitittimelle ei ole tarjolla laiteohjelmiston päivitystä!','57':'Ei voi luoda yhteyttä laiteohjelmiston tietopalvelimeen. Tarkista WAN-yhteys.','58':'Nykyinen laiteohjelma:','59':'Lataa laiteohjelma:','':null});

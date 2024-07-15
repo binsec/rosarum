@@ -1,0 +1,2 @@
+
+LangM.push({'75':'ZO','76':'MA','77':'DI','78':'WO','79':'DO','80':'VR','81':'ZA','301':'Uw router wordt wekelijks opnieuw opgestart voor een probleemloos netwerk.','302':'Router automatisch initialiseren','303':'Dagen instellen','304':'Tijd instellen','':null});

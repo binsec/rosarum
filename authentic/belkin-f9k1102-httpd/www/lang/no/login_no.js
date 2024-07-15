@@ -1,0 +1,2 @@
+
+LangM.push({'3':'Logg inn','408':'Du må logge inn med et passord før du kan endre instillinger. Hvis du ikke har angitt et tilpasset passord ennå, kan du la feltet være tomt og klikke Send inn.','409':'Passord','410':'Standardinnstilling = la feltet stå tomt','412':'Send inn','1371':'Feil passord','1372':'Kontroller passordet og prøv igjen.','':null});

@@ -1,0 +1,2 @@
+
+LangM.push({'2501':'Inserisci i seguenti parametri di configurazione','2502':'Indirizzo di rete','2503':'Maschera di sottorete','2504':'Gateway','396':'Il numero inserito per la maschera di sottorete non è valido.','1231':'Il gateway non è valido','1361':'Indirizzo IP non valido, il primo numero deve essere compreso tra 1 e 254.','1800':'L\'indirizzo IP e la maschera di sottorete non corrispondono.','':null});

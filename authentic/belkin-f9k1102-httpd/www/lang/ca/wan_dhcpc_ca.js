@@ -1,0 +1,2 @@
+
+LangM.push({'709':'Pour définir votre adresse IP dynamique, tapez vos coordonnées ci-dessous et cliquez sur « Enregistrer ».','710':'Nom d’hôte','711':'Nom d’hôte = Nom que certains fournisseurs de services Internet exigent pour se connecter à leur système.','712':'Modifier l’adresse MAC WAN','':null});

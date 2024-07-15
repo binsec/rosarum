@@ -1,0 +1,2 @@
+
+LangM.push({'75':'DOM','76':'SEG','77':'TER','78':'QUA','79':'QUI','80':'SEX','81':'SÁB','301':'Isto reinicia o seu router numa base semanal, para ter uma rede mais livre de problemas.','302':'Inicializar automaticamente o meu router','303':'Definir dias','304':'Definir hora','':null});

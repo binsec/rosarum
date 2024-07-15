@@ -1,0 +1,2 @@
+
+LangM.push({'3':'Connexion','408':'Avant d\'apporter des modifications, vous devez vous connecter avec votre mot de passe. Si vous n\'avez pas encore créé de mot de passe personnalisé, laissez ce champ vide et cliquez sur « Soumettre ».','409':'Mot de passe','410':'Par défaut = laisser vide','412':'Soumettre','1371':'Mot de passe incorrect','1372':'Veuillez confirmer le mot de passe et essayez à nouveau.','':null});

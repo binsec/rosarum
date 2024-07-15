@@ -1,0 +1,2 @@
+
+LangM.push({'533':'If your router begins working improperly, it may be necessary to restart or reboot the router. Restarting the router will not delete your settings.','534':'Restart Router','535':'Are you sure you want to restart the Router? Restarting the Router will not affect your configuration','536':'Allow up to $s seconds for the Router to restart. Do not power down the Router before reset completes.','':null});

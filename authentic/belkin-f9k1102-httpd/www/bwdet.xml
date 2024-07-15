@@ -1,0 +1,1 @@
+<status><bw_det> <![CDATA[aryBwrst=["<% CFG_GET(QOS_EN);%>","<% CFG_GET(BWDET_REC);%>","<% CFG_GET(STS_BWDET_TMP);%>"];]]> </bw_det></status>

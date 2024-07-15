@@ -1,0 +1,2 @@
+
+LangM.push({'55':'Bellenim Bilgisi.','56':'Bu Yönlendirici için yeni bellenim güncelleştirmesi yok!','57':'Bellenim bilgi sunucusu ile bağlantı kurulamıyor, WAN bağlantısını lütfen yeniden kontrol edin.','58':'Geçerli donanım yazılımı:','59':'Karşıdan yüklenecek donanım yazılımı:','':null});

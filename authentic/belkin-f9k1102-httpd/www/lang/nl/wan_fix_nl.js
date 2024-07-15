@@ -1,0 +1,2 @@
+
+LangM.push({'759':'Typ om uw statische IP-instellingen in te voeren hieronder uw informatie en klik op \"Opslaan\".','760':'IP-adres','761':'Subnetmasker','762':'Gateway-adres van uw ISP','754':'Klik hier om uw DNS-instellingen in te voeren','':null});

@@ -1,0 +1,10 @@
+<div class="main container"id="p950"><div class="row"> <div class="eight columns"> <div class="ancillary warning"> <h6 tid="p950t001"></h6> <ul class="disc"> <li tid="p950t002"></li> <li tid="p950t003"></li> </ul> </div> </div> </div> <div class="row"> <div class="content eight columns"><h1 tid="p950t004"></h1> <p class="lead"tid="p950t005"></p> <p tid="p950t006"></p> <ol> <li tid="p950t007"></li> <li tid="p950t008"></li> </ol> <br> <p tid="p950t009"></p> <img style="margin-bottom:20px;"src="images/troubleshooting/checkWires.png"alt="Check Wires"> <div id="waitploader"class="panel loader"> <h4><img class="loader"src="images/loading.gif"alt="Loading"><strong tid="p950t010"></strong></h4> </div> </div><div class="sidebar four columns"> <div> <h6 tid="p950t011"></h6> <p><span tid="p950t012"></span> <span class="nub"></span></p> </div> </div></div></div><script>/*JS_PACKER*/
+
+addLang("950");function Show_GUI950(){ShowContainerInfo('GUI950');CloseModalURL();cable_chk_count=0;try_flow=0;if(det_timer){clearTimeout(det_timer);}
+det_timer=setTimeout("WANCable_detect()",2*1000);return false;}
+var cable_chk_count=0;var try_flow=0;var det_timer=null;function WANCable_detect(){DisplayObject('waitploader');getWANConnectST(function(st,wanst){if((wanst.cable==0)||st==WAN_ST_CABLE_ERR){if(cable_chk_count++>15){dev_debug("Cable detect over: 30s");if(try_flow++==0){cable_chk_count=0;Show_GUI951();}else{return Show_SUPP3();}}}else{return show_905();}
+det_timer=setTimeout("WANCable_detect()",2*1000);},function(){det_timer=setTimeout("WANCable_detect()",2*1000);});}
+function Show_GUI951(){HiddenObject('waitploader');window.scrollTo(0,0);ShowModalInfo('GUI951');}
+function Show_SUPP3(){window.scrollTo(0,0);CloseModalURL();ShowContainerInfo('GUISupport3');return false;}
+/*END_JS_PACKER*/
+</script>

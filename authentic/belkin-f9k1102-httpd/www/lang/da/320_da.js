@@ -1,0 +1,2 @@
+
+LangM.push({'p320t001':'Installerer ny firmware.','gtUpdateNoPower':'Vi opdaterer din router med den nye firmware. Sluk ikke, mens det er i gang.','p320t002':'Når den nye firmware er blevet anvendt, vil vi genstarte din router for at fuldføre installationen.','p320t003':'Det vil tage omkring tre minutter. Status for opdatering:','p320t004':'Hvad er firmware?','p320t005':'Firmware er den software, som kører din router. Vi opdaterer firmware for at forbedre din routers ydeevne, så det er godt at sørge for, at du har den nyeste.','':null});

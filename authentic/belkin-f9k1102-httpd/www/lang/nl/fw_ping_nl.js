@@ -1,0 +1,2 @@
+
+LangM.push({'121':'<b>GEAVANCEERDE FUNCTIE! </b> U kunt de router zo configureren dat hij niet reageert op een ICMP-ping (ping naar de WAN-poort). Hierdoor bent u beter beschermd.','1076':'ICMP-ping blokkeren','':null});

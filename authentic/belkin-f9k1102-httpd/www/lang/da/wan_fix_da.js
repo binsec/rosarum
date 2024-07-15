@@ -1,0 +1,2 @@
+
+LangM.push({'759':'Indtast din information nedenfor og klik på \"Gem\" for at indtaste dine indstillinger for Statisk IP.','760':'IP-adresse','761':'Undernetmaske','762':'ISP gateway-adresse','754':'Klik her for at indtaste dine DNS-indstillinger','':null});

@@ -1,0 +1,10 @@
+<div id="p711"class="large reveal-modal"> <h1><span tid="p711t001"></span>&hellip;</h1> <p class="waiting"><img width="28"src="images/loading.gif"alt="Loading"><span tid="p711t002"></span></p></div><script>/*JS_PACKER*/var icc_trying=0;var flow_try=0;function detect_WAN(flag){var CUR_CLK=new Date();if(flag){G_CLK_S=new Date();icc_trying=0;}
+G_CLK_WAIT=Math.floor((CUR_CLK-G_CLK_S)/1000);getWANConnectST(function(st,wanst){if(st==WAN_ST_CABLE_ERR){dev_debug("Fix IP WAN cable disconnected");st=WAN_ST_ICC_ERR;icc_trying=11;}
+if(st==WAN_ST_CONNECTED){return jump_300();}
+if((G_CLK_WAIT>FIX_DETECT_TIME)||(wanst.trylink>FIX_DETECT_TIME)){dev_debug("Static IP detect timeout after "+G_CLK_WAIT+"("+FIX_DETECT_TIME+")");st=WAN_ST_ICC_ERR;icc_trying=11;}
+if(st==WAN_ST_ICC_ERR){if(icc_trying==0){G_CLK_S=new Date();CUR_CLK=new Date();G_CLK_WAIT=0;}
+if(icc_trying++>10)
+{if((flow_try++)!=0){dev_debug("Fix IP ICC fail but reboot modem before");return ISPJump("ISP6.htm");}
+dev_debug("DHCP ICC fail but not reboot modem yet");return show_712();}}
+setTimeout("detect_WAN(0)",2*1000);},function(){setTimeout("detect_WAN(0)",2*1000);});}
+/*END_JS_PACKER*/</script>

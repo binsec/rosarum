@@ -1,0 +1,2 @@
+
+LangM.push({'75':'SØN','76':'MAN','77':'TIR','78':'ONS','79':'TOR','80':'FRE','81':'LØR','301':'Dette gjør omstart på ruteren hver uke for et mer problemfritt nettverk.','302':'Initialiser ruteren automatisk','303':'Angi dager','304':'Angi tidspunkt','':null});

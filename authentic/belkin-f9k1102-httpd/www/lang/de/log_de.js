@@ -1,0 +1,2 @@
+
+LangM.push({'124':'Der Router protokolliert alle routerinternen Aktivitäten wie das An- und Abmelden von Computern und Versuche aus dem Internet, auf den Router zuzugreifen.','125':'Protokolldatei','126':'Speichern','127':'Löschen','1302':'Systemprotokoll','1303':'Firewall-Protokoll','':null});

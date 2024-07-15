@@ -1,0 +1,2 @@
+
+LangM.push({'709':'Typ om uw dynamische IP-instellingen in te voeren hieronder uw informatie en klik op \"Opslaan\".','710':'Hostnaam','711':'Hostnaam = Een naam die sommige ISP\'s eisen om verbinding toe te staan met hun systeem.','712':'WAN MAC-adres wijzigen','':null});

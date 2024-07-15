@@ -1,0 +1,2 @@
+
+LangM.push({'721':'La pestaña Internet/WAN es donde configurará su router para conectar con su proveedor de servicios de internet (ISP). El router es capaz de conectarse al sistema de prácticamente cualquier proveedor de servicios de internet siempre que hayan sido configurados correctamente los ajustes del router para su tipo de conexión al ISP. Para configurar el router para que se conecte a su ISP, haga clic sobre «Tipo de conexión», en la pestaña Internet/WAN en la parte izquierda de la pantalla.','722':'Tipos de conexión compatibles:','':null});

@@ -1,0 +1,47 @@
+div {font-family:"HelveticaNeue","Helvetica Neue",Helvetica,Arial,"Lucida Grande",sans-serif;font-size:7pt;-webkit-font-smoothing:antialiased;
+}
+h1 {font-size:12pt;}
+.text7 {font-size: 7pt;}
+.pad2 {padding: 2px 0px;}
+.pad4 {padding: 4px 0px;}
+
+.pad-w-img {padding: 4px 0px 6px 34px;margin-top: -1px;}
+.rel {position:relative;}
+.abs {position:absolute;}
+.left {float:left;}
+.center {margin:auto;}
+.right {float:right;}
+.tcenter {text-align:center;}
+.servCardPanel {width:185mm; height:43mm; border: solid 1px #ddd; -moz-border-radius:8mm; -webkit-border-radius:8mm; -o-border-radius:8mm; border-radius:8mm;}
+.rot270 {transform:rotate(270deg);
+	-ms-transform:rotate(270deg); /* IE 9 */
+	-moz-transform:rotate(270deg); /* Firefox */
+	-webkit-transform:rotate(270deg); /* Safari and Chrome */
+	-o-transform:rotate(270deg); /* Opera */
+}
+.roundTop2 {
+	-moz-border-top-left-radius:2mm; -webkit-border-top-left-radius:2mm; -o-border-top-left-radius:2mm; border-top-left-radius:2mm;
+	-moz-border-top-right-radius:2mm; -webkit-border-top-right-radius:2mm; -o-border-top-right-radius:2mm; border-top-right-radius:2mm;
+}
+.roundUR {
+	-moz-border-top-right-radius:2mm; -webkit-border-top-right-radius:2mm; -o-border-top-right-radius:2mm; border-top-right-radius:2mm;
+}
+.roundBR {
+	-moz-border-bottom-right-radius:2mm; -webkit-border-bottom-right-radius:2mm; -o-border-bottom-right-radius:2mm; border-bottom-right-radius:2mm;
+}
+X.netInfo {
+	background-color: #e0e0e0;
+}
+.top5 {top:5mm;}
+.top9 {top:9mm;}
+div.buttons a {margin:6mm 4mm 0mm;}
+
+.buttons {text-align:center;}
+.servCardInfo img {height: 18px;}
+.servCardInfo .netInfo:first-child {border-bottom:solid 1px #555;}
+.img_pad {width:50px;}
+
+@media print
+{
+  .button {display:none;}
+}

@@ -1,0 +1,2 @@
+
+LangM.push({'p300t001':'Søger efter firmwareopdateringer.','p300t002':'Vi kontrollerer om der er opdateret firmware tilgængelig til din nye router','p300t003':'Hvorfor har jeg brug for den nyeste firmware?','p300t004':'Firmware er den software, som din router bruger til at implementere netværks- og sikkerhedsprotokoller. Opdateringer forbedrer pålidelighed og funktionalitet af routeren, så det er godt at sørge for, at du har den nyeste.','p300t005':'Nu du er online.','':null});

@@ -1,0 +1,2 @@
+
+LangM.push({'744':'Account PPTP','745':'Password','746':'Conferma password','747':'Nome host','1770':'IP assegnato dall\'ISP','1771':'Sì','1772':'No','1773':'Indirizzo del servizio','330':'Indirizzo IP','750':'Maschera di sottorete','338':'Gateway predefinito','736':'Disconnetti dopo','737':'minuti di inattività.','754':'Fai clic qui per inserire le tue impostazioni DNS','738':'Il valore digitato per l\'intervallo di inattività non è valido. Il numero deve essere un\'unità intera compresa tra 1 e 99.','':null});

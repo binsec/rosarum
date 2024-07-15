@@ -1,0 +1,2 @@
+
+LangM.push({'759':'To enter your Static IP settings, type in your information below and click \"Save\".','760':'IP Address','761':'Subnet Mask','762':'ISP Gateway Address','754':'Click here to enter your DNS Settings','':null});

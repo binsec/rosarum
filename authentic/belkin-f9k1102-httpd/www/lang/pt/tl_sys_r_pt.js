@@ -1,0 +1,2 @@
+
+LangM.push({'533':'Se o seu router começar a funcionar incorretamente, pode ser necessário reiniciar ou ligar/desligar o router. A reinicialização do router não apaga as suas definições.','534':'Reiniciar router','535':'Tem a certeza de que deseja reiniciar o router? A reinicialização do router não afeta as suas configurações','536':'Espere até $s segundos até que o router reinicie. Não desligue o router antes que a reinicialização esteja concluída.','':null});

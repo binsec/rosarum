@@ -1,0 +1,2 @@
+
+LangM.push({'117':'Ruteren er utstyrt med en brannmur som beskytter nettverket mot en lang rekke vanlige hackerangrep, deriblant angrep av typen Ping of Death (PoD) og Denial of Service (DoS). Du kan slå av brannmurfunksjonen om nødvendig. Å slå av brannmurbeskyttelsen betyr ikke at nettverket er helt ubeskyttet mot hackerangrep, men det anbefales at du lar brannmuren være på når det er mulig.','118':'Aktiver/deaktiver brannmur','':null});

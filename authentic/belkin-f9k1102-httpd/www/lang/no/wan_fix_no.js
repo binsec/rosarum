@@ -1,0 +1,2 @@
+
+LangM.push({'759':'Legg inn de statiske IP-innstillingene ved å skrive inn informasjonen nedenfor og klikke Lagre.','760':'IP-adresse','761':'Nettverksmaske','762':'ISP Gateway-adresse','754':'Klikk her for å skrive inn DNS-innstillingene','':null});

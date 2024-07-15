@@ -1,0 +1,2 @@
+
+LangM.push({'75':'DOM','76':'LUN','77':'MAR','78':'MER','79':'GIO','80':'VEN','81':'SAB','301':'Questa opzione riavvia il router ogni settimana per evitare che si verifichino problemi sulla rete.','302':'Inizializza automaticamente il router','303':'Imposta giorni','304':'Imposta ora','':null});

@@ -1,0 +1,2 @@
+
+LangM.push({'55':'Información del Firmware','56':'No hay actualizaciones nuevas del firmware para este enrutador.','57':'No hay conexión con el servidor de información del firmware; favor de volver a verificar la conexión WAN.','58':'Firmware actual:','59':'Descargar firmware:','':null});

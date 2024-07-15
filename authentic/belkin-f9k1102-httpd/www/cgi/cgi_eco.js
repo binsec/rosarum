@@ -1,0 +1,1 @@
+<%CFG_MAP(eco_en,ECO_EN);%><%CFG_MAP(eco_dim_icons,ECO_LED_DIM);%><%CFG_MAP(eco_start,ECO_START);%><%CFG_MAP(eco_end,ECO_END);%><%CFG_MAP(eco_days,ECO_DAYS);%><%CFG_MAP(eco_boot,ECO_REBOOT);%>

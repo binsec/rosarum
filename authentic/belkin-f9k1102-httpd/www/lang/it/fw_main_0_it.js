@@ -1,0 +1,2 @@
+
+LangM.push({'117':'Il router è dotato di una protezione firewall che salvaguarda la rete da una vasta gamma di comuni attacchi degli hacker, tra cui Ping of Death (PoD) e Denial of Service (DoS). Se necessario, puoi disattivare la funzione firewall. Disattivando la protezione firewall  la rete non rimarrà completamente vulnerabile agli attacchi degli hacker. Tuttavia, si consiglia di lasciare la protezione firewall attiva quando possibile.','118':'Abilita / Disabilita Firewall','':null});

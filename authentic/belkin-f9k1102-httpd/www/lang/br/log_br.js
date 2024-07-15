@@ -1,0 +1,2 @@
+
+LangM.push({'124':'O roteador mantém um registro de toda a atividade no roteador, como login e logout de computadores e quaisquer tentativas de acesso ao roteador a partir da Internet.','125':'Arquivo de registro','126':'Salvar','127':'Limpar','1302':'Registro do sistema','1303':'Registro de firewall','':null});

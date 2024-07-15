@@ -1,0 +1,2 @@
+
+LangM.push({'533':'Hvis ruteren begynner å gjøre feil, kan det være nødvendig å gjøre omstart på ruteren. Omstart på ruteren sletter ikke innstillingene dine.','534':'Start ruteren på nytt','535':'Er du sikker på at du vil starte ruteren på nytt? Starte ruteren på nytt påvirker ikke konfigurasjonen.','536':'Det kan ta opptil $s sekunder for ruteren å starte på nytt. Slå ikke av ruteren før tilbakestillingen er fullført.','':null});

@@ -1,0 +1,2 @@
+
+LangM.push({'p300t001':'Auf Firmware-Updates wird geprüft.','p300t002':'Wir prüfen, ob für Ihren neuen Router aktualisierte Firmware verfügbar ist.','p300t003':'Warum benötige ich die neueste Firmware?','p300t004':'Firmware ist die Software, die Ihr Router für die Implementierung von Netzwerk- und Sicherheitsprotokollen verwendet. Updates verbessern die Zuverlässigkeit und Funktionalität Ihres Routers, deshalb sollten Sie immer die Neusten haben.','p300t005':'Sie sind jetzt online.','':null});

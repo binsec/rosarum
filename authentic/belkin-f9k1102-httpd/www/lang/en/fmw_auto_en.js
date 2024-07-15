@@ -1,0 +1,2 @@
+
+LangM.push({'55':'Firmware Info.','56':'There is no new firmware update available for this Router!','57':'Cannot connect to the firmware information server,please double check the WAN connection.','58':'Current firmware:','59':'Download firmware:','':null});

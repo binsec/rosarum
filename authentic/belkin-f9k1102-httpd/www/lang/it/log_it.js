@@ -1,0 +1,2 @@
+
+LangM.push({'124':'Il router mantiene un registro di tutte le attività legate al router, tra cui le operazioni di login e logout e qualsiasi tentativo da parte di Internet di accedere al router.','125':'File di registro','126':'Salva','127':'Cancella','1302':'Registro del sistema','1303':'Registro del firewall','':null});

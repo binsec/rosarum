@@ -1,0 +1,15 @@
+<div id="p701"class="large reveal-modal"> <h1 tid="p701t001"></h1> <p class="waiting"><img width="28"src="images/loading.gif"alt="Loading"><span tid="p701t002"></span></p></div><form name="tF"></form><script>/*JS_PACKER*/addLang("700");addCGI("wan_dhcp","ipv6");function returnMain(st){ShowModalInfo('GUI701',function(){if(st==2)return setTimeout(function(){jump_300();},3000);do_DHCP(1);});}
+function Show_GUI701(chk_flag){ShowModalInfo('GUI701');do_DHCP(chk_flag);return false;}
+function do_DHCP(chk_flag){var f=document.tF;if(chk_flag&&(getCfgInt("wan_type")==0)){dev_debug("detect WAN connecting");$.post('/renewip.cgi',{CSRFID:mmm});setTimeout("detect_701(1)",5*1000);return;}
+setCfg("wan_type",0);dev_debug("set DHCP mode, IPV6 Auto-Config/DHCPv6");form2Cfg(f);return subForm({frm:f,cmd:"WAN_CONF,WAN_DISCON,WAN_CONN",wait:5,wizard:1,done:function(){dev_debug("detect WAN connecting");setTimeout("detect_701(1)",1000*5);}});}
+var icc_trying=0;var isBoot;function detect_701(flag){var CUR_CLK=new Date();if(flag){G_CLK_S=new Date();icc_trying=0;}
+G_CLK_WAIT=Math.floor((CUR_CLK-G_CLK_S)/1000);getWANConnectST(function(st,wanst){if(st==WAN_ST_CABLE_ERR){st=WAN_ST_ICC_ERR;icc_trying=11;}
+if(st==WAN_ST_CONNECTED){return jump_300();}
+if((st==WAN_ST_ICC_ERR)||(st==WAN_ST_DNS_ERR)){if(icc_trying==0){G_CLK_S=new Date();CUR_CLK=new Date();G_CLK_WAIT=0;}
+if(icc_trying++>15)
+{if(st==WAN_ST_DNS_ERR){st=WAN_ST_DNS_NULL;}else{dev_debug("DHCP ICC fail over: "+G_CLK_WAIT);SetUIObj('#700');return ISPJump("ISP2.htm");}}}
+if(st==WAN_ST_DNS_NULL){SetUIObj('#700');return ISPJump("ISP1.htm");}
+if((G_CLK_WAIT>DHCP_NO_OFFER_WAIT)&&((wanst.session<DHCP_OFFER_CODE)||(wanst.trylink>DHCP_NO_OFFER_WAIT))){dev_debug("DHCP no response after "+G_CLK_WAIT+"("+DHCP_NO_OFFER_WAIT+")");G_CLK_WAIT=DHCP_DETECT_TIME+2;}
+if(G_CLK_WAIT>DHCP_DETECT_TIME){if(isBoot){dev_debug("reboot before");return ISPJump("ISP5.htm");}else{dev_debug("No reboot before");SetUIObj('#701');return jump_900();}}
+setTimeout("detect_701(0)",2*1000);},function(){setTimeout("detect_701(0)",2*1000);});}
+/*END_JS_PACKER*/</script>

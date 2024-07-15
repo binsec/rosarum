@@ -1,0 +1,2 @@
+
+LangM.push({'75':'DIM','76':'LUN','77':'MAR','78':'MER','79':'JEU','80':'VEN','81':'SAM','301':'Cette option permet de redémarrer votre routeur sur une base hebdomadaire afin d\'assurer un fonctionnement sans problème de votre réseau.','302':'Initialiser automatiquement mon routeur','303':'Définir les jours','304':'Définir l\'heure','':null});

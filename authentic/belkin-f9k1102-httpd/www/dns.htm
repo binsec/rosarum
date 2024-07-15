@@ -1,0 +1,30 @@
+<!DOCTYPE html><!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7"lang="en"> <![endif]--><!--[if IE 7]> <html class="no-js lt-ie9 lt-ie8"lang="en"> <![endif]--><!--[if IE 8]> <html class="no-js lt-ie9"lang="en"> <![endif]--><!--[if gt IE 8]><!--><html lang="en"class="gt-ie8"><!--<![endif]--><!--[if IE]><html xmlns="http://www.w3.org/1999/xhtml"xmlns:v><![endif]--><head><meta charset="utf-8"/><meta name="viewport"content="width=device-width"/><title></title> <link rel="icon"href="images/favicon/favicon.ico"><link rel="apple-touch-icon-precomposed"sizes="144x144"href="images/favicon/belkin_144.png"><link rel="apple-touch-icon-precomposed"sizes="114x114"href="images/favicon/belkin_114.png"><link rel="apple-touch-icon-precomposed"sizes="72x72"href="images/favicon/belkin_72.png"><link rel="apple-touch-icon-precomposed"href="images/favicon/belkin_57.png"><link rel="stylesheet"href="stylesheets/app.css?t=20140212"><!--[if lt IE 9]><link rel="stylesheet"href="stylesheets/ie.css"><![endif]--><!--[if IE]><?import namespace="v"implementation="#default#VML"?><![endif]--><script>var LangJ=["menulist","help","dns","comm"];var CGIs=["dns","parent","wan"];</script><script src="javascripts/init.js"></script><script src="javascripts/jquery.min.js"></script><script src="javascripts/global.js"></script><script src="javascripts/app.js"></script><script src="javascripts/menu.js"></script></head><body style="display:none"id="mainbody"> <script><%CGI_INCLUDE(javascripts/main_header.js);%></script><script src="javascripts/routine.js"></script><div class="main container"> <div class="row"><div class="eight columns"><form class="nice"name="tF"action="/cgi-bin/setup_dns.exe"method="post"target="OUTfrm"><div class="row"> <div class="twelve columns"><br><br><p> <div id="dns_warn"></div><div id="dns_warn_str"style="display:none"tid="823"></div> </p><p><label class="has-more"><input type="checkbox"name="dns_mode"value="1"onClick="enableStatic()"NOCHECK="0"> <b><font tid="703"></font></b></span> </label> </p><p class="drop-ip"><label class="has-more"><b><font tid="704"></font></b></span></label> <span> <input name="dns1"size=3 maxlength=3 value=""> <input name="dns1"size=3 maxlength=3 value=""> <input name="dns1"size=3 maxlength=3 value=""> <input name="dns1"size=3 maxlength=3 value=""> </span> </p><p class="drop-ip"><label class="has-more"><b><font tid="705"></font></b></span></label> <span> <input name="dns2"size=3 maxlength=3 value=""> <input name="dns2"size=3 maxlength=3 value=""> <input name="dns2"size=3 maxlength=3 value=""> <input name="dns2"size=3 maxlength=3 value=""> </span> </p></div></div><br><a href="#save"class="nice radius medium green button"tid="49"onClick="return evaltF()"id="dnsapply"></a></form></div><div class="sidebar four columns"> <div><h6><span tid="htDNS"></span></h6> <p><span tid="702"></span>&nbsp;</p> <p><span tid="391"></span><span class="nub"></span></p> </div> </div></div></div><script>/*JS_PACKER*/
+
+var CHK_SECDNS=1;function evaltF(){var f=document.tF;var ips=[];var dns;var dns1=combinIP2(f.dns1);var dns2=combinIP2(f.dns2);var automod=getFieldIntVal(f.dns_mode);if(automod==0){for(var i=0;i<4;i++)ips[i]=getFieldValue(f.dns1[i]);if(isNValidRange(ips[0],1,223)){AlertM(1360);f.dns1[0].focus();return false;}
+if(isNValidRange(ips[1],0,255)){AlertM(1354);f.dns1[1].focus();return false;}
+if(isNValidRange(ips[2],0,255)){AlertM(1354);f.dns1[2].focus();return false;}
+if(isNValidRange(ips[3],1,254)){AlertM(675);f.dns1[3].focus();return false;}
+if(dns1=='127.0.0.1'){alert(getLangM(780)+" "+dns1+" "+getLangM(822));f.dns1[0].focus();return false;}
+if(dns2==''||dns2=='0.0.0.0'){dns2="";}else{for(var i=0;i<4;i++)ips[i]=getFieldValue(f.dns2[i]);if(isNValidRange(ips[0],1,223)){AlertM(1360);f.dns2[0].focus();return false;}
+if(isNValidRange(ips[1],0,255)){AlertM(1354);f.dns2[1].focus();return false;}
+if(isNValidRange(ips[2],0,255)){AlertM(1354);f.dns2[2].focus();return false;}
+if(isNValidRange(ips[3],1,254)){AlertM(675);f.dns2[3].focus();return false;}
+if(dns2=='127.0.0.1'){alert(getLangM(780)+" "+dns2+" "+getLangM(822));f.dns2[0].focus();return false;}}
+dns=dns1+" "+dns2+" ";var old_dns=getCfg("dns");if(old_dns!=dns)
+{setCfg("dns_manual",dns);}
+setCfg("dns_mode",automod);}
+else
+{setCfg("dns_mode",automod);}
+return subForm({frm:f,cmd:"DNS_CONF",wait:30});}
+function enableStatic(){var f=document.tF;var autodns=getFieldIntVal(f.dns_mode);for(var i=0;i<4;i++){if(autodns){ReadOnly(f.dns1[i]);ReadOnly(f.dns2[i]);}else{WriteAllow(f.dns1[i]);WriteAllow(f.dns2[i]);}}}
+function checkSecDNS(){var f=document.tF;var sec_en=getCfgInt("dns_type");var dns_sec=getCfg("dns_sec");dns_sec=dns_sec.split(" ");if(dns_sec.length==1)dns_sec[1]="";decomIP2(f.dns1,dns_sec[0]);decomIP2(f.dns2,dns_sec[1]);if(sec_en){var s=$("#dns_warn_str").html();s=s.replace('{','<a href="e100-WebsiteFilter.htm"><b><font>').replace('}','</font></b></a>');setIdVal("dns_warn",s);DisplayObject("dns_warn");for(var i=0;i<4;i++){ReadOnly(f.dns1[i]);ReadOnly(f.dns2[i]);}
+ReadOnly(f.dns_mode);DisableObject("dnsapply");}
+return sec_en;}
+function init(){var f=document.tF;var dns_ary=new Array();var dns_string=getCfg("dns_manual");var sec_dns=0;if(dns_string.length==0&&(dns_string=getCfg("dns")).length==0)
+dns_string="";dns_ary=dns_string.split(" ");if(typeof(dns_ary[1])=='undefined'||dns_ary[1]==null||dns_ary[1]==""||dns_ary[1]==" "){dns_ary[1]="";}
+if(CHK_SECDNS)
+sec_dns=checkSecDNS();if(!sec_dns){cfg2Form(f);if(getCfg("u_wan_type")=='1'){f.dns_mode.checked=false;f.dns_mode.disabled=true;}
+decomIP2(f.dns1,dns_ary[0]);decomIP2(f.dns2,dns_ary[1]);enableStatic();}
+ShowNavMenu();}
+/*END_JS_PACKER*/
+<%CGI_LOGIN_KEEP();%></script> <script><%CGI_INCLUDE(javascripts/main_footer.js);%></script>

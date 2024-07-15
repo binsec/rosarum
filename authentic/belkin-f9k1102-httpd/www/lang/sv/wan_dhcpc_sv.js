@@ -1,0 +1,2 @@
+
+LangM.push({'709':'Du anger dina dynamiska IP-inställningar genom att ange informationen nedan och klicka på ”Spara”.','710':'Värdnamn','711':'Värdnamn = ett namn som krävs av vissa internetleverantörer för anslutning till deras system.','712':'Ändra WAN-MAC-adress','':null});

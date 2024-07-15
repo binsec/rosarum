@@ -1,0 +1,2 @@
+
+LangM.push({'744':'Cuenta PPTP','745':'Contraseña','746':'Escriba de nuevo la contraseña','747':'Nombre del Host','1770':'Dirección IP asignada por el proveedor de servicio de Internet','1771':'Sí','1772':'No','1773':'Dirección de servicio','330':'Dirección IP','750':'Máscara de subred','338':'Puerta de enlace por defecto','736':'Desconectar después de','737':'minutos de inactividad.','754':'Haga clic aquí para introducir sus configuraciones DNS','738':'El valor de tiempo de inactividad que ingresó no es válido. El número debe ser un número entero entre 1 y 99.','':null});

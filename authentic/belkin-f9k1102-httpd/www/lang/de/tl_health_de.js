@@ -1,0 +1,2 @@
+
+LangM.push({'75':'SO','76':'MO','77':'DI','78':'MI','79':'DO','80':'FR','81':'SA','301':'Dadurch wird Ihr Router jede Woche neu gebootet. Dadurch macht Ihr Netzwerk weniger Probleme.','302':'Meinen Router automatisch starten','303':'Tage einstellen','304':'Zeit einstellen','':null});

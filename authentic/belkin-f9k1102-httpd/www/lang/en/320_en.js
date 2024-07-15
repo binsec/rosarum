@@ -1,0 +1,2 @@
+
+LangM.push({'p320t001':'Installing new firmware.','gtUpdateNoPower':'We\'re updating your router with the new firmware. Please don\'t turn off the power while this is happening.','p320t002':'Once the new firmware has been applied, we\'ll restart your router to complete the installation.','p320t003':'This will take three minutes or so. Update progress:','p320t004':'What is firmware?','p320t005':'Firmware is the software that runs your router. We update firmware to improve your router\'s performance, so it\'s good to make sure you have the latest.','':null});

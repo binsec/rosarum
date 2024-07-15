@@ -1,0 +1,2 @@
+
+LangM.push({'744':'PPTP-tili','745':'Salasana','746':'Kirjoita salasana uudelleen','747':'Isännän nimi','1770':'IP Internet-palveluntarjoajan antama','1771':'kyllä','1772':'Ei','1773':'Palvelun osoite','330':'IP-osoite','750':'Aliverkon peite','338':'Oletusyhdyskäytävä','736':'Katkaise yhteys','737':'minuuttia ilman toimintaa.','754':'Kirjoita DNS-asetukset napsauttamalla tätä.','738':'Kirjoittamasi käyttämättä oloaika ei kelpaa. Numeron on oltava kokonaisluku väliltä 1–99.','':null});

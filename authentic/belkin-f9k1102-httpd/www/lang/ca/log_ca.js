@@ -1,0 +1,2 @@
+
+LangM.push({'124':'Le routeur garde un relevé de toutes les activités liées au routeur, telles que la connexion ou déconnexion d\'ordinateurs, ou les tentatives d\'accès au routeur à partir d\'Internet.','125':'Fichier journal','126':'Enregistrer','127':'Effacer','1302':'Journal système','1303':'Journal du coupe-feu','':null});

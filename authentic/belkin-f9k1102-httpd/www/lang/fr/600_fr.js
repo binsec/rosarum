@@ -1,0 +1,2 @@
+
+LangM.push({'p600t001':'Visitez la page des Logiciels facultatifs de votre routeur pour télécharger un logiciel similaire pour vos autres ordinateurs et autres appareils mobiles.','p600t002':'Merci, amenez-moi au tableau de bord','p600t003':'Logiciels facultatif','p600t004':'Ces outils logiciels peuvent vous aider à tirer parti des fonctionnalités avancées de votre routeur. Il y a des fichiers à télécharger pour Apple iOS, Android, Windows et OS X.','p601t001':'Merci de vous être enregistré !','':null});

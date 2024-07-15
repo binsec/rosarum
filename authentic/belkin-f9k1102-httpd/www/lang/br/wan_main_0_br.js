@@ -1,0 +1,2 @@
+
+LangM.push({'721':'A guia Internet/WAN é onde você configura o Roteador para que se conecte com seu Provedor de Serviços da Internet. O Roteador pode se conectar com o sistema de praticamente qualquer Provedor de serviços da Internet (ISP), desde que as configurações do Roteador estejam corretas para o tipo de conexão do ISP. Para configurar o Roteador para conexão com seu ISP, clique em \"Tipo de conexão\" na guia Internet/WAN, localizada à esquerda da tela.','722':'Tipos de conexão compatíveis:','':null});

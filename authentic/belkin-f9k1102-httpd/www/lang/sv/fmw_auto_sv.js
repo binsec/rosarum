@@ -1,0 +1,2 @@
+
+LangM.push({'55':'Information om inbyggd programvara','56':'Det finns ingen ny uppdatering av den inbyggda programvaran för den här routern.','57':'Det går inte att ansluta till servern med information om inbyggd programvara. Kontrollera WAN-anslutningen.','58':'Aktuell inbyggd programvara:','59':'Ladda ner inbyggd programvara:','':null});

@@ -1,0 +1,2 @@
+
+LangM.push({'117':'Seu Roteador está equipado com um firewall que protegerá sua rede contra uma grande variedade de ataques comuns, que incluem Ping da morte (PoD) e Negação de serviço (DoS). É possível desligar a função de firewall, se necessário. Desligar a proteção do firewall não deixará sua rede totalmente vulnerável aos ataques de hackers, mas recomenda-se ligar o firewall sempre que possível.','118':'Ativação/desativação do firewall','':null});

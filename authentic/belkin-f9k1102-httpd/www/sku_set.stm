@@ -1,0 +1,1 @@
+<html> <head> <title>SKU</title> </head> <body> <form method="post"action="/cgi-bin/SKU_set.exe"> <table> <tr> <td><input type='hidden'name='CSRFID'value='<% CGI_SECTION_ID();%>'><input name="sku"value='<% CFG_GET(HW_SKU_ID);%>'maxlength="2"type="hidden"> </td> </tr> </table> </form> </body></html>

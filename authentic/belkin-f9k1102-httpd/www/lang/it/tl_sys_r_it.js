@@ -1,0 +1,2 @@
+
+LangM.push({'533':'Se il router non funziona correttamente, potrebbe essere necessario riavviare o resettare il router. Il riavvio del router non eliminerà le impostazioni','534':'Riavvia il router','535':'Sei sicuro di voler riavviare il router? Il riavvio del router non influenzerà la configurazione.','536':'Attendi $s secondi perché il router si riavvii. Non spegnere il router fino a quanto il reset non sarà terminato.','':null});

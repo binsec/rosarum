@@ -1,0 +1,2 @@
+
+LangM.push({'3':'Login','408':'Before you can change any settings, you need to login with a password. If you have not yet set a custom password, then leave this field blank and click \"Submit\".','409':'Password','410':'Default = leave blank','412':'Submit','1371':'Incorrect password','1372':'Please confirm your password and try again.','':null});

@@ -1,0 +1,2 @@
+
+LangM.push({'75':'SØN','76':'MAN','77':'TIRS','78':'ONS','79':'TORS','80':'FRE','81':'LØR','301':'Dette genstarter din router hver uge for at give dig et netværk uden problemer.','302':'Initialisér automatisk min router','303':'Indstil dage','304':'Stil tiden','':null});

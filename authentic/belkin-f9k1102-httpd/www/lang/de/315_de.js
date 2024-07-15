@@ -1,0 +1,2 @@
+
+LangM.push({'p315t001':'Neue Firmware wird heruntergeladen.','gtFreshest':'Wir rufen die neueste Version unserer Firmware ab...','p315t002':'Download-Vorgang:','p315t003':'Was ist Firmware?','p315t004':'Firmware ist die Software, mit der Ihr Router betrieben wird. Wir aktualisieren Firmware, um die Leistung Ihres Routers zu verbessern, deshalb sollten Sie die Neueste haben.','':null});

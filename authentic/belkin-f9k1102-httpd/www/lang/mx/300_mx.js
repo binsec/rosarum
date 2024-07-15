@@ -1,0 +1,2 @@
+
+LangM.push({'p300t001':'Verificando actualizaciones de firmware.','p300t002':'Estamos verificando que haya actualizaciones de firmware disponibles para su nuevo enrutador.','p300t003':'¿Por qué necesito la última versión del firmware?','p300t004':'El firmware es el software que usa el enrutador para implementar protocolos de red y de seguridad. Las actualizaciones mejoran la confiabilidad y la funcionalidad de su enrutador, por eso es bueno que usted se asegure de contar con la última versión.','p300t005':'Ara estàs en línia.','':null});

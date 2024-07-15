@@ -1,0 +1,2 @@
+
+LangM.push({'55':'Firmware-Info.','56':'Für diesen Router steht keine Firmware-Aktualisierung zur Verfügung.','57':'Kann keine Verbindung zum Firmware-Server herstellen; bitte überprüfen Sie die WAN-Verbindung.','58':'Aktuelle Firmware:','59':'Firmware herunterladen:','':null});

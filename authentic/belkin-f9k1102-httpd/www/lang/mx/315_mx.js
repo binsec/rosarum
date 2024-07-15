@@ -1,0 +1,2 @@
+
+LangM.push({'p315t001':'Descargando nuevo firmware.','gtFreshest':'Estamos descargando la versión más reciente de nuestro firmware.','p315t002':'Progreso de la descarga:','p315t003':'¿Qué es el firmware?','p315t004':'El firmware es el software que ejecuta su enrutador. Actualizamos el firmware para mejorar el desempeño de su enrutador, por eso es bueno que usted se asegure de contar con la última versión.','':null});

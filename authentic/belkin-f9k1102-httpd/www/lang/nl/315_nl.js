@@ -1,0 +1,2 @@
+
+LangM.push({'p315t001':'Nieuwe firmware downloaden.','gtFreshest':'We halen de laatste versie van onze firmware op¡­','p315t002':'Voortgang van het downloaden:','p315t003':'Wat is firmware?','p315t004':'Firmware is de software waarop uw router draait. We werken de firmware bij om de prestaties van uw router te verbeteren, dus het is goed om de laatste versie te hebben.','':null});

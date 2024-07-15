@@ -1,0 +1,2 @@
+
+LangM.push({'744':'PPTP-account','745':'Wachtwoord','746':'Wachtwoord opnieuw typen','747':'Hostnaam','1770':'IP toegekend door provider','1771':'Ja','1772':'Nee','1773':'Service-adres','330':'IP-adres','750':'Subnetmasker','338':'Standaard-gateway','736':'Verbinding verbreken na','737':'minuten zonder activiteit.','754':'Klik hier om uw DNS-instellingen in te voeren','738':'De ingevoerde waarde van de maximale inactieve tijd is ongeldig. Het getal moet een geheel getal tussen 0 en 100 zijn.','':null});

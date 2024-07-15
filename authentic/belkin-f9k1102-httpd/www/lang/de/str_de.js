@@ -1,0 +1,2 @@
+
+LangM.push({'2501':'Bitte geben Sie die folgenden Konfigurationsparameter ein','2502':'Netzwerkadresse','2503':'Subnetzmaske','2504':'Gateway','396':'Sie haben eine ungültige Zahl für die Subnetzmaske eingegeben.','1231':'Gateway ist ungültig!','1361':'Ungültige IP-Adresse; die erste Zahl muss zwischen 1 und 254 liegen.','1800':'Die IP-Adresse und die Subnetzmaske stimmen nicht überein.','':null});

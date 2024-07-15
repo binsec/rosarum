@@ -1,0 +1,2 @@
+
+var VS_LIST_MAX=20;var V_WAN_PORTS=0;var V_WAN_PORT_S=0;var V_WAN_PORT_E=1;var V_LAN_IP=1;var V_LAN_PORTS=2;var V_LAN_PORT_S=0;var V_LAN_PORT_E=1;var V_PROTO=3;var V_EN=4;var V_DESC=5;var TCP=6;var UDP=17;var BOTH=255;<%CFG_MAP_ARY(vs_lst,NAT_VTS+1,20,1);%>

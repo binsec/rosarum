@@ -1,0 +1,2 @@
+
+LangM.push({'533':'Om routern börjar fungera felaktigt kan det bli nödvändigt att starta om routern. Inställningarna försvinner inte om routern startas om.','534':'Starta om routern','535':'Vill du starta om routern? Konfigurationen påverkas inte av att routern startas om.','536':'Det kan ta upp till $s sekunder innan routern startar om. Stäng inte av routern innan återställningen har slutförts.','':null});

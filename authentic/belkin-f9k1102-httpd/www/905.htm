@@ -1,0 +1,7 @@
+<div id="p905"class="large reveal-modal"> <h1><span tid="p905t001"></span>&hellip;</h1> <p class="waiting"><img width="28"src="images/loading.gif"alt="Loading"><span tid="p905t002"></span></p></div><script>/*JS_PACKER*/addLang("900");function show_905(){window.scrollTo(0,0);ShowModalInfo('GUI905',function(){dev_debug("Waiting Modem is alive ... ");setTimeout("Check_ModemReady(1)",3*1000);});}
+var G_CLK_WAIT,G_CLK_S;function Check_ModemReady(flag){var CUR_CLK=new Date();if(flag){G_CLK_S=new Date();}
+G_CLK_WAIT=Math.floor((CUR_CLK-G_CLK_S)/1000);getWANConnectST(function(st,wanst){if(st==WAN_ST_CONNECTED){return returnMain(st);}
+if(G_CLK_WAIT>=60)
+return returnMain(st);setTimeout("Check_ModemReady(0)",2*100);},function(){if(G_CLK_WAIT>=60)
+return returnMain(st);setTimeout("Check_ModemReady(0)",2*100);});}
+/*END_JS_PACKER*/</script>

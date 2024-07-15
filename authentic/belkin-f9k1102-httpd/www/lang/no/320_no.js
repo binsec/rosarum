@@ -1,0 +1,2 @@
+
+LangM.push({'p320t001':'Installerer ny fastvare.','gtUpdateNoPower':'Vi oppdaterer ruteren med den nye fastvaren. Ikke slå av ruteren mens dette pågår.','p320t002':'Når den nye fastvaren er installert, starter vi ruteren på nytt for å fullføre installasjonen.','p320t003':'Dette skal ta cirka tre minutter. Oppdateringsforløp:','p320t004':'Hva er fastvare?','p320t005':'Fastvare er programvaren som kjører ruteren. Vi oppdaterer fastvaren for å forbedre ruterens ytelse, så det er bra å sørge for at du har den nyeste.','':null});

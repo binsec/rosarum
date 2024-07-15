@@ -1,0 +1,2 @@
+
+LangM.push({'404':'Lisää selaimen tilapalkin Osoite-kenttään manuaalisesti uusi LAN-osoite.','406':'Haluatko varmasti muuttaa LAN IP -osoitteen?','609':'LISÄTOIMINTO!','766':'Kirjoittamasi aliverkon peitteen numerot eivät kelpaa.','778':'Reititin voidaan määrittää toimimaan ainoastaan tukiasemana, ohittaen kaikki reititys- ja palomuuritoiminnot. Tee näin valitsemalla Ota käyttöön ja kirjoittamalla tukiasemalle valitsemasi IP-osoite.','779':'Tukiasematila:','780':'Määritä IP-osoite','781':'Määritä aliverkon peite','1240':'Lähiverkon IP-osoite ei kelpaa.','':null});

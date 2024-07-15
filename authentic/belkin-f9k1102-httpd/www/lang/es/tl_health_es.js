@@ -1,0 +1,2 @@
+
+LangM.push({'75':'D','76':'L','77':'M','78':'X','79':'J','80':'V','81':'S','301':'Esto reiniciará su router cada semana para mantener su red en perfecto estado de mantenimiento.','302':'Inicializar automáticamente el router','303':'Establecer los días','304':'Establecer la hora','':null});

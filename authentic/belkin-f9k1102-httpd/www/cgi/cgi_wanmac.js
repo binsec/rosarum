@@ -1,0 +1,1 @@
+<%CFG_MAP(clone_mod,WAN_CLONE_EN);%><%CFG_MAP(wan_hw_mac,HW_WAN_MAC);%><%CFG_MAP(wan_mac,WAN_CLONE_MAC);%>var pc_mac='<% CGI_ACCESS_MAC();%>';

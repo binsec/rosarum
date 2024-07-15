@@ -1,0 +1,2 @@
+
+LangM.push({'p300t001':'Nous vérifions pour des mises à jour du micrologiciel.','p300t002':'Nous vérifions la présence de mises à jour pour le micrologiciel de votre nouveau routeur','p300t003':'Pourquoi dois-je installer le dernier micrologiciel ?','p300t004':'Le micrologiciel est le logiciel que votre routeur utilise pour mettre en œuvre des réseaux et des protocoles de sécurité. Les mises à jour améliorent la fiabilité et la fonctionnalité de votre routeur, il est donc important d\'être toujours à jour.','p300t005':'Vous êtes désormais connecté.','':null});

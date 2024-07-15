@@ -1,0 +1,2 @@
+
+LangM.push({'709':'Para insertar los parámetros de su dirección IP dinámica, escriba los valores aquí abajo y haga clic en «Guardar».','710':'Nombre de host','711':'Nombre de Host = un nombre que algunos Proveedores de servicios de Internet requieren para conectar con su sistema.','712':'Cambiar la dirección MAC de WAN','':null});

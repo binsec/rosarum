@@ -1,0 +1,2 @@
+
+LangM.push({'759':'Para ingresar sus configuraciones de dirección IP estática, escriba su información a continuación y haga clic en \"Guardar\".','760':'Dirección IP','761':'Máscara de subred','762':'Dirección de la puerta de enlace del proveedor de servicio de Internet','754':'Haga clic aquí para introducir sus configuraciones DNS','':null});

@@ -1,0 +1,2 @@
+
+LangM.push({'124':'O router mantém um registo de todas as atividades dentro deste, tais como os computadores que fazem login e logout e quaisquer tentativas de aceder ao router a partir da Internet.','125':'Ficheiro de registo','126':'Guardar','127':'Transparente','1302':'Registo do sistema','1303':'Registo da Firewall','':null});

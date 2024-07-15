@@ -1,0 +1,2 @@
+
+LangM.push({'117':'Routern är utrustad med en brandvägg som skyddar nätverket mot en rad vanliga angrepp från hackare, bland annat Ping of Death (PoD) och Denial of Service (DoS). Du kan inaktivera brandväggsfunktionen om det behövs. Nätverket är inte helt öppet för angrepp av hackare bara för att du stänger av brandväggsskyddet, men vi rekommenderar att du aktivera brandväggen när så är möjligt.','118':'Aktivera/inaktivera brandvägg','':null});

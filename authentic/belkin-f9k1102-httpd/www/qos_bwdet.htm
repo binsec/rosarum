@@ -1,0 +1,39 @@
+<!DOCTYPE html><!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7"lang="en"> <![endif]--><!--[if IE 7]> <html class="no-js lt-ie9 lt-ie8"lang="en"> <![endif]--><!--[if IE 8]> <html class="no-js lt-ie9"lang="en"> <![endif]--><!--[if gt IE 8]><!--><html lang="en"class="gt-ie8"><!--<![endif]--><!--[if IE]><html xmlns="http://www.w3.org/1999/xhtml"xmlns:v><![endif]--><head><meta charset="utf-8"/><meta name="viewport"content="width=device-width"/><title></title> <link rel="icon"href="images/favicon/favicon.ico"><link rel="apple-touch-icon-precomposed"sizes="144x144"href="images/favicon/belkin_144.png"><link rel="apple-touch-icon-precomposed"sizes="114x114"href="images/favicon/belkin_114.png"><link rel="apple-touch-icon-precomposed"sizes="72x72"href="images/favicon/belkin_72.png"><link rel="apple-touch-icon-precomposed"href="images/favicon/belkin_57.png"><link rel="stylesheet"href="stylesheets/app.css?t=20140212"t=20140212"><!--[if lt IE 9]><link rel="stylesheet"href="stylesheets/ie.css"><![endif]--><!--[if IE]><?import namespace="v"implementation="#default#VML"?><![endif]--><script>var LangJ=["menulist","help","comm","bwdet"];var CGIs=["bwdet"];</script><script src="javascripts/init.js"></script><script src="javascripts/jquery.min.js"></script><script src="javascripts/global.js"></script><script src="javascripts/app.js"></script><script src="javascripts/menu.js"></script></head><body style="display:none"id="mainbody"> <script><%CGI_INCLUDE(javascripts/main_header.js);%></script><script src="javascripts/routine.js"></script><div class="main container"> <div class="row"><div class="eight columns"><form class="nice"name="tF"method="post"action=""target="OUTfrm"><div class="row"> <div class="twelve columns"><br><br> <h3 tid="gtIntellistream"class="hide-on-phones"></h3><p></p> <p class="drop-ip"> <span id="displayQosRadio"> <a href="#"id="qos_en"class="PICBlockToggle"onClick="return toggleQosOnOff()"> <span class="QosLabel"id="qos_enText"tid="374"></span> <img id="qos_enImg"class="QosToggleImg"src="images/btn-Blocked.png"alt="On"> </a> </span> </p><div class="qosInfo"> <div id="qosmsg"> <table width=""border="0"cellspacing="0"cellpadding="0"> <tr> <td> <p class="ancillary warning"style="display:none"id="dlwarnmsg"tid="QOSt006"></p> <p class="ancillary error"style="display:none"id="dlerrmsg"tid="QOSt009"></p> </td> <td> <p class="ancillary warning"style="display:none"id="ulwarnmsg"tid="QOSt007"></p> <p class="ancillary error"style="display:none"id="ulerrmsg"tid="QOSt009"></p> </td> </tr> <tr> <td colspan=2> <p class="ancillary warning"style="display:none"id="bothwarnmsg"tid="QOSt008"></p> <p class="ancillary error"style="display:none"id="botherrmsg"tid="QOSt010"></p> </td> </tr> </table> </div> <div id="ptb"> <table width=""border="0"cellspacing="0"cellpadding="0"> <tr> <td><h6 tid="p1310t004"></h6></td> <td class="secTd"><h6 tid="p1310t005"></h6></td> </tr> <tr> <td class="qosdlsped"> <input type="text"name="bandwidth_down"maxlength="6"placeholder="0.00"value=""onkeyup="this.value=this.value.replace(/\s/g,'');chkField(this, 0);"onblur="chkValid()"/>&nbsp;<span tid="gtMbps"></span> </td> <td class="qosulsped secTd"> <input type="text"name="bandwidth_up"maxlength="6"placeholder="0.00"value=""onkeyup="this.value=this.value.replace(/\s/g,'');chkField(this, 1);"onblur="chkValid()"/>&nbsp;<span tid="gtMbps"></span> </td> </tr> </table> </div> </div> </div> </div><div class="row"> <div class="twelve columns"> <p class="drop-ip"tid="QOSt001"></p><p class="drop-ip"> <ol> <li tid="QOSt002"></li> <li><span tid="QOSt003"></span><br><a href='http://speedtest.net'target='_blank'class="nice radius medium white button"id="inetlink"><img src="images/Speedtest_net.png"alt="Speedtest.net"/></a></li> <li tid="QOSt004"></li> </ol> </p> </div></div><br><a href="#save"class="nice radius large green button"tid="49"onClick="return evaltF()"id="btnapply"></a></form></div><div class="sidebar four columns"> <div><h6><span tid="htQos"></span></h6> <p><span tid="7102"></span><span class="nub"></span></p> </div> </div></div> </div><script>/*JS_PACKER*/
+
+var waTimer;var gInitial=0;var gDoingTest=0;var bwdt_result=[0,0,0,0];function toggleQosOnOff(){var qosstate=getCfg("qos_en")==1?0:1;setCfg("qos_en",qosstate);showQosOnOff(qosstate);showApplyBtn(1);return false;}
+function showQosOnOff(state){state=(state==1?1:0);var onoff_s=getLangAM(["375","374"]);var pc_blockimg=['/images/btn-Blocked_x.png','/images/btn-Blocked.png'];$('#qos_enText').html(onoff_s[state]);$('#qos_enImg').attr("src",pc_blockimg[state]);}
+function clearMsg()
+{$('.ancillary').hide();}
+var bwdt_msg=[0,0]
+function showMsg(idx,flag)
+{var itemName,msgType;if(bwdt_msg[idx]==flag)return;bwdt_msg[idx]=flag;clearMsg();if(bwdt_msg[0]==bwdt_msg[1])itemName='both';else itemName='dl';for(i=0;i<2;i++){if(bwdt_msg[i]==1)msgType='warnmsg';else if(bwdt_msg[i]==2)msgType='errmsg';else msgType='';$('#'+itemName+msgType).show();if(itemName=='dl')
+itemName='ul';else break;}}
+function chkNeedSave()
+{var f=document.tF;if(f.bandwidth_down.value==''||f.bandwidth_up.value=='')
+return false;if(bwdt_msg[0]==2||bwdt_msg[1]==2)
+return false;return true;}
+function chkBandLimit(val){var v=str2n(val);if(v>HW_MAX_SPEED_LIMIT)return 2;if(v<MIN_SPEED_LIMIT)return 2;if(v>MAX_SPEED_LIMIT)return 1;return 0;}
+var dot=getLangM('dot');function n2str(v)
+{return(''+(new Number(v)).toFixed(2)).replace(/\./g,dot);}
+function str2n(s)
+{var re=new RegExp('['+dot+']','g');return parseFloat(s.replace(re,'.'),10);}
+function chkValid(flag){var f=document.tF;var ret=true;var val;if(str2n(f.bandwidth_down.value)==0){f.bandwidth_down.value='';}
+if(str2n(f.bandwidth_up.value)==0){f.bandwidth_up.value='';}
+if(chkField(f.bandwidth_down,0)&&!isBlank(f.bandwidth_down.value)){val=str2n(f.bandwidth_down.value);f.bandwidth_down.value=n2str(val);setCfg("download_speed",val*1000);}else
+ret=false;if(chkField(f.bandwidth_up,1)&&!isBlank(f.bandwidth_up.value)){val=str2n(f.bandwidth_up.value);f.bandwidth_up.value=n2str(val);setCfg("upload_speed",val*1000);}else
+ret=false;if(!flag)showApplyBtn();return ret;}
+function isFloat(_s){return(/^[0-9]*([.,]?[0-9]*)?$/.test(_s));}
+function chkField(inField,idx){var tmpVal=inField.value;var msgType=0;if(!isBlank(tmpVal)){if((!isFloat(tmpVal)))
+msgType=2;else
+msgType=chkBandLimit(tmpVal);}
+showMsg(idx,msgType);return msgType!=2;}
+function showApplyBtn(flag){if(!flag){if(chkNeedSave()){setCfg("qos_en",1);}
+if(bwdt_msg[0]==1&&bwdt_msg[1]==1)
+setCfg("qos_en",0);showQosOnOff(getCfg("qos_en"));}
+if(((getCfg("qos_en")==0&&chkCfg("qos_en"))||(getCfg("qos_en")==1&&chkNeedSave()))&&check_FrmUpdate()){EnableObject("btnapply");}else{DisableObject("btnapply");}}
+function evaltF(){var f=document.tF;if(getCfg("qos_en")==1&&!chkValid(1)){return false;}
+var bwObj={qos_en:getCfgInt("qos_en"),st:0,tmpPing:0,tmpUpload:getCfg("upload_speed")/1000,tmpDownload:getCfg("download_speed")/1000};setBwRst(bwObj);$(window).unbind('beforeunload')
+return subForm({frm:f,cmd:"QOS_CONF",wait:10});}
+function init(){var f=document.tF;$("[tid=QOSt003]").html($("[tid=QOSt003]").html().replace("{","<a href='http://speedtest.net' target='_blank'>").replace("}","</a>"));cfg2Form(f);f.bandwidth_down.value=n2str(getCfg("download_speed")/1000);f.bandwidth_up.value=n2str(getCfg("upload_speed")/1000);showQosOnOff(getCfg("qos_en"));chkValid(1);ShowNavMenu();DisableObject('btnapply');var isChanged=0;$(window).bind('beforeunload',function(){isChanged=check_FrmUpdate();if(isChanged){return getLangM('gtSettingsNotSaved');}else{return;}});}
+/*END_JS_PACKER*/
+<%CGI_LOGIN_KEEP();%></script> <script><%CGI_INCLUDE(javascripts/main_footer.js);%></script>

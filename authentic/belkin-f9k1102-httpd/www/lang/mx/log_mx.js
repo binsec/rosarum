@@ -1,0 +1,2 @@
+
+LangM.push({'124':'El enrutador mantiene registros de toda la actividad dentro del enrutador como computadoras que ingresan y salen del sistema y cualquier intento desde la Internet para acceder al enrutador.','125':'Archivo de Registro','126':'Ahorre','127':'Transparente','1302':'Bitácora del sistema','1303':'Bitácora del firewall','':null});

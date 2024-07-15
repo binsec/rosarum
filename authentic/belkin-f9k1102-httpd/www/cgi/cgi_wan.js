@@ -1,0 +1,1 @@
+<%CFG_MAP(u_wan_type,WAN_TYPE);%><%CFG_MAP(u_wan_mac,HW_WAN_MAC);%><%CFG_MAP(u_wan_ip,STS_WAN_IP);%><%CFG_MAP(u_wan_msk,STS_WAN_MSK);%><%CFG_MAP(u_wan_gw,STS_WAN_GW);%><%CFG_MAP(u_wan_dns,STS_WAN_DNS);%>

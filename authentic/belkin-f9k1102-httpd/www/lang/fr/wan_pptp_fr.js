@@ -1,0 +1,2 @@
+
+LangM.push({'744':'Compte PPTP','745':'Mot de passe','746':'Entrez à nouveau le mot de passe.','747':'Nom d\'hôte','1770':'IP attribuée par le FAI','1771':'Oui','1772':'Non','1773':'Adresse du service','330':'Adresse IP','750':'Masque de sous-réseau','338':'Passerelle par défaut','736':'Déconnecter après','737':'minutes d\'inactivité.','754':'Cliquez ici pour entrer vos paramètres DNS','738':'Les nombres entrés comme temps mort sont incorrects. La valeur doit être un nombre entier compris entre 1 et 99.','':null});

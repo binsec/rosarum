@@ -1,0 +1,2 @@
+
+LangM.push({'p600t001':'Besuchen Sie unsere Seite für optionale Software für den Router, um ähnliche Software für Ihre anderen Computer und mobilen Geräte abzurufen.','p600t002':'Vielen Dank. Ich möchte zum Dashboard','p600t003':'Optionale Software','p600t004':'Diese Softwaretools können Ihnen helfen, die fortschrittlichen Funktionen zu nutzen, die Ihr Router bietet. Es gibt Downloads für Apple iOS, Android, Windows und OS X.','p601t001':'Vielen Dank für die Registrierung!','':null});

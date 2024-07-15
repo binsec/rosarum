@@ -1,0 +1,2 @@
+
+LangM.push({'759':'Geben Sie die Daten für die statische IP unten ein, und klicken Sie auf „Speichern“.','760':'IP-Adresse','761':'Subnetzmaske','762':'Gateway-Adresse des Anbieters','754':'Klicken Sie hier, um Ihre DNS-Einstellungen einzugeben','':null});

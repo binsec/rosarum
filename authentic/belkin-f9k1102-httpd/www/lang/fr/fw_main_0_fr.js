@@ -1,0 +1,2 @@
+
+LangM.push({'117':'Votre routeur possède un pare-feu afin de protéger votre réseau contre une multitude d\'attaques provenant de pirates informatiques, incluant le Ping de la mort (Ping of Death - PoD) et l\'attaque par Déni de service (Denial of Service - DoS). Vous pouvez désactiver la fonction de pare-feu au besoin. Désactiver le pare-feu ne rendra pas votre réseau totalement vulnérable aux attaques des pirates, mais il est recommandé de l\'activer aussi souvent que possible.','118':'Activer/Désactiver Pare-Feu','':null});

@@ -1,0 +1,2 @@
+
+var MAX_UNSHARE_SZ=30;var BELKIN_FRIENDLYNAME_POSTFIX="_MediaServer";<%CFG_MAP(dlna_wifi_ssid,WIFI_SSID);%><%CFG_MAP(dlna_en,MS_EN);%><%CFG_MAP(dlna_ready,MS_READY);%><%CFG_MAP(dlna_USB,MS_USB);%><%CFG_MAP(friendly_name,MS_FRIENDLY_NAME);%><%CFG_MAP_ARY(twonkydir,MS_TWONKY_DIR_LST+1,30,1);%>

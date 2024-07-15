@@ -1,0 +1,2 @@
+
+LangM.push({'3310':'Intellistream','3311':'İnternet bağlantınızı optimize edin.','3312':'Medya Servis Sağlayıcısı','3313':'Ağ üstündeki aygıtlar arasında ortam paylaşın.','3314':'Ana Baba Denetimleri','3315':'İnternet güvenliği için DNS güvenlik filtreleri','3316':'IPv6 Bağlantısı','3317':'Ağınız şimdi IPv6 uyumlu','':null});

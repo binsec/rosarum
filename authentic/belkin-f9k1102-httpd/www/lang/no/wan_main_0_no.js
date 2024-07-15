@@ -1,0 +1,2 @@
+
+LangM.push({'721':'I Internett/WAN-kategorien konfigurerer du ruteren til å koble seg til Internettleverandøren. Ruteren kan koble seg til så å si enhver Internettleverandørs system, så lenge du har konfigurert ruterinnstillingene riktig for den aktuelle Internettleverandørens tilkoblingstype. For å konfigurere ruteren til å koble seg til Internettleverandøren, klikker du Tilkoblingstype i Internett/WAN-kategorien til venstre i skjermbildet.','722':'Disse tilkoblingstypene støttes:','':null});

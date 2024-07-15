@@ -1,0 +1,2 @@
+
+LangM.push({'p600t001':'Gå til routerens Valgfri software-side for at hente lignende software til dine andre computere og mobilenheder.','p600t002':'Tak, tag mig til dashboardet','p600t003':'Valgfri software','p600t004':'Disse softwareværktøjer kan hjælpe dig med at drage fordel af de avancerede funktioner, som din router tilbyder. Der er downloads til Apple iOS, Android, Windows og OS X.','p601t001':'Tak for din registrering!','':null});

@@ -1,0 +1,2 @@
+
+LangM.push({'533':'Wenn Sie Router nicht mehr richtig funktioniert, kann es erforderlich sein, den Router neu zu starten oder erneut zu booten. Der Router-Neustart löscht Ihre  Einstellungen nicht.','534':'Router neu starten','535':'Sind Sie sicher, dass Sie den Router neu starten möchten? Der Router-Neustart wirkt sich nicht auf die Konfiguration aus.','536':'Der Neustart des Routers dauert etwa $s Sekunden. Bis zum Ende des Neustarts darf der Router nicht abgeschaltet werden.','':null});
