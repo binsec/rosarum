@@ -8,7 +8,7 @@
  int main(int argc, char** argv)
  {
      int wdt_fd = -1;
-@@ -297,6 +298,7 @@
+@@ -295,6 +296,7 @@
   *	service. SocketSelect will block until an event occurs. SocketProcess
   *	will actually do the servicing.
   */
@@ -16,7 +16,7 @@
  	while (!finished) {
  		if (socketReady(-1) || socketSelect(-1, 1000)) {
  			socketProcess(-1);
-@@ -892,3 +894,126 @@
+@@ -883,3 +885,126 @@
  
  	return iLen;
  }
