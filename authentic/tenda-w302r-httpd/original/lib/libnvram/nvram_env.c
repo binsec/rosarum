@@ -364,6 +364,7 @@ void read_2860_bak(int index_used,int from_block)
 
 void nvram_init(int index)
 {
+  return;
 	unsigned long from;
 	unsigned long count=0;
 	int i, len;
@@ -715,8 +716,11 @@ int debug_nvram_set(int index, char *name, char *value)
 */
 char *nvram_bufget(int index, char *name)
 {
+  /*
 	int idx;
 	static char *ret;
+
+  fprintf(stderr, "nvram_bufget index = %d and name = %s\n", index, name);
 
 	//LIBNV_PRINT("--> nvram_bufget %d\n", index);
 	LIBNV_CHECK_INDEX("");
@@ -733,6 +737,28 @@ char *nvram_bufget(int index, char *name)
 			return ret;
 		}
 	}
+*/
+
+  FILE* f = fopen("/tmp/nvram_config", "r");
+  if(!f) {
+    perror("fopen");
+    exit(1);
+  }
+  char buf[10000];
+  size_t  size = fread(buf, sizeof(char), 10000, f);
+  fclose(f);
+  buf[size] = '\0';
+  char* line = strstr(buf, name);
+  if(!line) {
+    fprintf(stderr, "Error : no entry %s in config\n", name);
+    return NULL;
+  }
+  char *val = strchr(line, '=') + 1;
+  *strchr(val, '\n') = '\0';
+  char *ret = malloc(strlen(val));
+  strcpy(ret, val);
+  return ret;
+
 
 	//no default value set?
 	//btw, we don't return NULL anymore!

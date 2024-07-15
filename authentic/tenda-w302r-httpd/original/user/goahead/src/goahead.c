@@ -82,7 +82,7 @@ void	formDefineUserMgmt(void);
 
 static char_t		*rootWeb = T("/etc_ro/web");		/* Root web directory */
 static char_t		*password = T("");				/* Security password */
-static int			port = 80;						/* Server port */
+static int			port = 8080;						/* Server port */
 static int			retries = 5;					/* Server port retries */
 static int			finished;						/* Finished flag */
 static char_t		*gopid = T("/var/run/goahead.pid");	/* pid file */
@@ -278,19 +278,17 @@ int main(int argc, char** argv)
 
 	if (writeGoPid() < 0)
 		// return -1;
-	//if (initSystem() < 0)
-	//	return -1;
+	if (initSystem() < 0)
+		return -1;
 
-	//initDeviceNam();
+	initDeviceName();
 	
 /*
  *	Initialize the web server
  */
-    /*
 	if (initWebs() < 0) {
 		return -1;
 	}
-    */
 
 /*
  *	Basic event loop. SocketReady returns true when a socket is ready for
@@ -443,6 +441,8 @@ static int initSystem(void)
  */
 int setDefault(void)
 {
+	nvram_init(RT2860_NVRAM);
+    return 0;
 	FILE *fp;
 	int i;
 
@@ -853,15 +853,6 @@ static int set_stable_flag(void)
 
 }
 #endif
-
-
-
-
-
-
-
-
-
 
 
 int call_shell(char *cmdbuf,char *outbuf,int outBufLen)
