@@ -1,0 +1,36 @@
+--- a/Makefile.am
++++ b/Makefile.am
+@@ -455,7 +455,7 @@ if USE_OSSFUZZ_STATIC
+ FUZZ_LDADD = $(LIB_FUZZING_ENGINE)
+ FUZZ_FLAG =
+ else
+-FUZZ_LDADD = libstandaloneengine.la
++FUZZ_LDADD =
+ FUZZ_FLAG =
+ endif
+ endif
+diff --git a/ossfuzz/sndfile_fuzzer.cc b/ossfuzz/sndfile_fuzzer.cc
+index 3c850730..70555bd2 100644
+--- a/ossfuzz/sndfile_fuzzer.cc
++++ b/ossfuzz/sndfile_fuzzer.cc
+@@ -4,6 +4,7 @@
+ #include <sys/types.h>
+ #include <sndfile.h>
+ #include <inttypes.h>
++#include <vector>
+ 
+ typedef struct
+ {
+@@ -153,3 +154,12 @@ EXIT_LABEL:
+ 
+   return 0;
+ }
++
++int main() {
++  std::vector<uint8_t> sndfile;
++  while (!feof(stdin)) {
++    sndfile.push_back(static_cast<uint8_t>(getchar_unlocked()));
++  }
++
++  return LLVMFuzzerTestOneInput(sndfile.data(), sndfile.size());
++}
