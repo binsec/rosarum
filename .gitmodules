@@ -6,3 +6,7 @@
 	path = synthetic/libpng-1.6.43/original
 	url = git@github.com:pnggroup/libpng.git
 	branch = libpng16
+[submodule "libsndfile-1.2.2-backdoored"]
+	path = synthetic/libsndfile-1.2.2/original
+	url = git@github.com:libsndfile/libsndfile.git
+	branch = master
