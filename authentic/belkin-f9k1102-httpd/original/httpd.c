@@ -288,7 +288,7 @@ void send_ok(struct httpd_connexion *hc, char *url)
   pmVar2 = hc->mime_handler;
   memset(headers_buf, 0, 0x400);
   memset(url_buf, 0, 0x100);
-  strcpy(url_buf, url);
+  strncpy(url_buf, url, 256);
   pcVar1 = strchr(url_buf, L'?');
   if (pcVar1 != (char *)0x0) {
     *pcVar1 = '\0';
@@ -442,7 +442,7 @@ accept:
 
   char buf_uri[128];
   if (uri[0] == '\0' || (len_uri != 0 && uri[len_uri - 1] == '/')) {
-    strcpy(buf_uri, uri);
+    strncpy(buf_uri, uri, 128);
     strcat(buf_uri, "dashboard.htm");
     uri = buf_uri;
   }

@@ -48,7 +48,7 @@ void do_file(char *param_1, struct httpd_connexion *param_2) {
   char auStack_420[1032];
 
   __s = param_2->out_stream;
-  strcpy(acStack_520, param_1);
+  strncpy(acStack_520, param_1, 256);
   pcVar1 = strchr(acStack_520, 0x3f);
   if (pcVar1 != (char *)0x0) {
     *pcVar1 = '\0';
@@ -89,7 +89,7 @@ void func1_lang(char *param_1, struct httpd_connexion *param_2,
   Slurp_buf_buf(param_2);
   pcVar1 = strchr(param_1, 0x3f);
   if (pcVar1 != (char *)0x0) {
-    strcpy(acStack_410, pcVar1 + 1);
+    strncpy(acStack_410, pcVar1 + 1, 1024);
     init_cgi(acStack_410);
   }
   return;
@@ -109,13 +109,13 @@ void send_langjs(char *param_1, struct httpd_connexion *param_2)
   if (pcVar1 == (char *)0x0) {
     pcVar1 = "EN";
   }
-  strcpy(acStack_498, pcVar1);
+  strncpy(acStack_498, pcVar1, 4);
   pcVar1 = get_cgi("LST");
   if (pcVar1 == (char *)0x0) {
     pcVar1 = "";
   }
   __dest = acStack_42c;
-  strcpy(__dest, pcVar1);
+  strncpy(__dest, pcVar1, 1028);
   send_ok(param_2, param_1);
   local_494 = __dest;
   while (true) {
@@ -156,7 +156,7 @@ void send_html(char *url, struct httpd_connexion *hc)
   local_30[13] = 'X';
   local_30[14] = 'X';
   local_30[15] = 'X';
-  strcpy(local_30 + 1, hc->ip_str);
+  strncpy(local_30 + 1, hc->ip_str, 16);
   ppuVar1 = AliasRedirectPage;
   ppcVar2 = AliasRedirectPage + 1;
   __s1 = AliasRedirectPage[0];
@@ -290,7 +290,7 @@ void do_cgis(char *param_1, struct httpd_connexion *param_2) {
     pcVar1 = "";
   }
   __dest = acStack_420;
-  strcpy(__dest, pcVar1);
+  strncpy(__dest, pcVar1, 1024);
   send_ok(param_2, param_1);
   param2 = make_CSRFID(param_2->ip_str);
   fprintf(param0, "mmm=%d;", param2);

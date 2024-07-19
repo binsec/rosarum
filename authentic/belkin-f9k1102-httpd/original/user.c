@@ -160,7 +160,7 @@ int user_islogin(char *ip_str, bool update_timeout) {
       if ((login_timeout != 0) &&
           ((uint)(login_timeout + login_date) < (uint)now)) {
         pcVar2 = inet_ntoa(*(struct in_addr *)&ip);
-        strcpy(local_24, pcVar2);
+        strncpy(local_24, pcVar2, 16);
         user_logout(local_24);
         return -3;
       }
