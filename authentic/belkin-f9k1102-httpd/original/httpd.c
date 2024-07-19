@@ -462,7 +462,7 @@ accept:
   char *boundary = NULL;
 
   while (true) {
-    fgets(p, p - buf, hc.out_stream);
+    fgets(p, 10000 - (int)(p - buf), hc.out_stream);
     size_t read_size = strlen(p);
     if (strncmp(p, "Authorization:", 14) == 0) {
       size_t nb_spaces = strspn(&p[14], " \t");
