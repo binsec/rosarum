@@ -181,7 +181,7 @@
 +  pcVar2 = strchr(url, '?');
 +  if (pcVar2 == (char *)0x0)
 +    goto LAB_0040c714;
-+  strcpy(acStack_410, pcVar2 + 1);
++  strncpy(acStack_410, pcVar2 + 1, 1024);
 +  init_cgi(acStack_410);
 +  bVar1 = checkMPtest();
 +  if (bVar1 == 0) {
