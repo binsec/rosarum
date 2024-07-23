@@ -1,0 +1,337 @@
+--- a/sapi/fuzzer/config.m4
++++ b/sapi/fuzzer/config.m4
+@@ -60,7 +60,7 @@ if test "$PHP_FUZZER" != "no"; then
+     ])
+   else
+     FUZZING_LIB="$LIB_FUZZING_ENGINE"
+-    FUZZING_CC="$CXX -stdlib=libc++"
++    FUZZING_CC="$CXX"
+   fi
+   PHP_SUBST(FUZZING_LIB)
+   PHP_SUBST(FUZZING_CC)
+--- a/sapi/fuzzer/fuzzer-execute.c
++++ b/sapi/fuzzer/fuzzer-execute.c
+@@ -14,6 +14,8 @@
+    +----------------------------------------------------------------------+
+  */
+ 
++#include <assert.h>
++
+ #include <main/php.h>
+ 
+ #include "fuzzer.h"
+@@ -88,3 +90,30 @@ int LLVMFuzzerInitialize(int *argc, char ***argv) {
+ 	/* fuzzer_shutdown_php(); */
+ 	return 0;
+ }
++
++int main(int argc, char **argv) {
++    size_t buflen = 4048;
++    size_t size = 0;
++    uint8_t *buffer = malloc(buflen);
++    assert(buffer != NULL);
++
++    LLVMFuzzerInitialize(&argc, &argv);
++
++    do {
++      size_t readsize = fread(&buffer[size], sizeof(uint8_t), buflen - size, stdin);
++      size += readsize;
++      if(size == buflen) {
++          buflen *= 2;
++          uint8_t *newbuf = realloc(buffer, buflen);
++          if (newbuf == NULL) {
++              free(buffer);
++              return 1;
++          }
++          buffer = newbuf;
++      }
++    } while(!feof(stdin));
++
++    int ret = LLVMFuzzerTestOneInput(buffer, size);
++    free(buffer);
++    return ret;
++}
+--- a/sapi/fuzzer/fuzzer-exif.c
++++ b/sapi/fuzzer/fuzzer-exif.c
+@@ -27,6 +27,7 @@
+ #include <sys/types.h>
+ #include <sys/stat.h>
+ #include <fcntl.h>
++#include <assert.h>
+ 
+ #include "fuzzer-sapi.h"
+ 
+@@ -70,3 +71,29 @@ int LLVMFuzzerInitialize(int *argc, char ***argv) {
+ 	return 0;
+ }
+ 
++int main(int argc, char **argv) {
++    size_t buflen = 4048;
++    size_t size = 0;
++    uint8_t *buffer = malloc(buflen);
++    assert(buffer != NULL);
++
++    LLVMFuzzerInitialize(&argc, &argv);
++
++    do {
++      size_t readsize = fread(&buffer[size], sizeof(uint8_t), buflen - size, stdin);
++      size += readsize;
++      if(size == buflen) {
++          buflen *= 2;
++          uint8_t *newbuf = realloc(buffer, buflen);
++          if (newbuf == NULL) {
++              free(buffer);
++              return 1;
++          }
++          buffer = newbuf;
++      }
++    } while(!feof(stdin));
++
++    int ret = LLVMFuzzerTestOneInput(buffer, size);
++    free(buffer);
++    return ret;
++}
+--- a/sapi/fuzzer/fuzzer-json.c
++++ b/sapi/fuzzer/fuzzer-json.c
+@@ -26,6 +26,7 @@
+ #include <stdio.h>
+ #include <stdint.h>
+ #include <stdlib.h>
++#include <assert.h>
+ 
+ #include "fuzzer-sapi.h"
+ #include "ext/json/php_json_parser.h"
+@@ -60,3 +61,30 @@ int LLVMFuzzerInitialize(int *argc, char ***argv) {
+ 	/* fuzzer_shutdown_php(); */
+ 	return 0;
+ }
++
++int main(int argc, char **argv) {
++    size_t buflen = 4048;
++    size_t size = 0;
++    uint8_t *buffer = malloc(buflen);
++    assert(buffer != NULL);
++
++    LLVMFuzzerInitialize(&argc, &argv);
++
++    do {
++      size_t readsize = fread(&buffer[size], sizeof(uint8_t), buflen - size, stdin);
++      size += readsize;
++      if(size == buflen) {
++          buflen *= 2;
++          uint8_t *newbuf = realloc(buffer, buflen);
++          if (newbuf == NULL) {
++              free(buffer);
++              return 1;
++          }
++          buffer = newbuf;
++      }
++    } while(!feof(stdin));
++
++    int ret = LLVMFuzzerTestOneInput(buffer, size);
++    free(buffer);
++    return ret;
++}
+--- a/sapi/fuzzer/fuzzer-mbstring.c
++++ b/sapi/fuzzer/fuzzer-mbstring.c
+@@ -25,6 +25,7 @@
+ #include <stdio.h>
+ #include <stdint.h>
+ #include <stdlib.h>
++#include <assert.h>
+ 
+ #include "fuzzer-sapi.h"
+ 
+@@ -76,3 +77,30 @@ int LLVMFuzzerInitialize(int *argc, char ***argv) {
+ 	/* fuzzer_shutdown_php(); */
+ 	return 0;
+ }
++
++int main(int argc, char **argv) {
++    size_t buflen = 4048;
++    size_t size = 0;
++    uint8_t *buffer = malloc(buflen);
++    assert(buffer != NULL);
++
++    LLVMFuzzerInitialize(&argc, &argv);
++
++    do {
++      size_t readsize = fread(&buffer[size], sizeof(uint8_t), buflen - size, stdin);
++      size += readsize;
++      if(size == buflen) {
++          buflen *= 2;
++          uint8_t *newbuf = realloc(buffer, buflen);
++          if (newbuf == NULL) {
++              free(buffer);
++              return 1;
++          }
++          buffer = newbuf;
++      }
++    } while(!feof(stdin));
++
++    int ret = LLVMFuzzerTestOneInput(buffer, size);
++    free(buffer);
++    return ret;
++}
+--- a/sapi/fuzzer/fuzzer-parser.c
++++ b/sapi/fuzzer/fuzzer-parser.c
+@@ -15,12 +15,16 @@
+    +----------------------------------------------------------------------+
+  */
+ 
++#include <assert.h>
+ #include <main/php.h>
+ #include <main/php_main.h>
+ #include <main/SAPI.h>
+ #include <ext/standard/info.h>
+ #include <ext/standard/php_var.h>
+ #include <main/php_variables.h>
++#include <stdint.h>
++#include <stdio.h>
++#include <stdlib.h>
+ 
+ #include "fuzzer.h"
+ #include "fuzzer-sapi.h"
+@@ -47,3 +51,30 @@ int LLVMFuzzerInitialize(int *argc, char ***argv) {
+ 	/* fuzzer_shutdown_php(); */
+ 	return 0;
+ }
++
++int main(int argc, char **argv) {
++    size_t buflen = 4048;
++    size_t size = 0;
++    uint8_t *buffer = malloc(buflen);
++    assert(buffer != NULL);
++
++    LLVMFuzzerInitialize(&argc, &argv);
++
++    do {
++      size_t readsize = fread(&buffer[size], sizeof(uint8_t), buflen - size, stdin);
++      size += readsize;
++      if(size == buflen) {
++          buflen *= 2;
++          uint8_t *newbuf = realloc(buffer, buflen);
++          if (newbuf == NULL) {
++              free(buffer);
++              return 1;
++          }
++          buffer = newbuf;
++      }
++    } while(!feof(stdin));
++
++    int ret = LLVMFuzzerTestOneInput(buffer, size);
++    free(buffer);
++    return ret;
++}
+--- a/sapi/fuzzer/fuzzer-unserialize.c
++++ b/sapi/fuzzer/fuzzer-unserialize.c
+@@ -24,15 +24,17 @@
+ #include <stdio.h>
+ #include <stdint.h>
+ #include <stdlib.h>
++#include <assert.h>
+ 
+ #include "fuzzer-sapi.h"
+ 
+ #include "ext/standard/php_var.h"
+ 
+-int LLVMFuzzerTestOneInput(const uint8_t *Data, size_t Size) {
+-	unsigned char *orig_data = malloc(Size+1);
+-	memcpy(orig_data, Data, Size);
+-	orig_data[Size] = '\0';
++int LLVMFuzzerTestOneInput(uint8_t *Data, size_t Size) {
++	//unsigned char *orig_data = malloc(Size+1);
++	//memcpy(orig_data, Data, Size);
++	//orig_data[Size] = '\0';
++	unsigned char *orig_data = Data;
+ 
+ 	if (fuzzer_request_startup() == FAILURE) {
+ 		return 0;
+@@ -47,13 +49,13 @@ int LLVMFuzzerTestOneInput(const uint8_t *Data, size_t Size) {
+ 
+ 		php_unserialize_data_t var_hash;
+ 		PHP_VAR_UNSERIALIZE_INIT(var_hash);
+-		php_var_unserialize(&result, (const unsigned char **) &data, data + Size, &var_hash);
++		php_var_unserialize(&result, (const unsigned char **) &data, &data[Size], &var_hash);
+ 		PHP_VAR_UNSERIALIZE_DESTROY(var_hash);
+ 
+ 		zval_ptr_dtor(&result);
+ 	}
+ 
+-	free(orig_data);
++	//free(orig_data);
+ 
+ 	fuzzer_request_shutdown();
+ 	return 0;
+@@ -65,3 +67,30 @@ int LLVMFuzzerInitialize(int *argc, char ***argv) {
+ 	/* fuzzer_shutdown_php(); */
+ 	return 0;
+ }
++
++int main(int argc, char **argv) {
++    size_t buflen = 4048;
++    size_t size = 0;
++    uint8_t *buffer = malloc(buflen);
++    assert(buffer != NULL);
++
++    LLVMFuzzerInitialize(&argc, &argv);
++
++    do {
++      size_t readsize = fread(&buffer[size], sizeof(uint8_t), buflen - size, stdin);
++      size += readsize;
++      if(size + 1 >= buflen) {
++          buflen *= 2;
++          uint8_t *newbuf = realloc(buffer, buflen);
++          if (newbuf == NULL) {
++              free(buffer);
++              return 1;
++          }
++          buffer = newbuf;
++      }
++    } while(!feof(stdin));
++	buffer[size] = 0;
++    int ret = LLVMFuzzerTestOneInput(buffer, size);
++    free(buffer);
++    return ret;
++}
+--- a/sapi/fuzzer/fuzzer-unserializehash.c
++++ b/sapi/fuzzer/fuzzer-unserializehash.c
+@@ -22,6 +22,7 @@
+ #include <stdio.h>
+ #include <stdint.h>
+ #include <stdlib.h>
++#include <assert.h>
+ 
+ #include "fuzzer-sapi.h"
+ 
+@@ -80,3 +81,30 @@ int LLVMFuzzerInitialize(int *argc, char ***argv) {
+ 	/* fuzzer_shutdown_php(); */
+ 	return 0;
+ }
++
++int main(int argc, char **argv) {
++    size_t buflen = 4048;
++    size_t size = 0;
++    uint8_t *buffer = malloc(buflen);
++    assert(buffer != NULL);
++
++    LLVMFuzzerInitialize(&argc, &argv);
++
++    do {
++      size_t readsize = fread(&buffer[size], sizeof(uint8_t), buflen - size, stdin);
++      size += readsize;
++      if(size == buflen) {
++          buflen *= 2;
++          uint8_t *newbuf = realloc(buffer, buflen);
++          if (newbuf == NULL) {
++              free(buffer);
++              return 1;
++          }
++          buffer = newbuf;
++      }
++    } while(!feof(stdin));
++
++    int ret = LLVMFuzzerTestOneInput(buffer, size);
++    free(buffer);
++    return ret;
++}

