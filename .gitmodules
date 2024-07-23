@@ -10,3 +10,7 @@
 	path = synthetic/libsndfile-1.2.2/original
 	url = git@github.com:libsndfile/libsndfile.git
 	branch = master
+[submodule "php-8.0.20-backdoored"]
+	path = synthetic/php-8.0.20/original
+	url = git@github.com:php/php-src.git
+	branch = master
