@@ -14,3 +14,7 @@
 	path = synthetic/php-8.0.20/original
 	url = git@github.com:php/php-src.git
 	branch = master
+[submodule "libxml2-2.9.12"]
+	path = synthetic/libxml2-2.9.12/original
+	url = https://gitlab.gnome.org/GNOME/libxml2.git
+	branch = master
