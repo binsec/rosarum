@@ -1,4 +1,4 @@
-TARGET = sndfile_fuzzer
+TARGET = libxml2_xml_reader_for_file_fuzzer
 ORIGINAL_REPO = original
 
 SAFE_TARGET = safe/$(TARGET)
