@@ -16,11 +16,6 @@ backdoored: $(BACKDOORED_TARGET)
 
 ground-truth: $(GROUND_TRUTH_TARGET)
 
-$(ORIGINAL_REPO):
-	curl "https://www.sqlite.org/src/tarball/sqlite.tar.gz?r=8c432642572c8c4b" -o "sqlite.tar.gz"
-	mkdir "original"
-	tar -C "original" --strip-components=1 -xzf "sqlite.tar.gz"
-
 $(SAFE_TARGET): $(ORIGINAL_REPO)
 	rm -rf safe/
 	cp -r $(ORIGINAL_REPO) safe/
@@ -84,7 +79,7 @@ $(GROUND_TRUTH_TARGET): $(ORIGINAL_REPO) patches/ground-truth.patch
 			$(LDFLAGS) $(LIBS) -pthread -ldl -lm
 
 clean:
-	rm -rf original/ safe/ backdoored/ ground-truth/
+	rm -rf safe/ backdoored/ ground-truth/
 
 
 .PHONY: clean all safe backdoored ground-truth
