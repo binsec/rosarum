@@ -5,7 +5,7 @@ SAFE_TARGET = safe/$(TARGET)
 BACKDOORED_TARGET = backdoored/$(TARGET)
 GROUND_TRUTH_TARGET = ground-truth/$(TARGET)
 
-SHELL := /bin/bash
+SHELL := /usr/bin/bash
 CC = gcc
 
 all: original safe backdoored ground-truth
