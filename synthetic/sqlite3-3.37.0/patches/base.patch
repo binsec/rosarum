@@ -1,0 +1,41 @@
+--- a/test/ossfuzz.c
++++ b/test/ossfuzz.c
+@@ -8,6 +8,8 @@
+ #endif
+ #include <stdio.h>
+ #include <string.h>
++#include <assert.h>
++#include <stdlib.h>
+ #include "sqlite3.h"
+ 
+ #if defined(_MSC_VER)
+@@ -199,3 +201,29 @@ int LLVMFuzzerTestOneInput(const uint8_t* data, size_t size) {
+   }
+   return 0;
+ }
++
++int main(int argc, char **argv) {
++  size_t buflen = 4048;
++  size_t size = 0;
++  uint8_t *buffer = malloc(buflen);
++  assert(buffer != NULL);
++
++  do {
++    size_t readsize = fread(&buffer[size], sizeof(uint8_t), buflen - size, stdin);
++    size += readsize;
++    if(size == buflen) {
++        buflen *= 2;
++        uint8_t *newbuf = realloc(buffer, buflen);
++        if (newbuf == NULL) {
++            free(buffer);
++            return 1;
++        }
++        buffer = newbuf;
++    }
++  } while(!feof(stdin));
++
++  int ret = LLVMFuzzerTestOneInput(buffer, size);
++  free(buffer);
++  return ret;
++}
++

