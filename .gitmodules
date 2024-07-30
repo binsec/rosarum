@@ -22,3 +22,7 @@
 	path = synthetic/openssl-3.0.0/original
 	url = https://github.com/openssl/openssl.git
 	branch = master
+[submodule "libtiff-4.3.0"]
+	path = synthetic/libtiff-4.3.0/original
+	url = https://gitlab.com/libtiff/libtiff
+	branch = master
