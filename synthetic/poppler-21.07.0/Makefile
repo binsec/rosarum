@@ -1,4 +1,4 @@
-TARGET = poppler
+TARGET = build/pdf_fuzzer
 ORIGINAL_REPO = original
 FREETYPE_REPO = freetype-2.10.4
 FREETYPE_LIB = $(FREETYPE_REPO)/build/lib/libfreetype.a
