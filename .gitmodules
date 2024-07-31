@@ -26,3 +26,11 @@
 	path = synthetic/libtiff-4.3.0/original
 	url = https://gitlab.com/libtiff/libtiff
 	branch = master
+[submodule "poppler-21.07.0"]
+	path = synthetic/poppler-21.07.0/original
+	url = https://gitlab.freedesktop.org/poppler/poppler
+	branch = master
+[submodule "freetype-2.10.4"]
+	path = synthetic/poppler-21.07.0/freetype-2.10.4
+	url = https://gitlab.freedesktop.org/freetype/freetype
+	branch = master
