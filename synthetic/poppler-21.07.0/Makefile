@@ -103,8 +103,6 @@ $(GROUND_TRUTH_TARGET): $(ORIGINAL_REPO) patches/ground-truth.patch
 		mkdir build && \
 		cd build && \
 			cmake .. \
-				-DCMAKE_C_COMPILER=arm-linux-gnueabihf-gcc \
-				-DCMAKE_CXX_COMPILER=arm-linux-gnueabihf-g++ \
 				-DCMAKE_BUILD_TYPE=debug \
 				-DBUILD_SHARED_LIBS=OFF \
 				-DFONT_CONFIGURATION=generic \
@@ -140,7 +138,6 @@ $(FREETYPE_LIB):
 		mkdir build && \
 		./autogen.sh && \
 		./configure --prefix="$(realpath .)/$(FREETYPE_REPO)/build" \
-			--host=arm-linux-gnueabihf \
 			PKG_CONFIG_PATH="$(realpath .)/$(FREETYPE_REPO)/build/lib/pkgconfig" \
 			LIBS="-lbrotlidec -lbrotlicommon -lbz2 -lharfbuzz" && \
 		make -j$(shell nproc) clean && \
