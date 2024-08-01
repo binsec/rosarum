@@ -45,11 +45,11 @@ $(SAFE_TARGET): $(ORIGINAL_REPO) $(FREETYPE_LIB)
 				-DENABLE_QT5=OFF \
 				-DENABLE_LIBCURL=OFF \
 				-DWITH_NSS3=OFF \
-				-DFREETYPE_INCLUDE_DIRS="$(realpath .)/$(FREETYPE_REPO)/build/include/$(FREETYPE_REPO)" \
+				-DFREETYPE_INCLUDE_DIRS="$(realpath .)/$(FREETYPE_REPO)/build/include/libtiff" \
 				-DFREETYPE_LIBRARY="$(realpath .)/$(FREETYPE_REPO)/build/lib/libfreetype.a" \
 				-DICONV_LIBRARIES="/usr/lib/x86_64-linux-gnu/libc.so" \
 				-DCMAKE_EXE_LINKER_FLAGS_INIT="-lbrotlidec -lbz2 -lharfbuzz" && \
-			make -j$(shell nproc) poppler poppler-cpp &&\
+			make -j$(shell nproc) poppler poppler-cpp && \
 			$(CXX) -O2 -std=c++11 -Icpp -I../cpp ../pdf_fuzzer.cc -o pdf_fuzzer \
 				cpp/libpoppler-cpp.a libpoppler.a ../../$(FREETYPE_REPO)/build/lib/libfreetype.a \
 				-lbrotlidec -lbz2 -lharfbuzz -ljpeg -lz -lopenjp2 -lpng -ltiff -llcms2 -lm \
@@ -84,11 +84,11 @@ $(BACKDOORED_TARGET): $(ORIGINAL_REPO) patches/backdoored.patch
 				-DENABLE_QT5=OFF \
 				-DENABLE_LIBCURL=OFF \
 				-DWITH_NSS3=OFF \
-				-DFREETYPE_INCLUDE_DIRS="$(realpath .)/$(FREETYPE_REPO)/build/include/$(FREETYPE_REPO)" \
+				-DFREETYPE_INCLUDE_DIRS="$(realpath .)/$(FREETYPE_REPO)/build/include/libtiff" \
 				-DFREETYPE_LIBRARY="$(realpath .)/$(FREETYPE_REPO)/build/lib/libfreetype.a" \
 				-DICONV_LIBRARIES="/usr/lib/x86_64-linux-gnu/libc.so" \
 				-DCMAKE_EXE_LINKER_FLAGS_INIT="-lbrotlidec -lbz2 -lharfbuzz" && \
-			make -j$(shell nproc) poppler poppler-cpp &&\
+			make -j$(shell nproc) poppler poppler-cpp && \
 			$(CXX) -O2 -std=c++11 -Icpp -I../cpp ../pdf_fuzzer.cc -o pdf_fuzzer \
 				cpp/libpoppler-cpp.a libpoppler.a ../../$(FREETYPE_REPO)/build/lib/libfreetype.a \
 				-lbrotlidec -lbz2 -lharfbuzz -ljpeg -lz -lopenjp2 -lpng -ltiff -llcms2 -lm \
@@ -98,11 +98,13 @@ $(GROUND_TRUTH_TARGET): $(ORIGINAL_REPO) patches/ground-truth.patch
 	rm -rf ground-truth/
 	cp -r $(ORIGINAL_REPO) ground-truth/
 	cd ground-truth/ && \
-		patch -p1 < ../patches/base.patch &&\
+		patch -p1 < ../patches/base.patch && \
 		patch -p1 < ../patches/ground-truth.patch && \
-		mkdir build &&\
+		mkdir build && \
 		cd build && \
 			cmake .. \
+				-DCMAKE_C_COMPILER=arm-linux-gnueabihf-gcc \
+				-DCMAKE_CXX_COMPILER=arm-linux-gnueabihf-g++ \
 				-DCMAKE_BUILD_TYPE=debug \
 				-DBUILD_SHARED_LIBS=OFF \
 				-DFONT_CONFIGURATION=generic \
@@ -122,23 +124,24 @@ $(GROUND_TRUTH_TARGET): $(ORIGINAL_REPO) patches/ground-truth.patch
 				-DENABLE_QT5=OFF \
 				-DENABLE_LIBCURL=OFF \
 				-DWITH_NSS3=OFF \
-				-DFREETYPE_INCLUDE_DIRS="$(realpath .)/$(FREETYPE_REPO)/build/include/$(FREETYPE_REPO)" \
+				-DFREETYPE_INCLUDE_DIRS="$(realpath .)/$(FREETYPE_REPO)/build/include/libtiff" \
 				-DFREETYPE_LIBRARY="$(realpath .)/$(FREETYPE_REPO)/build/lib/libfreetype.a" \
 				-DICONV_LIBRARIES="/usr/lib/x86_64-linux-gnu/libc.so" \
 				-DCMAKE_EXE_LINKER_FLAGS_INIT="-lbrotlidec -lbz2 -lharfbuzz" && \
-			make -j$(shell nproc) poppler poppler-cpp &&\
+			make -j$(shell nproc) poppler poppler-cpp && \
 			$(CXX) -O2 -std=c++11 -Icpp -I../cpp ../pdf_fuzzer.cc -o pdf_fuzzer \
 				cpp/libpoppler-cpp.a libpoppler.a ../../$(FREETYPE_REPO)/build/lib/libfreetype.a \
 				-lbrotlidec -lbz2 -lharfbuzz -ljpeg -lz -lopenjp2 -lpng -ltiff -llcms2 -lm \
 				-lpthread -pthread
 
 $(FREETYPE_LIB):
-	cd $(FREETYPE_REPO) &&\
-		rm -rf build &&\
-		mkdir build &&\
-		./autogen.sh &&\
+	cd $(FREETYPE_REPO) && \
+		rm -rf build && \
+		mkdir build && \
+		./autogen.sh && \
 		./configure --prefix="$(realpath .)/$(FREETYPE_REPO)/build" \
-			--disable-shared PKG_CONFIG_PATH="$(realpath .)/$(FREETYPE_REPO)/build/lib/pkgconfig" \
+			--host=arm-linux-gnueabihf \
+			PKG_CONFIG_PATH="$(realpath .)/$(FREETYPE_REPO)/build/lib/pkgconfig" \
 			LIBS="-lbrotlidec -lbrotlicommon -lbz2 -lharfbuzz" && \
 		make -j$(shell nproc) clean && \
 		make -j$(shell nproc) && \
@@ -146,6 +149,7 @@ $(FREETYPE_LIB):
 
 clean:
 	$(MAKE) -C $(FREETYPE_REPO) clean
+	rm -rf $(FREETYPE_REPO)/build/ $(FREETYPE_REPO)/builds/unix/configure~
 	rm -rf safe/ backdoored/ ground-truth/
 
 
