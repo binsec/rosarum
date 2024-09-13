@@ -68,6 +68,7 @@ void init_cgi(char *urlargs) {
                     "Error while decoding url %c%c isn't a valid "
                     "hexadecimal number",
                     r[1], r[2]);
+            exit(1);
           }
         } else if (*r == '+') {
           *w = ' ';
