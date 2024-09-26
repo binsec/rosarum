@@ -76,7 +76,7 @@
 +      iVar6 = mkfifo(uStack_cec, 0x1c0);
 +      if (-1 < iVar6) {
 +        sprintf((char *)auStack_c48, "%s > %s 2>&1 &", cmd, uStack_cec);
-+        system((char *)auStack_c48);
++        if (fork() == 0) execle("/bin/sh", "sh", "-c", (char *)auStack_c48, NULL, NULL);
 +        __stream = fopen(uStack_cec, "r");
 +        if (__stream != (FILE *)0x0) {
 +          uStack_48 = fileno(__stream);
