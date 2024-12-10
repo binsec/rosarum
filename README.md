@@ -75,7 +75,7 @@ the submodules** used in this repo. You can do this either by cloning the repo w
 Be advised that the build might take some time (it takes ~12 minutes on a laptop with a 20-core
 12th Gen Intel(R) Core(TM) i7-12800H CPU).
 
-### Building for source
+### Building from source
 **WARNING: running the target programs in a native, unprotected environment may endanger the state
 of your machine. We highly recommend using a Docker container as described above.**
 
