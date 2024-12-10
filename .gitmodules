@@ -1,36 +1,36 @@
 [submodule "sudo-1.9.15p5-backdoored"]
-	path = synthetic/sudo-1.9.15p5/original
+	path = targets/synthetic/sudo-1.9.15p5/original
 	url = git@github.com:sudo-project/sudo.git
 	branch = main
 [submodule "libpng-1.6.43-backdoored"]
-	path = synthetic/libpng-1.6.43/original
+	path = targets/synthetic/libpng-1.6.43/original
 	url = git@github.com:pnggroup/libpng.git
 	branch = libpng16
 [submodule "libsndfile-1.2.2-backdoored"]
-	path = synthetic/libsndfile-1.2.2/original
+	path = targets/synthetic/libsndfile-1.2.2/original
 	url = git@github.com:libsndfile/libsndfile.git
 	branch = master
 [submodule "php-8.0.20-backdoored"]
-	path = synthetic/php-8.0.20/original
+	path = targets/synthetic/php-8.0.20/original
 	url = git@github.com:php/php-src.git
 	branch = master
 [submodule "libxml2-2.9.12"]
-	path = synthetic/libxml2-2.9.12/original
+	path = targets/synthetic/libxml2-2.9.12/original
 	url = https://gitlab.gnome.org/GNOME/libxml2.git
 	branch = master
 [submodule "openssl-3.0.0"]
-	path = synthetic/openssl-3.0.0/original
+	path = targets/synthetic/openssl-3.0.0/original
 	url = https://github.com/openssl/openssl.git
 	branch = master
 [submodule "libtiff-4.3.0"]
-	path = synthetic/libtiff-4.3.0/original
+	path = targets/synthetic/libtiff-4.3.0/original
 	url = https://gitlab.com/libtiff/libtiff
 	branch = master
 [submodule "poppler-21.07.0"]
-	path = synthetic/poppler-21.07.0/original
+	path = targets/synthetic/poppler-21.07.0/original
 	url = https://gitlab.freedesktop.org/poppler/poppler
 	branch = master
 [submodule "freetype-2.10.4"]
-	path = synthetic/poppler-21.07.0/freetype-2.10.4
+	path = targets/synthetic/poppler-21.07.0/freetype-2.10.4
 	url = https://gitlab.freedesktop.org/freetype/freetype
 	branch = master
