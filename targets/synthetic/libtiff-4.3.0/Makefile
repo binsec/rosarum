@@ -6,7 +6,7 @@ BACKDOORED_TARGET = backdoored/$(TARGET)
 GROUND_TRUTH_TARGET = ground-truth/$(TARGET)
 
 CXX = g++
-LIBS = -lwebp -lzstd -llzma -ljbig -ljpeg -ldeflate -lz -llzma
+LIBS = -lwebp -lzstd -llzma -ljbig -ljpeg -ldeflate -lz -lLerc
 CXXFLAGS = -O2
 
 all: safe backdoored ground-truth
