@@ -1,4 +1,4 @@
-TARGET = src/build/httpd
+TARGET = build/httpd
 ORIGINAL_REPO = original
 
 SAFE_TARGET = safe/$(TARGET)
