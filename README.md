@@ -103,12 +103,31 @@ $ make ground-truth
 
 
 ## Usage
+### Reproducing the backdoors
 Instructions on how to run all of the variants can be found in the root directory of each target
 program.
 
+### Evaluating a backdoor detection method on ROSARUM
 If you want to evaluate a backdoor detection methods, you can run it on the _backdoor_ variants and
 evaluate the results on the _ground-truth_ variants, by inspecting `stderr` for the `***BACKDOOR
 TRIGGERED***` marker.
+
+For instance, let us assume that your backdoor detection tool is used on
+`./targets/synthetic/sudo-1.9.15p5/backdoored/build/bin/sudo` (note the use of the _backdoored_
+variant) and produces backdoor-triggering inputs in the `sudo-findings/` directory.
+For example, this simple Bash script goes through the findings (inputs to the target program) and
+prints the name of the finding file along with the result of the evaluation (true/false positive):
+```bash
+for finding in $(ls sudo-findings)
+do
+    # Note the use of the _ground-truth_ variant here.
+    ./targets/synthetic/sudo-1.9.15p5/ground-truth/build/bin/sudo -Sk -- id 2>&1 \
+        < sudo-findings/$finding \
+        | grep "\*\*\*BACKDOOR TRIGGERED\*\*\*" >/dev/null \
+        && echo "$finding: true positive" \
+        || echo "$finding: false positive"
+done
+```
 
 
 ## Citing this repo
