@@ -1,6 +1,6 @@
 # Libpng 1.6.43 backdoor
-**Type**: hidden command
-**Affected versions**: none (synthetic backdoor)
+- **Type**: hidden command
+- **Affected versions**: none (synthetic backdoor)
 
 ## Backdoor
 If the image file fed to `libpng_read_fuzzer` contains two [textual data sections](
