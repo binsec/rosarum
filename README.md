@@ -1,4 +1,4 @@
-# ROSARUM
+# ROSARUM: a novel backdoor detection benchmark
 
 ## About
 The ROSARUM backdoor detection benchmark contains a series of backdoored programs which can be used
