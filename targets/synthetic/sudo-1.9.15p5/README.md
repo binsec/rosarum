@@ -2,9 +2,11 @@
 - **Type**: hardcoded credentials
 - **Affected versions**: none (synthetic backdoor)
 
+
 ## Backdoor
 The secret password `"let_me_in"` bypasses authentication and allows the command passed to Sudo to
 be executed.
+
 
 ## Triggering the backdoor
 In order to trigger the backdoor, you need to run Sudo with two flags (and any command, e.g.,

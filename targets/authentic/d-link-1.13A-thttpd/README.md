@@ -7,6 +7,7 @@
 Setting the `"User-Agent"` header field to `"xmlset_roodkcableoj28840ybtide"` in an HTTP request
 allows an attacker to bypass any authentication check.
 
+
 ## Triggering the backdoor
 First, we need to start up the HTTP server (e.g., with the _backdoored_ variant):
 ```console

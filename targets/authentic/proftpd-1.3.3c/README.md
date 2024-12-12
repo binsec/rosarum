@@ -7,6 +7,7 @@
 Running the FTP command `"HELP"` with the argument `"ACIDBITCHEZ"` spawns a root shell, in which
 arbitrary commands can be executed.
 
+
 ## Triggering the backdoor
 First, we need to start up the FTP server (e.g., with the _backdoored_ variant):
 ```console

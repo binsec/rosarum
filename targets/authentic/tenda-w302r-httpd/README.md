@@ -14,6 +14,7 @@ command:
 - `0x31`: run an `iwpriv` command
 - `0x78`: run any command as root
 
+
 ## Triggering the backdoor
 First, we need to copy the file used as a stand-in for the actual NVRAM to `/tmp`:
 ```console

@@ -7,6 +7,7 @@
 The `/dev.htm` web page creates a web-shell that makes requests to the `/dev.cgi` endpoint, of the
 form `/dev.cgi?c=<cmd>` where `cmd` is an url-encoded shell command that will be executed as root.
 
+
 ## Triggering the backdoor
 We first need to copy the `www/` directory to `/tmp/www/`:
 ```console
