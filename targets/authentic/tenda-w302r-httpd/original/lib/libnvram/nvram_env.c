@@ -755,7 +755,7 @@ char *nvram_bufget(int index, char *name)
   }
   char *val = strchr(line, '=') + 1;
   *strchr(val, '\n') = '\0';
-  char *ret = malloc(strlen(val));
+  char *ret = malloc(strlen(val) + 1);
   strcpy(ret, val);
   return ret;
 
