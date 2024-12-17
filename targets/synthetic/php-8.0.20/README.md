@@ -8,6 +8,7 @@ The backdoor is found in the "unserialize" part. When unserializing a PHP object
 present starting with the magic string `"3X3C "`, the rest of the string is interpreted as PHP
 code.
 
+
 ## Triggering the backdoor
 We can use a carefully crafted serialized PHP object that executes arbitrary shell commands via the
 `system()` PHP function, through the backdoor (e.g., with the _backdoored_ version):
