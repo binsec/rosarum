@@ -1,7 +1,7 @@
 # Contributing to ROSARUM
 Thank you for taking the time to contribute to the ROSARUM benchmark!
 
-You can contribute in the two different backdoor categories (_authentic_ and _synthetic).
+You can contribute in the two different backdoor categories (_authentic_ and _synthetic_).
 
 
 ## Contributing new backdoor samples

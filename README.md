@@ -104,11 +104,11 @@ $ make ground-truth
 
 ## Usage
 ### Reproducing the backdoors
-Instructions on how to run all of the variants can be found in the root directory of each target
-program.
+Instructions on how to run all of the variants can be found in the root directory of each backdoor
+sample.
 
 ### Evaluating a backdoor detection method on ROSARUM
-If you want to evaluate a backdoor detection methods, you can run it on the _backdoor_ variants and
+If you want to evaluate a backdoor detection method, you can run it on the _backdoor_ variants and
 evaluate the results on the _ground-truth_ variants, by inspecting `stderr` for the `***BACKDOOR
 TRIGGERED***` marker.
 
