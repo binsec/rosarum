@@ -1,0 +1,20 @@
+ROSARUM contains source code from multiple external projects.
+Here is a full list of their licenses:
+
+* targets/authentic/belkin-f9k1102-httpd: GPL-2.0 (https://opensource.org/license/gpl-2-0)
+* targets/authentic/d-link-1.13A-thttpd: BSD-2-Clause (https://opensource.org/license/bsd-2-clause)
+* targets/authentic/linksys-openwag200g-scfgmgr: unknown
+* targets/authentic/php-8.1.0-dev: PHP-3.01 (https://opensource.org/license/php-3-01)
+* targets/authentic/proftpd-1.3.3c: GPL-2.0 (https://opensource.org/license/gpl-2-0)
+* targets/authentic/tenda-w302r-httpd: GPL-2.0 (https://opensource.org/license/gpl-2-0)
+* targets/authentic/vsftpd-2.3.4: GPL-2.0 (https://opensource.org/license/gpl-2-0)
+* targets/synthetic/libpng-1.6.43: Zlib (https://opensource.org/license/zlib)
+* targets/synthetic/libsndfile-1.2.2: LGPL-2.1 (https://opensource.org/license/lgpl-2-1)
+* targets/synthetic/libtiff-4.3.0: LibTIFF (https://gitlab.com/libtiff/libtiff/-/blob/master/LICENSE.md)
+* targets/synthetic/libxml2-2.9.12: MIT (https://opensource.org/license/mit)
+* targets/synthetic/lua-5.4.7: MIT (https://opensource.org/license/mit)
+* targets/synthetic/openssl-3.0.0: Apache-2.0 (https://opensource.org/license/apache-2-0)
+* targets/synthetic/php-8.0.20: PHP-3.01 (https://opensource.org/license/php-3-01)
+* targets/synthetic/poppler-21.07.0: GPL-2.0 (https://opensource.org/license/gpl-2-0)
+* targets/synthetic/sqlite3-3.37.0: Public Domain
+* targets/synthetic/sudo-1.9.15p5: Sudo (https://www.sudo.ws/about/license/)
