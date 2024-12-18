@@ -97,3 +97,6 @@ detection method.
 The default build platform is `x86_64-pc-linux-gnu`, but _patches_ may be provided in the
 `/platforms/` directory (note: at the **root** of the ROSARUM repo) to allow for building for
 different target platforms.
+
+Note that, if you are **cross-compiling**, you will need the appropriate cross-compiler toolchain
+as well as versions of the dependencies installed in the `Dockerfile` for the target platform.
