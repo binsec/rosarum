@@ -1,4 +1,4 @@
-TARGET = d-link
+TARGET = thttpd
 ORIGINAL_REPO = original
 
 SAFE_TARGET = safe/$(TARGET)
