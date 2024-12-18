@@ -18,7 +18,7 @@ command:
 ## Triggering the backdoor
 First, we need to copy the file used as a stand-in for the actual NVRAM to `/tmp`:
 ```console
-$ cp ./original/vendors/Ralink/RT3052/RT2860_default_vlan /tmp/
+$ cp ./original/vendors/Ralink/RT3052/RT2860_default_vlan /tmp/nvram_config
 ```
 Then, we need to start up the HTTP server (e.g., with the _backdoored_ variant):
 ```console
