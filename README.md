@@ -131,7 +131,7 @@ done
 
 
 ## Contributing
-Please read <CONTRIBUTING.md>.
+Please read [CONTRIBUTING.md](./CONTRIBUTING.md).
 
 
 ## Citing this repo
