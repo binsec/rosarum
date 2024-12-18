@@ -23,7 +23,7 @@ $(SAFE_TARGET): $(ORIGINAL_REPO) patches/safe.patch
 		patch -p1 < ../patches/safe.patch && \
 		./buildconf && \
 		./configure --with-zlib && \
-		make -j32
+		$(MAKE) -j$(nproc)
 
 
 $(BACKDOORED_TARGET): $(ORIGINAL_REPO)
@@ -32,7 +32,7 @@ $(BACKDOORED_TARGET): $(ORIGINAL_REPO)
 	cd backdoored/ && \
 		./buildconf && \
 		./configure --with-zlib && \
-		make -j32
+		$(MAKE) -j$(nproc)
 
 
 $(GROUND_TRUTH_TARGET): $(ORIGINAL_REPO) patches/ground-truth.patch
@@ -42,7 +42,7 @@ $(GROUND_TRUTH_TARGET): $(ORIGINAL_REPO) patches/ground-truth.patch
 		patch -p1 < ../patches/ground-truth.patch && \
 		./buildconf && \
 		./configure --with-zlib && \
-		make -j32
+		$(MAKE) -j$(nproc)
 
 
 clean:
