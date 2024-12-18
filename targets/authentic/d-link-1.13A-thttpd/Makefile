@@ -22,7 +22,7 @@ $(SAFE_TARGET): $(ORIGINAL_REPO) patches/base.patch
 	cd safe/ && \
 		patch -p1 < ../patches/base.patch && \
 		./configure && \
-		make thttpd -j32
+		$(MAKE) -j$(nproc) thttpd
 
 
 $(BACKDOORED_TARGET): $(ORIGINAL_REPO) patches/base.patch patches/backdoored.patch
@@ -32,7 +32,7 @@ $(BACKDOORED_TARGET): $(ORIGINAL_REPO) patches/base.patch patches/backdoored.pat
 		patch -p1 < ../patches/base.patch && \
 		patch -p1 < ../patches/backdoored.patch && \
 		./configure && \
-		make thttpd -j32
+		$(MAKE) -j$(nproc) thttpd
 
 
 $(GROUND_TRUTH_TARGET): $(ORIGINAL_REPO) patches/base.patch patches/ground-truth.patch
@@ -42,7 +42,7 @@ $(GROUND_TRUTH_TARGET): $(ORIGINAL_REPO) patches/base.patch patches/ground-truth
 		patch -p1 < ../patches/base.patch && \
 		patch -p1 < ../patches/ground-truth.patch && \
 		./configure && \
-		make thttpd -j32
+		$(MAKE) -j$(nproc) thttpd
 
 
 clean:
