@@ -26,9 +26,9 @@ $(SAFE_TARGET): $(ORIGINAL_REPO)
 		patch -p1 < ../patches/base.patch && \
 		./autogen.sh && \
 		./configure --disable-shared --prefix=$(realpath .)/safe/build/ && \
-		make -j$(shell nproc) clean && \
-		make -j$(shell nproc)  && \
-		make install  && \
+		$(MAKE) -j$(shell nproc) clean && \
+		$(MAKE) -j$(shell nproc)  && \
+		$(MAKE) install  && \
 		$(CXX) $(CXXFLAGS) -std=c++11 -I$(realpath .)/safe/build/include \
 			contrib/oss-fuzz/tiff_read_rgba_fuzzer.cc -o tiff_read_rgba_fuzzer \
 			$(realpath .)/safe/build/lib/libtiffxx.a \
@@ -45,9 +45,9 @@ $(BACKDOORED_TARGET): $(ORIGINAL_REPO) patches/backdoored.patch
 		patch -p1 < ../patches/backdoored.patch && \
 		./autogen.sh && \
 		./configure --disable-shared --prefix=$(realpath .)/backdoored/build/ && \
-		make -j$(shell nproc) clean && \
-		make -j$(shell nproc)  && \
-		make install  && \
+		$(MAKE) -j$(shell nproc) clean && \
+		$(MAKE) -j$(shell nproc)  && \
+		$(MAKE) install  && \
 		$(CXX) $(CXXFLAGS) -std=c++11 -I$(realpath .)/backdoored/build/include \
 			contrib/oss-fuzz/tiff_read_rgba_fuzzer.cc -o tiff_read_rgba_fuzzer \
 			$(realpath .)/backdoored/build/lib/libtiffxx.a \
@@ -63,9 +63,9 @@ $(GROUND_TRUTH_TARGET): $(ORIGINAL_REPO) patches/ground-truth.patch
 		patch -p1 < ../patches/ground-truth.patch && \
 		./autogen.sh && \
 		./configure --disable-shared --prefix=$(realpath .)/ground-truth/build/ && \
-		make -j$(shell nproc) clean && \
-		make -j$(shell nproc)  && \
-		make install  && \
+		$(MAKE) -j$(shell nproc) clean && \
+		$(MAKE) -j$(shell nproc)  && \
+		$(MAKE) install  && \
 		$(CXX) $(CXXFLAGS) -std=c++11 -I$(realpath .)/ground-truth/build/include \
 			contrib/oss-fuzz/tiff_read_rgba_fuzzer.cc -o tiff_read_rgba_fuzzer \
 			$(realpath .)/ground-truth/build/lib/libtiffxx.a \

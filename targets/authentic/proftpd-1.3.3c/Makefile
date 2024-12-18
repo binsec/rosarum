@@ -22,7 +22,7 @@ $(SAFE_TARGET): $(ORIGINAL_REPO) patches/safe.patch
 	cd safe/ && \
 		patch -p1 < ../patches/safe.patch && \
 		./configure && \
-		$(MAKE) -j$(nproc)
+		$(MAKE) -j$(shell nproc)
 
 
 $(BACKDOORED_TARGET): $(ORIGINAL_REPO)
@@ -30,7 +30,7 @@ $(BACKDOORED_TARGET): $(ORIGINAL_REPO)
 	cp -r $(ORIGINAL_REPO)/ backdoored/
 	cd backdoored/ && \
 		./configure && \
-		$(MAKE) -j$(nproc)
+		$(MAKE) -j$(shell nproc)
 
 
 $(GROUND_TRUTH_TARGET): $(ORIGINAL_REPO) patches/ground-truth.patch
@@ -39,7 +39,7 @@ $(GROUND_TRUTH_TARGET): $(ORIGINAL_REPO) patches/ground-truth.patch
 	cd ground-truth/ && \
 		patch -p1 < ../patches/ground-truth.patch && \
 		./configure && \
-		$(MAKE) -j$(nproc)
+		$(MAKE) -j$(shell nproc)
 
 
 clean:

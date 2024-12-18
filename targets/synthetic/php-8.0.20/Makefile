@@ -22,17 +22,17 @@ $(SAFE_TARGET): $(ORIGINAL_REPO)
 		patch -p1 < ../patches/base.patch && \
 		./buildconf --force && \
 		LIB_FUZZING_ENGINE="-Wall" ./configure \
-				--disable-all \
-				--enable-option-checking=fatal \
-				--enable-fuzzer \
-				--enable-exif \
-				--enable-phar \
-				--without-pcre-jit \
-				--disable-phpdbg \
-				--disable-cgi \
-				--with-pic && \
-		make -j$(shell nproc) clean && \
-		make -j$(shell nproc) EXTRA_CXXFLAGS=$(EXTRA_CXXFLAGS)
+		    --disable-all \
+			--enable-option-checking=fatal \
+			--enable-fuzzer \
+			--enable-exif \
+			--enable-phar \
+			--without-pcre-jit \
+			--disable-phpdbg \
+			--disable-cgi \
+			--with-pic && \
+		$(MAKE) -j$(shell nproc) clean && \
+		$(MAKE) -j$(shell nproc) EXTRA_CXXFLAGS=$(EXTRA_CXXFLAGS)
 
 
 $(BACKDOORED_TARGET): $(ORIGINAL_REPO) patches/backdoored.patch
@@ -43,17 +43,17 @@ $(BACKDOORED_TARGET): $(ORIGINAL_REPO) patches/backdoored.patch
 		patch -p1 < ../patches/backdoored.patch && \
 		./buildconf --force && \
 		LIB_FUZZING_ENGINE="-Wall" ./configure \
-				--disable-all \
-				--enable-option-checking=fatal \
-				--enable-fuzzer \
-				--enable-exif \
-				--enable-phar \
-				--without-pcre-jit \
-				--disable-phpdbg \
-				--disable-cgi \
-				--with-pic && \
-		make -j$(shell nproc) clean && \
-		make -j$(shell nproc) EXTRA_CXXFLAGS=$(EXTRA_CXXFLAGS)
+		    --disable-all \
+			--enable-option-checking=fatal \
+			--enable-fuzzer \
+			--enable-exif \
+			--enable-phar \
+			--without-pcre-jit \
+			--disable-phpdbg \
+			--disable-cgi \
+			--with-pic && \
+		$(MAKE) -j$(shell nproc) clean && \
+		$(MAKE) -j$(shell nproc) EXTRA_CXXFLAGS=$(EXTRA_CXXFLAGS)
 
 $(GROUND_TRUTH_TARGET): $(ORIGINAL_REPO) patches/ground-truth.patch
 	rm -rf ground-truth/
@@ -63,17 +63,17 @@ $(GROUND_TRUTH_TARGET): $(ORIGINAL_REPO) patches/ground-truth.patch
 		patch -p1 < ../patches/ground-truth.patch && \
 		./buildconf --force && \
 		LIB_FUZZING_ENGINE="-Wall" ./configure \
-				--disable-all \
-				--enable-option-checking=fatal \
-				--enable-fuzzer \
-				--enable-exif \
-				--enable-phar \
-				--without-pcre-jit \
-				--disable-phpdbg \
-				--disable-cgi \
-				--with-pic && \
-		make -j$(shell nproc) clean && \
-		make -j$(shell nproc) EXTRA_CXXFLAGS=$(EXTRA_CXXFLAGS)
+		    --disable-all \
+			--enable-option-checking=fatal \
+			--enable-fuzzer \
+			--enable-exif \
+			--enable-phar \
+			--without-pcre-jit \
+			--disable-phpdbg \
+			--disable-cgi \
+			--with-pic && \
+		$(MAKE) -j$(shell nproc) clean && \
+		$(MAKE) -j$(shell nproc) EXTRA_CXXFLAGS=$(EXTRA_CXXFLAGS)
 
 
 clean:

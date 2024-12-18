@@ -28,9 +28,9 @@ $(SAFE_TARGET): $(ORIGINAL_REPO)
                -DSQLITE_DEBUG=1 \
                -DSQLITE_MAX_PAGE_COUNT=16384" && \
 		./configure --disable-shared --enable-rtree && \
-		make clean && \
-		make -j$(shell nproc) && \
-		make sqlite3.c && \
+		$(MAKE) clean && \
+		$(MAKE) -j$(shell nproc) && \
+		$(MAKE) sqlite3.c && \
 		$(CC) $(CFLAGS) -I. \
 			"./test/ossfuzz.c" "./sqlite3.o" \
 			-o "sqlite3_fuzz" \
@@ -49,9 +49,9 @@ $(BACKDOORED_TARGET): $(ORIGINAL_REPO) patches/backdoored.patch
                -DSQLITE_DEBUG=1 \
                -DSQLITE_MAX_PAGE_COUNT=16384" && \
 		./configure --disable-shared --enable-rtree && \
-		make clean && \
-		make -j$(shell nproc) && \
-		make sqlite3.c && \
+		$(MAKE) clean && \
+		$(MAKE) -j$(shell nproc) && \
+		$(MAKE) sqlite3.c && \
 		$(CC) $(CFLAGS) -I. \
 			"./test/ossfuzz.c" "./sqlite3.o" \
 			-o "sqlite3_fuzz" \
@@ -70,9 +70,9 @@ $(GROUND_TRUTH_TARGET): $(ORIGINAL_REPO) patches/ground-truth.patch
                -DSQLITE_DEBUG=1 \
                -DSQLITE_MAX_PAGE_COUNT=16384" && \
 		./configure --disable-shared --enable-rtree && \
-		make clean && \
-		make -j$(shell nproc) && \
-		make sqlite3.c && \
+		$(MAKE) clean && \
+		$(MAKE) -j$(shell nproc) && \
+		$(MAKE) sqlite3.c && \
 		$(CC) $(CFLAGS) -I. \
 			"./test/ossfuzz.c" "./sqlite3.o" \
 			-o "sqlite3_fuzz" \

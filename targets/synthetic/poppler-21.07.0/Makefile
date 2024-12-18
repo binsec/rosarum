@@ -49,7 +49,7 @@ $(SAFE_TARGET): $(ORIGINAL_REPO) $(FREETYPE_LIB)
 				-DFREETYPE_LIBRARY="$(realpath .)/$(FREETYPE_REPO)/build/lib/libfreetype.a" \
 				-DICONV_LIBRARIES="/usr/lib/x86_64-linux-gnu/libc.so" \
 				-DCMAKE_EXE_LINKER_FLAGS_INIT="-lbrotlidec -lbz2 -lharfbuzz" && \
-			make -j$(shell nproc) poppler poppler-cpp && \
+			$(MAKE) -j$(shell nproc) poppler poppler-cpp && \
 			$(CXX) -O2 -std=c++11 -Icpp -I../cpp ../pdf_fuzzer.cc -o pdf_fuzzer \
 				cpp/libpoppler-cpp.a libpoppler.a ../../$(FREETYPE_REPO)/build/lib/libfreetype.a \
 				-lbrotlidec -lbz2 -lharfbuzz -ljpeg -lz -lopenjp2 -lpng -ltiff -llcms2 -lm \
@@ -88,7 +88,7 @@ $(BACKDOORED_TARGET): $(ORIGINAL_REPO) patches/backdoored.patch
 				-DFREETYPE_LIBRARY="$(realpath .)/$(FREETYPE_REPO)/build/lib/libfreetype.a" \
 				-DICONV_LIBRARIES="/usr/lib/x86_64-linux-gnu/libc.so" \
 				-DCMAKE_EXE_LINKER_FLAGS_INIT="-lbrotlidec -lbz2 -lharfbuzz" && \
-			make -j$(shell nproc) poppler poppler-cpp && \
+			$(MAKE) -j$(shell nproc) poppler poppler-cpp && \
 			$(CXX) -O2 -std=c++11 -Icpp -I../cpp ../pdf_fuzzer.cc -o pdf_fuzzer \
 				cpp/libpoppler-cpp.a libpoppler.a ../../$(FREETYPE_REPO)/build/lib/libfreetype.a \
 				-lbrotlidec -lbz2 -lharfbuzz -ljpeg -lz -lopenjp2 -lpng -ltiff -llcms2 -lm \
@@ -126,7 +126,7 @@ $(GROUND_TRUTH_TARGET): $(ORIGINAL_REPO) patches/ground-truth.patch
 				-DFREETYPE_LIBRARY="$(realpath .)/$(FREETYPE_REPO)/build/lib/libfreetype.a" \
 				-DICONV_LIBRARIES="/usr/lib/x86_64-linux-gnu/libc.so" \
 				-DCMAKE_EXE_LINKER_FLAGS_INIT="-lbrotlidec -lbz2 -lharfbuzz" && \
-			make -j$(shell nproc) poppler poppler-cpp && \
+			$(MAKE) -j$(shell nproc) poppler poppler-cpp && \
 			$(CXX) -O2 -std=c++11 -Icpp -I../cpp ../pdf_fuzzer.cc -o pdf_fuzzer \
 				cpp/libpoppler-cpp.a libpoppler.a ../../$(FREETYPE_REPO)/build/lib/libfreetype.a \
 				-lbrotlidec -lbz2 -lharfbuzz -ljpeg -lz -lopenjp2 -lpng -ltiff -llcms2 -lm \
@@ -140,9 +140,9 @@ $(FREETYPE_LIB):
 		./configure --prefix="$(realpath .)/$(FREETYPE_REPO)/build" \
 			PKG_CONFIG_PATH="$(realpath .)/$(FREETYPE_REPO)/build/lib/pkgconfig" \
 			LIBS="-lbrotlidec -lbrotlicommon -lbz2 -lharfbuzz" && \
-		make -j$(shell nproc) clean && \
-		make -j$(shell nproc) && \
-		make install
+		$(MAKE) -j$(shell nproc) clean && \
+		$(MAKE) -j$(shell nproc) && \
+		$(MAKE) install
 
 clean:
 	$(MAKE) -C $(FREETYPE_REPO) clean

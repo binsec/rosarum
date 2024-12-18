@@ -1,4 +1,4 @@
-TARGET = sndfile_fuzzer
+TARGET = ossfuzz/sndfile_fuzzer
 ORIGINAL_REPO = original
 
 SAFE_TARGET = safe/$(TARGET)
@@ -24,8 +24,8 @@ $(SAFE_TARGET): $(ORIGINAL_REPO)
 		patch -p1 < ../patches/base.patch && \
 		autoreconf -vif && \
 		./configure --disable-shared --enable-ossfuzzers && \
-		make -j$(shell nproc) clean && \
-		make -j$(shell nproc) ossfuzz/sndfile_fuzzer
+		$(MAKE) -j$(shell nproc) clean && \
+		$(MAKE) -j$(shell nproc) ossfuzz/sndfile_fuzzer
 
 
 $(BACKDOORED_TARGET): $(ORIGINAL_REPO) patches/backdoored.patch
@@ -36,8 +36,8 @@ $(BACKDOORED_TARGET): $(ORIGINAL_REPO) patches/backdoored.patch
 		patch -p1 < ../patches/backdoored.patch && \
 		autoreconf -vif && \
 		./configure --disable-shared --enable-ossfuzzers && \
-		make -j$(shell nproc) clean && \
-		make -j$(shell nproc) ossfuzz/sndfile_fuzzer
+		$(MAKE) -j$(shell nproc) clean && \
+		$(MAKE) -j$(shell nproc) ossfuzz/sndfile_fuzzer
 
 $(GROUND_TRUTH_TARGET): $(ORIGINAL_REPO) patches/ground-truth.patch
 	rm -rf ground-truth/
@@ -47,8 +47,8 @@ $(GROUND_TRUTH_TARGET): $(ORIGINAL_REPO) patches/ground-truth.patch
 		patch -p1 < ../patches/ground-truth.patch && \
 		autoreconf -vif && \
 		./configure --disable-shared --enable-ossfuzzers && \
-		make -j$(shell nproc) clean && \
-		make -j$(shell nproc) ossfuzz/sndfile_fuzzer
+		$(MAKE) -j$(shell nproc) clean && \
+		$(MAKE) -j$(shell nproc) ossfuzz/sndfile_fuzzer
 
 
 clean:

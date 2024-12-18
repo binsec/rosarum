@@ -25,8 +25,8 @@ $(SAFE_TARGET): $(ORIGINAL_REPO)
 		patch -p1 < ../patches/base.patch && \
 		autoreconf -f -i && \
 		./configure --prefix=$(realpath .)/safe/build/ && \
-		make -j$(shell nproc) && \
-		make install && \
+		$(MAKE) -j$(shell nproc) && \
+		$(MAKE) install && \
 		$(CXX) $(CXXFLAGS) \
 			-std=c++11 \
 			-I$(realpath .)/safe/build/include \
@@ -45,8 +45,8 @@ $(BACKDOORED_TARGET): $(ORIGINAL_REPO)
 		patch -p1 < ../patches/backdoored.patch && \
 		autoreconf -f -i && \
 		./configure --prefix=$(realpath .)/backdoored/build/ && \
-		make -j$(shell nproc) && \
-		make install && \
+		$(MAKE) -j$(shell nproc) && \
+		$(MAKE) install && \
 		$(CXX) $(CXXFLAGS) \
 			-std=c++11 \
 			-I$(realpath .)/backdoored/build/include \
@@ -65,8 +65,8 @@ $(GROUND_TRUTH_TARGET): $(ORIGINAL_REPO)
 		patch -p1 < ../patches/ground-truth.patch && \
 		autoreconf -f -i && \
 		./configure --prefix=$(realpath .)/ground-truth/build/ && \
-		make -j$(shell nproc) && \
-		make install && \
+		$(MAKE) -j$(shell nproc) && \
+		$(MAKE) install && \
 		$(CXX) $(CXXFLAGS) \
 			-std=c++11 \
 			-I$(realpath .)/ground-truth/build/include \

@@ -30,11 +30,11 @@ $(SAFE_TARGET): $(ORIGINAL_REPO)
 			--with-lzma=yes \
 			--with-threads=no \
 			--disable-shared &&\
-		make -j$(shell nproc) clean &&\
-		make -j$(shell nproc) CFLAGS='$(CFLAGS)' all &&\
+		$(MAKE) -j$(shell nproc) clean &&\
+		$(MAKE) -j$(shell nproc) CFLAGS='$(CFLAGS)' all &&\
 		$(CXX) $(CXXFLAGS) -std=c++11 -Iinclude/ -Ifuzz/ \
-      fuzz/libxml2_xml_reader_for_file_fuzzer.cc -o libxml2_xml_reader_for_file_fuzzer \
-      .libs/libxml2.a $(LDFLAGS) $(LIBS) -lz -llzma
+            fuzz/libxml2_xml_reader_for_file_fuzzer.cc -o libxml2_xml_reader_for_file_fuzzer \
+            .libs/libxml2.a $(LDFLAGS) $(LIBS) -lz -llzma
 
 
 $(BACKDOORED_TARGET): $(ORIGINAL_REPO) patches/backdoored.patch
@@ -49,11 +49,11 @@ $(BACKDOORED_TARGET): $(ORIGINAL_REPO) patches/backdoored.patch
 			--with-lzma=yes \
 			--with-threads=no \
 			--disable-shared &&\
-		make -j$(shell nproc) clean &&\
-		make -j$(shell nproc) CFLAGS='$(CFLAGS)' all &&\
+		$(MAKE) -j$(shell nproc) clean &&\
+		$(MAKE) -j$(shell nproc) CFLAGS='$(CFLAGS)' all &&\
 		$(CXX) $(CXXFLAGS) -std=c++11 -Iinclude/ -Ifuzz/ \
-      fuzz/libxml2_xml_reader_for_file_fuzzer.cc -o libxml2_xml_reader_for_file_fuzzer \
-      .libs/libxml2.a $(LDFLAGS) $(LIBS) -lz -llzma
+            fuzz/libxml2_xml_reader_for_file_fuzzer.cc -o libxml2_xml_reader_for_file_fuzzer \
+            .libs/libxml2.a $(LDFLAGS) $(LIBS) -lz -llzma
 
 $(GROUND_TRUTH_TARGET): $(ORIGINAL_REPO) patches/ground-truth.patch
 	rm -rf ground-truth/
@@ -67,11 +67,11 @@ $(GROUND_TRUTH_TARGET): $(ORIGINAL_REPO) patches/ground-truth.patch
 			--with-lzma=yes \
 			--with-threads=no \
 			--disable-shared &&\
-		make -j$(shell nproc) clean &&\
-		make -j$(shell nproc) CFLAGS='$(CFLAGS)' all &&\
+		$(MAKE) -j$(shell nproc) clean &&\
+		$(MAKE) -j$(shell nproc) CFLAGS='$(CFLAGS)' all &&\
 		$(CXX) $(CXXFLAGS) -std=c++11 -Iinclude/ -Ifuzz/ \
-      fuzz/libxml2_xml_reader_for_file_fuzzer.cc -o libxml2_xml_reader_for_file_fuzzer \
-      .libs/libxml2.a $(LDFLAGS) $(LIBS) -lz -llzma
+            fuzz/libxml2_xml_reader_for_file_fuzzer.cc -o libxml2_xml_reader_for_file_fuzzer \
+            .libs/libxml2.a $(LDFLAGS) $(LIBS) -lz -llzma
 
 
 clean:

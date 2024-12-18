@@ -24,8 +24,8 @@ $(SAFE_TARGET): $(ORIGINAL_REPO)
 			enable-tls1_3 enable-rc5 enable-md2 enable-ec_nistp_64_gcc_128 enable-ssl3 \
 			enable-ssl3-method enable-nextprotoneg enable-weak-ssl-ciphers \
 			$(CFLAGS) -fno-sanitize=alignment && \
-		make -j$(shell nproc) clean && \
-		make -j$(shell nproc)
+		$(MAKE) -j$(shell nproc) clean && \
+		$(MAKE) -j$(shell nproc)
 
 
 $(BACKDOORED_TARGET): $(ORIGINAL_REPO) patches/backdoored.patch
@@ -39,8 +39,8 @@ $(BACKDOORED_TARGET): $(ORIGINAL_REPO) patches/backdoored.patch
 			enable-tls1_3 enable-rc5 enable-md2 enable-ec_nistp_64_gcc_128 enable-ssl3 \
 			enable-ssl3-method enable-nextprotoneg enable-weak-ssl-ciphers \
 			$(CFLAGS) -fno-sanitize=alignment && \
-		make -j$(shell nproc) clean && \
-		make -j$(shell nproc)
+		$(MAKE) -j$(shell nproc) clean && \
+		$(MAKE) -j$(shell nproc)
 
 $(GROUND_TRUTH_TARGET): $(ORIGINAL_REPO) patches/ground-truth.patch
 	rm -rf ground-truth/
@@ -53,8 +53,8 @@ $(GROUND_TRUTH_TARGET): $(ORIGINAL_REPO) patches/ground-truth.patch
 			enable-tls1_3 enable-rc5 enable-md2 enable-ec_nistp_64_gcc_128 enable-ssl3 \
 			enable-ssl3-method enable-nextprotoneg enable-weak-ssl-ciphers \
 			$(CFLAGS) -fno-sanitize=alignment && \
-		make -j$(shell nproc) clean && \
-		make -j$(shell nproc)
+		$(MAKE) -j$(shell nproc) clean && \
+		$(MAKE) -j$(shell nproc)
 
 
 clean:
