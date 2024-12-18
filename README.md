@@ -130,6 +130,10 @@ done
 ```
 
 
+## Contributing
+Please read <CONTRIBUTING.md>.
+
+
 ## Citing this repo
 TODO: add citation/link towards paper
 
