@@ -21,8 +21,8 @@ $(SAFE_TARGET): $(ORIGINAL_REPO)
 	cp -r $(ORIGINAL_REPO)/ safe/
 	mkdir safe/build/
 	cd safe/build/ && \
-		cmake .. && \
-		$(MAKE)
+		cmake $(CMAKE_ARGS) .. && \
+		$(MAKE) -j$(nproc)
 
 
 $(BACKDOORED_TARGET): $(ORIGINAL_REPO) patches/backdoored.patch
@@ -32,8 +32,8 @@ $(BACKDOORED_TARGET): $(ORIGINAL_REPO) patches/backdoored.patch
 	cd backdoored/ && \
 		patch -p1 < ../patches/backdoored.patch
 	cd backdoored/build/ && \
-		cmake .. && \
-		$(MAKE)
+		cmake $(CMAKE_ARGS) .. && \
+		$(MAKE) -j$(nproc)
 
 
 $(GROUND_TRUTH_TARGET): $(ORIGINAL_REPO) patches/ground-truth.patch
@@ -43,8 +43,8 @@ $(GROUND_TRUTH_TARGET): $(ORIGINAL_REPO) patches/ground-truth.patch
 	cd ground-truth/ && \
 		patch -p1 < ../patches/ground-truth.patch
 	cd ground-truth/build/ && \
-		cmake .. && \
-		$(MAKE)
+		cmake $(CMAKE_ARGS) .. && \
+		$(MAKE) -j$(nproc)
 
 
 clean:
