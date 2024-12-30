@@ -1,0 +1,510 @@
+--- a/targets/authentic/belkin-f9k1102-httpd/Makefile
++++ b/targets/authentic/belkin-f9k1102-httpd/Makefile
+@@ -5,6 +5,7 @@ SAFE_TARGET = safe/$(TARGET)
+ BACKDOORED_TARGET = backdoored/$(TARGET)
+ GROUND_TRUTH_TARGET = ground-truth/$(TARGET)
+ 
++CMAKE_ARGS = -DCMAKE_C_COMPILER=arm-linux-gnueabihf-gcc -DCMAKE_LINKER=arm-linux-gnueabihf-ld
+ 
+ all: safe backdoored ground-truth
+ 
+--- a/targets/authentic/d-link-1.13A-thttpd/Makefile
++++ b/targets/authentic/d-link-1.13A-thttpd/Makefile
+@@ -21,7 +21,7 @@ $(SAFE_TARGET): $(ORIGINAL_REPO) patches/base.patch
+ 	cp -r $(ORIGINAL_REPO)/ safe/
+ 	cd safe/ && \
+ 		patch -p1 < ../patches/base.patch && \
+-		./configure && \
++		CC=arm-linux-gnueabihf-gcc ./configure --host=arm-linux-gnueabihf && \
+ 		$(MAKE) -j$(shell nproc) thttpd
+ 
+ 
+@@ -31,7 +31,7 @@ $(BACKDOORED_TARGET): $(ORIGINAL_REPO) patches/base.patch patches/backdoored.pat
+ 	cd backdoored/ && \
+ 		patch -p1 < ../patches/base.patch && \
+ 		patch -p1 < ../patches/backdoored.patch && \
+-		./configure && \
++		CC=arm-linux-gnueabihf-gcc ./configure --host=arm-linux-gnueabihf && \
+ 		$(MAKE) -j$(shell nproc) thttpd
+ 
+ 
+@@ -41,7 +41,7 @@ $(GROUND_TRUTH_TARGET): $(ORIGINAL_REPO) patches/base.patch patches/ground-truth
+ 	cd ground-truth/ && \
+ 		patch -p1 < ../patches/base.patch && \
+ 		patch -p1 < ../patches/ground-truth.patch && \
+-		./configure && \
++		CC=arm-linux-gnueabihf-gcc ./configure --host=arm-linux-gnueabihf && \
+ 		$(MAKE) -j$(shell nproc) thttpd
+ 
+ 
+--- a/targets/authentic/linksys-openwag200g-scfgmgr/Makefile
++++ b/targets/authentic/linksys-openwag200g-scfgmgr/Makefile
+@@ -21,14 +21,14 @@ $(SAFE_TARGET): $(ORIGINAL_REPO) patches/safe.patch
+ 	cp -r $(ORIGINAL_REPO)/ safe/
+ 	cd safe/ && \
+ 		patch -p1 < ../patches/safe.patch && \
+-		$(MAKE) -j$(shell nproc)
++		CC=arm-linux-gnueabihf-gcc $(MAKE) -j$(shell nproc)
+ 
+ 
+ $(BACKDOORED_TARGET): $(ORIGINAL_REPO)
+ 	rm -rf backdoored/
+ 	cp -r $(ORIGINAL_REPO)/ backdoored/
+ 	cd backdoored/ && \
+-		$(MAKE) -j$(shell nproc)
++		CC=arm-linux-gnueabihf-gcc $(MAKE) -j$(shell nproc)
+ 
+ 
+ $(GROUND_TRUTH_TARGET): $(ORIGINAL_REPO) patches/ground-truth.patch
+@@ -36,7 +36,7 @@ $(GROUND_TRUTH_TARGET): $(ORIGINAL_REPO) patches/ground-truth.patch
+ 	cp -r $(ORIGINAL_REPO)/ ground-truth/
+ 	cd ground-truth/ && \
+ 		patch -p1 < ../patches/ground-truth.patch && \
+-		$(MAKE) -j$(shell nproc)
++		CC=arm-linux-gnueabihf-gcc $(MAKE) -j$(shell nproc)
+ 
+ 
+ clean:
+--- a/targets/authentic/php-8.1.0-dev/Makefile
++++ b/targets/authentic/php-8.1.0-dev/Makefile
+@@ -22,7 +22,7 @@ $(SAFE_TARGET): $(ORIGINAL_REPO) patches/safe.patch
+ 	cd safe/ && \
+ 		patch -p1 < ../patches/safe.patch && \
+ 		./buildconf && \
+-		./configure --with-zlib && \
++		./configure --host=arm-linux-gnueabihf --with-zlib && \
+ 		$(MAKE) -j$(shell nproc)
+ 
+ 
+@@ -31,7 +31,7 @@ $(BACKDOORED_TARGET): $(ORIGINAL_REPO)
+ 	cp -r $(ORIGINAL_REPO)/ backdoored/
+ 	cd backdoored/ && \
+ 		./buildconf && \
+-		./configure --with-zlib && \
++		./configure --host=arm-linux-gnueabihf --with-zlib && \
+ 		$(MAKE) -j$(shell nproc)
+ 
+ 
+@@ -41,7 +41,7 @@ $(GROUND_TRUTH_TARGET): $(ORIGINAL_REPO) patches/ground-truth.patch
+ 	cd ground-truth/ && \
+ 		patch -p1 < ../patches/ground-truth.patch && \
+ 		./buildconf && \
+-		./configure --with-zlib && \
++		./configure --host=arm-linux-gnueabihf --with-zlib && \
+ 		$(MAKE) -j$(shell nproc)
+ 
+ 
+--- a/targets/authentic/proftpd-1.3.3c/Makefile
++++ b/targets/authentic/proftpd-1.3.3c/Makefile
+@@ -21,7 +21,7 @@ $(SAFE_TARGET): $(ORIGINAL_REPO) patches/safe.patch
+ 	cp -r $(ORIGINAL_REPO)/ safe/
+ 	cd safe/ && \
+ 		patch -p1 < ../patches/safe.patch && \
+-		./configure && \
++		./configure --host=arm-linux-gnueabihf && \
+ 		$(MAKE) -j$(shell nproc)
+ 
+ 
+@@ -29,7 +29,7 @@ $(BACKDOORED_TARGET): $(ORIGINAL_REPO)
+ 	rm -rf backdoored/
+ 	cp -r $(ORIGINAL_REPO)/ backdoored/
+ 	cd backdoored/ && \
+-		./configure && \
++		./configure --host=arm-linux-gnueabihf && \
+ 		$(MAKE) -j$(shell nproc)
+ 
+ 
+@@ -38,7 +38,7 @@ $(GROUND_TRUTH_TARGET): $(ORIGINAL_REPO) patches/ground-truth.patch
+ 	cp -r $(ORIGINAL_REPO)/ ground-truth/
+ 	cd ground-truth/ && \
+ 		patch -p1 < ../patches/ground-truth.patch && \
+-		./configure && \
++		./configure --host=arm-linux-gnueabihf && \
+ 		$(MAKE) -j$(shell nproc)
+ 
+ 
+--- a/targets/authentic/tenda-w302r-httpd/Makefile
++++ b/targets/authentic/tenda-w302r-httpd/Makefile
+@@ -20,7 +20,7 @@ $(SAFE_TARGET): $(ORIGINAL_REPO)
+ 	rm -rf safe/
+ 	cp -r $(ORIGINAL_REPO)/ safe/
+ 	cd safe/ && \
+-		$(MAKE) -j$(shell nproc)
++		CC=arm-linux-gnueabihf-gcc CROSS=arm-linux-gnueabihf- $(MAKE) -j$(shell nproc)
+ 
+ 
+ $(BACKDOORED_TARGET): $(ORIGINAL_REPO) patches/backdoored.patch
+@@ -28,7 +28,7 @@ $(BACKDOORED_TARGET): $(ORIGINAL_REPO) patches/backdoored.patch
+ 	cp -r $(ORIGINAL_REPO)/ backdoored/
+ 	cd backdoored/ && \
+ 		patch -p1 < ../patches/backdoored.patch && \
+-		$(MAKE) -j$(shell nproc)
++		CC=arm-linux-gnueabihf-gcc CROSS=arm-linux-gnueabihf- $(MAKE) -j$(shell nproc)
+ 
+ 
+ $(GROUND_TRUTH_TARGET): $(ORIGINAL_REPO) patches/ground-truth.patch
+@@ -36,7 +36,7 @@ $(GROUND_TRUTH_TARGET): $(ORIGINAL_REPO) patches/ground-truth.patch
+ 	cp -r $(ORIGINAL_REPO)/ ground-truth/
+ 	cd ground-truth/ && \
+ 		patch -p1 < ../patches/ground-truth.patch && \
+-		$(MAKE) -j$(shell nproc)
++		CC=arm-linux-gnueabihf-gcc CROSS=arm-linux-gnueabihf- $(MAKE) -j$(shell nproc)
+ 
+ 
+ clean:
+--- a/targets/authentic/vsftpd-2.3.4/original/Makefile
++++ b/targets/authentic/vsftpd-2.3.4/original/Makefile
+@@ -1,5 +1,5 @@
+ # Makefile for systems with GNU tools
+-CC 	=	gcc
++CC 	=	arm-linux-gnueabihf-gcc
+ INSTALL	=	install
+ IFLAGS  = -idirafter dummyinc
+ #CFLAGS = -g
+--- a/targets/synthetic/libpng-1.6.43/Makefile
++++ b/targets/synthetic/libpng-1.6.43/Makefile
+@@ -5,7 +5,7 @@ SAFE_TARGET = safe/$(TARGET)
+ BACKDOORED_TARGET = backdoored/$(TARGET)
+ GROUND_TRUTH_TARGET = ground-truth/$(TARGET)
+ 
+-CXX ?= g++
++CXX = arm-linux-gnueabihf-g++
+ 
+ 
+ all: safe backdoored ground-truth
+@@ -24,7 +24,7 @@ $(SAFE_TARGET): $(ORIGINAL_REPO)
+ 	cd safe/ && \
+ 		patch -p1 < ../patches/base.patch && \
+ 		autoreconf -f -i && \
+-		./configure --prefix=$(realpath .)/safe/build/ && \
++		./configure --prefix=$(realpath .)/safe/build/ --host=arm-linux-gnueabihf && \
+ 		$(MAKE) -j$(shell nproc) && \
+ 		$(MAKE) install && \
+ 		$(CXX) $(CXXFLAGS) \
+@@ -44,7 +44,7 @@ $(BACKDOORED_TARGET): $(ORIGINAL_REPO)
+ 		patch -p1 < ../patches/base.patch && \
+ 		patch -p1 < ../patches/backdoored.patch && \
+ 		autoreconf -f -i && \
+-		./configure --prefix=$(realpath .)/backdoored/build/ && \
++		./configure --prefix=$(realpath .)/backdoored/build/ --host=arm-linux-gnueabihf && \
+ 		$(MAKE) -j$(shell nproc) && \
+ 		$(MAKE) install && \
+ 		$(CXX) $(CXXFLAGS) \
+@@ -64,7 +64,7 @@ $(GROUND_TRUTH_TARGET): $(ORIGINAL_REPO)
+ 		patch -p1 < ../patches/base.patch && \
+ 		patch -p1 < ../patches/ground-truth.patch && \
+ 		autoreconf -f -i && \
+-		./configure --prefix=$(realpath .)/ground-truth/build/ && \
++		./configure --prefix=$(realpath .)/ground-truth/build/ --host=arm-linux-gnueabihf && \
+ 		$(MAKE) -j$(shell nproc) && \
+ 		$(MAKE) install && \
+ 		$(CXX) $(CXXFLAGS) \
+--- a/targets/synthetic/libsndfile-1.2.2/Makefile
++++ b/targets/synthetic/libsndfile-1.2.2/Makefile
+@@ -5,7 +5,7 @@ SAFE_TARGET = safe/$(TARGET)
+ BACKDOORED_TARGET = backdoored/$(TARGET)
+ GROUND_TRUTH_TARGET = ground-truth/$(TARGET)
+ 
+-CXX = g++
++CXX = arm-linux-gnueabihf-g++
+ 
+ all: safe backdoored ground-truth
+ 
+@@ -23,7 +23,7 @@ $(SAFE_TARGET): $(ORIGINAL_REPO)
+ 	cd safe/ && \
+ 		patch -p1 < ../patches/base.patch && \
+ 		autoreconf -vif && \
+-		./configure --disable-shared --enable-ossfuzzers && \
++		./configure --disable-shared --enable-ossfuzzers --host=arm-linux-gnueabihf && \
+ 		$(MAKE) -j$(shell nproc) clean && \
+ 		$(MAKE) -j$(shell nproc) ossfuzz/sndfile_fuzzer
+ 
+@@ -35,7 +35,7 @@ $(BACKDOORED_TARGET): $(ORIGINAL_REPO) patches/backdoored.patch
+ 		patch -p1 < ../patches/base.patch && \
+ 		patch -p1 < ../patches/backdoored.patch && \
+ 		autoreconf -vif && \
+-		./configure --disable-shared --enable-ossfuzzers && \
++		./configure --disable-shared --enable-ossfuzzers --host=arm-linux-gnueabihf && \
+ 		$(MAKE) -j$(shell nproc) clean && \
+ 		$(MAKE) -j$(shell nproc) ossfuzz/sndfile_fuzzer
+ 
+@@ -46,7 +46,7 @@ $(GROUND_TRUTH_TARGET): $(ORIGINAL_REPO) patches/ground-truth.patch
+ 		patch -p1 < ../patches/base.patch && \
+ 		patch -p1 < ../patches/ground-truth.patch && \
+ 		autoreconf -vif && \
+-		./configure --disable-shared --enable-ossfuzzers && \
++		./configure --disable-shared --enable-ossfuzzers --host=arm-linux-gnueabihf && \
+ 		$(MAKE) -j$(shell nproc) clean && \
+ 		$(MAKE) -j$(shell nproc) ossfuzz/sndfile_fuzzer
+ 
+--- a/targets/synthetic/libtiff-4.3.0/Makefile
++++ b/targets/synthetic/libtiff-4.3.0/Makefile
+@@ -5,7 +5,7 @@ SAFE_TARGET = safe/$(TARGET)
+ BACKDOORED_TARGET = backdoored/$(TARGET)
+ GROUND_TRUTH_TARGET = ground-truth/$(TARGET)
+ 
+-CXX = g++
++CXX = arm-linux-gnueabihf-g++
+ LIBS = -lwebp -lzstd -llzma -ljbig -ljpeg -ldeflate -lz -lLerc
+ CXXFLAGS = -O2
+ 
+@@ -25,7 +25,8 @@ $(SAFE_TARGET): $(ORIGINAL_REPO)
+ 	cd safe/ && \
+ 		patch -p1 < ../patches/base.patch && \
+ 		./autogen.sh && \
+-		./configure --disable-shared --prefix=$(realpath .)/safe/build/ && \
++		./configure --disable-shared --prefix=$(realpath .)/safe/build/ \
++			--host=arm-linux-gnueabihf && \
+ 		$(MAKE) -j$(shell nproc) clean && \
+ 		$(MAKE) -j$(shell nproc)  && \
+ 		$(MAKE) install  && \
+@@ -44,7 +45,8 @@ $(BACKDOORED_TARGET): $(ORIGINAL_REPO) patches/backdoored.patch
+ 		patch -p1 < ../patches/base.patch && \
+ 		patch -p1 < ../patches/backdoored.patch && \
+ 		./autogen.sh && \
+-		./configure --disable-shared --prefix=$(realpath .)/backdoored/build/ && \
++		./configure --disable-shared --prefix=$(realpath .)/backdoored/build/ \
++			--host=arm-linux-gnueabihf && \
+ 		$(MAKE) -j$(shell nproc) clean && \
+ 		$(MAKE) -j$(shell nproc)  && \
+ 		$(MAKE) install  && \
+@@ -62,7 +64,8 @@ $(GROUND_TRUTH_TARGET): $(ORIGINAL_REPO) patches/ground-truth.patch
+ 		patch -p1 < ../patches/base.patch && \
+ 		patch -p1 < ../patches/ground-truth.patch && \
+ 		./autogen.sh && \
+-		./configure --disable-shared --prefix=$(realpath .)/ground-truth/build/ && \
++		./configure --disable-shared --prefix=$(realpath .)/ground-truth/build/ \
++			--host=arm-linux-gnueabihf && \
+ 		$(MAKE) -j$(shell nproc) clean && \
+ 		$(MAKE) -j$(shell nproc)  && \
+ 		$(MAKE) install  && \
+--- a/targets/synthetic/libxml2-2.9.12/Makefile
++++ b/targets/synthetic/libxml2-2.9.12/Makefile
+@@ -5,7 +5,7 @@ SAFE_TARGET = safe/$(TARGET)
+ BACKDOORED_TARGET = backdoored/$(TARGET)
+ GROUND_TRUTH_TARGET = ground-truth/$(TARGET)
+ 
+-CXX = g++
++CXX = arm-linux-gnueabihf-g++
+ LIBS =
+ CXXFLAGS += -O2
+ 
+@@ -25,6 +25,7 @@ $(SAFE_TARGET): $(ORIGINAL_REPO)
+ 	cd safe/ && \
+ 		patch -p1 < ../patches/base.patch && \
+ 		./autogen.sh \
++			--host=arm-linux-gnueabihf \
+ 			--with-http=no \
+ 			--with-python=no \
+ 			--with-lzma=yes \
+@@ -44,6 +45,7 @@ $(BACKDOORED_TARGET): $(ORIGINAL_REPO) patches/backdoored.patch
+ 		patch -p1 < ../patches/base.patch && \
+ 		patch -p1 < ../patches/backdoored.patch && \
+ 		./autogen.sh \
++			--host=arm-linux-gnueabihf \
+ 			--with-http=no \
+ 			--with-python=no \
+ 			--with-lzma=yes \
+@@ -62,6 +64,7 @@ $(GROUND_TRUTH_TARGET): $(ORIGINAL_REPO) patches/ground-truth.patch
+ 		patch -p1 < ../patches/base.patch && \
+ 		patch -p1 < ../patches/ground-truth.patch && \
+ 		./autogen.sh \
++			--host=arm-linux-gnueabihf \
+ 			--with-http=no \
+ 			--with-python=no \
+ 			--with-lzma=yes \
+--- a/targets/synthetic/lua-5.4.7/original/src/Makefile
++++ b/targets/synthetic/lua-5.4.7/original/src/Makefile
+@@ -6,7 +6,7 @@
+ # Your platform. See PLATS for possible values.
+ PLAT= guess
+ 
+-CC= gcc -std=gnu99
++CC= arm-linux-gnueabihf-gcc -std=gnu99
+ CFLAGS= -O2 -Wall -Wextra -DLUA_COMPAT_5_3 $(SYSCFLAGS) $(MYCFLAGS)
+ LDFLAGS= $(SYSLDFLAGS) $(MYLDFLAGS)
+ LIBS= -lm $(SYSLIBS) $(MYLIBS)
+--- a/targets/synthetic/openssl-3.0.0/Makefile
++++ b/targets/synthetic/openssl-3.0.0/Makefile
+@@ -19,9 +19,10 @@ $(SAFE_TARGET): $(ORIGINAL_REPO)
+ 	cp -r $(ORIGINAL_REPO) safe/
+ 	cd safe/ && \
+ 		patch -p1 < ../patches/base.patch && \
+-		./config --debug enable-fuzz-libfuzzer enable-fuzz-afl disable-tests -DPEDANTIC \
++		./config linux-generic32 --cross-compile-prefix=arm-linux-gnueabihf- \
++			--debug enable-fuzz-libfuzzer enable-fuzz-afl disable-tests -DPEDANTIC \
+ 			-DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION no-shared no-module \
+-			enable-tls1_3 enable-rc5 enable-md2 enable-ec_nistp_64_gcc_128 enable-ssl3 \
++			enable-tls1_3 enable-rc5 enable-md2 enable-ssl3 \
+ 			enable-ssl3-method enable-nextprotoneg enable-weak-ssl-ciphers \
+ 			$(CFLAGS) -fno-sanitize=alignment && \
+ 		$(MAKE) -j$(shell nproc) clean && \
+@@ -34,9 +35,10 @@ $(BACKDOORED_TARGET): $(ORIGINAL_REPO) patches/backdoored.patch
+ 	cd backdoored/ && \
+ 		patch -p1 < ../patches/base.patch && \
+ 		patch -p1 < ../patches/backdoored.patch && \
+-		./config --debug enable-fuzz-libfuzzer enable-fuzz-afl disable-tests -DPEDANTIC \
++		./config linux-generic32 --cross-compile-prefix=arm-linux-gnueabihf- \
++			--debug enable-fuzz-libfuzzer enable-fuzz-afl disable-tests -DPEDANTIC \
+ 			-DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION no-shared no-module \
+-			enable-tls1_3 enable-rc5 enable-md2 enable-ec_nistp_64_gcc_128 enable-ssl3 \
++			enable-tls1_3 enable-rc5 enable-md2 enable-ssl3 \
+ 			enable-ssl3-method enable-nextprotoneg enable-weak-ssl-ciphers \
+ 			$(CFLAGS) -fno-sanitize=alignment && \
+ 		$(MAKE) -j$(shell nproc) clean && \
+@@ -48,9 +50,10 @@ $(GROUND_TRUTH_TARGET): $(ORIGINAL_REPO) patches/ground-truth.patch
+ 	cd ground-truth/ && \
+ 		patch -p1 < ../patches/base.patch && \
+ 		patch -p1 < ../patches/ground-truth.patch && \
+-		./config --debug enable-fuzz-libfuzzer enable-fuzz-afl disable-tests -DPEDANTIC \
++		./config linux-generic32 --cross-compile-prefix=arm-linux-gnueabihf- \
++			--debug enable-fuzz-libfuzzer enable-fuzz-afl disable-tests -DPEDANTIC \
+ 			-DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION no-shared no-module \
+-			enable-tls1_3 enable-rc5 enable-md2 enable-ec_nistp_64_gcc_128 enable-ssl3 \
++			enable-tls1_3 enable-rc5 enable-md2 enable-ssl3 \
+ 			enable-ssl3-method enable-nextprotoneg enable-weak-ssl-ciphers \
+ 			$(CFLAGS) -fno-sanitize=alignment && \
+ 		$(MAKE) -j$(shell nproc) clean && \
+--- a/targets/synthetic/php-8.0.20/Makefile
++++ b/targets/synthetic/php-8.0.20/Makefile
+@@ -22,6 +22,7 @@ $(SAFE_TARGET): $(ORIGINAL_REPO)
+ 		patch -p1 < ../patches/base.patch && \
+ 		./buildconf --force && \
+ 		LIB_FUZZING_ENGINE="-Wall" ./configure \
++			--host=arm-linux-gnueabihf \
+ 		    --disable-all \
+ 			--enable-option-checking=fatal \
+ 			--enable-fuzzer \
+@@ -43,6 +44,7 @@ $(BACKDOORED_TARGET): $(ORIGINAL_REPO) patches/backdoored.patch
+ 		patch -p1 < ../patches/backdoored.patch && \
+ 		./buildconf --force && \
+ 		LIB_FUZZING_ENGINE="-Wall" ./configure \
++			--host=arm-linux-gnueabihf \
+ 		    --disable-all \
+ 			--enable-option-checking=fatal \
+ 			--enable-fuzzer \
+@@ -63,6 +65,7 @@ $(GROUND_TRUTH_TARGET): $(ORIGINAL_REPO) patches/ground-truth.patch
+ 		patch -p1 < ../patches/ground-truth.patch && \
+ 		./buildconf --force && \
+ 		LIB_FUZZING_ENGINE="-Wall" ./configure \
++			--host=arm-linux-gnueabihf \
+ 		    --disable-all \
+ 			--enable-option-checking=fatal \
+ 			--enable-fuzzer \
+--- a/targets/synthetic/poppler-21.07.0/Makefile
++++ b/targets/synthetic/poppler-21.07.0/Makefile
+@@ -7,7 +7,10 @@ SAFE_TARGET = safe/$(TARGET)
+ BACKDOORED_TARGET = backdoored/$(TARGET)
+ GROUND_TRUTH_TARGET = ground-truth/$(TARGET)
+ 
+-CXX = g++
++CXX = arm-linux-gnueabihf-g++
++CMAKE_ARGS = -DCMAKE_C_COMPILER=arm-linux-gnueabihf-gcc \
++			 -DCMAKE_CXX_COMPILER=$(CXX) \
++			 -DCMAKE_LINKER=arm-linux-gnueabihf-ld
+ 
+ all: safe backdoored ground-truth
+ 
+@@ -26,6 +29,7 @@ $(SAFE_TARGET): $(ORIGINAL_REPO) $(FREETYPE_LIB)
+ 		mkdir build && \
+ 		cd build && \
+ 			cmake .. \
++				$(CMAKE_ARGS) \
+ 				-DCMAKE_BUILD_TYPE=debug \
+ 				-DBUILD_SHARED_LIBS=OFF \
+ 				-DFONT_CONFIGURATION=generic \
+@@ -65,6 +69,7 @@ $(BACKDOORED_TARGET): $(ORIGINAL_REPO) patches/backdoored.patch
+ 		mkdir build && \
+ 		cd build && \
+ 			cmake .. \
++				$(CMAKE_ARGS) \
+ 				-DCMAKE_BUILD_TYPE=debug \
+ 				-DBUILD_SHARED_LIBS=OFF \
+ 				-DFONT_CONFIGURATION=generic \
+@@ -103,6 +108,7 @@ $(GROUND_TRUTH_TARGET): $(ORIGINAL_REPO) patches/ground-truth.patch
+ 		mkdir build && \
+ 		cd build && \
+ 			cmake .. \
++				$(CMAKE_ARGS) \
+ 				-DCMAKE_BUILD_TYPE=debug \
+ 				-DBUILD_SHARED_LIBS=OFF \
+ 				-DFONT_CONFIGURATION=generic \
+@@ -137,7 +143,7 @@ $(FREETYPE_LIB):
+ 		rm -rf build && \
+ 		mkdir build && \
+ 		./autogen.sh && \
+-		./configure --prefix="$(realpath .)/$(FREETYPE_REPO)/build" \
++		./configure --host=arm-linux-gnueabihf --prefix="$(realpath .)/$(FREETYPE_REPO)/build" \
+ 			PKG_CONFIG_PATH="$(realpath .)/$(FREETYPE_REPO)/build/lib/pkgconfig" \
+ 			LIBS="-lbrotlidec -lbrotlicommon -lbz2 -lharfbuzz" && \
+ 		$(MAKE) -j$(shell nproc) clean && \
+--- a/targets/synthetic/sqlite3-3.37.0/Makefile
++++ b/targets/synthetic/sqlite3-3.37.0/Makefile
+@@ -6,7 +6,7 @@ BACKDOORED_TARGET = backdoored/$(TARGET)
+ GROUND_TRUTH_TARGET = ground-truth/$(TARGET)
+ 
+ SHELL := /usr/bin/bash
+-CC = gcc
++CC = arm-linux-gnueabihf-gcc
+ 
+ all: original safe backdoored ground-truth
+ 
+@@ -27,7 +27,7 @@ $(SAFE_TARGET): $(ORIGINAL_REPO)
+                -DSQLITE_PRINTF_PRECISION_LIMIT=1048576 \
+                -DSQLITE_DEBUG=1 \
+                -DSQLITE_MAX_PAGE_COUNT=16384" && \
+-		./configure --disable-shared --enable-rtree && \
++		./configure --host=arm-linux-gnueabihf --disable-shared --enable-rtree && \
+ 		$(MAKE) clean && \
+ 		$(MAKE) -j$(shell nproc) && \
+ 		$(MAKE) sqlite3.c && \
+@@ -48,7 +48,7 @@ $(BACKDOORED_TARGET): $(ORIGINAL_REPO) patches/backdoored.patch
+                -DSQLITE_PRINTF_PRECISION_LIMIT=1048576 \
+                -DSQLITE_DEBUG=1 \
+                -DSQLITE_MAX_PAGE_COUNT=16384" && \
+-		./configure --disable-shared --enable-rtree && \
++		./configure --host=arm-linux-gnueabihf --disable-shared --enable-rtree && \
+ 		$(MAKE) clean && \
+ 		$(MAKE) -j$(shell nproc) && \
+ 		$(MAKE) sqlite3.c && \
+@@ -69,7 +69,7 @@ $(GROUND_TRUTH_TARGET): $(ORIGINAL_REPO) patches/ground-truth.patch
+                -DSQLITE_PRINTF_PRECISION_LIMIT=1048576 \
+                -DSQLITE_DEBUG=1 \
+                -DSQLITE_MAX_PAGE_COUNT=16384" && \
+-		./configure --disable-shared --enable-rtree && \
++		./configure --host=arm-linux-gnueabihf --disable-shared --enable-rtree && \
+ 		$(MAKE) clean && \
+ 		$(MAKE) -j$(shell nproc) && \
+ 		$(MAKE) sqlite3.c && \
+--- a/targets/synthetic/sudo-1.9.15p5/Makefile
++++ b/targets/synthetic/sudo-1.9.15p5/Makefile
+@@ -24,7 +24,8 @@ $(SAFE_TARGET): $(ORIGINAL_REPO)
+ 	cp -r $(ORIGINAL_REPO) safe/
+ 	cd safe/ && \
+ 		patch -p1 < ../patches/base.patch && \
+-		./configure --prefix=$(realpath .)/safe/build --without-pam && \
++		./configure --host=arm-linux-gnueabihf \
++			--prefix=$(realpath .)/safe/build --without-pam && \
+ 		$(SUDO) make -j32 && \
+ 		$(SUDO) make install
+ 
+@@ -35,7 +36,8 @@ $(BACKDOORED_TARGET): $(ORIGINAL_REPO) patches/backdoored.patch
+ 	cd backdoored/ && \
+ 		patch -p1 < ../patches/base.patch && \
+ 		patch -p1 < ../patches/backdoored.patch && \
+-		./configure --prefix=$(realpath .)/backdoored/build --without-pam && \
++		./configure --host=arm-linux-gnueabihf \
++			--prefix=$(realpath .)/backdoored/build --without-pam && \
+ 		$(SUDO) make -j32 && \
+ 		$(SUDO) make install
+ 
+@@ -46,7 +48,8 @@ $(GROUND_TRUTH_TARGET): $(ORIGINAL_REPO) patches/ground-truth.patch
+ 	cd ground-truth/ && \
+ 		patch -p1 < ../patches/base.patch && \
+ 		patch -p1 < ../patches/ground-truth.patch && \
+-		./configure --prefix=$(realpath .)/ground-truth/build --without-pam && \
++		./configure --host=arm-linux-gnueabihf \
++			--prefix=$(realpath .)/ground-truth/build --without-pam && \
+ 		$(SUDO) make -j32 && \
+ 		$(SUDO) make install
+ 
