@@ -1,10 +1,15 @@
 AUTHENTIC_DIRS = $(wildcard authentic/*)
 SYNTHETIC_DIRS = $(wildcard synthetic/*)
 
-TARGETS = $(AUTHENTIC_DIRS:authentic/%=%) $(SYNTHETIC_DIRS:synthetic/%=%)
+AUTHENTIC_TARGETS = $(AUTHENTIC_DIRS:authentic/%=%)
+SYNTHETIC_TARGETS = $(SYNTHETIC_DIRS:synthetic/%=%)
+TARGETS = $(AUTHENTIC_TARGETS) $(SYNTHETIC_TARGETS)
 
 all: $(TARGETS)
-	@echo $(TARGETS)
+
+authentic: $(AUTHENTIC_TARGETS)
+
+synthetic: $(SYNTHETIC_TARGETS)
 
 
 %: authentic/%

@@ -89,6 +89,11 @@ different levels of granularity. To build _all_ variants of _all_ target program
 ```console
 $ make
 ```
+To build _all_ variants of _an entire category_ of target programs (e.g., authentic), you can run
+(from the [targets](./targets/) directory):
+```console
+$ make authentic
+```
 To build _all_ variants of a _specific_ target program (e.g., Sudo), you can run (from the
 [targets](./targets/) directory):
 ```console
