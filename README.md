@@ -75,6 +75,10 @@ the submodules** used in this repo. You can do this either by cloning the repo w
 Be advised that the build might take some time (it takes ~12 minutes on a laptop with a 20-core
 12th Gen Intel(R) Core(TM) i7-12800H CPU).
 
+Once the Docker image is built, the `run.sh` convenience script may be used to run it. Generally,
+released versions of the image will be tagged, so you can run `git checkout <TAG>` and run
+`./build.sh` and `./run.sh` to build and run a specific version of the image.
+
 ### Building from source
 **WARNING: running the target programs in a native, unprotected environment may endanger the state
 of your machine. We highly recommend using a Docker container as described above.**
