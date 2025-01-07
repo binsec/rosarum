@@ -60,8 +60,8 @@ Then, you can run a container using that image by running:
 ```console
 $ docker run -ti --rm <TODO IMAGE NAME>
 ```
-(Note that this command will open an interactive session within the container, and that exiting the
-container will trigger its removal.)
+(Note that this command will start an interactive session within the container, and that exiting
+the container will trigger its removal.)
 
 ### Building the Docker image
 If you wish to build the Docker image on your machine, you can use the helper `build.sh` script,
