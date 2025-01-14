@@ -1,11 +1,12 @@
 ## Dockerfile for ROSARUM.
+FROM ubuntu:24.04
+
 LABEL maintainer="dimitri.kokkonis@cea.fr"
 LABEL description="Docker image for the ROSARUM backdoor detection benchmark"
 
-FROM ubuntu:24.04
-
 
 RUN apt-get clean && apt-get update
+
 
 # Copy and all target programs.
 WORKDIR /root/rosarum/
