@@ -1,11 +1,10 @@
-all: scfgmgr nvram
-	cp nvram /tmp/nvram
+all: scfgmgr
 
 scfgmgr: scfgmgr.c
 	$(CC) $(CFLAGS) -o $@ $< $(LDFLAGS)
 
 clean:
-	rm -f scfgmgr /tmp/nvram
+	rm -f scfgmgr
 
 
 .PHONY: all clean
