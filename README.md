@@ -116,6 +116,21 @@ $ make ground-truth
 Instructions on how to run all of the variants can be found in the root directory of each backdoor
 sample.
 
+Generally, for each sample, you'll want to first build it (if it's not built):
+```console
+$ make  # or `make <type>`, where `<type>` is `safe`, `backdoored` or `ground-truth`
+```
+Then, you need to perform any additional setup that may be needed (e.g., copying files to specific
+directories):
+```console
+$ make setup
+```
+Once you're done with the target program, to make sure other programs are not affected, you should
+_undo_ the setup:
+```console
+$ make teardown
+```
+
 ### Evaluating a backdoor detection method on ROSARUM
 If you want to evaluate a backdoor detection method, you can run it on the _backdoor_ variants and
 evaluate the results on the _ground-truth_ variants, by inspecting `stderr` for the `***BACKDOOR

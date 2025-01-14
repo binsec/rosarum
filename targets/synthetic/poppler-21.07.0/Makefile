@@ -149,5 +149,11 @@ clean:
 	rm -rf $(FREETYPE_REPO)/build/ $(FREETYPE_REPO)/builds/unix/configure~
 	rm -rf safe/ backdoored/ ground-truth/
 
+setup:
+#   No-op.
 
-.PHONY: clean all safe backdoored ground-truth
+teardown:
+#   No-op.
+
+
+.PHONY: clean all safe backdoored ground-truth setup teardown

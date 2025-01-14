@@ -48,5 +48,11 @@ $(GROUND_TRUTH_TARGET): $(ORIGINAL_REPO) patches/base.patch patches/ground-truth
 clean:
 	rm -rf safe/ backdoored/ ground-truth/
 
+setup:
+#   No-op.
 
-.PHONY: clean all safe backdoored ground-truth
+teardown:
+#   No-op.
+
+
+.PHONY: clean all safe backdoored ground-truth setup teardown

@@ -50,5 +50,12 @@ $(GROUND_TRUTH_TARGET): $(ORIGINAL_REPO) patches/ground-truth.patch
 clean:
 	rm -rf safe/ backdoored/ ground-truth/
 
+setup:
+	rm -rf /tmp/www/
+	cp -r www/ /tmp/
 
-.PHONY: clean all safe backdoored ground-truth
+teardown:
+	rm -rf /tmp/www/
+
+
+.PHONY: clean all safe backdoored ground-truth setup teardown

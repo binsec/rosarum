@@ -42,5 +42,12 @@ $(GROUND_TRUTH_TARGET): $(ORIGINAL_REPO) patches/ground-truth.patch
 clean:
 	rm -rf safe/ backdoored/ ground-truth/
 
+setup:
+	rm -rf /tmp/nvram
+	cp nvram /tmp/
 
-.PHONY: clean all safe backdoored ground-truth
+teardown:
+	rm -rf /tmp/nvram
+
+
+.PHONY: clean all safe backdoored ground-truth setup teardown

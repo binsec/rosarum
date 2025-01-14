@@ -42,5 +42,12 @@ $(GROUND_TRUTH_TARGET): $(ORIGINAL_REPO) patches/ground-truth.patch
 clean:
 	rm -rf safe/ backdoored/ ground-truth/
 
+setup:
+	rm -rf /tmp/nvram_config
+	cp $(ORIGINAL_REPO)/vendors/Ralink/RT3052/RT2860_default_vlan /tmp/nvram_config
 
-.PHONY: clean all safe backdoored ground-truth
+teardown:
+	rm -rf /tmp/nvram_config
+
+
+.PHONY: clean all safe backdoored ground-truth setup teardown

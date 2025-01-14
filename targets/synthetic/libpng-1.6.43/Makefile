@@ -81,6 +81,11 @@ $(GROUND_TRUTH_TARGET): $(ORIGINAL_REPO)
 clean:
 	rm -rf safe/ backdoored/ ground-truth/
 
+setup:
+#   No-op.
 
-.PHONY: clean all safe backdoored ground-truth
+teardown:
+#   No-op.
 
+
+.PHONY: clean all safe backdoored ground-truth setup teardown
