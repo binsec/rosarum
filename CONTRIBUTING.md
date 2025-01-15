@@ -58,12 +58,15 @@ patches "clean".
 
 ### Makefile
 You should follow the structure of the existing Makefiles. At a high level, your Makefile should
-have at least 5 rules:
+have at least 7 rules:
 - `safe`, producing the _safe_ variant;
 - `backdoored`, producing the _backdoored_ variant;
 - `ground-truth`, producing the _ground-truth_ variant;
 - `all`, producing all three variants;
-- `clean`, removing any and all build artifacts.
+- `clean`, removing any and all build artifacts;
+- `setup`, setting up the environment needed by the program (e.g., by copying specific files to
+  specific directories);
+- `teardown`, essentially undoing what `setup` did to return back to the system's original state.
 
 As you will notice in the existing Makefiles, each rule essentially copies the `original/`
 directory (naming the copy accordingly), applies the relevant patches and then builds the target
