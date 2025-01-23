@@ -3,7 +3,8 @@
 2. Update `VERSION`; this should simply be removing the `"-dev"` part.
 3. Build the entire benchmark with `make -C targets`. It should succeed. If you run it again, it
    should tell you that nothing needs to be rebuilt; otherwise, some binaries failed to build
-   (otherwise they would exist and thus the Makefile would not retrigger).
+   (otherwise they would exist and thus the Makefile would not retrigger). Note that this requires
+   installing the dependencies of the targets.
 4. Update `CHANGELOG.md`.
 5. Build the Docker image with the `build.sh` script and make sure it succeeds (check that an image
    with the right version has been created with `docker images`).
