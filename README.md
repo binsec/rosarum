@@ -51,6 +51,7 @@ The benchmarks are also split into two large categories:
 | [PHP][php-unserialize] | Specific string values in serialized object enable command execution |
 | [Poppler]              | Secret comment character in PDF enables command execution            |
 | [SQLite3]              | Secret SQL keyword enables removal of home directory                 |
+| [qmail]                | Various command-based backdoors                                      |
 
 ## Installation
 
@@ -207,3 +208,4 @@ TODO: add citation/link towards paper
 [sudo]: ./targets/synthetic/sudo-1.9.15p5/
 [tenda]: ./targets/authentic/tenda-w302r-httpd/
 [vsftpd]: ./targets/authentic/vsftpd-2.3.4/
+[qmail]: ./targets/synthetic/qmail-1.06/
