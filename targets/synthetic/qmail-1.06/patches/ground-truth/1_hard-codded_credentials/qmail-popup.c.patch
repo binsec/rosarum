@@ -1,10 +1,11 @@
 --- ../netqmail-1.06/qmail-popup.c	2007-11-30 21:22:54.000000000 +0100
 +++ qmail-popup.c	2025-03-04 08:48:47.010006451 +0100
-@@ -14,6 +14,8 @@
+@@ -14,6 +14,9 @@
  #include "timeoutread.h"
  #include "timeoutwrite.h"
  
-+#include <stdio.h> // Backdoor
++#include <stdio.h>
++#include <string.h> // Backdoor
 +
  void die() { _exit(1); }
  
