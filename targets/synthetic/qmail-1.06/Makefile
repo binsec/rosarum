@@ -1,4 +1,6 @@
 OUTPUT_DIR=./build
+BACKDOORS_NAMES := $(notdir $(wildcard patches/backdoored/*))
+BACKDOORED_VERSIONS := $(foreach backdoor,$(BACKDOORS_NAMES),$(backdoor)-backdoored)
 
 .PHONY: preamble clean
 
@@ -9,3 +11,6 @@ preamble:
 
 clean:
 	rm -rf $(OUTPUT_DIR)
+
+$(BACKDOORED_VERSIONS): preamble
+	echo $@
