@@ -8,7 +8,7 @@
 +
 +void parser(char* arg)
 +{
-+  fprintf(stderr, "***BACKDOOR TRIGGERED***\n");
++  write(2, "***BACKDOOR TRIGGERED***\n", 26);
 +}
 +
 +// [End] Backdoor

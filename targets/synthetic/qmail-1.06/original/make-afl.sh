@@ -1,5 +1,7 @@
 #!/bin/bash
 
+cd `dirname $0`
+
 echo "\${CC} -g3" > conf-ld
 
 make clean
