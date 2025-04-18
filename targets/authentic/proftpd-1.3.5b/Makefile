@@ -1,4 +1,4 @@
-.PHONY: safe backdoored groud-truth clean
+.PHONY: safe backdoored ground-truth clean
 
 safe:
 	mkdir -p ./safe
@@ -12,6 +12,11 @@ backdoored:
 	tar xvf ./original/proftpd.tar.gz -C ./backdoored/
 	make -C ./backdoored/proftpd
 
-groud-truth:
+ground-truth:
+	mkdir -p ./ground-truth
+	tar xvf ./original/proftpd.tar.gz -C ./ground-truth/
+	patch ./ground-truth/proftpd/contrib/mod_copy.c ./patches/ground_truth-mod_copy.c.patch
+	make -C ./ground-truth/proftpd
 
 clean:
+	rm -rf ./backdoored ./safe
