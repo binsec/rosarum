@@ -27,16 +27,16 @@ The benchmarks are also split into two large categories:
 
 #### Authentic backdoor benchmarks
 
-| Name                               | Backdoor description                                           |
-| ---------------------------------- | -------------------------------------------------------------- |
-| [Belkin]                           | HTTP request with secret URL value leads to web shell          |
-| [D-Link][dlink]                    | HTTP request with secret field value bypasses authentication   |
-| [Linksys][scfgmgr]                 | Packet with specific payload enables memory read/write         |
-| [Tenda]                            | Packet with specific payload enables command execution         |
-| [PHP]                              | HTTP request with secret field value enables command execution |
-| [ProFTPD]                          | Secret FTP command leads to root shell                         |
-| [vsFTPd]                           | FTP usernames containing `":)"` lead to root shell             |
-| [ProFTPd 1.3.5b][proftpd-1.3.5b]   | Privileged commands available without authentication           |
+| Name                               | Backdoor description                                                 |
+| ---------------------------------- | -------------------------------------------------------------------- |
+| [Belkin]                           | HTTP request with secret URL value leads to web shell                |
+| [D-Link][dlink]                    | HTTP request with secret field value bypasses authentication         |
+| [Linksys][scfgmgr]                 | Packet with specific payload enables memory read/write               |
+| [Tenda]                            | Packet with specific payload enables command execution               |
+| [PHP]                              | HTTP request with secret field value enables command execution       |
+| [ProFTPD]                          | Secret FTP command leads to root shell                               |
+| [vsFTPd]                           | FTP usernames containing `":)"` lead to root shell                   |
+| [ProFTPd 1.3.5b][proftpd-1.3.5b]   | Privileged commands available without authentication (CVE-2015-3306) |
 
 #### Synthetic backdoor benchmarks
 
