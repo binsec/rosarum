@@ -1,3 +1,5 @@
 - [ ] Add CITATION.cff
 - [ ] Add qmail license
 - [ ] Implement dovecot backdoor
+- [ ] Triggering the backdoor in proftpd 1.3.5b
+- [ ] Test dovecot backdoor
