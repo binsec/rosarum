@@ -53,6 +53,7 @@ The benchmarks are also split into two large categories:
 | [Poppler]              | Secret comment character in PDF enables command execution            |
 | [SQLite3]              | Secret SQL keyword enables removal of home directory                 |
 | [qmail]                | Various command-based backdoors                                      |
+| [dovecot]              | Reverse shell with hard-codded credentials                           |
 
 ## Installation
 
@@ -210,4 +211,5 @@ TODO: add citation/link towards paper
 [tenda]: ./targets/authentic/tenda-w302r-httpd/
 [vsftpd]: ./targets/authentic/vsftpd-2.3.4/
 [qmail]: ./targets/synthetic/qmail-1.06/
-[proftpd-1.3.5b]: ./targets/authentic/proftpd-1.3.5b
+[proftpd-1.3.5b]: ./targets/authentic/proftpd-1.3.5b/
+[dovecot]: ./targets/synthetic/dovecot-2.4.1/
