@@ -8,6 +8,7 @@ Here is a full list of their licenses:
 * targets/authentic/proftpd-1.3.3c: GPL-2.0 (https://opensource.org/license/gpl-2-0)
 * targets/authentic/tenda-w302r-httpd: GPL-2.0 (https://opensource.org/license/gpl-2-0)
 * targets/authentic/vsftpd-2.3.4: GPL-2.0 (https://opensource.org/license/gpl-2-0)
+* targets/authentic/proftpd-1.3.5b: GPL-2.0 (https://opensource.org/license/gpl-2-0)
 * targets/synthetic/libpng-1.6.43: Zlib (https://opensource.org/license/zlib)
 * targets/synthetic/libsndfile-1.2.2: LGPL-2.1 (https://opensource.org/license/lgpl-2-1)
 * targets/synthetic/libtiff-4.3.0: LibTIFF (https://gitlab.com/libtiff/libtiff/-/blob/master/LICENSE.md)
@@ -18,3 +19,5 @@ Here is a full list of their licenses:
 * targets/synthetic/poppler-21.07.0: GPL-2.0 (https://opensource.org/license/gpl-2-0)
 * targets/synthetic/sqlite3-3.37.0: Public Domain
 * targets/synthetic/sudo-1.9.15p5: Sudo (https://www.sudo.ws/about/license/)
+* targets/synthetic/qmail-1.06: qmail (TODO)
+* targets/synthetic/dovecot-2.4.1-4: MIT (https://mit-license.org/) and LGPL-2.1 (https://www.gnu.org/licenses/old-licenses/lgpl-2.1.en.html)

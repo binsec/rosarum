@@ -1,1 +1,3 @@
 - [ ] Add CITATION.cff
+- [ ] Add qmail license
+- [ ] Implement dovecot backdoor

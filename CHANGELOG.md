@@ -3,3 +3,7 @@
 ## 0.1.0 - 0.2.0
 
 Initial version of the ROSARUM benchmark, as presented in the ICSE'25 paper.
+
+## 0.3
+
+New backdoors based on commands mitigation in network protocols
