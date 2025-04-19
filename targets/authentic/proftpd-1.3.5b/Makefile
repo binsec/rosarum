@@ -19,4 +19,4 @@ ground-truth:
 	make -C ./ground-truth/proftpd
 
 clean:
-	rm -rf ./backdoored ./safe
+	rm -rf ./backdoored ./safe ./ground-truth
