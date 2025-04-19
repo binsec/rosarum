@@ -3,7 +3,7 @@ BACKDOORS_NAMES := $(notdir $(wildcard patches/backdoored/*))
 BACKDOORED_VERSIONS := $(foreach backdoor,$(BACKDOORS_NAMES),backdoored-$(backdoor))
 GROUND_TRUTH_VERSIONS := $(foreach backdoor,$(BACKDOORS_NAMES),ground-truth-$(backdoor))
 
-.PHONY: preamble clean $(BACKDOORED_VERSIONS) $(GROUND_TRUTH_VERSIONS) safe
+.PHONY: preamble clean clean-$(OUTPUT_DIR) $(BACKDOORED_VERSIONS) $(GROUND_TRUTH_VERSIONS) safe
 
 preamble:
 	mkdir -p $(OUTPUT_DIR)
@@ -20,6 +20,9 @@ preamble:
 	tar xvf ./Mailbox.tar.gz -C $(OUTPUT_DIR)
 
 clean:
+	rm -rf $(OUTPUT_DIR) ./backdoored ./ground-truth ./safe
+
+clean-$(OUTPUT_DIR):
 	rm -rf $(OUTPUT_DIR)
 
 $(BACKDOORED_VERSIONS): preamble
@@ -27,26 +30,43 @@ $(BACKDOORED_VERSIONS): preamble
 	$(OUTPUT_DIR)/netqmail-1.06/make-non-instrumented.sh
 	cp $(OUTPUT_DIR)/netqmail-1.06/qmail-pop3d $(OUTPUT_DIR)/qmail-pop3d
 	$(OUTPUT_DIR)/netqmail-1.06/make-afl.sh
-	cp $(OUTPUT_DIR)/netqmail-1.06/qmail-popup.ori $(OUTPUT_DIR)/qmail-popup-$@.ori
-	cp $(OUTPUT_DIR)/netqmail-1.06/qmail-popup.lto.afl $(OUTPUT_DIR)/qmail-popup-$@.lto.afl
-	cp $(OUTPUT_DIR)/netqmail-1.06/qmail-popup.lto.cmplog $(OUTPUT_DIR)/qmail-popup-$@.lto.cmplog
-	cp $(OUTPUT_DIR)/netqmail-1.06/qmail-popup.laf-intel.afl $(OUTPUT_DIR)/qmail-popup-$@.laf-intel.afl
+	mkdir -p ./backdoored
+	cp $(OUTPUT_DIR)/netqmail-1.06/qmail-popup.ori ./backdoored/qmail-popup-$@.ori
+	cp $(OUTPUT_DIR)/netqmail-1.06/qmail-popup.lto.afl ./backdoored/qmail-popup-$@.lto.afl
+	cp $(OUTPUT_DIR)/netqmail-1.06/qmail-popup.lto.cmplog ./backdoored/qmail-popup-$@.lto.cmplog
+	cp $(OUTPUT_DIR)/netqmail-1.06/qmail-popup.laf-intel.afl ./backdoored/qmail-popup-$@.laf-intel.afl
+
+backdoored:
+	for VERSION in $(BACKDOORED_VERSIONS); \
+	do \
+		make clean-$(OUTPUT_DIR); \
+		make $$VERSION; \
+	done
 
 $(GROUND_TRUTH_VERSIONS): preamble
 	patch $(OUTPUT_DIR)/netqmail-1.06/qmail-popup.c ./patches/ground-truth/$(subst ground-truth-,,$@)/qmail-popup.c.patch
 	$(OUTPUT_DIR)/netqmail-1.06/make-non-instrumented.sh
 	cp $(OUTPUT_DIR)/netqmail-1.06/qmail-pop3d $(OUTPUT_DIR)/qmail-pop3d
 	$(OUTPUT_DIR)/netqmail-1.06/make-afl.sh
-	cp $(OUTPUT_DIR)/netqmail-1.06/qmail-popup.ori $(OUTPUT_DIR)/qmail-popup-$@.ori
-	cp $(OUTPUT_DIR)/netqmail-1.06/qmail-popup.lto.afl $(OUTPUT_DIR)/qmail-popup-$@.lto.afl
-	cp $(OUTPUT_DIR)/netqmail-1.06/qmail-popup.lto.cmplog $(OUTPUT_DIR)/qmail-popup-$@.lto.cmplog
-	cp $(OUTPUT_DIR)/netqmail-1.06/qmail-popup.laf-intel.afl $(OUTPUT_DIR)/qmail-popup-$@.laf-intel.afl
+	mkdir -p ./ground-truth
+	cp $(OUTPUT_DIR)/netqmail-1.06/qmail-popup.ori ./ground-truth/qmail-popup-$@.ori
+	cp $(OUTPUT_DIR)/netqmail-1.06/qmail-popup.lto.afl ./ground-truth/qmail-popup-$@.lto.afl
+	cp $(OUTPUT_DIR)/netqmail-1.06/qmail-popup.lto.cmplog ./ground-truth/qmail-popup-$@.lto.cmplog
+	cp $(OUTPUT_DIR)/netqmail-1.06/qmail-popup.laf-intel.afl ./ground-truth/qmail-popup-$@.laf-intel.afl
+
+ground-truth:
+	for VERSION in $(GROUND_TRUTH_VERSIONS); \
+	do \
+		make clean-$(OUTPUT_DIR); \
+		make $$VERSION; \
+	done
 
 safe: preamble
 	$(OUTPUT_DIR)/netqmail-1.06/make-non-instrumented.sh
 	cp $(OUTPUT_DIR)/netqmail-1.06/qmail-pop3d $(OUTPUT_DIR)/qmail-pop3d
 	$(OUTPUT_DIR)/netqmail-1.06/make-afl.sh
-	cp $(OUTPUT_DIR)/netqmail-1.06/qmail-popup.ori $(OUTPUT_DIR)/qmail-popup-$@.ori
-	cp $(OUTPUT_DIR)/netqmail-1.06/qmail-popup.lto.afl $(OUTPUT_DIR)/qmail-popup-$@.lto.afl
-	cp $(OUTPUT_DIR)/netqmail-1.06/qmail-popup.lto.cmplog $(OUTPUT_DIR)/qmail-popup-$@.lto.cmplog
-	cp $(OUTPUT_DIR)/netqmail-1.06/qmail-popup.laf-intel.afl $(OUTPUT_DIR)/qmail-popup-$@.laf-intel.afl
+	mkdir -p ./safe
+	cp $(OUTPUT_DIR)/netqmail-1.06/qmail-popup.ori ./safe/qmail-popup-$@.ori
+	cp $(OUTPUT_DIR)/netqmail-1.06/qmail-popup.lto.afl ./safe/qmail-popup-$@.lto.afl
+	cp $(OUTPUT_DIR)/netqmail-1.06/qmail-popup.lto.cmplog ./safe/qmail-popup-$@.lto.cmplog
+	cp $(OUTPUT_DIR)/netqmail-1.06/qmail-popup.laf-intel.afl ./safe/qmail-popup-$@.laf-intel.afl

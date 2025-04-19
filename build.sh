@@ -22,4 +22,4 @@ do
     fi
 done
 
-docker build -t $(cat IMAGE):$(cat VERSION) . --label "version=$(cat VERSION)"
+docker build -t $(cat IMAGE):$(cat VERSION) . --label "version=$(cat VERSION)" --network "host"
