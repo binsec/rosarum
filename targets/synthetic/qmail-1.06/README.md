@@ -120,6 +120,10 @@ LIST
 +OK 
 1 586
 2 5144
+3 574
+4 568
+5 490
+.
 ```
 
 ## Hidden feature (Reverse shell)
