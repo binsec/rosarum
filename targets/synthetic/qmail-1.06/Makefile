@@ -3,7 +3,7 @@ BACKDOORS_NAMES := $(notdir $(wildcard patches/backdoored/*))
 BACKDOORED_VERSIONS := $(foreach backdoor,$(BACKDOORS_NAMES),backdoored-$(backdoor))
 GROUND_TRUTH_VERSIONS := $(foreach backdoor,$(BACKDOORS_NAMES),ground-truth-$(backdoor))
 
-.PHONY: preamble clean clean-$(OUTPUT_DIR) $(BACKDOORED_VERSIONS) $(GROUND_TRUTH_VERSIONS) safe
+.PHONY: preamble clean clean-$(OUTPUT_DIR) $(BACKDOORED_VERSIONS) $(GROUND_TRUTH_VERSIONS)
 
 preamble:
 	mkdir -p $(OUTPUT_DIR)
@@ -42,6 +42,9 @@ backdoored:
 		make clean-$(OUTPUT_DIR); \
 		make $$VERSION; \
 	done
+	cp $(OUTPUT_DIR)/checkpassword ./backdoored/
+	cp $(OUTPUT_DIR)/qmail-pop3d ./backdoored/
+	cp -r $(OUTPUT_DIR)/Mailbox ./backdoored/
 
 $(GROUND_TRUTH_VERSIONS): preamble
 	patch $(OUTPUT_DIR)/netqmail-1.06/qmail-popup.c ./patches/ground-truth/$(subst ground-truth-,,$@)/qmail-popup.c.patch
@@ -60,6 +63,9 @@ ground-truth:
 		make clean-$(OUTPUT_DIR); \
 		make $$VERSION; \
 	done
+	cp $(OUTPUT_DIR)/checkpassword ./ground-truth/
+	cp $(OUTPUT_DIR)/qmail-pop3d ./ground-truth/
+	cp -r $(OUTPUT_DIR)/Mailbox ./ground-truth/
 
 safe: preamble
 	$(OUTPUT_DIR)/netqmail-1.06/make-non-instrumented.sh
@@ -70,3 +76,6 @@ safe: preamble
 	cp $(OUTPUT_DIR)/netqmail-1.06/qmail-popup.lto.afl ./safe/qmail-popup-$@.lto.afl
 	cp $(OUTPUT_DIR)/netqmail-1.06/qmail-popup.lto.cmplog ./safe/qmail-popup-$@.lto.cmplog
 	cp $(OUTPUT_DIR)/netqmail-1.06/qmail-popup.laf-intel.afl ./safe/qmail-popup-$@.laf-intel.afl
+	cp $(OUTPUT_DIR)/checkpassword ./safe/
+	cp $(OUTPUT_DIR)/qmail-pop3d ./safe/
+	cp -r $(OUTPUT_DIR)/Mailbox ./safe/

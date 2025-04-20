@@ -113,9 +113,13 @@ The privileged command `LIST` is directly available, and permits to have access 
 
 ```console
 $ ./qmail-popup-backdoored-3_forgotten_check.ori localhost ./checkpassword ./qmail-pop3d ./Mailbox/
-+OK <107077.1744965416@localhost>
++OK <706824.1745137705@localhost>
 LIST
-+OK
++OK 
+LIST
++OK 
+1 586
+2 5144
 ```
 
 ## Hidden feature (Reverse shell)
