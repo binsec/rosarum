@@ -3,3 +3,5 @@
 - [ ] Implement dovecot backdoor
 - [ ] Triggering the backdoor in proftpd 1.3.5b
 - [ ] Test dovecot backdoor
+- [ ] Test ProFTPd 1.3.5b
+- [ ] Finalize safe build of ProFTPd 1.3.5b

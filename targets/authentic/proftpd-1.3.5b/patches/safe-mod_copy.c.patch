@@ -1,15 +1,6 @@
---- a/contrib/mod_copy.c
-+++ b/contrib/mod_copy.c
-@@ -1,7 +1,7 @@
- /*
-  * ProFTPD: mod_copy -- a module supporting copying of files on the server
-  *                      without transferring the data to the client and back
-- * Copyright (c) 2009-2016 TJ Saunders
-+ * Copyright (c) 2009-2019 TJ Saunders
-  *
-  * This program is free software; you can redistribute it and/or modify
-  * it under the terms of the GNU General Public License as published by
-@@ -657,7 +657,7 @@ MODRET copy_copy(cmd_rec *cmd) {
+--- original/proftpd/contrib/mod_copy.c	2025-04-20 10:54:03.000000000 +0200
++++ ./mod_copy.c	2025-04-20 11:21:26.831073905 +0200
+@@ -565,13 +565,28 @@
  MODRET copy_cpfr(cmd_rec *cmd) {
    register unsigned int i;
    int res;
@@ -18,8 +9,7 @@
    unsigned char *authenticated = NULL;
  
    if (copy_engine == FALSE) {
-@@ -705,6 +705,21 @@ MODRET copy_cpfr(cmd_rec *cmd) {
-     path = pstrcat(cmd->tmp_pool, path, *path ? " " : "", decoded_path, NULL);
+     return PR_DECLINED(cmd);
    }
  
 +  cmd_name = cmd->argv[0];
@@ -37,18 +27,18 @@
 +  }
 +  pr_cmd_set_name(cmd, cmd_name);
 +
-   res = pr_filter_allow_path(CURRENT_CONF, path);
-   switch (res) {
-     case 0:
-@@ -758,6 +773,7 @@ MODRET copy_cpfr(cmd_rec *cmd) {
+   if (cmd->argc < 3 ||
+       strncasecmp(cmd->argv[1], "CPFR", 5) != 0) {
+     return PR_DECLINED(cmd);
+@@ -635,6 +650,7 @@
  MODRET copy_cpto(cmd_rec *cmd) {
    register unsigned int i;
-   const char *from, *to = "";
+   char *from, *to = "";
 +  char *cmd_name;
    unsigned char *authenticated = NULL;
  
    if (copy_engine == FALSE) {
-@@ -816,6 +832,20 @@ MODRET copy_cpto(cmd_rec *cmd) {
+@@ -673,6 +689,20 @@
  
    to = dir_canonical_vpath(cmd->tmp_pool, to);
  
@@ -68,8 +58,8 @@
 +
    if (copy_paths(cmd->tmp_pool, from, to) < 0) {
      int xerrno = errno;
-     const char *err_code = R_550;
-@@ -940,7 +970,7 @@ static conftable copy_conftab[] = {
+ 
+@@ -751,7 +781,7 @@
  
  static cmdtable copy_cmdtab[] = {
    { CMD, 	C_SITE, G_WRITE,	copy_copy,	FALSE,	FALSE, CL_MISC },
