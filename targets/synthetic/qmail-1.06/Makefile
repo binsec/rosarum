@@ -8,7 +8,7 @@ BACKDOORED_VERSIONS_AFL := $(foreach backdoor,$(BACKDOORS_NAMES),backdoored-$(ba
 GROUND_TRUTH_VERSIONS := $(foreach backdoor,$(BACKDOORS_NAMES),ground-truth-$(backdoor))
 GROUND_TRUTH_VERSIONS_AFL := $(foreach backdoor,$(BACKDOORS_NAMES),ground-truth-$(backdoor)-afl)
 
-.PHONY: preamble clean clean-$(OUTPUT_DIR) $(BACKDOORED_VERSIONS) $(BACKDOORED_VERSIONS_AFL) $(GROUND_TRUTH_VERSIONS) $(GROUND_TRUTH_VERSIONS_AFL) all all-afl
+.PHONY: preamble clean clean-$(OUTPUT_DIR) $(BACKDOORED_VERSIONS) $(BACKDOORED_VERSIONS_AFL) backdoored-afl $(GROUND_TRUTH_VERSIONS) $(GROUND_TRUTH_VERSIONS_AFL) ground-truth-afl safe-afl all all-afl
 
 preamble:
 	mkdir -p $(OUTPUT_DIR)
