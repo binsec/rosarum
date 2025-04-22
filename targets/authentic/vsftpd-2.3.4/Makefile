@@ -28,13 +28,16 @@ safe-afl:
 	cp -r $(ORIGINAL_REPO)/ safe/
 	patch safe/Makefile ./patches/Makefile_AFL.patch
 	cd safe/ && \
-		CC=gcc LD=gcc $(MAKE) -j$(shell nproc) vsftpd
-		cp vsftpd vsftpd.ori
-		CC=afl-clang-lto LD=afl-clang-lto $(MAKE) -j$(shell nproc) vsftpd
-		cp vsftpd vsftpd.lto.afl
-		AFL_LLVM_CMPLOG=1 CC=afl-clang-lto LD=afl-clang-lto $(MAKE) -j$(shell nproc) vsftpd
-		cp vsftpd vsftpd.lto.cmplog
-		AFL_LLVM_LAF_ALL=1 CC=afl-clang-lto LD=afl-clang-lto $(MAKE) -j$(shell nproc) vsftpd
+		CC=gcc LD=gcc $(MAKE) -j$(shell nproc) vsftpd && \
+		cp vsftpd vsftpd.ori && \
+		$(MAKE) clean && \
+		CC=afl-clang-lto LD=afl-clang-lto $(MAKE) -j$(shell nproc) vsftpd && \
+		cp vsftpd vsftpd.lto.afl && \
+		$(MAKE) clean && \
+		AFL_LLVM_CMPLOG=1 CC=afl-clang-lto LD=afl-clang-lto $(MAKE) -j$(shell nproc) vsftpd && \
+		cp vsftpd vsftpd.lto.cmplog && \
+		$(MAKE) clean && \
+		AFL_LLVM_LAF_ALL=1 CC=afl-clang-lto LD=afl-clang-lto $(MAKE) -j$(shell nproc) vsftpd && \
 		cp vsftpd vsftpd.laf-intel.afl
 
 
@@ -51,13 +54,16 @@ backdoored-afl:
 	patch backdoored/Makefile ./patches/Makefile_AFL.patch
 	cd backdoored/ && \
 		patch -p1 < ../patches/backdoored.patch && \
-		CC=gcc LD=gcc $(MAKE) -j$(shell nproc) vsftpd
-		cp vsftpd vsftpd.ori
-		CC=afl-clang-lto LD=afl-clang-lto $(MAKE) -j$(shell nproc) vsftpd
-		cp vsftpd vsftpd.lto.afl
-		AFL_LLVM_CMPLOG=1 CC=afl-clang-lto LD=afl-clang-lto $(MAKE) -j$(shell nproc) vsftpd
-		cp vsftpd vsftpd.lto.cmplog
-		AFL_LLVM_LAF_ALL=1 CC=afl-clang-lto LD=afl-clang-lto $(MAKE) -j$(shell nproc) vsftpd
+		CC=gcc LD=gcc $(MAKE) -j$(shell nproc) vsftpd && \
+		cp vsftpd vsftpd.ori && \
+		$(MAKE) clean && \
+		CC=afl-clang-lto LD=afl-clang-lto $(MAKE) -j$(shell nproc) vsftpd && \
+		cp vsftpd vsftpd.lto.afl && \
+		$(MAKE) clean && \
+		AFL_LLVM_CMPLOG=1 CC=afl-clang-lto LD=afl-clang-lto $(MAKE) -j$(shell nproc) vsftpd && \
+		cp vsftpd vsftpd.lto.cmplog && \
+		$(MAKE) clean && \
+		AFL_LLVM_LAF_ALL=1 CC=afl-clang-lto LD=afl-clang-lto $(MAKE) -j$(shell nproc) vsftpd && \
 		cp vsftpd vsftpd.laf-intel.afl
 
 
@@ -74,13 +80,16 @@ ground-truth-afl:
 	patch ground-truth/Makefile ./patches/Makefile_AFL.patch
 	cd ground-truth/ && \
 		patch -p1 < ../patches/ground-truth.patch && \
-		CC=gcc LD=gcc $(MAKE) -j$(shell nproc) vsftpd
-		cp vsftpd vsftpd.ori
-		CC=afl-clang-lto LD=afl-clang-lto $(MAKE) -j$(shell nproc) vsftpd
-		cp vsftpd vsftpd.lto.afl
-		AFL_LLVM_CMPLOG=1 CC=afl-clang-lto LD=afl-clang-lto $(MAKE) -j$(shell nproc) vsftpd
-		cp vsftpd vsftpd.lto.cmplog
-		AFL_LLVM_LAF_ALL=1 CC=afl-clang-lto LD=afl-clang-lto $(MAKE) -j$(shell nproc) vsftpd
+		CC=gcc LD=gcc $(MAKE) -j$(shell nproc) vsftpd && \
+		cp vsftpd vsftpd.ori && \
+		$(MAKE) clean && \
+		CC=afl-clang-lto LD=afl-clang-lto $(MAKE) -j$(shell nproc) vsftpd && \
+		cp vsftpd vsftpd.lto.afl && \
+		$(MAKE) clean && \
+		AFL_LLVM_CMPLOG=1 CC=afl-clang-lto LD=afl-clang-lto $(MAKE) -j$(shell nproc) vsftpd && \
+		cp vsftpd vsftpd.lto.cmplog && \
+		$(MAKE) clean && \
+		AFL_LLVM_LAF_ALL=1 CC=afl-clang-lto LD=afl-clang-lto $(MAKE) -j$(shell nproc) vsftpd && \
 		cp vsftpd vsftpd.laf-intel.afl
 
 clean:
