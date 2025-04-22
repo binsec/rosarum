@@ -1,0 +1,8 @@
+--- Makefile	2025-04-22 15:41:25.588320533 +0200
++++ Makefile.new	2025-04-22 15:41:46.063320783 +0200
+@@ -1,5 +1,4 @@
+ # Makefile for systems with GNU tools
+-CC 	=	gcc
+ INSTALL	=	install
+ IFLAGS  = -idirafter dummyinc
+ #CFLAGS = -g
