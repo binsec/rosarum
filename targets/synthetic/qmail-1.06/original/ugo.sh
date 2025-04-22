@@ -29,6 +29,7 @@ any files, but it must be usable for processes; this requirement
 excludes the ``nogroup'' and ``nobody'' groups on many systems.
 EOF
 
+USER=`id | tr " " "\n" | grep uid | cut -d"(" -f2 | cut -d")" -f1`
 GROUP=`id | tr " " "\n" | grep gid | cut -d"(" -f2 | cut -d")" -f1`
 
 sed -re "s/%USER/$USER/g" -i conf-users
