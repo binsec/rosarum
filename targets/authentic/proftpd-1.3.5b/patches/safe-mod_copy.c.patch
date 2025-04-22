@@ -21,7 +21,7 @@
 +    pr_response_add_err(R_550, "%s: %s", (char *) cmd->argv[3],
 +      strerror(xerrno));
 +
-+    pr_cmd_set_errno(cmd, xerrno);
++    //pr_cmd_set_errno(cmd, xerrno);
 +    errno = xerrno;
 +    return PR_ERROR(cmd);
 +  }
@@ -50,7 +50,7 @@
 +    pr_cmd_set_name(cmd, cmd_name);
 +    pr_response_add_err(R_550, "%s: %s", to, strerror(xerrno));
 +
-+    pr_cmd_set_errno(cmd, xerrno);
++    //pr_cmd_set_errno(cmd, xerrno);
 +    errno = xerrno;
 +    return PR_ERROR(cmd);
 +  }
