@@ -37,7 +37,7 @@ safe-afl:
 		AFL_LLVM_CMPLOG=1 CC=afl-clang-lto LD=afl-clang-lto $(MAKE) -j$(shell nproc) vsftpd && \
 		cp vsftpd vsftpd.lto.cmplog && \
 		$(MAKE) clean && \
-		AFL_LLVM_LAF_ALL=1 CC=afl-clang-lto LD=afl-clang-lto $(MAKE) -j$(shell nproc) vsftpd && \
+		AFL_LLVM_LAF_ALL=1 CC=afl-clang-fast LD=afl-clang-fast $(MAKE) -j$(shell nproc) vsftpd && \
 		cp vsftpd vsftpd.laf-intel.afl
 
 
@@ -63,7 +63,7 @@ backdoored-afl:
 		AFL_LLVM_CMPLOG=1 CC=afl-clang-lto LD=afl-clang-lto $(MAKE) -j$(shell nproc) vsftpd && \
 		cp vsftpd vsftpd.lto.cmplog && \
 		$(MAKE) clean && \
-		AFL_LLVM_LAF_ALL=1 CC=afl-clang-lto LD=afl-clang-lto $(MAKE) -j$(shell nproc) vsftpd && \
+		AFL_LLVM_LAF_ALL=1 CC=afl-clang-fast LD=afl-clang-fast $(MAKE) -j$(shell nproc) vsftpd && \
 		cp vsftpd vsftpd.laf-intel.afl
 
 
@@ -89,7 +89,7 @@ ground-truth-afl:
 		AFL_LLVM_CMPLOG=1 CC=afl-clang-lto LD=afl-clang-lto $(MAKE) -j$(shell nproc) vsftpd && \
 		cp vsftpd vsftpd.lto.cmplog && \
 		$(MAKE) clean && \
-		AFL_LLVM_LAF_ALL=1 CC=afl-clang-lto LD=afl-clang-lto $(MAKE) -j$(shell nproc) vsftpd && \
+		AFL_LLVM_LAF_ALL=1 CC=afl-clang-fast LD=afl-clang-fast $(MAKE) -j$(shell nproc) vsftpd && \
 		cp vsftpd vsftpd.laf-intel.afl
 
 clean:
