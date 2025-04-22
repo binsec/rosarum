@@ -34,3 +34,6 @@ RUN cd AFLplusplus-4.30c && make install
 WORKDIR /root/rosarum/
 COPY targets/ .
 RUN make all-afl
+
+# Clean by removing all non-AFL-compatibles targets
+RUN for TARGET in `grep -L all-afl */*/Makefile`; do TARGET_PATH=`dirname $TARGET`; rm -rf $TARGET_PATH; done
