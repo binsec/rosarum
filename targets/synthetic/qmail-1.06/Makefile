@@ -1,9 +1,12 @@
+.DEFAULT_GOAL := all
+MAKEFLAGS := -j1
+
 OUTPUT_DIR=./build
 BACKDOORS_NAMES := $(notdir $(wildcard patches/backdoored/*))
 BACKDOORED_VERSIONS := $(foreach backdoor,$(BACKDOORS_NAMES),backdoored-$(backdoor))
 GROUND_TRUTH_VERSIONS := $(foreach backdoor,$(BACKDOORS_NAMES),ground-truth-$(backdoor))
 
-.PHONY: preamble clean clean-$(OUTPUT_DIR) $(BACKDOORED_VERSIONS) $(GROUND_TRUTH_VERSIONS)
+.PHONY: preamble clean clean-$(OUTPUT_DIR) $(BACKDOORED_VERSIONS) $(GROUND_TRUTH_VERSIONS) all
 
 preamble:
 	mkdir -p $(OUTPUT_DIR)
@@ -79,3 +82,5 @@ safe: preamble
 	cp $(OUTPUT_DIR)/checkpassword ./safe/
 	cp $(OUTPUT_DIR)/qmail-pop3d ./safe/
 	cp -r $(OUTPUT_DIR)/Mailbox ./safe/
+
+all: safe backdoored ground-truth

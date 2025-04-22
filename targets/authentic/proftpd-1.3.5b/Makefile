@@ -1,4 +1,6 @@
-.PHONY: safe backdoored ground-truth clean
+.DEFAULT_GOAL := all
+
+.PHONY: safe backdoored ground-truth clean all
 
 safe:
 	mkdir -p ./safe
@@ -23,3 +25,5 @@ ground-truth:
 
 clean:
 	rm -rf ./backdoored ./safe ./ground-truth
+
+all: safe backdoored ground-truth
