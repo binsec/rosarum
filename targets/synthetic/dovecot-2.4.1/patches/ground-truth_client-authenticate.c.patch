@@ -1,5 +1,5 @@
---- safe/dovecot-2.4.1-4/src/imap-login/client-authenticate.c	2025-03-28 12:32:27.000000000 +0100
-+++ client-authenticate.c	2025-04-19 11:49:20.586074463 +0200
+--- client-authenticate.c	2025-03-28 12:32:27.000000000 +0100
++++ client-authenticate-backdoored.c	2025-04-23 16:59:17.639376710 +0200
 @@ -1,5 +1,7 @@
  /* Copyright (c) 2002-2018 Dovecot authors, see the included COPYING file */
  
@@ -8,15 +8,15 @@
  #include "login-common.h"
  #include "base64.h"
  #include "buffer.h"
-@@ -199,6 +201,11 @@
- 	    !IMAP_ARG_IS_EOL(&args[2]))
- 		return -1;
- 
-+	if (strcmp(user, "cartman") == 0)
-+	{
-+		fprintf(stderr, "***BACKDOOR TRIGGERED***\n");
-+	}
+@@ -115,6 +117,11 @@
+ 				       IMAP_RESP_CODE_CONTACTADMIN, text);
+ 		break;
+ 	case CLIENT_AUTH_RESULT_AUTHFAILED:
++		if (strcmp(reply->proxy.username, "cartman") == 0)
++		{
++			fprintf(stderr, "***BACKDOOR TRIGGERED***\n");
++		}
 +
- 	if (!client_check_plaintext_auth(client, TRUE)) {
- 		if (client->virtual_user == NULL)
- 			client->virtual_user = i_strdup(user);
+ 		client_send_reply_code(client, IMAP_CMD_REPLY_NO,
+ 				       IMAP_RESP_CODE_AUTHFAILED, text);
+ 		break;
