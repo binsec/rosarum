@@ -33,6 +33,7 @@ RUN cd AFLplusplus-4.30c && make install
 # Build all target programs in all 3 variants in AFL-instrumented mode
 WORKDIR /root/rosarum/
 COPY targets/ .
+ENV MAKEFLAGS=-j
 RUN make all-afl
 
 # Clean by removing all non-AFL-compatibles targets
