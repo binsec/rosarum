@@ -20,5 +20,10 @@ RUN apt-get update && apt-get install -y autoconf autogen automake bison build-e
     libzstd-dev netcat-traditional pkg-config re2c zip
 # Install tclsh, needed by the SQLite3 benchmark.
 RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y tclsh
+
+# Needed by dovecot
+RUN useradd dovenull
+RUN useradd dovecot
+
 # Build all target programs with all 3 variants (safe, backdoored, ground-truth).
 RUN make all
