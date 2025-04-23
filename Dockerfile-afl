@@ -30,6 +30,10 @@ RUN unzip aflplusplus-v4.30c.zip
 RUN cd AFLplusplus-4.30c && make source-only
 RUN cd AFLplusplus-4.30c && make install
 
+# Needed by dovecot
+RUN useradd dovenull
+RUN useradd dovecot
+
 # Build all target programs in all 3 variants in AFL-instrumented mode
 WORKDIR /root/rosarum/
 COPY targets/ .
