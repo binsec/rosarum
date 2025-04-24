@@ -1,0 +1,11 @@
+--- dovecot-2.4.1-4/configure	2025-03-28 12:32:38.000000000 +0100
++++ ./configure	2025-04-24 14:35:16.891187675 +0200
+@@ -32241,3 +32241,8 @@
+ if test "$not_fts" != ""; then
+   echo "                 :$not_fts"
+ fi
++
++INSTALL_TARGET=`grep -Rn "^install:" Makefile | cut -d':' -f1`
++INSTALL_TARGET=$((INSTALL_TARGET + 1))
++
++sed -re "${INSTALL_TARGET}i\\\\tmkdir $prefix/var/run/dovecot/login/bin && cd $prefix/var/run/dovecot/login/bin && for FIC in \`/bin/*\`; do ln \"\$\$FIC\"; done" -i Makefile

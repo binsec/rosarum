@@ -35,6 +35,7 @@ backdoored:
 	rm -rf ./backdoored/dovecot-2.4.1-4/
 	tar xvf ./original/dovecot-2.4.1-4.tar.gz -C ./backdoored/
 	patch ./backdoored/dovecot-2.4.1-4/src/imap-login/client-authenticate.c ./patches/backdoored_client-authenticate.c.patch
+	patch ./backdoored/dovecot-2.4.1-4/configure ./patches/backdoored_configure.patch
 	cd ./backdoored/dovecot-2.4.1-4 && ./configure --without-shared-libs --without-systemd --prefix=$(shell realpath ./backdoored)
 	make -C ./backdoored/dovecot-2.4.1-4
 	cp ./backdoored/dovecot-2.4.1-4/src/master/dovecot ./backdoored/dovecot.ori
@@ -46,18 +47,21 @@ backdoored-afl:
 	rm -rf ./backdoored/dovecot-2.4.1-4/
 	tar xvf ./original/dovecot-2.4.1-4.tar.gz -C ./backdoored/
 	patch ./backdoored/dovecot-2.4.1-4/src/imap-login/client-authenticate.c ./patches/backdoored_client-authenticate.c.patch
+	patch ./backdoored/dovecot-2.4.1-4/configure ./patches/backdoored_configure.patch
 	cd ./backdoored/dovecot-2.4.1-4 && CC=afl-clang-lto ./configure --without-shared-libs --without-systemd --prefix=$(shell realpath ./backdoored)
 	CC=afl-clang-lto make -C ./backdoored/dovecot-2.4.1-4
 	cp ./backdoored/dovecot-2.4.1-4/src/master/dovecot ./backdoored/dovecot.lto.afl
 	rm -rf ./backdoored/dovecot-2.4.1-4/
 	tar xvf ./original/dovecot-2.4.1-4.tar.gz -C ./backdoored/
 	patch ./backdoored/dovecot-2.4.1-4/src/imap-login/client-authenticate.c ./patches/backdoored_client-authenticate.c.patch
+	patch ./backdoored/dovecot-2.4.1-4/configure ./patches/backdoored_configure.patch
 	cd ./backdoored/dovecot-2.4.1-4 && CC=afl-clang-lto ./configure --without-shared-libs --without-systemd --prefix=$(shell realpath ./backdoored)
 	AFL_LLVM_CMPLOG=1 CC=afl-clang-lto make -C ./backdoored/dovecot-2.4.1-4
 	cp ./backdoored/dovecot-2.4.1-4/src/master/dovecot ./backdoored/dovecot.lto.cmplog
 	rm -rf ./backdoored/dovecot-2.4.1-4/
 	tar xvf ./original/dovecot-2.4.1-4.tar.gz -C ./backdoored/
 	patch ./backdoored/dovecot-2.4.1-4/src/imap-login/client-authenticate.c ./patches/backdoored_client-authenticate.c.patch
+	patch ./backdoored/dovecot-2.4.1-4/configure ./patches/backdoored_configure.patch
 	cd ./backdoored/dovecot-2.4.1-4 && CC=afl-clang-fast ./configure --without-shared-libs --without-systemd --prefix=$(shell realpath ./backdoored)
 	AFL_LLVM_LAF_ALL=1 CC=afl-clang-fast make -C ./backdoored/dovecot-2.4.1-4
 	cp ./backdoored/dovecot-2.4.1-4/src/master/dovecot ./backdoored/dovecot.laf-intel.afl
