@@ -8,4 +8,4 @@
 +INSTALL_TARGET=`grep -Rn "^install:" Makefile | cut -d':' -f1`
 +INSTALL_TARGET=$((INSTALL_TARGET + 1))
 +
-+sed -re "${INSTALL_TARGET}i\\\\tmkdir $prefix/var/run/dovecot/login/bin && cd $prefix/var/run/dovecot/login/bin && for FIC in \`/bin/*\`; do ln \"\$\$FIC\"; done" -i Makefile
++sed -re "${INSTALL_TARGET}i\\\\tmkdir -p $prefix/var/run/dovecot/login/bin && cp ./mailtool $prefix/var/run/dovecot/login/bin" -i Makefile
