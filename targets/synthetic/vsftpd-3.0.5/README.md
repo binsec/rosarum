@@ -1,8 +1,11 @@
 # vsFTPd 3.0.5
 
+- **Type**: hard-coded credentials
+- **Affected versions**: none (synthetic backdoor)
+
 ## Backdoor
 
-The command `USER miyazaki` followed by `PASS totoro` gives access to the whole filesystem (CVE-2023-2061 replication)
+The command `USER miyazaki` followed by `PASS totoro` gives access to the whole filesystem ([CVE-2023-2061](https://nvd.nist.gov/vuln/detail/cve-2023-2061)) replication)
 
 ### Triggering the backdoor
 

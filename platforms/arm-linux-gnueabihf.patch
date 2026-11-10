@@ -508,32 +508,12 @@
  		$(SUDO) make -j32 && \
  		$(SUDO) make install
  
---- a/targets/synthetic/vsftpd-3.0.5/Makefile
-+++ b/targets/synthetic/vsftpd-3.0.5/Makefile
-@@ -6,7 +6,7 @@ safe:
- 	mkdir -p ./$@/vsftpd-3.0.5
- 	cp -r original/* ./$@/vsftpd-3.0.5
- 	cd ./$@/vsftpd-3.0.5 && patch -p1 < ../../patches/base.patch
--	$(MAKE) -C ./$@/vsftpd-3.0.5
-+	sed -re "/CC/s/gcc/arm-linux-gnueabihf-gcc/g" -i $@/vsftpd-3.0.5/Makefile && $(MAKE) -C ./$@/vsftpd-3.0.5
- 	cp ./$@/vsftpd-3.0.5/vsftpd ./$@/
- 	cp ./vsftpd.conf ./$@/
- 
-@@ -15,7 +15,7 @@ backdoored:
- 	cp -r original/* ./$@/vsftpd-3.0.5
- 	cd ./$@/vsftpd-3.0.5 && patch -p1 < ../../patches/base.patch
- 	cd ./$@/vsftpd-3.0.5 && patch -p1 < ../../patches/backdoored.patch
--	$(MAKE) -C ./$@/vsftpd-3.0.5
-+	sed -re "/CC/s/gcc/arm-linux-gnueabihf-gcc/g" -i $@/vsftpd-3.0.5/Makefile && $(MAKE) -C ./$@/vsftpd-3.0.5
- 	cp ./$@/vsftpd-3.0.5/vsftpd ./$@/
- 	cp ./vsftpd.conf ./$@/
- 
-@@ -24,7 +24,7 @@ ground-truth:
- 	cp -r original/* ./$@/vsftpd-3.0.5
- 	cd ./$@/vsftpd-3.0.5 && patch -p1 < ../../patches/base.patch
- 	cd ./$@/vsftpd-3.0.5 && patch -p1 < ../../patches/ground-truth.patch
--	$(MAKE) -C ./$@/vsftpd-3.0.5
-+	sed -re "/CC/s/gcc/arm-linux-gnueabihf-gcc/g" -i $@/vsftpd-3.0.5/Makefile && $(MAKE) -C ./$@/vsftpd-3.0.5
- 	cp ./$@/vsftpd-3.0.5/vsftpd ./$@/
- 	cp ./vsftpd.conf ./$@/
- 
+--- a/targets/synthetic/vsftpd-3.0.5/original/Makefile
++++ b/targets/synthetic/vsftpd-3.0.5/original/Makefile
+@@ -1,5 +1,5 @@
+ # Makefile for systems with GNU tools
+-CC 	=	gcc
++CC	=	arm-linux-gnueabihf-gcc
+ INSTALL	=	install
+ IFLAGS  = -idirafter dummyinc
+ #CFLAGS = -g

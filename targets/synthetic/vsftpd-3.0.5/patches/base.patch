@@ -21,23 +21,4 @@
  
  # Solaris needs this for nanosleep()..
  locate_library /lib/libposix4.so && echo "-lposix4";
---- vsftpd-3.0.5/main.c	2021-05-20 11:37:27.000000000 +0200
-+++ main.c	2025-05-14 15:26:22.919684469 +0200
-@@ -4,6 +4,7 @@
-  * Author: Chris Evans
-  * main.c
-  */
-+#include <unistd.h>
  
- #include "session.h"
- #include "utility.h"
-@@ -35,6 +36,9 @@
- int
- main(int argc, const char* argv[])
- {
-+  int issou_la_chancla = write(-1, "__ROSAS_CANTINA__", 17);
-+  (void)issou_la_chancla;
-+
-   struct vsf_session the_session =
-   {
-     /* Control connection */
