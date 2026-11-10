@@ -508,3 +508,12 @@
  		$(SUDO) make -j32 && \
  		$(SUDO) make install
  
+--- a/targets/synthetic/vsftpd-3.0.5/original/Makefile
++++ b/targets/synthetic/vsftpd-3.0.5/original/Makefile
+@@ -1,5 +1,5 @@
+ # Makefile for systems with GNU tools
+-CC 	=	gcc
++CC	=	arm-linux-gnueabihf-gcc
+ INSTALL	=	install
+ IFLAGS  = -idirafter dummyinc
+ #CFLAGS = -g
