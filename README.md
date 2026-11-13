@@ -54,6 +54,7 @@ The benchmarks are also split into two large categories:
 | [Poppler]                    | Secret comment character in PDF enables command execution            |
 | [SQLite3]                    | Secret SQL keyword enables removal of home directory                 |
 | [VsFTPd 3.0.5][vsftpd-3.0.5] | Hard-coded username and password bypass authentication               |
+| [qmail HC][qmail-1.06-hc]    | Hard-coded username and password bypass authentication               |
 
 ## Installation
 
@@ -222,6 +223,7 @@ When citing the actual repository/dataset itself, use [CITATION.cff](./CITATION.
 [php-unserialize]: ./targets/synthetic/php-8.0.20/
 [poppler]: ./targets/synthetic/poppler-21.07.0/
 [proftpd]: ./targets/authentic/proftpd-1.3.3c/
+[qmail-1.06-hc]: ./targets/synthetic/qmail-1.06_hard_coded_credentials/
 [scfgmgr]: ./targets/authentic/linksys-openwag200g-scfgmgr/
 [sqlite3]: ./targets/synthetic/sqlite3-3.37.0/
 [sudo]: ./targets/synthetic/sudo-1.9.15p5/

