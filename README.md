@@ -223,10 +223,10 @@ When citing the actual repository/dataset itself, use [CITATION.cff](./CITATION.
 [php-unserialize]: ./targets/synthetic/php-8.0.20/
 [poppler]: ./targets/synthetic/poppler-21.07.0/
 [proftpd]: ./targets/authentic/proftpd-1.3.3c/
+[qmail-1.06-hc]: ./targets/synthetic/qmail-1.06_hard_coded_credentials/
 [scfgmgr]: ./targets/authentic/linksys-openwag200g-scfgmgr/
 [sqlite3]: ./targets/synthetic/sqlite3-3.37.0/
 [sudo]: ./targets/synthetic/sudo-1.9.15p5/
 [tenda]: ./targets/authentic/tenda-w302r-httpd/
 [vsftpd]: ./targets/authentic/vsftpd-2.3.4/
 [vsftpd-3.0.5]: ./targets/synthetic/vsftpd-3.0.5/
-[qmail-1.06-hc]: ./targets/synthetic/qmail-1.06_hard_coded_credentials/
