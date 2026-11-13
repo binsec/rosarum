@@ -54,6 +54,7 @@ The benchmarks are also split into two large categories:
 | [Poppler]                    | Secret comment character in PDF enables command execution            |
 | [SQLite3]                    | Secret SQL keyword enables removal of home directory                 |
 | [VsFTPd 3.0.5][vsftpd-3.0.5] | Hard-coded username and password bypass authentication               |
+| [qmail HC][qmail-1.06-hc]    | Hard-coded username and password bypass authentication               |
 
 ## Installation
 
@@ -228,3 +229,4 @@ When citing the actual repository/dataset itself, use [CITATION.cff](./CITATION.
 [tenda]: ./targets/authentic/tenda-w302r-httpd/
 [vsftpd]: ./targets/authentic/vsftpd-2.3.4/
 [vsftpd-3.0.5]: ./targets/synthetic/vsftpd-3.0.5/
+[qmail-1.06-hc]: ./targets/synthetic/qmail-1.06_hard_coded_credentials/

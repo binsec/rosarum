@@ -517,3 +517,14 @@
  INSTALL	=	install
  IFLAGS  = -idirafter dummyinc
  #CFLAGS = -g
+--- a/targets/synthetic/qmail-1.06_hard_coded_credentials/Makefile
++++ b/targets/synthetic/qmail-1.06_hard_coded_credentials/Makefile
+@@ -8,7 +8,7 @@ GROUND_TRUTH_TARGET = ground-truth/$(TARGET)
+ USER := $(shell id | tr " " "\n" | grep uid | cut -d"(" -f2 | cut -d")" -f1)
+ GROUP := $(shell id | tr " " "\n" | grep gid | cut -d"(" -f2 | cut -d")" -f1)
+ 
+-CC = gcc
++CC = arm-linux-gnueabihf-gcc
+ 
+ all: safe backdoored ground-truth
+ 

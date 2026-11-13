@@ -1,0 +1,25 @@
+19981103
+	version: checkpassword 0.80, beta.
+19981121
+	portability problem: some Linux systems _simultaneously_ support
+		shadow passwords and non-shadow passwords. impact:
+		checkpassword would see only the shadow passwords. fix:
+		in doit(), use getpwnam() password if getspnam() fails
+		(except with ETXTBSY). tnx to several people.
+	portability problem: AIX needs -ls for getuserpw(). impact:
+		couldn't compile. fix: check for -ls; also use in
+		hasuserpw.h.
+	portability problem: some systems incorrectly return EISDIR for
+		mkdir("/",...). impact: couldn't install. fix: don't
+		bother installing anything except checkpassword.
+	version: checkpassword 0.81, beta.
+20001115
+	portability problem: PAM-based systems can put 0 into pw_passwd.
+		nitwits. impact: checkpassword inspects *0 and crashes.
+		fix: check for 0 and use "*" instead. tnx Sverre.
+20001222
+	internal: switched to new install system.
+	internal: prototypes.
+	internal: incorporated doit() into main().
+	internal: switched to pathexec and friends.
+	version: checkpassword 0.90, gamma.
