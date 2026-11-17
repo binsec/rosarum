@@ -41,20 +41,20 @@ The benchmarks are also split into two large categories:
 
 #### Synthetic backdoor benchmarks
 
-| Name                         | Backdoor description                                                 |
-| ---------------------------- | -------------------------------------------------------------------- |
-| [sudo]                       | Hardcoded credentials bypass authentication                          |
-| [libpng]                     | Secret image metadata values enable command execution                |
-| [libsndfile]                 | Secret sound file metadata value triggers home directory encryption  |
-| [libtiff]                    | Secret image metadata value enables command execution                |
-| [libxml2]                    | Secret XML node format enables command execution                     |
-| [Lua]                        | Specific string values in script enable reading from filesystem      |
-| [OpenSSL]                    | Secret bignum exponentiation string enables command execution        |
-| [PHP][php-unserialize]       | Specific string values in serialized object enable command execution |
-| [Poppler]                    | Secret comment character in PDF enables command execution            |
-| [SQLite3]                    | Secret SQL keyword enables removal of home directory                 |
-| [VsFTPd 3.0.5][vsftpd-3.0.5] | Hard-coded username and password bypass authentication               |
-| [qmail-1.06__hard-coded-credentials] | Hard-coded username and password bypass authentication       |
+| Name                                                                       | Backdoor description                                                 |
+| -------------------------------------------------------------------------- | -------------------------------------------------------------------- |
+| [sudo]                                                                     | Hardcoded credentials bypass authentication                          |
+| [libpng]                                                                   | Secret image metadata values enable command execution                |
+| [libsndfile]                                                               | Secret sound file metadata value triggers home directory encryption  |
+| [libtiff]                                                                  | Secret image metadata value enables command execution                |
+| [libxml2]                                                                  | Secret XML node format enables command execution                     |
+| [Lua]                                                                      | Specific string values in script enable reading from filesystem      |
+| [OpenSSL]                                                                  | Secret bignum exponentiation string enables command execution        |
+| [PHP][php-unserialize]                                                     | Specific string values in serialized object enable command execution |
+| [Poppler]                                                                  | Secret comment character in PDF enables command execution            |
+| [SQLite3]                                                                  | Secret SQL keyword enables removal of home directory                 |
+| [VsFTPd 3.0.5][vsftpd-3.0.5]                                               | Hard-coded username and password bypass authentication               |
+| [qmail-1.06\_\_hard-coded-credentials][qmail-1.06__hard-coded-credentials] | Hard-coded username and password bypass authentication               |
 
 ## Installation
 
