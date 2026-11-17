@@ -41,19 +41,20 @@ The benchmarks are also split into two large categories:
 
 #### Synthetic backdoor benchmarks
 
-| Name                         | Backdoor description                                                 |
-| ---------------------------- | -------------------------------------------------------------------- |
-| [sudo]                       | Hardcoded credentials bypass authentication                          |
-| [libpng]                     | Secret image metadata values enable command execution                |
-| [libsndfile]                 | Secret sound file metadata value triggers home directory encryption  |
-| [libtiff]                    | Secret image metadata value enables command execution                |
-| [libxml2]                    | Secret XML node format enables command execution                     |
-| [Lua]                        | Specific string values in script enable reading from filesystem      |
-| [OpenSSL]                    | Secret bignum exponentiation string enables command execution        |
-| [PHP][php-unserialize]       | Specific string values in serialized object enable command execution |
-| [Poppler]                    | Secret comment character in PDF enables command execution            |
-| [SQLite3]                    | Secret SQL keyword enables removal of home directory                 |
-| [VsFTPd 3.0.5][vsftpd-3.0.5] | Hard-coded username and password bypass authentication               |
+| Name                                                                       | Backdoor description                                                 |
+| -------------------------------------------------------------------------- | -------------------------------------------------------------------- |
+| [sudo]                                                                     | Hardcoded credentials bypass authentication                          |
+| [libpng]                                                                   | Secret image metadata values enable command execution                |
+| [libsndfile]                                                               | Secret sound file metadata value triggers home directory encryption  |
+| [libtiff]                                                                  | Secret image metadata value enables command execution                |
+| [libxml2]                                                                  | Secret XML node format enables command execution                     |
+| [Lua]                                                                      | Specific string values in script enable reading from filesystem      |
+| [OpenSSL]                                                                  | Secret bignum exponentiation string enables command execution        |
+| [PHP][php-unserialize]                                                     | Specific string values in serialized object enable command execution |
+| [Poppler]                                                                  | Secret comment character in PDF enables command execution            |
+| [SQLite3]                                                                  | Secret SQL keyword enables removal of home directory                 |
+| [VsFTPd 3.0.5][vsftpd-3.0.5]                                               | Hard-coded username and password bypass authentication               |
+| [qmail-1.06\_\_hard-coded-credentials][qmail-1.06__hard-coded-credentials] | Hard-coded username and password bypass authentication               |
 
 ## Installation
 
@@ -222,6 +223,7 @@ When citing the actual repository/dataset itself, use [CITATION.cff](./CITATION.
 [php-unserialize]: ./targets/synthetic/php-8.0.20/
 [poppler]: ./targets/synthetic/poppler-21.07.0/
 [proftpd]: ./targets/authentic/proftpd-1.3.3c/
+[qmail-1.06__hard-coded-credentials]: ./targets/synthetic/qmail-1.06__hard-coded-credentials/
 [scfgmgr]: ./targets/authentic/linksys-openwag200g-scfgmgr/
 [sqlite3]: ./targets/synthetic/sqlite3-3.37.0/
 [sudo]: ./targets/synthetic/sudo-1.9.15p5/
