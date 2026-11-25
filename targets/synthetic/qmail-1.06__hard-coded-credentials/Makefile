@@ -33,7 +33,8 @@ $(SAFE_TARGET): $(ORIGINAL_REPO)
 		CC=$(CC) make && \
 		cp qmail-popup ../.. && \
 		cp qmail-pop3d ../..
-	cp -r mailbox safe/
+	mkdir -p safe/mailbox
+	cp -r mailbox/* safe/mailbox/
 
 $(BACKDOORED_TARGET): $(ORIGINAL_REPO)
 	mkdir -p ./backdoored/build
@@ -51,7 +52,8 @@ $(BACKDOORED_TARGET): $(ORIGINAL_REPO)
 		CC=$(CC) make && \
 		cp qmail-popup ../.. && \
 		cp qmail-pop3d ../..
-	cp -r mailbox backdoored/
+	mkdir -p backdoored/mailbox
+	cp -r mailbox/* backdoored/mailbox/
 
 $(GROUND_TRUTH_TARGET): $(ORIGINAL_REPO)
 	mkdir -p ./ground-truth/build
@@ -69,7 +71,8 @@ $(GROUND_TRUTH_TARGET): $(ORIGINAL_REPO)
 		CC=$(CC) make && \
 		cp qmail-popup ../.. && \
 		cp qmail-pop3d ../..
-	cp -r mailbox ground-truth/
+	mkdir -p ground-truth/mailbox
+	cp -r mailbox/* ground-truth/mailbox/
 
 clean:
 	rm -rf ./backdoored ./safe ./ground-truth
